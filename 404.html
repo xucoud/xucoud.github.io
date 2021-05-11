@@ -899,12 +899,16 @@ var loadCSS = function( href, before, media, attributes ){
       path = defaultPath || decodeURI(window.location.pathname);
     }
     var valine = new Valine();
-    valine.init(Object.assign({"js":"https://cdn.jsdelivr.net/gh/HCLonely/Valine@latest/dist/Valine.min.js","path":null,"placeholder":"快来评论吧~","appId":"xf61G2HkgTKQ9qA5f4jakT3f-gzGzoHsz","appKey":"1zibslBkdxKCkRocxSx9xC0a","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":false,"avatar":"robohash","pageSize":10,"lang":"zh-cn","highlight":true,"mathJax":false,"metaPlaceholder":[{"nick":"Xu"},{"mail":"281658285@qq.com"}],"tagMeta":"博主,小伙伴,访客","master":["81EEC2291CA1ECA7FB03DB86845F7C50"],"friends":null}, {
+    var friends = ''.split(',');
+    var master = '81eec2291ca1eca7fb03db86845f7c50'.split(',');
+    valine.init(Object.assign({"js":"https://cdn.jsdelivr.net/gh/HCLonely/Valine@latest/dist/Valine.min.js","path":null,"placeholder":"快来评论吧~","appId":"xf61G2HkgTKQ9qA5f4jakT3f-gzGzoHsz","appKey":"1zibslBkdxKCkRocxSx9xC0a","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"avatar":"robohash","pageSize":10,"lang":"zh-cn","highlight":true,"visitor":true,"mathJax":false,"metaPlaceholder":[{"nick":"Xu"},{"mail":"281658285@qq.com"}],"tagMeta":"博主,小伙伴,访客","master":["81eec2291ca1eca7fb03db86845f7c50"],"friends":null}, {
       el: '#valine_container',
       path: path,
       placeholder: pagePlaceholder,
       emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
       emojiMaps: emojiMaps,
+      master: master,
+      friends: friends,
     }))
   }
   $(function () {
