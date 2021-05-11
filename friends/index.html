@@ -858,7 +858,16 @@ var loadCSS = function( href, before, media, attributes ){
   function emoji(path, idx, ext) {
     return path + "/" + path + "-" + idx + "." + ext;
   }
-  var emojiMaps = {};
+  var emojiMaps = {
+    "doge": "https://cdn.jsdelivr.net/gh/zyoushuo/Blog@master/emoji/bilibili/doge.png",
+    "亲亲": "https://cdn.jsdelivr.net/gh/zyoushuo/Blog@master/emoji/bilibili/亲亲.png",
+    "偷笑": "https://cdn.jsdelivr.net/gh/zyoushuo/Blog@master/emoji/bilibili/偷笑.png",  
+    "再见": "https://cdn.jsdelivr.net/gh/zyoushuo/Blog@master/emoji/bilibili/再见.png",
+    "冷漠": "https://cdn.jsdelivr.net/gh/zyoushuo/Blog@master/emoji/bilibili/冷漠.png",
+    "发怒": "https://cdn.jsdelivr.net/gh/zyoushuo/Blog@master/emoji/bilibili/发怒.png",
+    "发财": "https://cdn.jsdelivr.net/gh/zyoushuo/Blog@master/emoji/bilibili/发财.png",
+    "可爱": "https://cdn.jsdelivr.net/gh/zyoushuo/Blog@master/emoji/bilibili/可爱.png",
+    };
   for (var i = 1; i <= 54; i++) {
     emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
   }
