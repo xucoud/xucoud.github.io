@@ -918,9 +918,6 @@ var loadCSS = function( href, before, media, attributes ){
       let defaultPath = '';
       path = defaultPath || decodeURI(window.location.pathname);
     }
-    var meta = 'nick,mail,link'.split(',').filter(function(item){
-      return GUEST_INFO.indexOf(item) > -1
-    });
     var valine = new Valine();
     var friends = ''.split(',');
     var master = '81eec2291ca1eca7fb03db86845f7c50'.split(',');
