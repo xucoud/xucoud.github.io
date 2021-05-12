@@ -859,15 +859,7 @@ var loadCSS = function( href, before, media, attributes ){
 <script src="https://cdn.jsdelivr.net/gh/HCLonely/Valine@latest/dist/Valine.min.js"></script>
 
 
-<!-- <script>
-  var GUEST_INFO = ['nick','mail','link'];
-  var meta = 'nick,mail,link'.split(',').filter(function(item){
-    return GUEST_INFO.indexOf(item) > -1
-  });
-  var REQUIRED_FIELDS = ['nick','mail','link'];
-  var requiredFields = 'nick,mail'.split(',').filter(function(item){
-    return REQUIRED_FIELDS.indexOf(item) > -1
-  });
+<script>
   function emoji(path, idx, ext) {
     return path + "/" + path + "-" + idx + "." + ext;
   }
@@ -904,6 +896,9 @@ var loadCSS = function( href, before, media, attributes ){
       let defaultPath = '';
       path = defaultPath || decodeURI(window.location.pathname);
     }
+    var meta = 'nick,mail,link'.split(',').filter(function(item){
+      return GUEST_INFO.indexOf(item) > -1
+    });
     var valine = new Valine();
     var friends = ''.split(',');
     var master = '81eec2291ca1eca7fb03db86845f7c50'.split(',');
@@ -932,57 +927,8 @@ var loadCSS = function( href, before, media, attributes ){
     pjax_valine();
   });
   volantis.pjax.push(pjax_valine);
-</script> -->
+</script>
 
-<script>
-  var GUEST_INFO = ['nick','mail','link'];
-  var meta = 'nick,mail,link'.split(',').filter(function(item){
-    return GUEST_INFO.indexOf(item) > -1
-  });
-  var REQUIRED_FIELDS = ['nick','mail','link'];
-  var requiredFields = 'nick,mail'.split(',').filter(function(item){
-    return REQUIRED_FIELDS.indexOf(item) > -1
-  });
-  var valine = new Valine();
-  function emoji(path, idx, ext) {
-      return path + "/" + path + "-" + idx + "." + ext;
-  }
-  var friends = ''.split(',');
-  var master = '81eec2291ca1eca7fb03db86845f7c50'.split(',');
-  var emojiMaps = {
-    "doge": "https://cdn.jsdelivr.net/gh/zyoushuo/Blog@master/emoji/bilibili/doge.png",
-    "亲亲": "https://cdn.jsdelivr.net/gh/zyoushuo/Blog@master/emoji/bilibili/亲亲.png",
-    "偷笑": "https://cdn.jsdelivr.net/gh/zyoushuo/Blog@master/emoji/bilibili/偷笑.png",  
-    "冷漠": "https://cdn.jsdelivr.net/gh/zyoushuo/Blog@master/emoji/bilibili/冷漠.png",
-    "发怒": "https://cdn.jsdelivr.net/gh/zyoushuo/Blog@master/emoji/bilibili/发怒.png",
-  };
-  for (var i = 1; i <= 23; i++) {
-    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
-  }
-  for (var i = 1; i <= 23; i++) {
-    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
-  }
-  for (var i = 1; i <= 23; i++) {
-    emojiMaps['bqb-' + i] = emoji('bqb', i, 'jpg');
-  }
-  for (var i = 1; i <= 23; i++) {
-    emojiMaps['ya-' + i] = emoji('ya', i, 'jpg');
-  }
-  valine.init({
-    el: '#valine_container',
-    meta: meta,
-    
-    visitor: 'true',
-    highlight: 'true',
-    mathJax: 'false',
-    enableQQ: 'true',
-    requiredFields: requiredFields,
-    emojiCDN: 'https://cdn.jsdelivr.net/gh/zyoushuo/Blog/emoji/',
-    emojiMaps: emojiMaps,
-    master: master,
-    friends: friends,
-  })
-  </script>
 
 
 
