@@ -774,6 +774,14 @@ var loadCSS = function( href, before, media, attributes ){
 
 
 <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
   function emoji(path, idx, ext) {
     return path + "/" + path + "-" + idx + "." + ext;
   }
@@ -815,8 +823,15 @@ var loadCSS = function( href, before, media, attributes ){
     var master = '81eec2291ca1eca7fb03db86845f7c50'.split(',');
     valine.init(Object.assign({"js":"https://cdn.jsdelivr.net/gh/HCLonely/Valine@latest/dist/Valine.min.js","path":null,"placeholder":"快来评论吧~","appId":"xf61G2HkgTKQ9qA5f4jakT3f-gzGzoHsz","appKey":"1zibslBkdxKCkRocxSx9xC0a","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"avatar":"robohash","pageSize":10,"lang":"zh-cn","highlight":true,"visitor":true,"mathJax":false,"metaPlaceholder":[{"nick":"Xu"},{"mail":"281658285@qq.com"}],"tagMeta":"博主,小伙伴,访客","master":["81eec2291ca1eca7fb03db86845f7c50"],"friends":null}, {
       el: '#valine_container',
+      meta: meta,
+        
       path: path,
       placeholder: pagePlaceholder,
+      visitor: 'true',
+      highlight: 'true',
+      mathJax: 'false',
+      enableQQ: 'true',
+      requiredFields: requiredFields,
       emojiCDN: 'https://cdn.jsdelivr.net/gh/zyoushuo/Blog/emoji/',
       emojiMaps: emojiMaps,
       master: master,
