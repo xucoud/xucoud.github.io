@@ -3474,6 +3474,14 @@ footer.footer .copyright p {
 .l_main .post-wrapper {
   column-break-inside: avoid;
   break-inside: avoid-column;
+  margin-bottom: 16px;
+}
+.l_main .post-wrapper .post div.meta {
+  margin-bottom: 16px;
+}
+.l_main .post-wrapper .post div.meta .title {
+  font-size: 1.5rem;
+  text-align: center;
 }
 .l_main .widget .content p,
 .l_main .widget .content ul,
@@ -3525,6 +3533,7 @@ footer.footer .copyright p {
   border-radius: 8px;
 }
 .l_main .post h1.title {
+  text-align: center;
   font-size: 1.5rem;
   margin: 0;
   border-bottom: none;
