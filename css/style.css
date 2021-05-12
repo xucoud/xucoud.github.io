@@ -2290,6 +2290,7 @@ article#comments #valine_container .vwrap .vpreview {
   background: var(--color-block);
   border-radius: var(--border-codeblock);
   padding: 8px;
+  border: 1px solid #f6f6f6;
 }
 article#comments #valine_container .vwrap .vemojis::-webkit-scrollbar,
 article#comments #valine_container .vwrap .vpreview::-webkit-scrollbar {
@@ -2312,7 +2313,7 @@ article#comments #valine_container .vwrap .vpreview::-webkit-scrollbar-thumb:hov
 }
 article#comments #valine_container .vwrap .vemojis .vemoji,
 article#comments #valine_container .vwrap .vpreview .vemoji {
-  max-height: 22px;
+  max-height: 40px;
   max-width: 100px;
 }
 article#comments #valine_container .vwrap .vemojis i,
@@ -2378,13 +2379,16 @@ article#comments #valine_container .vcards {
   margin-top: 8px;
 }
 article#comments #valine_container .vcards >.vcard {
+  box-shadow: 0 0 4px 1px rgba(0,0,0,0.12);
+  padding: 15px 20px 0 20px;
+  margin-bottom: 10px;
   border-radius: 8px;
-  border: 1px dashed rgba(68,68,68,0.3);
-  padding: 16px;
-  margin-bottom: 16px;
 }
 article#comments #valine_container .vcards .vh {
-  border-bottom: none;
+  border-bottom: 1px dashed rgba(68,68,68,0.1);
+}
+article#comments #valine_container .vcards .vh .vcard {
+  box-shadow: none;
 }
 article#comments #valine_container .vcards .vquote {
   border-left: none;
