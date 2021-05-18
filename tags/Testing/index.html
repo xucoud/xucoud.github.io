@@ -113,7 +113,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <body>
     
 
-<header id="l_header" class="l_header auto shadow " style='opacity: 0' >
+<header id="l_header" class="l_header auto shadow show" style='opacity: 0' >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -231,7 +231,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
                   
                     id="about"
                   >
-                  <i class='fas fa-info-circle fa-fw'></i>关于
+                  <i class='far fa-user fa-fw'></i>关于
                 </a>
                 
               </li>
@@ -345,7 +345,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
                   
                     id="about"
                   >
-                  <i class='fas fa-info-circle fa-fw'></i>关于
+                  <i class='far fa-user fa-fw'></i>关于
                 </a>
                 
               </li>
@@ -364,7 +364,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="half" class='cover-wrapper  search' style="display: ;">
+        <div id="full" class='cover-wrapper  search' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.jpg"></div>
           
@@ -435,7 +435,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
               
               id="about">
-              <i class='fas fa-info-circle fa-fw'></i><p>关于</p>
+              <i class='far fa-user fa-fw'></i><p>关于</p>
             </a>
           
         
@@ -714,7 +714,7 @@ BBhhhhhhhhhhhhhhh
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Tue May 18 2021 12:33:26 GMT+0800 (中国标准时间)</div>
+            <div id="last-update" style="display: none;">Tue May 18 2021 12:45:55 GMT+0800 (中国标准时间)</div>
             <div id="last-update-show">2021-05-18 日</div>
           
         </div>
@@ -793,14 +793,14 @@ BBhhhhhhhhhhhhhhh
   // header 这里无论是否开启pjax都需要
   var l_header=document.getElementById("l_header");
   
-  l_header.classList.remove("show");
+  l_header.classList.add("show");
   
   
     // cover
     var cover_wrapper=document.querySelector('.cover-wrapper');
     
-    cover_wrapper.id="half";
-    cover_wrapper.style.display="";
+    cover_wrapper.id="none";
+    cover_wrapper.style.display="none";
     
   
 </script>
