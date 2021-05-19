@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Xu&#39;s Blog</title>
+  
+  
+  <link href="https://xucoud.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://xucoud.github.io/"/>
+  <updated>2021-05-19T14:24:50.880Z</updated>
+  <id>https://xucoud.github.io/</id>
+  
+  <author>
+    <name>John Doe</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Spring(二) IOC介绍</title>
+    <link href="https://xucoud.github.io/post/cea7.html"/>
+    <id>https://xucoud.github.io/post/cea7.html</id>
+    <published>2021-05-19T14:01:44.000Z</published>
+    <updated>2021-05-19T14:24:50.880Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>IOC的简单介绍</p><span id="more"></span><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p><code>IOC</code>（Inversion of control） 控制反转 是一种设计思想，<code>DI</code>（依赖注入）是实现<code>IOC</code>的一种方式，也有人认为<code>DI</code> 是<code>IOC</code>的另一种说法。在没有IOC的程序中，我们使用面对对象编程，对象的创建完全由程序自己控制（掌握在程序员的手中），而使用<code>IOC</code> 控制反转后，对象的创建就交到了用户的手上。</p><p>控制反转就是：获得依赖对象的方式反转了。</p><h2 id="IOC实现"><a href="#IOC实现" class="headerlink" title="IOC实现"></a>IOC实现</h2><p>采用<code>XML</code> 的方式配置<code>Bean</code>的时候，<code>Bean</code> 的定义与实现是分离的</p><p>采用注解的方式可以将二者合为一体，<code>Bean</code> 的信息直接以注解的方式定义在实现类中，达到零配置的目的</p><p>控制反转是以一种通过描述（XML 和 注解）并通过第三方去生产或获取特定对象的方式，在Spring中实现控制反转的是IOC容器，其实现方法就是依赖注入（DI）。</p><p>在没有使用IOC思想时，我们改动实现不同的操作，需要到程序中进行修改，使用了IOC思想后，只需在XML文件中进行修改即可</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>所谓的IOC思想，是由Spring来创建，管理，装配对象。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;IOC的简单介绍&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="后端" scheme="https://xucoud.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    <category term="Spring" scheme="https://xucoud.github.io/categories/%E5%90%8E%E7%AB%AF/Spring/"/>
+    
+    
+    <category term="Spring" scheme="https://xucoud.github.io/tags/Spring/"/>
+    
+    <category term="IOC" scheme="https://xucoud.github.io/tags/IOC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spring(一) 简介</title>
+    <link href="https://xucoud.github.io/post/1baf.html"/>
+    <id>https://xucoud.github.io/post/1baf.html</id>
+    <published>2021-05-19T13:48:59.000Z</published>
+    <updated>2021-05-19T14:05:29.668Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Spring 的简单介绍</p><span id="more"></span><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>Spring框架是一个开放源代码的<a href="https://baike.baidu.com/item/J2EE/110838">J2EE</a>应用程序框架，由[Rod Johnson](<a href="https://baike.baidu.com/item/Rod">https://baike.baidu.com/item/Rod</a> Johnson/1423612)发起，是针对bean的生命周期进行管理的轻量级容器（lightweight contain）。Spring是一个开源容器框架，它集成各类型的工具，通过核心的<a href="https://baike.baidu.com/item/Bean/3792612">Bean</a> factory实现了底层的类的实例化和生命周期的管理。在整个框架中，各类型的功能被抽象成一个个的 Bean，这样就可以实现各种功能的管理，包括动态加载和切面编程。</p><h2 id="特征"><a href="#特征" class="headerlink" title="特征"></a>特征</h2><ul><li><strong>轻量</strong>——从大小与开销两方面而言Spring都是轻量的。</li><li><a href="https://baike.baidu.com/item/%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%AC">控制反转</a>——Spring通过一种称作控制反转（<a href="https://baike.baidu.com/item/IoC/4853">IoC</a>）的技术促进了低耦合。 </li><li><strong>面向切面</strong>——Spring提供了<a href="https://baike.baidu.com/item/%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%BC%96%E7%A8%8B">面向切面编程</a>的丰富支持，允许通过分离应用的业务逻辑与系统级服务（例如审计（auditing）和<a href="https://baike.baidu.com/item/%E4%BA%8B%E5%8A%A1">事务</a>（<a href="https://baike.baidu.com/item/transaction">transaction</a>）管理）进行<a href="https://baike.baidu.com/item/%E5%86%85%E8%81%9A%E6%80%A7">内聚性</a>的开发。</li></ul>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;Spring 的简单介绍&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="后端" scheme="https://xucoud.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    <category term="Spring" scheme="https://xucoud.github.io/categories/%E5%90%8E%E7%AB%AF/Spring/"/>
+    
+    
+    <category term="Spring" scheme="https://xucoud.github.io/tags/Spring/"/>
+    
+  </entry>
+  
+</feed>
