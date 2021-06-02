@@ -533,7 +533,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <span id="more"></span>
 
 <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>AOP（Aspect Oriented Programming）：<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%BC%96%E7%A8%8B/6016335">面向切面编程</a>，通过<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E9%A2%84%E7%BC%96%E8%AF%91/3191547">预编译</a>方式和运行期间动态代理实现程序功能的统一维护的一种技术。AOP是<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/OOP">OOP</a>的延续，是软件开发中的一个热点，也是<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/Spring">Spring</a>框架中的一个重要内容，是<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/4035031">函数式编程</a>的一种衍生范型。利用AOP可以对业务逻辑的各个部分进行隔离，从而使得业务逻辑各部分之间的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E8%80%A6%E5%90%88%E5%BA%A6/2603938">耦合度</a>降低，提高程序的可重用性，同时提高了开发的效率。</p>
-<p><img src="https://xwj0.coding.net/p/hexo/d/hexo-img/git/raw/master/hexo-img/20210524224135.png?download=true" class="lazyload" data-srcset="https://xwj0.coding.net/p/hexo/d/hexo-img/git/raw/master/hexo-img/20210524224135.png?download=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200920193901119"></p>
+<p>​    <img src="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20210526132234.png" class="lazyload" data-srcset="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20210526132234.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">)</p>
 <h2 id="AOP在Spring中的作用"><a href="#AOP在Spring中的作用" class="headerlink" title="AOP在Spring中的作用"></a>AOP在Spring中的作用</h2><p>提供声明式事物：允许用户自定义切面</p>
 <ul>
 <li><p>横切关注点：对哪些方法进行拦截，拦截后怎么处理，这些关注点称之为横切关注点</p>
@@ -553,9 +553,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li><p>引入（introduction）：在不修改代码的前提下，引入可以在<strong>运行期</strong>为类动态地添加一些方法或字段</p>
 </li>
 </ul>
-<p><img src="https://xwj0.coding.net/p/hexo/d/hexo-img/git/raw/master/hexo-img/20210526132249.png?download=true" class="lazyload" data-srcset="https://xwj0.coding.net/p/hexo/d/hexo-img/git/raw/master/hexo-img/20210526132249.png?download=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200920194342449"></p>
+<p><img src="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20210526132249.png" class="lazyload" data-srcset="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20210526132249.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>在AOP中，通过Advice定义横切逻辑，Spring中支持5种类型的Advice：</p>
-<p><img src="https://xwj0.coding.net/p/hexo/d/hexo-img/git/raw/master/hexo-img/20210526132300.png?download=true" class="lazyload" data-srcset="https://xwj0.coding.net/p/hexo/d/hexo-img/git/raw/master/hexo-img/20210526132300.png?download=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200920194605337"></p>
+<p><img src="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20210524224240.png" class="lazyload" data-srcset="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20210524224240.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>即 AOP 在不改变原有代码的情况下，取增加新的功能。</p>
 <h2 id="AOP-在Spring中的实现"><a href="#AOP-在Spring中的实现" class="headerlink" title="AOP 在Spring中的实现"></a>AOP 在Spring中的实现</h2><h3 id="1-使用原生-Spring-API-接口"><a href="#1-使用原生-Spring-API-接口" class="headerlink" title="1. 使用原生 Spring API 接口"></a>1. 使用原生 Spring API 接口</h3><p>service：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">delete</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">query</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -587,8 +587,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <p>配置文件：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.springframework.org/schema/beans&quot;</span>       </span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>       </span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:context</span>=<span class="string">&quot;http://www.springframework.org/schema/context&quot;</span>       </span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:aop</span>=<span class="string">&quot;http://www.springframework.org/schema/aop&quot;</span>       </span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://www.springframework.org/schema/beans        </span></span></span><br><span class="line"><span class="string"><span class="tag">                           https://www.springframework.org/schema/beans/spring-beans.xsd        </span></span></span><br><span class="line"><span class="string"><span class="tag">                           http://www.springframework.org/schema/aop        </span></span></span><br><span class="line"><span class="string"><span class="tag">                           https://www.springframework.org/schema/aop/spring-aop.xsd&quot;</span> &gt;</span></span><br><span class="line">                           	    </span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;annotationPointCut&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.xwj.diy.AnnotationPointCut&quot;</span>/&gt;</span>    </span><br><span class="line">    <span class="comment">&lt;!-- 开启注解支持 --&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">aop:aspectj-autoproxy</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
 
 
   
@@ -629,10 +627,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-05-26T13:41:10+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-06-02T22:55:25+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：May 26, 2021</p>
+    <p>更新于：Jun 2, 2021</p>
   </a>
 </div>
 
@@ -845,8 +843,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Wed May 26 2021 13:41:52 GMT+0800 (中国标准时间)</div>
-            <div id="last-update-show">2021-05-26 日</div>
+            <div id="last-update" style="display: none;">Wed Jun 02 2021 22:56:14 GMT+0800 (中国标准时间)</div>
+            <div id="last-update-show">2021-06-02 日</div>
           
         </div>
         
@@ -896,7 +894,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           try {
             document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
           } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2021-05-26 日';
+            document.getElementById('last-update-show').innerHTML = '2021-06-02 日';
           }
         </script>
         
