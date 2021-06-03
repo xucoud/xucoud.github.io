@@ -31,7 +31,7 @@
   
   <title>Spring(二) IOC - Xu&#39;s Blog</title>
   
-    <meta name="keywords" content="Spring,IOC">
+    <meta name="keywords" content="Spring">
   
 
   
@@ -531,6 +531,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   <p>IOC的简单介绍</p>
 <span id="more"></span>
+
 <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p><code>IOC</code>（Inversion of control） 控制反转 是一种设计思想，<code>DI</code>（依赖注入）是实现<code>IOC</code>的一种方式，也有人认为<code>DI</code> 是<code>IOC</code>的另一种说法。在没有IOC的程序中，我们使用面对对象编程，对象的创建完全由程序自己控制（掌握在程序员的手中），而使用<code>IOC</code> 控制反转后，对象的创建就交到了用户的手上。</p>
 <p>控制反转就是：获得依赖对象的方式反转了。</p>
 <h2 id="IOC实现"><a href="#IOC实现" class="headerlink" title="IOC实现"></a>IOC实现</h2><p>采用<code>XML</code> 的方式配置<code>Bean</code>的时候，<code>Bean</code> 的定义与实现是分离的</p>
@@ -602,10 +603,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-06-02T22:54:18+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-06-03T22:25:44+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Jun 2, 2021</p>
+    <p>更新于：Jun 3, 2021</p>
   </a>
 </div>
 
@@ -614,7 +615,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Spring/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Spring</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/IOC/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>IOC</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Spring/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Spring</p></a></div>
 
 
         
@@ -632,11 +633,15 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class="prev-next">
       
         <a class='prev' href='/post/e62a.html'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>Spring(三) AOP</p>
-          <p class='content'>AOP 的简单介绍
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>Spring(十一) 声明式事物</p>
+          <p class='content'>声明式事物
 
 
-介绍AOP（Aspect Oriented Programming）：面向切面编程，通过预编译方式和运行期间动态代理实现程序功能的统一维护的一种技术。AOP是OOP的延续...</p>
+回顾事务
+事务在项目开发过程非常重要，涉及到数据的一致性的问题，不容马虎！
+事务管理是企业级应用程序开发中必备技术，用来确保数据的完整性和一致性。
+
+事务就是把一系列的动作当成一...</p>
         </a>
       
       
@@ -729,12 +734,12 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           <li><a class="flat-box"
             title="/categories/%E5%90%8E%E7%AB%AF/" href="/categories/%E5%90%8E%E7%AB%AF/"
             id="categoriesE5908EE7ABAF"
-            ><div class='name'>后端</div><div class='badge'>(3)</div></a></li>
+            ><div class='name'>后端</div><div class='badge'>(11)</div></a></li>
         
           <li><a class="flat-box child"
             title="/categories/%E5%90%8E%E7%AB%AF/Spring/" href="/categories/%E5%90%8E%E7%AB%AF/Spring/"
             id="categoriesE5908EE7ABAFSpring"
-            ><div class='name'>Spring</div><div class='badge'>(3)</div></a></li>
+            ><div class='name'>Spring</div><div class='badge'>(11)</div></a></li>
         
       </ul>
     </div>
@@ -758,7 +763,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-      <a href="/tags/IOC/" style="font-size: 14px; color: #999">IOC</a> <a href="/tags/Spring/" style="font-size: 24px; color: #555">Spring</a>
+      <a href="/tags/Spring/" style="font-size: 14px; color: #999">Spring</a>
     </div>
   </section>
 
@@ -783,7 +788,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <div class="webinfo-item">
           <div>文章数目：</div>
-          <div>3 篇</div>
+          <div>11 篇</div>
         </div>
       
 
@@ -826,8 +831,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Wed Jun 02 2021 22:56:14 GMT+0800 (中国标准时间)</div>
-            <div id="last-update-show">2021-06-02 日</div>
+            <div id="last-update" style="display: none;">Thu Jun 03 2021 22:31:49 GMT+0800 (中国标准时间)</div>
+            <div id="last-update-show">2021-06-03 日</div>
           
         </div>
         
@@ -877,7 +882,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           try {
             document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
           } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2021-06-02 日';
+            document.getElementById('last-update-show').innerHTML = '2021-06-03 日';
           }
         </script>
         
