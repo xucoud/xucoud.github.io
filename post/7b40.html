@@ -29,9 +29,13 @@
 
   <!-- 页面元数据 -->
   
-  <title>关于 | About Me - Xu&#39;s Blog</title>
+  <title>Spring(七) Spring注解开发 - Xu&#39;s Blog</title>
+  
+    <meta name="keywords" content="Spring">
   
 
+  
+    <meta name="description" content="在Spring4之后，要使用注解开发，必须导入aop依赖，以及context约束，增加注解的支持">
   
 
   <!-- feed -->
@@ -113,13 +117,15 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <body>
     
 
-<header id="l_header" class="l_header auto shadow " style='opacity: 0' >
+<header id="l_header" class="l_header auto shadow show" style='opacity: 0' >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
       <p class="title"></p>
       <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
         <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
         
       </ul>
     </div>
@@ -362,7 +368,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="half" class='cover-wrapper page search' style="display: ;">
+        <div id="full" class='cover-wrapper post search' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.jpg"></div>
           
@@ -452,8 +458,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper" id="pjax-container">
           
 
-<div class='l_main no_sidebar'>
-  <article class="article post white-box reveal md shadow article-type-page" id="page" itemscope itemprop="blogPost">
+<div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
 
 
@@ -463,9 +469,58 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title">
-        关于 | About Me
+        Spring(七) Spring注解开发
       </h1>
       <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/about" rel="nofollow">
+    <img no-lazy src="/img/avater.jpg">
+    <p>xwj</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a><span class="sep"></span><a class="category-link" href="/categories/%E5%90%8E%E7%AB%AF/Spring/">Spring</a>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：May 25, 2021</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="Spring(七) Spring注解开发" data-path="/post/7b40.html">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
         
       </div>
     
@@ -474,14 +529,62 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   
   
-  <h2 id="简介🔖"><a href="#简介🔖" class="headerlink" title="简介🔖"></a>简介🔖</h2><p>🔵 大二学生<br>🔴 学习JAVA中，立志成为一个优秀的后端工程师<br>⚫ 建立本站用于记录学习历程</p>
-<h2 id="联系方式📞"><a href="#联系方式📞" class="headerlink" title="联系方式📞"></a>联系方式📞</h2><p>QQ：281658285<br>E-mail：<a href="mailto:&#50;&#56;&#49;&#x36;&#x35;&#x38;&#50;&#x38;&#x35;&#x40;&#113;&#x71;&#46;&#x63;&#x6f;&#x6d;">&#50;&#56;&#49;&#x36;&#x35;&#x38;&#50;&#x38;&#x35;&#x40;&#113;&#x71;&#46;&#x63;&#x6f;&#x6d;</a></p>
-<h2 id="版权声明📃"><a href="#版权声明📃" class="headerlink" title="版权声明📃"></a>版权声明📃</h2><p>​<span>&nbsp;&nbsp;&nbsp;&nbsp;博客内的所有原创内容（包括但不限于文章、图像等）除特别声明外均采用知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议，任何人都可以自由传播，但不得用于商用且必须署名并以相同方式分享。</span></p>
-<p>​<span>&nbsp;&nbsp;&nbsp;&nbsp;本站部分内容转载于网络，有出处的已在文中署名作者并附加原文链接，出处已不可寻的皆已标注来源于网络，若您认为本博客有部分内容侵犯了您的版权，请电邮告知，我将认真处理。</span></p>
-<h2 id="免责声明🗯️"><a href="#免责声明🗯️" class="headerlink" title="免责声明🗯️"></a>免责声明🗯️</h2><p>​<span>&nbsp;&nbsp;&nbsp;&nbsp;本博客提供的所有内容仅供学习、分享与交流，并且不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。当使用本站时，代表你已接受本站的免责声明和隐私原则等条款。</span></p>
-<h2 id="隐私原则🔒"><a href="#隐私原则🔒" class="headerlink" title="隐私原则🔒"></a>隐私原则🔒</h2><p><span>&nbsp;&nbsp;&nbsp;&nbsp;本站内目前涉及到浏览者隐私的只有一个地方，就是留言区（文章评论）。当你留言时，你的电子邮箱、Cookies信息和IPv4/IPv6地址都会被记录。这些信息仅为了改进我们的网站质量和可能的交流沟通。</span></p>
+  <p>在Spring4之后，要使用注解开发，必须导入aop依赖，以及context约束，增加注解的支持</p>
+<span id="more"></span>
+
+<h2 id="属性如何注入"><a href="#属性如何注入" class="headerlink" title="属性如何注入"></a>属性如何注入</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//相当于 &lt;property name=&quot;name&quot; value=&quot;xwj&quot;/&gt;</span></span><br><span class="line">    <span class="comment">//可以用于一些简单的属性注入，复杂一些的还是建议使用配置文件</span></span><br><span class="line">    <span class="comment">//也可以适用于Set方法上，可以得到同样的结果</span></span><br><span class="line"><span class="comment">//    @Value(&quot;xwj&quot;)</span></span><br><span class="line"><span class="comment">//    public void setName(String name) &#123;</span></span><br><span class="line"><span class="comment">//        this.name = name;</span></span><br><span class="line"><span class="comment">//    &#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value(&quot;xwj&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> String name;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="衍生的注解"><a href="#衍生的注解" class="headerlink" title="衍生的注解"></a>衍生的注解</h2><p>@Component 有几个衍生注解，在web开发中，会按照mvc三层架构分层</p>
+<ul>
+<li>dao 【@Repository】</li>
+<li>service 【@Service】</li>
+<li>controller 【@Controller】</li>
+</ul>
+<p>这四个注解的功能都是相同的，都是代表将某个类注册到Spring中，装配Bean</p>
+<h2 id="自动装配"><a href="#自动装配" class="headerlink" title="自动装配"></a>自动装配</h2><p>参照  <code>bean的自动装配</code>  </p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>xml与注解：</p>
+<ul>
+<li>xml更加万能。适用于各种场合！维护简单方便。</li>
+<li>注解 不是自己的类使用不了，维护相对复杂</li>
+</ul>
+<p>xml与注解的最佳实践：</p>
+<ul>
+<li>xml用来管理bean</li>
+<li>注解用来负责属性的注入</li>
+<li>在使用过程中，只需主意吧一个问题，必须让注解生效，就要开启注解支持</li>
+</ul>
 
   
+  
+    
+    <div class='footer'>
+      
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>本文作者👨‍💻：Xwj</p>
+
+              
+            
+              
+                <p>版权声明📃：博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文链接🔗：<a href=https://xucoud.github.io/post/7b40.html>https://xucoud.github.io/post/7b40.html</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
+    </div>
   
   
     
@@ -490,6 +593,26 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class='article-meta' id="bottom">
     <div class='new-meta-box'>
       
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-06-06T19:35:14+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Jun 6, 2021</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Spring/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Spring</p></a></div>
+
+
+        
+      
+        
+      
     </div>
   </div>
 
@@ -497,6 +620,34 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   
 
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/post/17e0.html'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>Spring(八) JavaConfig开发</p>
+          <p class='content'>  JavaConfig开发
+
+
+完全不使用Spring的xml配置了，全权交给Java来做！
+JavaConfig是Spring的一个子项目，在Spring 4 之后，它就成为了核心功能。
+实...</p>
+        </a>
+      
+      
+        <a class='next' href='/post/c60.html'>
+          <p class='title'>Spring(六) Bean自动装配<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'> Bean自动装配
+
+
+介绍
+自动装配是spring满足bean依赖的一种方式！
+spring会在上下文中自动寻找，并自动给bean装配属性！
+
+环境搭建一个人有两个宠物！实体类：
+123456...</p>
+        </a>
+      
+    </div>
   
 </article>
 
@@ -535,6 +686,218 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </div>
 <aside class='l_side'>
   
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7%E5%A6%82%E4%BD%95%E6%B3%A8%E5%85%A5"><span class="toc-text">属性如何注入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%8D%E7%94%9F%E7%9A%84%E6%B3%A8%E8%A7%A3"><span class="toc-text">衍生的注解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E8%A3%85%E9%85%8D"><span class="toc-text">自动装配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E7%BB%93"><span class="toc-text">小结</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+  
+    
+    
+  
+
+  <section class="widget category shadow desktop">
+    
+  <header>
+    
+      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+      <ul class="entry navigation">
+        
+          <li><a class="flat-box"
+            title="/categories/Java/" href="/categories/Java/"
+            id="categoriesJava"
+            ><div class='name'>Java</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E5%90%8E%E7%AB%AF/" href="/categories/%E5%90%8E%E7%AB%AF/"
+            id="categoriesE5908EE7ABAF"
+            ><div class='name'>后端</div><div class='badge'>(12)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E5%90%8E%E7%AB%AF/Spring/" href="/categories/%E5%90%8E%E7%AB%AF/Spring/"
+            id="categoriesE5908EE7ABAFSpring"
+            ><div class='name'>Spring</div><div class='badge'>(11)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E5%90%8E%E7%AB%AF/SpringBoot/" href="/categories/%E5%90%8E%E7%AB%AF/SpringBoot/"
+            id="categoriesE5908EE7ABAFSpringBoot"
+            ><div class='name'>SpringBoot</div><div class='badge'>(1)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+  
+
+  
+    
+    
+  
+
+  <section class="widget tagcloud shadow desktop mobile">
+    
+  <header>
+    
+      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+      <a href="/tags/Spring/" style="font-size: 24px; color: #555">Spring</a> <a href="/tags/SpringBoot/" style="font-size: 14px; color: #999">SpringBoot</a> <a href="/tags/Thread/" style="font-size: 14px; color: #999">Thread</a>
+    </div>
+  </section>
+
+
+  
+
+  
+    
+    
+
+<section class="widget shadow desktop">
+  
+  <header>
+    
+      <i class="fas fa-award fa-fw" aria-hidden="true"></i><span class='name'>站点信息</span>
+    
+  </header>
+
+
+  <div class='content'>
+    <div class="webinfo">
+      
+        <div class="webinfo-item">
+          <div>文章数目：</div>
+          <div>13 篇</div>
+        </div>
+      
+
+      
+        <div class="webinfo-item">
+          <div>已运行时间：</div>
+          <div id="webinfo-runtime-count" publish_date="03/24/2020 21:34:09"></div>
+        </div>
+        <script>
+          var BirthDay = new Date(new Date('2021/05/17'));
+          var today = new Date();
+          var timeold = (today.getTime() - BirthDay.getTime());
+          var daysold = Math.floor(timeold / (24 * 60 * 60 * 1000));
+          document.getElementById('webinfo-runtime-count').innerHTML = daysold + ' 天';
+        </script>
+      
+
+
+      
+
+      
+        <div class="webinfo-item">
+          <div>本站访客数：</div>
+          
+          <div><span id="lc-uv"><span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 人</div>
+          
+        </div>
+      
+
+      
+        <div class="webinfo-item">
+          <div>本站总访问量：</div>
+          
+          <div><span id="lc-sv"><span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 次</div>
+          
+        </div>
+      
+
+      
+        <div class="webinfo-item">
+          <div>最后活动时间：</div>
+          
+            <div id="last-update" style="display: none;">Sun Jun 06 2021 19:35:42 GMT+0800 (中国标准时间)</div>
+            <div id="last-update-show">2021-06-06 日</div>
+          
+        </div>
+        
+        <script>
+          function timeago(dateTimeStamp) {
+              var minute = 1000 * 60; //把分，时，天，周，半个月，一个月用毫秒表示
+              var hour = minute * 60;
+              var day = hour * 24;
+              var week = day * 7;
+              var month = day * 30;
+              var now = new Date().getTime(); //获取当前时间毫秒
+              var diffValue = now - dateTimeStamp; //时间差
+              if (diffValue < 0) {
+                  return;
+              }
+              var minC = diffValue / minute; //计算时间差的分，时，天，周，月
+              var hourC = diffValue / hour;
+              var dayC = diffValue / day;
+              var weekC = diffValue / week;
+              var monthC = diffValue / month;
+              if (monthC >= 1 && monthC <= 3) {
+                  result = " " + parseInt(monthC) + " 月前"
+              } else if (weekC >= 1 && weekC <= 3) {
+                  result = " " + parseInt(weekC) + " 周前"
+              } else if (dayC >= 1 && dayC <= 6) {
+                  result = " " + parseInt(dayC) + " 天前"
+              } else if (hourC >= 1 && hourC <= 23) {
+                  result = " " + parseInt(hourC) + " 小时前"
+              } else if (minC >= 1 && minC <= 59) {
+                  result = " " + parseInt(minC) + " 分钟前"
+              } else if (diffValue >= 0 && diffValue <= minute) {
+                  result = "刚刚"
+              } else {
+                  var datetime = new Date();
+                  datetime.setTime(dateTimeStamp);
+                  var Nyear = datetime.getFullYear();
+                  var Nmonth = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
+                  var Ndate = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
+                  var Nhour = datetime.getHours() < 10 ? "0" + datetime.getHours() : datetime.getHours();
+                  var Nminute = datetime.getMinutes() < 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
+                  var Nsecond = datetime.getSeconds() < 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
+                  result = Nyear + "-" + Nmonth + "-" + Ndate
+              }
+              return result;
+          }
+          var lastUpDate = document.getElementById('last-update').innerHTML;
+          try {
+            document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
+          } catch (error) {
+            document.getElementById('last-update-show').innerHTML = '2021-06-06 日';
+          }
+        </script>
+        
+      
+    </div>
+  </div>
+</section>
+
+  
+
 
 </aside>
 
@@ -546,21 +909,21 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="Spring(七) Spring注解开发";
   pdata.commentPath="";
-  pdata.commentPlaceholder="有什么想对我说的呢？";
+  pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要
   var l_header=document.getElementById("l_header");
   
-  l_header.classList.remove("show");
+  l_header.classList.add("show");
   
   
     // cover
     var cover_wrapper=document.querySelector('.cover-wrapper');
     
-    cover_wrapper.id="half";
-    cover_wrapper.style.display="";
+    cover_wrapper.id="none";
+    cover_wrapper.style.display="none";
     
   
 </script>
