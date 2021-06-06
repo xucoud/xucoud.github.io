@@ -29,13 +29,13 @@
 
   <!-- 页面元数据 -->
   
-  <title>Spring(六) Bean自动装配 - Xu&#39;s Blog</title>
+  <title>Spring(四) Spring配置说明 - Xu&#39;s Blog</title>
   
     <meta name="keywords" content="Spring">
   
 
   
-    <meta name="description" content=" Bean自动装配">
+    <meta name="description" content="Spring配置说明">
   
 
   <!-- feed -->
@@ -469,7 +469,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title">
-        Spring(六) Bean自动装配
+        Spring(四) Spring配置说明
       </h1>
       <div class='new-meta-box'>
         
@@ -511,7 +511,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item browse leancloud">
     <a class='notlink'>
       
-      <div id="lc-pv" data-title="Spring(六) Bean自动装配" data-path="/post/e62a.html">
+      <div id="lc-pv" data-title="Spring(四) Spring配置说明" data-path="/post/e62a.html">
         <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
         <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
         次浏览
@@ -529,58 +529,28 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   
   
-  <p> Bean自动装配</p>
+  <p>Spring配置说明</p>
 <span id="more"></span>
 
-<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ul>
-<li>自动装配是spring满足bean依赖的一种方式！</li>
-<li>spring会在上下文中自动寻找，并自动给bean装配属性！</li>
-</ul>
-<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><p>一个人有两个宠物！<br>实体类：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cat</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">shout</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;miao~&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="别名"><a href="#别名" class="headerlink" title="别名"></a>别名</h2><p>配置类：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;hello&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.xwj.pojo.Hello&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">&quot;str&quot;</span> <span class="attr">value</span>=<span class="string">&quot;xwj&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">&lt;!-- 给hello取一个别名叫hey --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">alias</span> <span class="attr">name</span>=<span class="string">&quot;hello&quot;</span> <span class="attr">alias</span>=<span class="string">&quot;hey&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">shout</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;wang~&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Dog dog;</span><br><span class="line">    <span class="keyword">private</span> Cat cat;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>配置文件：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.springframework.org/schema/beans&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;cat&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.xwj.pojo.Cat&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;dog&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.xwj.pojo.Dog&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;person&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.xwj.pojo.Person&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;name&quot;</span> <span class="attr">value</span>=<span class="string">&quot;xwj&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;dog&quot;</span> <span class="attr">ref</span>=<span class="string">&quot;dog&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;cat&quot;</span> <span class="attr">ref</span>=<span class="string">&quot;cat&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>测试类：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyText</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">text1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        ApplicationContext context = <span class="keyword">new</span> ClassPathXmlApplicationContext(<span class="string">&quot;beans.xml&quot;</span>);</span><br><span class="line">        Person person = context.getBean(<span class="string">&quot;person&quot;</span>,Person.class);</span><br><span class="line">        person.getDog().shout();</span><br><span class="line">        person.getCat().shout();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>启动类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//提取的对象为hey，而配置中实例化的是hello，同样可以创建</span></span><br><span class="line">Hello hello = (Hello) applicationContext.getBean(<span class="string">&quot;hey&quot;</span>);</span><br><span class="line">System.out.println(hello.toString());</span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="ByName自动装配"><a href="#ByName自动装配" class="headerlink" title="ByName自动装配"></a>ByName自动装配</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">byName: 会在容器上下文中自动查找，和自己对象set方法后面的值对应的bean id</span></span><br><span class="line"><span class="comment">即：setCat() 中的Cat（）</span></span><br><span class="line"><span class="comment">但名字必须和自己对象set方法后面的值对应的bean id相同</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;person&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.xwj.pojo.Person&quot;</span> <span class="attr">autowire</span>=<span class="string">&quot;byName&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;name&quot;</span> <span class="attr">value</span>=<span class="string">&quot;xwj&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="Bean的配置"><a href="#Bean的配置" class="headerlink" title="Bean的配置"></a>Bean的配置</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment"> id : bean的唯一标识符，就相当于对象名</span></span><br><span class="line"><span class="comment"> class ： bean 的对象的全限定名：包名 + 类名</span></span><br><span class="line"><span class="comment"> name : 也是别名，而且比alias更高级，可以同时取多个别名，分割符可以是：，；</span></span><br><span class="line"><span class="comment"> --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;hello&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.xwj.pojo.Hello&quot;</span> <span class="attr">name</span>=<span class="string">&quot;hello2 a,s;hey&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">&quot;str&quot;</span> <span class="attr">value</span>=<span class="string">&quot;xwj&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>通过以上修改，即可做到和之前一样的效果！</p>
-<h2 id="byType自动装配"><a href="#byType自动装配" class="headerlink" title="byType自动装配"></a>byType自动装配</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">byType: 会在容器上下文中自动查找，和自己对象属性类型相同的bean</span></span><br><span class="line"><span class="comment">上面cat 改为 cat111 照样可以</span></span><br><span class="line"><span class="comment">但是有多个同类型的对象时，就不行了</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;person&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.xwj.pojo.Person&quot;</span> <span class="attr">autowire</span>=<span class="string">&quot;byType&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;name&quot;</span> <span class="attr">value</span>=<span class="string">&quot;xwj&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="使用注解自动装配"><a href="#使用注解自动装配" class="headerlink" title="使用注解自动装配"></a>使用注解自动装配</h2><p>使用注解须知：</p>
-<ul>
-<li>导入约束，<code>context </code>约束</li>
-<li>配置注解的支持</li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.springframework.org/schema/beans&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:context</span>=<span class="string">&quot;http://www.springframework.org/schema/context&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://www.springframework.org/schema/beans</span></span></span><br><span class="line"><span class="string"><span class="tag">        https://www.springframework.org/schema/beans/spring-beans.xsd</span></span></span><br><span class="line"><span class="string"><span class="tag">        http://www.springframework.org/schema/context</span></span></span><br><span class="line"><span class="string"><span class="tag">        https://www.springframework.org/schema/context/spring-context.xsd&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 注解的支持 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">context:annotation-config</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>在类中的属性上使用 <code>@Autowired</code> 注解即可，可以省略掉在配置文件中的注入，以及set方法，前提是该自动装配的属性在 IOC（Spring）容器中存在，且符合名字(byName)!</li>
-</ul>
-<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>在 <code>@Autowired</code> 注解中,可以加上 <code>requird</code> 属性，该属性默认为true，改为false后，则表示该对象可以为空</p>
-<p><code>@Qualifier(value = &quot;xxx&quot;)</code> 注解相当于 byName 属性，在<code>@Autowired</code> 环境比较复杂，自动装配无法通过一个注解<code>@Autowired</code> 完成的时候，我们可以配合<code>@Qualifier(value = &quot;xxx&quot;)</code>来使用，指定一个唯一的bean对象来注入！</p>
-<p><code>@Nullable</code> 用于修饰字段，使得该字段可以为空！</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired(required = false)</span>   <span class="comment">//byType</span></span><br><span class="line">    <span class="keyword">private</span> Dog dog;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="meta">@Qualifier(value = &quot;cat111&quot;)</span>   <span class="comment">//byName</span></span><br><span class="line">    <span class="keyword">private</span> Cat cat;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(<span class="meta">@Nullable</span> String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="import"><a href="#import" class="headerlink" title="import"></a>import</h2><p>import用于团队开发，将多个配置文件，合并为一个</p>
+<p>假如，现在项目中有多个人开发，这三个人负责不同的类进行开发，不同的类需要注册到不同的bean中，我们可以利用import将所有人的beans.xml合并为一个总的（applicationContext.xml）！</p>
+<p>使用的时候，直接使用总的就可以了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;import resource=&quot;beans1.xml&quot;/&gt;</span><br><span class="line">&lt;import resource=&quot;beans2.xml&quot;/&gt;</span><br><span class="line">&lt;import resource=&quot;beans3.xml&quot;/&gt;</span><br></pre></td></tr></table></figure>
 
-<p><code>@Resource</code> 这个注解相当于 <code>@Autowired</code>  <code>@Qualifier(value = &quot;xxx&quot;)</code> 的集合体，先根据byName的方法来匹配，在根据byType的方法来匹配，两者都匹配不上的时候，才会报错！</p>
-<ul>
-<li>name 属性：加上后可以根据 bean id 来注入配置，在有多个同类对象时，可以使用</li>
-</ul>
-<p> <code>@Autowired</code>  和  <code>@Resource</code> 的区别：</p>
-<ul>
-<li>都是实现自动装配的，都可以放在属性字段上</li>
-<li>@Autiwired 是 byType 方法 ，而且要求该对象必须存在</li>
-<li>@Resource 是先用 byName 的方法，在通过 byType 的方法</li>
-</ul>
+
+
 
   
   
@@ -620,7 +590,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-06-03T22:27:18+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-06-03T22:26:00+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：Jun 3, 2021</p>
@@ -650,12 +620,16 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class="prev-next">
       
         <a class='prev' href='/post/e62a.html'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>Spring(四) Spring配置说明</p>
-          <p class='content'>Spring配置说明
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>Spring(六) Bean自动装配</p>
+          <p class='content'> Bean自动装配
 
 
-别名配置类：
-123456&lt;bean id=&quot;hello&quot; class=&quot;com.xwj.pojo.Hello&quot;&gt; ...</p>
+介绍
+自动装配是spring满足bean依赖的一种方式！
+spring会在上下文中自动寻找，并自动给bean装配属性！
+
+环境搭建一个人有两个宠物！实体类：
+123456...</p>
         </a>
       
       
@@ -722,7 +696,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="toc-text">环境搭建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ByName%E8%87%AA%E5%8A%A8%E8%A3%85%E9%85%8D"><span class="toc-text">ByName自动装配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#byType%E8%87%AA%E5%8A%A8%E8%A3%85%E9%85%8D"><span class="toc-text">byType自动装配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%B3%A8%E8%A7%A3%E8%87%AA%E5%8A%A8%E8%A3%85%E9%85%8D"><span class="toc-text">使用注解自动装配</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F"><span class="toc-text">注意</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%AB%E5%90%8D"><span class="toc-text">别名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bean%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="toc-text">Bean的配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#import"><span class="toc-text">import</span></a></li></ol>
     </div>
   </section>
 
@@ -749,12 +723,12 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           <li><a class="flat-box"
             title="/categories/%E5%90%8E%E7%AB%AF/" href="/categories/%E5%90%8E%E7%AB%AF/"
             id="categoriesE5908EE7ABAF"
-            ><div class='name'>后端</div><div class='badge'>(6)</div></a></li>
+            ><div class='name'>后端</div><div class='badge'>(7)</div></a></li>
         
           <li><a class="flat-box child"
             title="/categories/%E5%90%8E%E7%AB%AF/Spring/" href="/categories/%E5%90%8E%E7%AB%AF/Spring/"
             id="categoriesE5908EE7ABAFSpring"
-            ><div class='name'>Spring</div><div class='badge'>(6)</div></a></li>
+            ><div class='name'>Spring</div><div class='badge'>(7)</div></a></li>
         
       </ul>
     </div>
@@ -803,7 +777,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <div class="webinfo-item">
           <div>文章数目：</div>
-          <div>6 篇</div>
+          <div>7 篇</div>
         </div>
       
 
@@ -846,7 +820,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Sun Jun 06 2021 15:50:15 GMT+0800 (中国标准时间)</div>
+            <div id="last-update" style="display: none;">Sun Jun 06 2021 15:50:42 GMT+0800 (中国标准时间)</div>
             <div id="last-update-show">2021-06-06 日</div>
           
         </div>
@@ -920,7 +894,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <script>
   window.pdata={}
   pdata.ispage=true;
-  pdata.postTitle="Spring(六) Bean自动装配";
+  pdata.postTitle="Spring(四) Spring配置说明";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要
