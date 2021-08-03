@@ -12,8 +12,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -31,7 +29,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>Category: Spring - Xu&#39;s Blog</title>
+  <title>K8s - Xu&#39;s Blog</title>
+  
+    <meta name="keywords" content="K8s">
   
 
   
@@ -366,7 +366,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper  search' style="display: none;">
+        <div id="full" class='cover-wrapper post search' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.jpg"></div>
           
@@ -456,533 +456,270 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper" id="pjax-container">
           
 
-
 <div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
-    
-      
-  <section class="post-list">
-    
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
+
+
   
-  
-  
-  
+  <div class="article-meta" id="top">
     
-    <h2 class="article-title" >
-      <a href="/post/7a62.html">
-        Spring(十一) 声明式事物
-      </a>
-    </h2>
-  
-  <div class='md'>
     
-      <p>声明式事物</p>
     
+      <h1 class="title">
+        K8s
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/about" rel="nofollow">
+    <img no-lazy src="/img/avater.jpg">
+    <p>xwj</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/k8s/">k8s</a>
+    </a>
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
+
+
+          
         
           
-          <a class='avatar' href='/about'><img src='/img/avater.jpg'></a>
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Jul 2, 2021</p>
+  </a>
+</div>
+
+          
         
-        <time>2021-05-29</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Spring/">Spring</a>
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="K8s" data-path="/post/3322.html">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
         
       </div>
+    
+  </div>
+
+
+  
+  
+  <span id="more"></span>
+
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Kubernetes是取开头结尾的K和s，之间有8个字母，于是又被称为K8s。Kubernetes是一个由Google公司开发的用于管理云平台中多个主机上的容器化的应用，Kubernetes的目标是让部署容器化的应用简单并且高效（powerful）,Kubernetes提供了应用部署，规划，更新，维护的一种机制。。他是Google借用borg系统的设计理念进而用go语言开发的。K8s集结了Borg设计思想的精华，并且吸收了Borg系统中的经验和教训。</p>
+<p>特点：</p>
+<ul>
+<li>轻量级：消耗的资源少</li>
+<li>开源</li>
+<li>弹性伸缩</li>
+<li>负载均衡：IPVS</li>
+</ul>
+<h2 id="Kubernetes框架"><a href="#Kubernetes框架" class="headerlink" title="Kubernetes框架"></a>Kubernetes框架</h2><p>Kubernetes的组成架构图，可以看到K8s主要由kuberctl，etcd和Internet三部分组成。</p>
+<p>kuberctl就相当于Master，一个领导者，用于和外界交互，接收外界命令，将数据存储到etcd中，进行保存，并将任务发放给对应放入pod，也就是执行者。</p>
+<p>组件：</p>
+<ul>
+<li>Master：主服务器</li>
+<li>etcd：一个可信赖的分布式键值数据库，可用于存储Kubernetes运行过程中产生的关键数据，保存了整个集群的状态，使得集群在崩溃之后，可以进行数据恢复</li>
+<li>Node：节点</li>
+</ul>
+<p><img src="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20210702210553.png" class="lazyload" data-srcset="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20210702210553.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<h3 id="etcd"><a href="#etcd" class="headerlink" title="etcd"></a>etcd</h3><p>etcd有两个版本：</p>
+<ul>
+<li>v2</li>
+<li>v3（建议使用）</li>
+</ul>
+<p>V2版会将所有的数据都写入内存中</p>
+<p>V3会引入一个本地的磁盘的数据持久化操作，意味着在电脑关机之后，并不是造成数据损坏，会从本地磁盘中进行恢复</p>
+<p>在KubernetesV1.11之前都是默认使用v2（不支持V3，需要自己进行数据备份），之后都是默认使用的v3</p>
+<p><img src="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20210702213403.png" class="lazyload" data-srcset="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20210702213403.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20210702213401452"></p>
+<p>etcd采用HTTP协议，C/S架构的开发模式，与K8s相同</p>
+<p>HttpServer是对数据进行操作，包括CRUD，认证等，在这里不采用TCP协议是，避免自己的二次开发</p>
+<p>Raft是存在读写操作的数据</p>
+<p>WAL是运行中数据备份，可以进行完整备份，也可以进行临时备份Snapshot，如果需要对一个大文件进行小范围修改，使用临时备份就可以避免多次备份同一数据，消耗太多资源，并且他会在一定时间内对数据进行完整备份Entry，防止临时备份太多，导致后面还原太麻烦，他也会实时的将这些数据存储到本地磁盘Store</p>
+<h3 id="Master（主节点）"><a href="#Master（主节点）" class="headerlink" title="Master（主节点）"></a>Master（主节点）</h3><p><img src="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20210702211537.png" class="lazyload" data-srcset="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20210702211537.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20210702211535182"></p>
+<p>重要组件：</p>
+<ul>
+<li>scheduler：资源调度器，负责接受任务，资源的调度，按照预定的调度策略将Pod调度到相应的机器上；</li>
+<li>replication controller：副本控制器，维持副本的期望数目</li>
+<li>api server：为所有组件提供了资源操作的唯一入口，并提供认证、授权、访问控制、API注册和发现等机制；</li>
+</ul>
+<p>高可用集群副本数再好是 &gt;= 3的奇数</p>
+<h3 id="Node（工作节点）"><a href="#Node（工作节点）" class="headerlink" title="Node（工作节点）"></a>Node（工作节点）</h3><p>重要组件：</p>
+<ul>
+<li>kuberlet：与dockers的CRL进行交互，操作dockers进行容器的操作，维持Pod的生命周期</li>
+<li>kube proxy：实现负载均衡，以及Pod与Pod之间的通信，他的默认操作对象是FireWall去实现Pod的映射</li>
+<li>docker(也可选择其他容器引擎)</li>
+</ul>
+<h3 id="其他组件"><a href="#其他组件" class="headerlink" title="其他组件"></a>其他组件</h3><ul>
+<li>CoreDNS：负责为整个集群提供DNS服务，实现负载均衡的重要组件，为集群中的SVC创建一个域名IP的对应解析关系，以后访问别的Pod，无需通过Pod的Ip地址，只需通过访问生产的域名，就可以实现访问。</li>
+<li>Ingress Controller：官方只能实现四层代理，Ingress可以实现七层代理</li>
+<li>Heapster：提供资源监控</li>
+<li>Dashboard：给K8s提供一个B/S结构的访问体系</li>
+<li>Federation：提供一个可以跨集群中心多K8s统一管理功能</li>
+<li>Fluentd-elasticsearch：提供集群日志采集、存储与查询</li>
+<li>PromeTheus：提供一个K8s的集群监控能力</li>
+<li>ELK：为K8s集群提供一个日志统一分析介入平台</li>
+</ul>
+<h2 id="Kubernetes核心概念"><a href="#Kubernetes核心概念" class="headerlink" title="Kubernetes核心概念"></a>Kubernetes核心概念</h2><h3 id="Pod"><a href="#Pod" class="headerlink" title="Pod"></a>Pod</h3><p>特点：</p>
+<ul>
+<li><p>K8s中最小的部署单元</p>
+</li>
+<li><p>他是一组容器的集合</p>
+</li>
+<li><p>共享网络–每个Pod中的容易都对应同一个端口</p>
+</li>
+<li><p>生命周期短暂</p>
+</li>
+</ul>
+<h3 id="Controller"><a href="#Controller" class="headerlink" title="Controller"></a>Controller</h3><p>基本概念：</p>
+<ul>
+<li>确保预期的Pod副本数量</li>
+<li>有状态应用部署：</li>
+<li>无状态应用部署</li>
+<li>确保所有的Node运行同一个Pod</li>
+<li>一次性任务和定时任务</li>
+</ul>
+<h3 id="Api-Server"><a href="#Api-Server" class="headerlink" title="Api Server"></a>Api Server</h3><ul>
+<li>定义一组Pod的访问规则</li>
+</ul>
+
+  
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/post/7a62.html'>
-            阅读更多
-          </a>
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>本文作者👨‍💻：Xwj</p>
+
+              
+            
+              
+                <p>版权声明📃：博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文链接🔗：<a href=https://xucoud.github.io/post/3322.html>https://xucoud.github.io/post/3322.html</a></p>
+              
+            
+          </blockquote>
         </div>
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-02T23:21:15+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Jul 2, 2021</p>
+  </a>
 </div>
 
-          </div>
         
       
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/post/ee22.html">
-        Spring(十) 整合Mybatis
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>   整合Mybatis</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
         
           
-          <a class='avatar' href='/about'><img src='/img/avater.jpg'></a>
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/K8s/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>K8s</p></a></div>
+
+
         
-        <time>2021-05-28</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Spring/">Spring</a>
-        
-      </div>
       
-        <div>
-          <a class='readmore' href='/post/ee22.html'>
-            阅读更多
-          </a>
-        </div>
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/post/85a1.html'>
+          <p class='title'>java多线程<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>Java.Thread介绍
+
+
+线程，进程，多线程进程
+程序指令和数据的有序集合，其本身没有任何的运行的含义，是一个静态的概念。
+进程是执行程序的一次执行过程，是一个动态的概念，是系统分配资源的...</p>
+        </a>
       
     </div>
   
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/post/832f.html">
-        Spring(九) 代理模式
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>这是SpringAOP的底层！</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/about'><img src='/img/avater.jpg'></a>
-        
-        <time>2021-05-27</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Spring/">Spring</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/post/832f.html'>
-            阅读更多
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/post/17e0.html">
-        Spring(八) JavaConfig开发
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>  JavaConfig开发</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/about'><img src='/img/avater.jpg'></a>
-        
-        <time>2021-05-26</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Spring/">Spring</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/post/17e0.html'>
-            阅读更多
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/post/7b40.html">
-        Spring(七) Spring注解开发
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>在Spring4之后，要使用注解开发，必须导入aop依赖，以及context约束，增加注解的支持</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/about'><img src='/img/avater.jpg'></a>
-        
-        <time>2021-05-25</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Spring/">Spring</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/post/7b40.html'>
-            阅读更多
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/post/c60.html">
-        Spring(六) Bean自动装配
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p> Bean自动装配</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/about'><img src='/img/avater.jpg'></a>
-        
-        <time>2021-05-24</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Spring/">Spring</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/post/c60.html'>
-            阅读更多
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/post/d6b1.html">
-        Spring(五) DI-依赖注入
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p> 依赖注入</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/about'><img src='/img/avater.jpg'></a>
-        
-        <time>2021-05-23</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Spring/">Spring</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/post/d6b1.html'>
-            阅读更多
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/post/428b.html">
-        Spring(四) Spring配置说明
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>Spring配置说明</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/about'><img src='/img/avater.jpg'></a>
-        
-        <time>2021-05-22</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Spring/">Spring</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/post/428b.html'>
-            阅读更多
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/post/e62a.html">
-        Spring(三) AOP
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>AOP 的简单介绍</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/about'><img src='/img/avater.jpg'></a>
-        
-        <time>2021-05-21</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Spring/">Spring</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/post/e62a.html'>
-            阅读更多
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/post/cea7.html">
-        Spring(二) IOC
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>IOC的简单介绍</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/about'><img src='/img/avater.jpg'></a>
-        
-        <time>2021-05-19</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Spring/">Spring</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/post/cea7.html'>
-            阅读更多
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-    
-  </section>
-  
-    
-      <br>
-      <div class="prev-next">
-        
-        <p class="current">
-          1 / 2
-        </p>
-        
-          <a class="next" rel="next" href="/categories/Spring/page/2/">
-            <section class="post next white-box shadow">
-              &nbsp;Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i>
-            </section>
-          </a>
-        
-      </div>
-    
-  
+</article>
 
 
-    
   
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <!-- <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div> -->
+
+
+     <div id="valine_container" class="valine_thread">
+       <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+     </div>
+	 <!-- valine 添加一言 -->
+	<script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+       <script type="text/javascript">
+              jinrishici.load(function(result) {
+            var jrsc_plac =  result.data.content + "\n「" + result.data.origin.title + "」" + result.data.origin.dynasty + " · " + result.data.origin.author
+             document.getElementById("veditor").setAttribute("placeholder",jrsc_plac);
+            });
+     </script>
+
+
+
+  </article>
+
+
+
+
+
+
 </div>
 <aside class='l_side'>
   
@@ -990,59 +727,22 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
 
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
-      
-        <a class='avatar flat-box circle' href='/about/'>
-          <img no-lazy src='/img/avater.jpg'/>
-        </a>
-      
+  <header>
     
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">Xu's Blog</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=281658285&amp;site=qq&amp;menu=yes"
-              class="social fab fa-qq flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/volantis-x/"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Kubernetes%E6%A1%86%E6%9E%B6"><span class="toc-text">Kubernetes框架</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#etcd"><span class="toc-text">etcd</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Master%EF%BC%88%E4%B8%BB%E8%8A%82%E7%82%B9%EF%BC%89"><span class="toc-text">Master（主节点）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Node%EF%BC%88%E5%B7%A5%E4%BD%9C%E8%8A%82%E7%82%B9%EF%BC%89"><span class="toc-text">Node（工作节点）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E7%BB%84%E4%BB%B6"><span class="toc-text">其他组件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Kubernetes%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5"><span class="toc-text">Kubernetes核心概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Pod"><span class="toc-text">Pod</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Controller"><span class="toc-text">Controller</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Api-Server"><span class="toc-text">Api Server</span></a></li></ol></li></ol>
+    </div>
+  </section>
+
 
   
 
@@ -1109,8 +809,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     </div>
   </section>
 
-
-  
 
   
 
@@ -1241,14 +939,15 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </aside>
 
 
+
 		  
 		  <!--此文件用来存放一些不方便取值的变量-->
 <!--思路大概是将值藏到重加载的区域内-->
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="K8s";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要

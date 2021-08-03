@@ -697,7 +697,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </blockquote>
 <h4 id="级别控制"><a href="#级别控制" class="headerlink" title="级别控制"></a>级别控制</h4><p>所有支持的日志记录系统都可以在<code>Spring</code>环境中设置记录级别（例如在<code>application.properties</code>中）<br>格式为：<code>&#39;logging.level.* = LEVEL&#39;</code></p>
 <blockquote>
-<p>logging.level<code>：日志级别控制前缀，*为包名或Logger名</code>                                                                                LEVEL<code>：选项</code>TRACE, DEBUG, INFO, WARN, ERROR, FATAL, OFF</p>
+<p>logging.level<code>：日志级别控制前缀，*为包名或Logger名</code>                                                                    </p>
+<p>LEVEL<code>：选项</code>TRACE, DEBUG, INFO, WARN, ERROR, FATAL, OFF</p>
 </blockquote>
 <h3 id="日志的默认配置"><a href="#日志的默认配置" class="headerlink" title="日志的默认配置"></a>日志的默认配置</h3><p>SpringBoot中有日志默认的生成以及切分，在这里我们可以重写SpringBoot默认日志配置，自定义日志大小和名称等等，在resources文件夹下添加logback-spring.xml进行配置</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span><br><span class="line">&lt;configuration&gt;</span><br><span class="line">    &lt;!--包含Spring boot对logback日志的默认配置--&gt;</span><br><span class="line">    &lt;include resource=&quot;org/springframework/boot/logging/logback/defaults.xml&quot; /&gt;</span><br><span class="line">    &lt;property name=&quot;LOG_FILE&quot; value=&quot;$&#123;LOG_FILE:-$&#123;LOG_PATH:-$&#123;LOG_TEMP:-$&#123;java.io.tmpdir:-/tmp&#125;&#125;&#125;/spring.log&#125;&quot;/&gt;</span><br><span class="line">    &lt;include resource=&quot;org/springframework/boot/logging/logback/console-appender.xml&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--重写了Spring Boot框架 org/springframework/boot/logging/logback/file-appender.xml 配置--&gt;</span><br><span class="line">    &lt;appender name=&quot;TIME_FILE&quot;</span><br><span class="line">              class=&quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;&gt;</span><br><span class="line">        &lt;encoder&gt;</span><br><span class="line">            &lt;pattern&gt;$&#123;FILE_LOG_PATTERN&#125;&lt;/pattern&gt;</span><br><span class="line">        &lt;/encoder&gt;</span><br><span class="line">        &lt;file&gt;$&#123;LOG_FILE&#125;&lt;/file&gt;</span><br><span class="line">        &lt;rollingPolicy class=&quot;ch.qos.logback.core.rolling.TimeBasedRollingPolicy&quot;&gt;</span><br><span class="line">            &lt;fileNamePattern&gt;$&#123;LOG_FILE&#125;.%d&#123;yyyy-MM-dd&#125;.%i&lt;/fileNamePattern&gt;</span><br><span class="line">            &lt;!--保留历史日志一个月的时间--&gt;</span><br><span class="line">            &lt;maxHistory&gt;30&lt;/maxHistory&gt;</span><br><span class="line">            &lt;!--</span><br><span class="line">            Spring Boot默认情况下，日志文件10M时，会切分日志文件,这样设置日志文件会在100M时切分日志</span><br><span class="line">            --&gt;</span><br><span class="line">            &lt;timeBasedFileNamingAndTriggeringPolicy class=&quot;ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP&quot;&gt;</span><br><span class="line">                &lt;maxFileSize&gt;10MB&lt;/maxFileSize&gt;</span><br><span class="line">            &lt;/timeBasedFileNamingAndTriggeringPolicy&gt;</span><br><span class="line"></span><br><span class="line">        &lt;/rollingPolicy&gt;</span><br><span class="line">    &lt;/appender&gt;</span><br><span class="line"></span><br><span class="line">    &lt;root level=&quot;INFO&quot;&gt;</span><br><span class="line">        &lt;appender-ref ref=&quot;CONSOLE&quot; /&gt;</span><br><span class="line">        &lt;appender-ref ref=&quot;TIME_FILE&quot; /&gt;</span><br><span class="line">    &lt;/root&gt;</span><br><span class="line"></span><br><span class="line">&lt;/configuration&gt;</span><br><span class="line">        &lt;!--</span><br><span class="line">            1、继承Spring boot logback设置（可以在appliaction.yml或者application.properties设置logging.*属性）</span><br><span class="line">            2、重写了默认配置，设置日志文件大小在10MB时，按日期切分日志</span><br><span class="line">        --&gt;</span><br></pre></td></tr></table></figure>
@@ -874,10 +875,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-06-06T22:12:11+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-06-07T23:18:31+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Jun 6, 2021</p>
+    <p>更新于：Jun 7, 2021</p>
   </a>
 </div>
 
@@ -1020,6 +1021,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             id="categoriesSpringBoot"
             ><div class='name'>SpringBoot</div><div class='badge'>(1)</div></a></li>
         
+          <li><a class="flat-box"
+            title="/categories/k8s/" href="/categories/k8s/"
+            id="categoriesk8s"
+            ><div class='name'>k8s</div><div class='badge'>(1)</div></a></li>
+        
       </ul>
     </div>
   </section>
@@ -1042,7 +1048,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-      <a href="/tags/Spring/" style="font-size: 24px; color: #555">Spring</a> <a href="/tags/SpringBoot/" style="font-size: 14px; color: #999">SpringBoot</a> <a href="/tags/Thread/" style="font-size: 14px; color: #999">Thread</a>
+      <a href="/tags/K8s/" style="font-size: 14px; color: #999">K8s</a> <a href="/tags/Spring/" style="font-size: 24px; color: #555">Spring</a> <a href="/tags/SpringBoot/" style="font-size: 14px; color: #999">SpringBoot</a> <a href="/tags/Thread/" style="font-size: 14px; color: #999">Thread</a>
     </div>
   </section>
 
@@ -1067,7 +1073,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <div class="webinfo-item">
           <div>文章数目：</div>
-          <div>13 篇</div>
+          <div>14 篇</div>
         </div>
       
 
@@ -1110,8 +1116,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Sun Jun 06 2021 23:12:41 GMT+0800 (中国标准时间)</div>
-            <div id="last-update-show">2021-06-06 日</div>
+            <div id="last-update" style="display: none;">Tue Aug 03 2021 21:09:25 GMT+0800 (中国标准时间)</div>
+            <div id="last-update-show">2021-08-03 日</div>
           
         </div>
         
@@ -1161,7 +1167,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           try {
             document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
           } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2021-06-06 日';
+            document.getElementById('last-update-show').innerHTML = '2021-08-03 日';
           }
         </script>
         
@@ -1260,7 +1266,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
       
         <div class='copyright'>
-        <p><a href="/">Copyright © 2020 🧑‍💻 Xu</a> <br> <a target="_blank" rel="noopener" href="http://beian.miit.gov.cn">鄂ICP备2021009263号</a></p>
+        <p><a href="/">Copyright © 2020 🧑‍💻 Xu</a> <br> <a target="_blank" rel="noopener" href="http://beian.miit.gov.cn">鄂ICP备2021009263号-1</a></p>
 
         </div>
       
