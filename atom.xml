@@ -6,7 +6,7 @@
   <link href="https://xucoud.github.io/atom.xml" rel="self"/>
   
   <link href="https://xucoud.github.io/"/>
-  <updated>2021-08-03T13:09:25.581Z</updated>
+  <updated>2021-10-15T16:25:28.366Z</updated>
   <id>https://xucoud.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Restful</title>
+    <link href="https://xucoud.github.io/post/a9a2.html"/>
+    <id>https://xucoud.github.io/post/a9a2.html</id>
+    <published>2021-10-15T15:28:47.000Z</published>
+    <updated>2021-10-15T16:25:28.366Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>对于Restful架构的详细介绍</p><span id="more"></span><p>​        越来越多的人开始意识到，<strong>网站即软件</strong>，而且是一种新型的软件。这种”互联网软件”采用客户端/服务器模式，建立在分布式体系上，通过互联网通信，具有高延时（high latency）、高并发等特点。网站开发，完全可以采用软件开发的模式。但是传统上，软件和网络是两个不同的领域，很少有交集；软件开发主要针对单机环境，网络则主要研究系统之间的通信。互联网的兴起，使得这两个领域开始融合，<strong>现在我们必须考虑，如何开发在互联网环境中使用的软件。</strong>RESTful架构，就是目前最流行的一种互联网软件架构。它结构清晰、符合标准、易于理解、扩展方便，所以正得到越来越多网站的采用。</p><h2 id="起源"><a href="#起源" class="headerlink" title="起源"></a>起源</h2><p>​        Rest这个词是由<a href="https://en.wikipedia.org/wiki/Roy_Fielding">Roy Thomas Fielding</a>提出的，他在自己的博士论文中写到</p><blockquote><p>本文研究计算机科学两大前沿—-软件和网络—-的交叉点。长期以来，软件研究主要关注软件设计的分类、设计方法的演化，很少客观地评估不同的设计选择对系统行为的影响。而相反地，网络研究主要关注系统之间通信行为的细节、如何改进特定通信机制的表现，常常忽视了一个事实，那就是改变应用程序的互动风格比改变互动协议，对整体表现有更大的影响。<strong>我这篇文章的写作目的，就是想在符合架构原理的前提下，理解和评估以网络为基础的应用软件的架构设计，得到一个功能强、性能好、适宜通信的架构。</strong></p></blockquote><h2 id="名称"><a href="#名称" class="headerlink" title="名称"></a>名称</h2><p>​        Fielding将他对互联网软件的架构原则，定名为REST，即Representational State Transfer的缩写。可以翻译为“表现层状态转化”，或者”表征状态转移“。</p><p>​        如果一个架构符合Rest原则，那么他就是Restful架构。</p><h2 id="涵义"><a href="#涵义" class="headerlink" title="涵义"></a>涵义</h2><p>​        在Rest的翻译“表现层状态转化”中，是没有主语的，其中的“表现层”其实是<strong>资源</strong>的“表现层“。再次对Rest中的单词做进一步的解析。</p><h3 id="Resource"><a href="#Resource" class="headerlink" title="Resource"></a><strong>Resource</strong></h3><p>​        “Resource”就是资源，而所谓的资源就是网络上的一个实体，或者是网络上的一个具体信息。它可以是一段文本，一张图片，一段音频······可以通过一个URI（统一资源定位符）指向它，每一种资源都对应一个特定的URI。要想获得这个资源访，问它的URI就可以，因此URI就成了每一个资源的地址或独一无二的识别符。</p><p>​        所谓”上网”，就是与互联网上一系列的”资源”互动，调用它的URI，将资源展示给用户。</p><h3 id="Representational"><a href="#Representational" class="headerlink" title="Representational"></a><strong>Representational</strong></h3><p>​        “资源”是一种信息实体，它可以有多种外在表现形式。<strong>我们把”资源”具体呈现出来的形式，叫做它的”表现层”（Representation）。</strong>比如，文本可以用txt格式表现，也可以用HTML格式、XML格式、JSON格式表现，甚至可以采用二进制格式；图片可以用JPG格式表现，也可以用PNG格式表现。</p><p>​        URI只代表资源的实体，不代表它的形式。严格地说，有些网址最后的”.html”后缀名是不必要的，因为这个后缀名表示格式，属于”表现层”范畴，而URI应该只代表”资源”的位置。它的具体表现形式，应该在HTTP请求的头信息中用Accept和Content-Type字段指定，这两个字段才是对”表现层”的描述。</p><h3 id="State-Transfer"><a href="#State-Transfer" class="headerlink" title="State Transfer"></a><strong>State Transfer</strong></h3><p>​        访问网站就是客户端和服务器端的一个互动过程。在这个过程中，涉及到数据和其状态的变化。而互联网通信协议HTTP协议，是一个无状态协议。这意味着，所有的状态都保存在服务器端。因此，<strong>如果客户端想要操作服务器，必须通过某种手段，让服务器端发生”状态转化”（State Transfer）。而这种转化是建立在表现层之上的，所以就是”表现层状态转化”。</strong>客户端用到的手段，只能是HTTP协议。具体来说，就是HTTP协议里面，四个表示操作方式的动词：GET、POST、PUT、DELETE。它们分别对应四种基本操作：<strong>GET用来获取资源，POST用来新建资源（也可以用于更新资源），PUT用来更新资源，DELETE用来删除资源。</strong></p><h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ul><li>“Resource”表示的是一个实体，所以URI不应该含有动词，动词应该放到HTTP协议中。</li></ul><blockquote><p>某个URI是/posts/show/1，其中show是动词，这个URI就设计错了，正确的写法应该是/posts/1，然后用GET方法表示show。</p><p>如果某些动作是HTTP动词表示不了的，应该把动作当成一种资源，比如网上汇款，从账户1向账户2汇款500元，错误的URI是：</p><p>​        POST /accounts/1/transfer/500/to/2</p><p>正确的写法是把动词transfer改成名词transaction，资源不能是动词，但是可以是一种服务：</p><p>​        POST /transaction?from=1&amp;to=2&amp;amount=500.00</p></blockquote><ul><li>不应该在URI中加入版本号</li></ul><blockquote><p>因为不同的版本，可以理解成同一种资源的不同表现形式，所以应该采用同一个URI。版本号可以在HTTP请求头信息的Accept字段中进行区分（参见<a href="http://www.informit.com/articles/article.aspx?p=1566460">Versioning REST Services</a>）：</p></blockquote><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>REST四个基本原则：</p><ul><li><p>使用HTTP动词：GET POST PUT DELETE；</p></li><li><p>无状态连接，服务器端不应保存过多上下文状态，即每个请求都是独立的；</p></li><li><p>为每个资源设置URI；</p></li><li><p>通过XML JSON进行数据传递；</p></li></ul><p>​        这种交互模式相当于设计一个函数，函数内部（服务器）过程对客户端不可见，客户端只传递参数接受结果。URI的设计就好象设计参数形式，函数的功能已经包含在网站本身不言自明，不需要再列出来。</p><p>​        Rest只是一种设计风格，具体的URI命名方式应该根据具体环境来做出适当的修改。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;对于Restful架构的详细介绍&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Restful" scheme="https://xucoud.github.io/categories/Restful/"/>
+    
+    
+    <category term="Restful" scheme="https://xucoud.github.io/tags/Restful/"/>
+    
+  </entry>
   
   <entry>
     <title>K8s</title>

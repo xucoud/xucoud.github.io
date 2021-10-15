@@ -29,13 +29,13 @@
 
   <!-- 页面元数据 -->
   
-  <title>Spring(七) Spring注解开发 - Xu&#39;s Blog</title>
+  <title>Restful - Xu&#39;s Blog</title>
   
-    <meta name="keywords" content="Spring">
+    <meta name="keywords" content="Restful">
   
 
   
-    <meta name="description" content="在Spring4之后，要使用注解开发，必须导入aop依赖，以及context约束，增加注解的支持">
+    <meta name="description" content="对于Restful架构的详细介绍">
   
 
   <!-- feed -->
@@ -469,7 +469,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title">
-        Spring(七) Spring注解开发
+        Restful
       </h1>
       <div class='new-meta-box'>
         
@@ -489,7 +489,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class='new-meta-item category'>
     <a class='notlink'>
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <a class="category-link" href="/categories/Spring/">Spring</a>
+      <a class="category-link" href="/categories/Restful/">Restful</a>
     </a>
   </div>
 
@@ -500,7 +500,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：May 25, 2021</p>
+    <p>发布于：Oct 15, 2021</p>
   </a>
 </div>
 
@@ -511,7 +511,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item browse leancloud">
     <a class='notlink'>
       
-      <div id="lc-pv" data-title="Spring(七) Spring注解开发" data-path="/post/7b40.html">
+      <div id="lc-pv" data-title="Restful" data-path="/post/a9a2.html">
         <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
         <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
         次浏览
@@ -529,32 +529,51 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   
   
-  <p>在Spring4之后，要使用注解开发，必须导入aop依赖，以及context约束，增加注解的支持</p>
+  <p>对于Restful架构的详细介绍</p>
 <span id="more"></span>
 
-<h2 id="属性如何注入"><a href="#属性如何注入" class="headerlink" title="属性如何注入"></a>属性如何注入</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//相当于 &lt;property name=&quot;name&quot; value=&quot;xwj&quot;/&gt;</span></span><br><span class="line">    <span class="comment">//可以用于一些简单的属性注入，复杂一些的还是建议使用配置文件</span></span><br><span class="line">    <span class="comment">//也可以适用于Set方法上，可以得到同样的结果</span></span><br><span class="line"><span class="comment">//    @Value(&quot;xwj&quot;)</span></span><br><span class="line"><span class="comment">//    public void setName(String name) &#123;</span></span><br><span class="line"><span class="comment">//        this.name = name;</span></span><br><span class="line"><span class="comment">//    &#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value(&quot;xwj&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> String name;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="衍生的注解"><a href="#衍生的注解" class="headerlink" title="衍生的注解"></a>衍生的注解</h2><p>@Component 有几个衍生注解，在web开发中，会按照mvc三层架构分层</p>
-<ul>
-<li>dao 【@Repository】</li>
-<li>service 【@Service】</li>
-<li>controller 【@Controller】</li>
+<p>​        越来越多的人开始意识到，<strong>网站即软件</strong>，而且是一种新型的软件。这种”互联网软件”采用客户端/服务器模式，建立在分布式体系上，通过互联网通信，具有高延时（high latency）、高并发等特点。网站开发，完全可以采用软件开发的模式。但是传统上，软件和网络是两个不同的领域，很少有交集；软件开发主要针对单机环境，网络则主要研究系统之间的通信。互联网的兴起，使得这两个领域开始融合，<strong>现在我们必须考虑，如何开发在互联网环境中使用的软件。</strong>RESTful架构，就是目前最流行的一种互联网软件架构。它结构清晰、符合标准、易于理解、扩展方便，所以正得到越来越多网站的采用。</p>
+<h2 id="起源"><a href="#起源" class="headerlink" title="起源"></a>起源</h2><p>​        Rest这个词是由<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Roy_Fielding">Roy Thomas Fielding</a>提出的，他在自己的博士论文中写到</p>
+<blockquote>
+<p>本文研究计算机科学两大前沿—-软件和网络—-的交叉点。长期以来，软件研究主要关注软件设计的分类、设计方法的演化，很少客观地评估不同的设计选择对系统行为的影响。而相反地，网络研究主要关注系统之间通信行为的细节、如何改进特定通信机制的表现，常常忽视了一个事实，那就是改变应用程序的互动风格比改变互动协议，对整体表现有更大的影响。<strong>我这篇文章的写作目的，就是想在符合架构原理的前提下，理解和评估以网络为基础的应用软件的架构设计，得到一个功能强、性能好、适宜通信的架构。</strong></p>
+</blockquote>
+<h2 id="名称"><a href="#名称" class="headerlink" title="名称"></a>名称</h2><p>​        Fielding将他对互联网软件的架构原则，定名为REST，即Representational State Transfer的缩写。可以翻译为“表现层状态转化”，或者”表征状态转移“。</p>
+<p>​        如果一个架构符合Rest原则，那么他就是Restful架构。</p>
+<h2 id="涵义"><a href="#涵义" class="headerlink" title="涵义"></a>涵义</h2><p>​        在Rest的翻译“表现层状态转化”中，是没有主语的，其中的“表现层”其实是<strong>资源</strong>的“表现层“。再次对Rest中的单词做进一步的解析。</p>
+<h3 id="Resource"><a href="#Resource" class="headerlink" title="Resource"></a><strong>Resource</strong></h3><p>​        “Resource”就是资源，而所谓的资源就是网络上的一个实体，或者是网络上的一个具体信息。它可以是一段文本，一张图片，一段音频······可以通过一个URI（统一资源定位符）指向它，每一种资源都对应一个特定的URI。要想获得这个资源访，问它的URI就可以，因此URI就成了每一个资源的地址或独一无二的识别符。</p>
+<p>​        所谓”上网”，就是与互联网上一系列的”资源”互动，调用它的URI，将资源展示给用户。</p>
+<h3 id="Representational"><a href="#Representational" class="headerlink" title="Representational"></a><strong>Representational</strong></h3><p>​        “资源”是一种信息实体，它可以有多种外在表现形式。<strong>我们把”资源”具体呈现出来的形式，叫做它的”表现层”（Representation）。</strong>比如，文本可以用txt格式表现，也可以用HTML格式、XML格式、JSON格式表现，甚至可以采用二进制格式；图片可以用JPG格式表现，也可以用PNG格式表现。</p>
+<p>​        URI只代表资源的实体，不代表它的形式。严格地说，有些网址最后的”.html”后缀名是不必要的，因为这个后缀名表示格式，属于”表现层”范畴，而URI应该只代表”资源”的位置。它的具体表现形式，应该在HTTP请求的头信息中用Accept和Content-Type字段指定，这两个字段才是对”表现层”的描述。</p>
+<h3 id="State-Transfer"><a href="#State-Transfer" class="headerlink" title="State Transfer"></a><strong>State Transfer</strong></h3><p>​        访问网站就是客户端和服务器端的一个互动过程。在这个过程中，涉及到数据和其状态的变化。而互联网通信协议HTTP协议，是一个无状态协议。这意味着，所有的状态都保存在服务器端。因此，<strong>如果客户端想要操作服务器，必须通过某种手段，让服务器端发生”状态转化”（State Transfer）。而这种转化是建立在表现层之上的，所以就是”表现层状态转化”。</strong>客户端用到的手段，只能是HTTP协议。具体来说，就是HTTP协议里面，四个表示操作方式的动词：GET、POST、PUT、DELETE。它们分别对应四种基本操作：<strong>GET用来获取资源，POST用来新建资源（也可以用于更新资源），PUT用来更新资源，DELETE用来删除资源。</strong></p>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ul>
+<li>“Resource”表示的是一个实体，所以URI不应该含有动词，动词应该放到HTTP协议中。</li>
 </ul>
-<p>这四个注解的功能都是相同的，都是代表将某个类注册到Spring中，装配Bean</p>
-<h2 id="自动装配"><a href="#自动装配" class="headerlink" title="自动装配"></a>自动装配</h2><p>参照  <code>bean的自动装配</code>  </p>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>xml与注解：</p>
+<blockquote>
+<p>某个URI是/posts/show/1，其中show是动词，这个URI就设计错了，正确的写法应该是/posts/1，然后用GET方法表示show。</p>
+<p>如果某些动作是HTTP动词表示不了的，应该把动作当成一种资源，比如网上汇款，从账户1向账户2汇款500元，错误的URI是：</p>
+<p>​        POST /accounts/1/transfer/500/to/2</p>
+<p>正确的写法是把动词transfer改成名词transaction，资源不能是动词，但是可以是一种服务：</p>
+<p>​        POST /transaction?from=1&amp;to=2&amp;amount=500.00</p>
+</blockquote>
 <ul>
-<li>xml更加万能。适用于各种场合！维护简单方便。</li>
-<li>注解 不是自己的类使用不了，维护相对复杂</li>
+<li>不应该在URI中加入版本号</li>
 </ul>
-<p>xml与注解的最佳实践：</p>
+<blockquote>
+<p>因为不同的版本，可以理解成同一种资源的不同表现形式，所以应该采用同一个URI。版本号可以在HTTP请求头信息的Accept字段中进行区分（参见<a target="_blank" rel="noopener" href="http://www.informit.com/articles/article.aspx?p=1566460">Versioning REST Services</a>）：</p>
+</blockquote>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>REST四个基本原则：</p>
 <ul>
-<li>xml用来管理bean</li>
-<li>注解用来负责属性的注入</li>
-<li>在使用过程中，只需主意吧一个问题，必须让注解生效，就要开启注解支持</li>
+<li><p>使用HTTP动词：GET POST PUT DELETE；</p>
+</li>
+<li><p>无状态连接，服务器端不应保存过多上下文状态，即每个请求都是独立的；</p>
+</li>
+<li><p>为每个资源设置URI；</p>
+</li>
+<li><p>通过XML JSON进行数据传递；</p>
+</li>
 </ul>
+<p>​        这种交互模式相当于设计一个函数，函数内部（服务器）过程对客户端不可见，客户端只传递参数接受结果。URI的设计就好象设计参数形式，函数的功能已经包含在网站本身不言自明，不需要再列出来。</p>
+<p>​        Rest只是一种设计风格，具体的URI命名方式应该根据具体环境来做出适当的修改。</p>
 
   
   
@@ -577,7 +596,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               
-                <p>本文链接🔗：<a href=https://xucoud.github.io/post/7b40.html>https://xucoud.github.io/post/7b40.html</a></p>
+                <p>本文链接🔗：<a href=https://xucoud.github.io/post/a9a2.html>https://xucoud.github.io/post/a9a2.html</a></p>
               
             
           </blockquote>
@@ -594,10 +613,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-06-06T19:37:14+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-10-16T00:25:28+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Jun 6, 2021</p>
+    <p>更新于：Oct 16, 2021</p>
   </a>
 </div>
 
@@ -606,7 +625,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Spring/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Spring</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Restful/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Restful</p></a></div>
 
 
         
@@ -623,28 +642,12 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/post/17e0.html'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>Spring(八) JavaConfig开发</p>
-          <p class='content'>  JavaConfig开发
-
-
-完全不使用Spring的xml配置了，全权交给Java来做！
-JavaConfig是Spring的一个子项目，在Spring 4 之后，它就成为了核心功能。
-实...</p>
-        </a>
       
-      
-        <a class='next' href='/post/c60.html'>
-          <p class='title'>Spring(六) Bean自动装配<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'> Bean自动装配
+        <a class='next' href='/post/3322.html'>
+          <p class='title'>K8s<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>
 
-
-介绍
-自动装配是spring满足bean依赖的一种方式！
-spring会在上下文中自动寻找，并自动给bean装配属性！
-
-环境搭建一个人有两个宠物！实体类：
-123456...</p>
+简介Kubernetes是取开头结尾的K和s，之间有8个字母，于是又被称为K8s。Kubernetes是一个由Google公司开发的用于管理云平台中多个主机上的容器化的应用，Kubernet...</p>
         </a>
       
     </div>
@@ -702,7 +705,7 @@ spring会在上下文中自动寻找，并自动给bean装配属性！
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7%E5%A6%82%E4%BD%95%E6%B3%A8%E5%85%A5"><span class="toc-text">属性如何注入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%8D%E7%94%9F%E7%9A%84%E6%B3%A8%E8%A7%A3"><span class="toc-text">衍生的注解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E8%A3%85%E9%85%8D"><span class="toc-text">自动装配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E7%BB%93"><span class="toc-text">小结</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%B7%E6%BA%90"><span class="toc-text">起源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8D%E7%A7%B0"><span class="toc-text">名称</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B6%B5%E4%B9%89"><span class="toc-text">涵义</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Resource"><span class="toc-text">Resource</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Representational"><span class="toc-text">Representational</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#State-Transfer"><span class="toc-text">State Transfer</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F"><span class="toc-text">注意</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li></ol>
     </div>
   </section>
 
@@ -915,7 +918,7 @@ spring会在上下文中自动寻找，并自动给bean装配属性！
 <script>
   window.pdata={}
   pdata.ispage=true;
-  pdata.postTitle="Spring(七) Spring注解开发";
+  pdata.postTitle="Restful";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要
