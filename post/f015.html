@@ -12,8 +12,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -31,9 +29,13 @@
 
   <!-- 页面元数据 -->
   
-  <title>Tag: Spring - Xu&#39;s Blog</title>
+  <title>模板的使用 - Xu&#39;s Blog</title>
+  
+    <meta name="keywords" content="go">
   
 
+  
+    <meta name="description" content="go中的模板的使用方法和基本介绍">
   
 
   <!-- feed -->
@@ -366,7 +368,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper  search' style="display: none;">
+        <div id="full" class='cover-wrapper post search' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.jpg"></div>
           
@@ -456,533 +458,206 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper" id="pjax-container">
           
 
-
 <div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
-    
-      
-  <section class="post-list">
-    
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
+
+
   
-  
-  
-  
+  <div class="article-meta" id="top">
     
-    <h2 class="article-title" >
-      <a href="/post/7a62.html">
-        Spring(十一) 声明式事物
-      </a>
-    </h2>
-  
-  <div class='md'>
     
-      <p>声明式事物</p>
     
+      <h1 class="title">
+        模板的使用
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/about" rel="nofollow">
+    <img no-lazy src="/img/avater.jpg">
+    <p>xwj</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/go-web/">go web</a>
+    </a>
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
+
+
+          
         
           
-          <a class='avatar' href='/about'><img src='/img/avater.jpg'></a>
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Oct 17, 2021</p>
+  </a>
+</div>
+
+          
         
-        <time>2021-05-29</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Spring/">Spring</a>
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="模板的使用" data-path="/post/f015.html">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
         
       </div>
+    
+  </div>
+
+
+  
+  
+  <p>go中的模板的使用方法和基本介绍</p>
+<span id="more"></span>
+
+<p>​        Go为我们提供了 <code>text /template</code> 库和 <code>html /template</code> 库这两个模板引擎，模板引<br>擎通过将数据和模板组合在一起生成最终的 HTML ，而处理器负责调用模板引擎并将引<br>擎生成的 HTMl 返回给客户端。<br>​        Go 的模板都是文本文档（其中 Web 应用的模板通常都是 HTML ），它们都嵌入了<br>一些称为 <strong>动作</strong> 的指令。从模板引擎的角度来说，模板就是嵌入了动作的文本（这些文本<br>通常包含在模板文件里面），而模板引擎则通过分析并执行这些文本来生成出另外一些<br>文本。</p>
+<p>​        这两个模板库的使用方式是相同的，但是 html/template 包在渲染页面模板时会在后台进行一些编码以帮助防止造成代码注入（XSS 攻击）。</p>
+<p>​        因为两个模板库都使用相同的接口，因此本文中介绍的所有内容均可用于这两个程序包，但是大多数时候我们都会使用 html/template 程序包来生成 HTML 代码段。</p>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>在Go中，使用模板只需要三个步骤：</p>
+<ul>
+<li><p>定义模板</p>
+</li>
+<li><p>解析模板</p>
+</li>
+<li><p>执行模板</p>
+</li>
+</ul>
+<h2 id="定义模板"><a href="#定义模板" class="headerlink" title="定义模板"></a>定义模板</h2><p>​        通常我们会将写好的静态网页作为模板，模板文件以<code>.tmpl</code>或<code>.html</code>结尾，这个模板中可以只包含一个<code>HTML</code>页面中的部分代码。</p>
+
+  
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/post/7a62.html'>
-            阅读更多
-          </a>
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>本文作者👨‍💻：Xwj</p>
+
+              
+            
+              
+                <p>版权声明📃：博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文链接🔗：<a href=https://xucoud.github.io/post/f015.html>https://xucoud.github.io/post/f015.html</a></p>
+              
+            
+          </blockquote>
         </div>
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-10-17T17:37:57+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Oct 17, 2021</p>
+  </a>
 </div>
 
-          </div>
         
       
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/post/ee22.html">
-        Spring(十) 整合Mybatis
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>   整合Mybatis</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
         
           
-          <a class='avatar' href='/about'><img src='/img/avater.jpg'></a>
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/go/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>go</p></a></div>
+
+
         
-        <time>2021-05-28</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Spring/">Spring</a>
-        
-      </div>
       
-        <div>
-          <a class='readmore' href='/post/ee22.html'>
-            阅读更多
-          </a>
-        </div>
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/post/a9a2.html'>
+          <p class='title'>Restful<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>对于Restful架构的详细介绍
+
+
+​        越来越多的人开始意识到，网站即软件，而且是一种新型的软件。这种”互联网软件”采用客户端/服务器模式，建立在分布式体系上，通过互联网通信，具...</p>
+        </a>
       
     </div>
   
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/post/832f.html">
-        Spring(九) 代理模式
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>这是SpringAOP的底层！</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/about'><img src='/img/avater.jpg'></a>
-        
-        <time>2021-05-27</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Spring/">Spring</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/post/832f.html'>
-            阅读更多
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/post/17e0.html">
-        Spring(八) JavaConfig开发
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>  JavaConfig开发</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/about'><img src='/img/avater.jpg'></a>
-        
-        <time>2021-05-26</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Spring/">Spring</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/post/17e0.html'>
-            阅读更多
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/post/7b40.html">
-        Spring(七) Spring注解开发
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>在Spring4之后，要使用注解开发，必须导入aop依赖，以及context约束，增加注解的支持</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/about'><img src='/img/avater.jpg'></a>
-        
-        <time>2021-05-25</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Spring/">Spring</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/post/7b40.html'>
-            阅读更多
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/post/c60.html">
-        Spring(六) Bean自动装配
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p> Bean自动装配</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/about'><img src='/img/avater.jpg'></a>
-        
-        <time>2021-05-24</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Spring/">Spring</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/post/c60.html'>
-            阅读更多
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/post/d6b1.html">
-        Spring(五) DI-依赖注入
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p> 依赖注入</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/about'><img src='/img/avater.jpg'></a>
-        
-        <time>2021-05-23</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Spring/">Spring</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/post/d6b1.html'>
-            阅读更多
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/post/428b.html">
-        Spring(四) Spring配置说明
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>Spring配置说明</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/about'><img src='/img/avater.jpg'></a>
-        
-        <time>2021-05-22</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Spring/">Spring</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/post/428b.html'>
-            阅读更多
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/post/e62a.html">
-        Spring(三) AOP
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>AOP 的简单介绍</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/about'><img src='/img/avater.jpg'></a>
-        
-        <time>2021-05-21</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Spring/">Spring</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/post/e62a.html'>
-            阅读更多
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/post/cea7.html">
-        Spring(二) IOC
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>IOC的简单介绍</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/about'><img src='/img/avater.jpg'></a>
-        
-        <time>2021-05-19</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Spring/">Spring</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/post/cea7.html'>
-            阅读更多
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-    
-  </section>
-  
-    
-      <br>
-      <div class="prev-next">
-        
-        <p class="current">
-          1 / 2
-        </p>
-        
-          <a class="next" rel="next" href="/tags/Spring/page/2/">
-            <section class="post next white-box shadow">
-              &nbsp;Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i>
-            </section>
-          </a>
-        
-      </div>
-    
-  
+</article>
 
 
-    
   
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <!-- <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div> -->
+
+
+     <div id="valine_container" class="valine_thread">
+       <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+     </div>
+	 <!-- valine 添加一言 -->
+	<script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+       <script type="text/javascript">
+              jinrishici.load(function(result) {
+            var jrsc_plac =  result.data.content + "\n「" + result.data.origin.title + "」" + result.data.origin.dynasty + " · " + result.data.origin.author
+             document.getElementById("veditor").setAttribute("placeholder",jrsc_plac);
+            });
+     </script>
+
+
+
+  </article>
+
+
+
+
+
+
 </div>
 <aside class='l_side'>
   
@@ -990,59 +665,22 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
 
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
-      
-        <a class='avatar flat-box circle' href='/about/'>
-          <img no-lazy src='/img/avater.jpg'/>
-        </a>
-      
+  <header>
     
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">Xu's Blog</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=281658285&amp;site=qq&amp;menu=yes"
-              class="social fab fa-qq flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/volantis-x/"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-text">使用方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E6%A8%A1%E6%9D%BF"><span class="toc-text">定义模板</span></a></li></ol>
+    </div>
+  </section>
+
 
   
 
@@ -1119,8 +757,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     </div>
   </section>
 
-
-  
 
   
 
@@ -1251,14 +887,15 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </aside>
 
 
+
 		  
 		  <!--此文件用来存放一些不方便取值的变量-->
 <!--思路大概是将值藏到重加载的区域内-->
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="模板的使用";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要
