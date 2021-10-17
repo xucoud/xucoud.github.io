@@ -6,7 +6,7 @@
   <link href="https://xucoud.github.io/atom.xml" rel="self"/>
   
   <link href="https://xucoud.github.io/"/>
-  <updated>2021-10-17T09:37:57.451Z</updated>
+  <updated>2021-10-17T14:01:31.533Z</updated>
   <id>https://xucoud.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://xucoud.github.io/post/f015.html"/>
     <id>https://xucoud.github.io/post/f015.html</id>
     <published>2021-10-17T08:53:15.000Z</published>
-    <updated>2021-10-17T09:37:57.451Z</updated>
+    <updated>2021-10-17T14:01:31.533Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>go中的模板的使用方法和基本介绍</p><span id="more"></span><p>​        Go为我们提供了 <code>text /template</code> 库和 <code>html /template</code> 库这两个模板引擎，模板引<br>擎通过将数据和模板组合在一起生成最终的 HTML ，而处理器负责调用模板引擎并将引<br>擎生成的 HTMl 返回给客户端。<br>​        Go 的模板都是文本文档（其中 Web 应用的模板通常都是 HTML ），它们都嵌入了<br>一些称为 <strong>动作</strong> 的指令。从模板引擎的角度来说，模板就是嵌入了动作的文本（这些文本<br>通常包含在模板文件里面），而模板引擎则通过分析并执行这些文本来生成出另外一些<br>文本。</p><p>​        这两个模板库的使用方式是相同的，但是 html/template 包在渲染页面模板时会在后台进行一些编码以帮助防止造成代码注入（XSS 攻击）。</p><p>​        因为两个模板库都使用相同的接口，因此本文中介绍的所有内容均可用于这两个程序包，但是大多数时候我们都会使用 html/template 程序包来生成 HTML 代码段。</p><h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>在Go中，使用模板只需要三个步骤：</p><ul><li><p>定义模板</p></li><li><p>解析模板</p></li><li><p>执行模板</p></li></ul><h2 id="定义模板"><a href="#定义模板" class="headerlink" title="定义模板"></a>定义模板</h2><p>​        通常我们会将写好的静态网页作为模板，模板文件以<code>.tmpl</code>或<code>.html</code>结尾，这个模板中可以只包含一个<code>HTML</code>页面中的部分代码。</p>]]></content>
     
