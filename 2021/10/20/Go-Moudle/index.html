@@ -12,8 +12,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -31,9 +29,13 @@
 
   <!-- 页面元数据 -->
   
-  <title>Tag: Spring - Xu&#39;s Blog</title>
+  <title>Go Module - Xu&#39;s Blog</title>
+  
+    <meta name="keywords" content="go">
   
 
+  
+    <meta name="description" content="go中module的使用方法以及基本介绍">
   
 
   <!-- feed -->
@@ -366,7 +368,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper  search' style="display: none;">
+        <div id="full" class='cover-wrapper post search' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.jpg"></div>
           
@@ -456,86 +458,253 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper" id="pjax-container">
           
 
-
 <div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
+
+
+  
+  <div class="article-meta" id="top">
     
-      
-  <section class="post-list">
     
     
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2021/05/19/Spring-%E4%B8%80-%E7%AE%80%E4%BB%8B/">
-        Spring(一) 简介
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>Spring 的简单介绍</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
+      <h1 class="title">
+        Go Module
+      </h1>
+      <div class='new-meta-box'>
         
           
-          <a class='avatar' href='/about'><img src='/img/avater.jpg'></a>
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/about" rel="nofollow">
+    <img no-lazy src="/img/avater.jpg">
+    <p>xwj</p>
+  </a>
+</div>
+
+          
         
-        <time>2021-05-19</time>
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/go-module/">go module</a>
+    </a>
+  </div>
+
+
+          
         
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Spring/">Spring</a>
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Oct 20, 2021</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="Go Module" data-path="/2021/10/20/Go-Moudle/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
         
       </div>
+    
+  </div>
+
+
+  
+  
+  <p>go中module的使用方法以及基本介绍</p>
+<span id="more"></span>
+<pre><code>    自从 Go 官方推出 1.11 之后，增加新的依赖管理模块并且更加易于管理项目中所需要的模块。模块是存储在文件树中的 Go 包的集合，其根目录中包含 `go.mod` 文件。 `go.mod` 文件定义了模块的模块路径，它也是用于根目录的导入路径，以及它的依赖性要求。每个依赖性要求都被写为模块路径和特定语义版本。
+</code></pre>
+<p>​        从 Go 1.11 开始，Go 允许在 <code>$GOPATH/src</code> 外的任何目录下使用 <code>go.mod</code> 创建项目。在 <code>$GOPATH/src</code> 中，为了兼容性，Go 命令仍然在旧的 GOPATH 模式下运行。从 Go 1.13 开始，模块模式将成为默认模式。<br>下面使用的案例都是以 <code>GIN</code> 模块为例。<br>在这之前呢，需要先设置一些环境变量：</p>
+<blockquote>
+<p>export GO111MODULE=on //开启Go Module<br>export GOPROXY=<a target="_blank" rel="noopener" href="https://goproxy.io/">https://goproxy.io</a>  // 设置代理</p>
+</blockquote>
+<h2 id="创建一个新模块"><a href="#创建一个新模块" class="headerlink" title="创建一个新模块"></a>创建一个新模块</h2><p>你可以在 $GOPATH/src 之外的任何地方创建一个新的目录。比如：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir backend &amp;&amp; cd backend</span><br></pre></td></tr></table></figure>
+
+<p>然后初始化 <code>go mod init backend</code>，成功之后你会发现目录下会生成一个 <code>go.mod</code> 文件.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat go.mod</span><br></pre></td></tr></table></figure>
+<p>内容如下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">module backend</span><br><span class="line">go 1.12</span><br></pre></td></tr></table></figure>
+
+<h2 id="添加依赖项"><a href="#添加依赖项" class="headerlink" title="添加依赖项"></a>添加依赖项</h2><p>创建一个文件 <code>main.go</code> 然后加入以下代码，这里直接 import 了 gin 的依赖包。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;github.com/gin-gonic/gin&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    r := gin.Default()</span><br><span class="line">    r.GET(<span class="string">&quot;/ping&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">        c.JSON(<span class="number">200</span>, gin.H&#123;</span><br><span class="line">            <span class="string">&quot;message&quot;</span>: <span class="string">&quot;pong&quot;</span>,</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">    r.Run() <span class="comment">// listen and serve on 0.0.0.0:8080</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>go build 之后，会在 go.mod 引入所需要的依赖包。之后再来看看 go.mod 文件的情况。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">module backend</span><br><span class="line"></span><br><span class="line"><span class="keyword">go</span> <span class="number">1.12</span></span><br><span class="line"></span><br><span class="line">require (</span><br><span class="line">    github.com/gin-contrib/sse v0<span class="number">.0</span><span class="number">.0</span><span class="number">-20190301062529</span><span class="number">-5545</span>eab6dad3 <span class="comment">// indirect</span></span><br><span class="line">    github.com/gin-gonic/gin v1<span class="number">.3</span><span class="number">.0</span></span><br><span class="line">    github.com/golang/protobuf v1<span class="number">.3</span><span class="number">.1</span> <span class="comment">// indirect</span></span><br><span class="line">    github.com/mattn/<span class="keyword">go</span>-isatty v0<span class="number">.0</span><span class="number">.7</span> <span class="comment">// indirect</span></span><br><span class="line">    github.com/ugorji/<span class="keyword">go</span> v1<span class="number">.1</span><span class="number">.4</span> <span class="comment">// indirect</span></span><br><span class="line">    gopkg.in/<span class="keyword">go</span>-playground/validator.v8 v8<span class="number">.18</span><span class="number">.2</span> <span class="comment">// indirect</span></span><br><span class="line">    gopkg.in/yaml.v2 v2<span class="number">.2</span><span class="number">.2</span> <span class="comment">// indirect</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+
+<p>require 就是 gin 框架所需要的所有依赖包 并且在每个依赖包的后面已经表明了版本号</p>
+<h2 id="升级依赖项"><a href="#升级依赖项" class="headerlink" title="升级依赖项"></a>升级依赖项</h2><p>首先我们需要查看以下我们使用到的依赖列表</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go list -m all</span><br></pre></td></tr></table></figure>
+
+<p>你会看到所有项目使用的依赖包:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">backend</span><br><span class="line">github.com/gin-contrib/sse v0.0.0-20190301062529-5545eab6dad3</span><br><span class="line">github.com/gin-gonic/gin v1.3.0</span><br><span class="line">github.com/golang/protobuf v1.3.1</span><br><span class="line">github.com/mattn/go-isatty v0.0.7</span><br><span class="line">github.com/ugorji/go v1.1.4</span><br><span class="line">golang.org/x/sys v0.0.0-20190222072716-a9d3bda3a223</span><br><span class="line">gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405</span><br><span class="line">gopkg.in/go-playground/validator.v8 v8.18.2</span><br><span class="line">gopkg.in/yaml.v2 v2.2.2</span><br></pre></td></tr></table></figure>
+
+<p>​        因为这里使用的是最新的版本，无法升级，所以这里给出一个回退的例子。将 GIN 框架的版本回退到上个版本。这里需要使用一个命令查看依赖的版本历史。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go list -m -versions github.com/gin-gonic/gin</span><br></pre></td></tr></table></figure>
+
+<p>将会列出 Gin 版本历史</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">github.com/gin-gonic/gin v1.1.1 v1.1.2 v1.1.3 v1.1.4 v1.3.0</span><br></pre></td></tr></table></figure>
+
+<p>将版本更新到上个版本，这里只是个演示。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">go get github.com/gin-gonic/gin@v1.1.4 // 只需要在依赖后面加上 @version 就可以了</span><br><span class="line">go list -m all</span><br></pre></td></tr></table></figure>
+
+<p>看到了版本变化</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">github.com/gin-gonic/gin v1.1.4</span><br></pre></td></tr></table></figure>
+
+<p>或者可以使用 <code>go mod</code> 来进行版本的切换，这样就需要两个步骤了</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">go mod edit -require=&quot;github.com/gin-gonic/gin@v1.1.4&quot; // 修改 go.mod 文件</span><br><span class="line">go tidy //下载更新依赖</span><br></pre></td></tr></table></figure>
+
+<p><code>go.tidy</code> 会自动清理掉不需要的依赖项，同时可以将依赖项更新到当前版本</p>
+<p>使用起来这是一个很简单过程，只需要几个命令，你便可以知道依赖的版本信息，以及自由选择安装的版本，一切都变得这么简单。</p>
+<h2 id="删除未使用的依赖项"><a href="#删除未使用的依赖项" class="headerlink" title="删除未使用的依赖项"></a>删除未使用的依赖项</h2><p>如果你在项目过程需要移除一些不需要的依赖，可以使用下面的命令来执行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go mod tidy</span><br></pre></td></tr></table></figure>
+
+
+<p>更多关于 go mod 的使用命令</p>
+<pre><code>go mod
+The commands are:    
+    download    download modules to local cache
+    edit        edit go.mod from tools or scripts
+    graph       print module requirement graph
+    init        initialize new module in current directory
+    tidy        add missing and remove unused modules
+    vendor      make vendored copy of dependencies
+    verify      verify dependencies have expected content
+    why         explain why packages or modules are needed
+</code></pre>
+
+  
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/2021/05/19/Spring-%E4%B8%80-%E7%AE%80%E4%BB%8B/'>
-            阅读更多
-          </a>
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>本文作者👨‍💻：Xwj</p>
+
+              
+            
+              
+                <p>版权声明📃：博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文链接🔗：<a href=http://xucoud.github.io/2021/10/20/Go-Moudle/>http://xucoud.github.io/2021/10/20/Go-Moudle/</a></p>
+              
+            
+          </blockquote>
         </div>
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-10-20T21:28:01+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Oct 20, 2021</p>
+  </a>
 </div>
 
-          </div>
         
       
-    
-  </section>
+        
+          
   
-    
-      <br>
-      <div class="prev-next">
-        
-          <a class="prev" rel="prev" href="/tags/Spring/">
-            <section class="post prev white-box shadow" >
-              <i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;Previous&nbsp;
-            </section>
-          </a>
-        
-        <p class="current">
-          2 / 2
-        </p>
-        
-      </div>
-    
-  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/go/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>go</p></a></div>
 
 
-    
+        
+      
+        
+      
+    </div>
+  </div>
+
+
   
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/2021/10/17/%E6%A8%A1%E6%9D%BF%E7%9A%84%E4%BD%BF%E7%94%A8/'>
+          <p class='title'>Go-Template<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>go中的模板的使用方法和基本介绍
+
+
+​        Go为我们提供了 text /template 库和 html /template 库这两个模板引擎，模板引擎通过将数据和模板组合在一起生...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <!-- <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div> -->
+
+
+     <div id="valine_container" class="valine_thread">
+       <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+     </div>
+	 <!-- valine 添加一言 -->
+	<script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+       <script type="text/javascript">
+              jinrishici.load(function(result) {
+            var jrsc_plac =  result.data.content + "\n「" + result.data.origin.title + "」" + result.data.origin.dynasty + " · " + result.data.origin.author
+             document.getElementById("veditor").setAttribute("placeholder",jrsc_plac);
+            });
+     </script>
+
+
+
+  </article>
+
+
+
+
+
+
 </div>
 <aside class='l_side'>
   
@@ -543,59 +712,22 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
 
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
-      
-        <a class='avatar flat-box circle' href='/about/'>
-          <img no-lazy src='/img/avater.jpg'/>
-        </a>
-      
+  <header>
     
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">Xu's Blog</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=281658285&amp;site=qq&amp;menu=yes"
-              class="social fab fa-qq flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/volantis-x/"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%96%B0%E6%A8%A1%E5%9D%97"><span class="toc-text">创建一个新模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E4%BE%9D%E8%B5%96%E9%A1%B9"><span class="toc-text">添加依赖项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%87%E7%BA%A7%E4%BE%9D%E8%B5%96%E9%A1%B9"><span class="toc-text">升级依赖项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E6%9C%AA%E4%BD%BF%E7%94%A8%E7%9A%84%E4%BE%9D%E8%B5%96%E9%A1%B9"><span class="toc-text">删除未使用的依赖项</span></a></li></ol>
+    </div>
+  </section>
+
 
   
 
@@ -681,8 +813,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
 
   
-
-  
     
     
 
@@ -743,7 +873,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Wed Oct 20 2021 21:28:24 GMT+0800 (中国标准时间)</div>
+            <div id="last-update" style="display: none;">Wed Oct 20 2021 21:28:23 GMT+0800 (中国标准时间)</div>
             <div id="last-update-show">2021-10-20 日</div>
           
         </div>
@@ -809,14 +939,15 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </aside>
 
 
+
 		  
 		  <!--此文件用来存放一些不方便取值的变量-->
 <!--思路大概是将值藏到重加载的区域内-->
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="Go Module";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要

@@ -29,7 +29,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>模板的使用 - Xu&#39;s Blog</title>
+  <title>Go-Template - Xu&#39;s Blog</title>
   
     <meta name="keywords" content="go">
   
@@ -469,7 +469,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title">
-        模板的使用
+        Go-Template
       </h1>
       <div class='new-meta-box'>
         
@@ -511,7 +511,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item browse leancloud">
     <a class='notlink'>
       
-      <div id="lc-pv" data-title="模板的使用" data-path="/2021/10/17/%E6%A8%A1%E6%9D%BF%E7%9A%84%E4%BD%BF%E7%94%A8/">
+      <div id="lc-pv" data-title="Go-Template" data-path="/2021/10/17/%E6%A8%A1%E6%9D%BF%E7%9A%84%E4%BD%BF%E7%94%A8/">
         <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
         <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
         次浏览
@@ -662,6 +662,38 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <p>输出：</p>
 <p><img src="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211018234942.png" class="lazyload" data-srcset="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211018234942.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20211018234941287"></p>
+<h3 id="预定义函数"><a href="#预定义函数" class="headerlink" title="预定义函数"></a>预定义函数</h3><p>​        执行模板时，函数从两个函数字典中查找：首先是模板函数字典，然后是全局函数字典。一般不在模板内定义函数，而是使用Funcs方法添加函数到模板里。</p>
+<p>预定义的全局函数如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">and</span><br><span class="line">    函数返回它的第一个empty参数或者最后一个参数；</span><br><span class="line">    就是说&quot;and x y&quot;等价于&quot;if x then y else x&quot;；所有参数都会执行；</span><br><span class="line">or</span><br><span class="line">    返回第一个非empty参数或者最后一个参数；</span><br><span class="line">    亦即&quot;or x y&quot;等价于&quot;if x then x else y&quot;；所有参数都会执行；</span><br><span class="line">not</span><br><span class="line">    返回它的单个参数的布尔值的否定</span><br><span class="line">len</span><br><span class="line">    返回它的参数的整数类型长度</span><br><span class="line">index</span><br><span class="line">    执行结果为第一个参数以剩下的参数为索引/键指向的值；</span><br><span class="line">    如&quot;index x 1 2 3&quot;返回x[1][2][3]的值；每个被索引的主体必须是数组、切片或者字典。</span><br><span class="line">print</span><br><span class="line">    即fmt.Sprint</span><br><span class="line">printf</span><br><span class="line">    即fmt.Sprintf</span><br><span class="line">println</span><br><span class="line">    即fmt.Sprintln</span><br><span class="line">html</span><br><span class="line">    返回其参数文本表示的HTML逸码等价表示。</span><br><span class="line">urlquery</span><br><span class="line">    返回其参数文本表示的可嵌入URL查询的逸码等价表示。</span><br><span class="line">js</span><br><span class="line">    返回其参数文本表示的JavaScript逸码等价表示。</span><br><span class="line">call</span><br><span class="line">    执行结果是调用第一个参数的返回值，该参数必须是函数类型，其余参数作为调用该函数的参数；</span><br><span class="line">    如&quot;call .X.Y 1 2&quot;等价于go语言里的dot.X.Y(1, 2)；</span><br><span class="line">    其中Y是函数类型的字段或者字典的值，或者其他类似情况；</span><br><span class="line">    call的第一个参数的执行结果必须是函数类型的值（和预定义函数如print明显不同）；</span><br><span class="line">    该函数类型值必须有1到2个返回值，如果有2个则后一个必须是error接口类型；</span><br><span class="line">    如果有2个返回值的方法返回的error非nil，模板执行会中断并返回给调用模板执行者该错误；</span><br></pre></td></tr></table></figure>
+
+<h3 id="比较函数"><a href="#比较函数" class="headerlink" title="比较函数"></a>比较函数</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">eq      如果arg1 == arg2则返回真</span><br><span class="line">ne      如果arg1 != arg2则返回真</span><br><span class="line">lt      如果arg1 &lt; arg2则返回真</span><br><span class="line">le      如果arg1 &lt;= arg2则返回真</span><br><span class="line">gt      如果arg1 &gt; arg2则返回真</span><br><span class="line">ge      如果arg1 &gt;= arg2则返回真</span><br></pre></td></tr></table></figure>
+
+<p>为了简化多参数相等检测，eq（只有eq）可以接受2个或更多个参数，它会将第一个参数和其余参数依次比较，返回下式的结果：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;eq arg1 arg2 arg3&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>比较函数只适用于基本类型（或重定义的基本类型，如”type Celsius float32”）。但是，整数和浮点数不能互相比较。</p>
+<h3 id="自定义函数"><a href="#自定义函数" class="headerlink" title="自定义函数"></a>自定义函数</h3><p>Go的模板支持自定义函数。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sayHello</span><span class="params">(w http.ResponseWriter, r *http.Request)</span></span> &#123;</span><br><span class="line">    htmlByte, err := ioutil.ReadFile(<span class="string">&quot;./hello.html&quot;</span>)</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">        fmt.Println(<span class="string">&quot;read html failed, err:&quot;</span>, err)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 自定义一个夸人的模板函数</span></span><br><span class="line">    kua := <span class="function"><span class="keyword">func</span><span class="params">(arg <span class="keyword">string</span>)</span> <span class="params">(<span class="keyword">string</span>, error)</span></span> &#123;</span><br><span class="line">        <span class="keyword">return</span> arg + <span class="string">&quot;真帅&quot;</span>, <span class="literal">nil</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 采用链式操作在Parse之前调用Funcs添加自定义的kua函数</span></span><br><span class="line">    tmpl, err := template.New(<span class="string">&quot;hello&quot;</span>).Funcs(template.FuncMap&#123;<span class="string">&quot;kua&quot;</span>: kua&#125;).Parse(<span class="keyword">string</span>(htmlByte))</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">        fmt.Println(<span class="string">&quot;create template failed, err:&quot;</span>, err)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    user := UserInfo&#123;</span><br><span class="line">        Name:   <span class="string">&quot;枯藤&quot;</span>,</span><br><span class="line">        Gender: <span class="string">&quot;男&quot;</span>,</span><br><span class="line">        Age:    <span class="number">18</span>,</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 使用user渲染模板，并将结果写入w</span></span><br><span class="line">    tmpl.Execute(w, user)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们可以在模板文件hello.html中使用我们自定义的kua函数了。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;kua .Name&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="解析模板"><a href="#解析模板" class="headerlink" title="解析模板"></a>解析模板</h2><p>​        在go中，常用的解析模板的函数是<code>template.ParseFiles()</code>，ParseFiles函数创建一个模板并解析filenames指定的文件里的模板定义。返回的模板的名字是第一个文件的文件名（不含扩展名），内容为解析后的第一个文件的内容。至少要提供一个文件。如果发生错误，会停止解析并返回nil。</p>
+<p>但是<code>template.ParseFiles()</code>使用的时候需要返回一个error，为了简化开发，有了另一个函数<code>template.Must()</code>来帮我们处理这个error。Must函数用于包装返回(*Template, error)的函数/方法调用，它会在err非nil时panic，一般用于变量初始化：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> t = template.Must(template.New(<span class="string">&quot;name&quot;</span>).Parse(<span class="string">&quot;html&quot;</span>))</span><br></pre></td></tr></table></figure>
+
+<h2 id="执行模板"><a href="#执行模板" class="headerlink" title="执行模板"></a>执行模板</h2><ul>
+<li>Execute</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(t *Template)</span> <span class="title">Execute</span><span class="params">(wr io.Writer, data <span class="keyword">interface</span>&#123;&#125;)</span> <span class="title">error</span></span></span><br></pre></td></tr></table></figure>
+
+<p>​        Execute方法将解析好的模板应用到data上，并将输出写入wr。如果执行时出现错误，会停止执行，但有可能已经写入wr部分数据。模板可以安全的并发执行。</p>
+<ul>
+<li>ExecuteTemplate</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">func (t *Template) ExecuteTemplate(wr io.Writer, name string, data interface&#123;&#125;) error</span><br></pre></td></tr></table></figure>
+
+<p>​        ExecuteTemplate方法类似Execute，但是使用名为name的t关联的模板产生输出，可以自己指定模板的名字来输出数据。</p>
 
   
   
@@ -701,7 +733,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-10-20T15:26:40+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-10-20T17:15:31+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：Oct 20, 2021</p>
@@ -729,6 +761,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   
     <div class="prev-next">
+      
+        <a class='prev' href='/2021/10/20/Go-Moudle/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>Go Module</p>
+          <p class='content'>go中module的使用方法以及基本介绍
+
+    自从 Go 官方推出 1.11 之后，增加新的依赖管理模块并且更加易于管理项目中所需要的模块。模块是存储在文件树中的 Go 包的集合，其根目录...</p>
+        </a>
       
       
         <a class='next' href='/2021/10/15/Restful/'>
@@ -794,7 +833,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-text">使用方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E6%A8%A1%E6%9D%BF"><span class="toc-text">定义模板</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95"><span class="toc-text">模板语法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E4%BD%9C"><span class="toc-text">动作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A3%81%E5%89%AA%E7%A9%BA%E5%AD%97%E7%AC%A6"><span class="toc-text">裁剪空字符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E8%BE%93%E5%87%BA"><span class="toc-text">文本输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5"><span class="toc-text">条件语句</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90"><span class="toc-text">例子</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5"><span class="toc-text">循环语句</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90-1"><span class="toc-text">例子</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#define"><span class="toc-text">define</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90-2"><span class="toc-text">例子</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#template"><span class="toc-text">template</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90-3"><span class="toc-text">例子</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#blok"><span class="toc-text">blok</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90-4"><span class="toc-text">例子</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#with"><span class="toc-text">with</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90-5"><span class="toc-text">例子</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-text">使用方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E6%A8%A1%E6%9D%BF"><span class="toc-text">定义模板</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95"><span class="toc-text">模板语法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E4%BD%9C"><span class="toc-text">动作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A3%81%E5%89%AA%E7%A9%BA%E5%AD%97%E7%AC%A6"><span class="toc-text">裁剪空字符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E8%BE%93%E5%87%BA"><span class="toc-text">文本输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5"><span class="toc-text">条件语句</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90"><span class="toc-text">例子</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5"><span class="toc-text">循环语句</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90-1"><span class="toc-text">例子</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#define"><span class="toc-text">define</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90-2"><span class="toc-text">例子</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#template"><span class="toc-text">template</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90-3"><span class="toc-text">例子</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#blok"><span class="toc-text">blok</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90-4"><span class="toc-text">例子</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#with"><span class="toc-text">with</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90-5"><span class="toc-text">例子</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%84%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0"><span class="toc-text">预定义函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E5%87%BD%E6%95%B0"><span class="toc-text">比较函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0"><span class="toc-text">自定义函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E6%9E%90%E6%A8%A1%E6%9D%BF"><span class="toc-text">解析模板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E6%A8%A1%E6%9D%BF"><span class="toc-text">执行模板</span></a></li></ol>
     </div>
   </section>
 
@@ -839,6 +878,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             ><div class='name'>SpringBoot</div><div class='badge'>(1)</div></a></li>
         
           <li><a class="flat-box"
+            title="/categories/go-module/" href="/categories/go-module/"
+            id="categoriesgo-module"
+            ><div class='name'>go module</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
             title="/categories/go-web/" href="/categories/go-web/"
             id="categoriesgo-web"
             ><div class='name'>go web</div><div class='badge'>(1)</div></a></li>
@@ -870,7 +914,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-      <a href="/tags/K8s/" style="font-size: 14px; color: #999">K8s</a> <a href="/tags/Restful/" style="font-size: 14px; color: #999">Restful</a> <a href="/tags/Spring/" style="font-size: 24px; color: #555">Spring</a> <a href="/tags/SpringBoot/" style="font-size: 14px; color: #999">SpringBoot</a> <a href="/tags/Thread/" style="font-size: 14px; color: #999">Thread</a> <a href="/tags/go/" style="font-size: 14px; color: #999">go</a>
+      <a href="/tags/K8s/" style="font-size: 14px; color: #999">K8s</a> <a href="/tags/Restful/" style="font-size: 14px; color: #999">Restful</a> <a href="/tags/Spring/" style="font-size: 24px; color: #555">Spring</a> <a href="/tags/SpringBoot/" style="font-size: 14px; color: #999">SpringBoot</a> <a href="/tags/Thread/" style="font-size: 14px; color: #999">Thread</a> <a href="/tags/go/" style="font-size: 19px; color: #777">go</a>
     </div>
   </section>
 
@@ -895,7 +939,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <div class="webinfo-item">
           <div>文章数目：</div>
-          <div>16 篇</div>
+          <div>17 篇</div>
         </div>
       
 
@@ -938,7 +982,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Wed Oct 20 2021 16:32:34 GMT+0800 (中国标准时间)</div>
+            <div id="last-update" style="display: none;">Wed Oct 20 2021 21:28:24 GMT+0800 (中国标准时间)</div>
             <div id="last-update-show">2021-10-20 日</div>
           
         </div>
@@ -1012,7 +1056,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <script>
   window.pdata={}
   pdata.ispage=true;
-  pdata.postTitle="模板的使用";
+  pdata.postTitle="Go-Template";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要
