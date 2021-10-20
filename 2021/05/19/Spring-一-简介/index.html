@@ -559,7 +559,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               
-                <p>本文链接🔗：<a href=http://xucoud.github.io.git/2021/05/19/Spring-%E4%B8%80-%E7%AE%80%E4%BB%8B/>http://xucoud.github.io.git/2021/05/19/Spring-%E4%B8%80-%E7%AE%80%E4%BB%8B/</a></p>
+                <p>本文链接🔗：<a href=http://xucoud.github.io/2021/05/19/Spring-%E4%B8%80-%E7%AE%80%E4%BB%8B/>http://xucoud.github.io/2021/05/19/Spring-%E4%B8%80-%E7%AE%80%E4%BB%8B/</a></p>
               
             
           </blockquote>
@@ -813,7 +813,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Wed Oct 20 2021 16:26:04 GMT+0800 (中国标准时间)</div>
+            <div id="last-update" style="display: none;">Wed Oct 20 2021 16:32:34 GMT+0800 (中国标准时间)</div>
             <div id="last-update-show">2021-10-20 日</div>
           
         </div>
@@ -2281,7 +2281,7 @@ function setSearchService() {
       // 请求 PV 并自增
       var pvCtn = document.querySelector('#lc-sv');
       if (pvCtn || enableIncr) {
-        var pvGetter = this.getRecord(Counter, 'http://xucoud.github.io.git' + '/#lc-sv', 'Visits').then((record) => {
+        var pvGetter = this.getRecord(Counter, 'http://xucoud.github.io' + '/#lc-sv', 'Visits').then((record) => {
           incrArr.push(this.buildIncrement(record.objectId))
           var eles = document.querySelectorAll('#lc-sv #number');
           if (eles.length > 0) {
@@ -2299,7 +2299,7 @@ function setSearchService() {
       // 请求 UV 并自增
       var uvCtn = document.querySelector('#lc-uv');
       if (uvCtn || enableIncr) {
-        var uvGetter = this.getRecord(Counter, 'http://xucoud.github.io.git' + '/#lc-uv', 'Visitors').then((record) => {
+        var uvGetter = this.getRecord(Counter, 'http://xucoud.github.io' + '/#lc-uv', 'Visitors').then((record) => {
           var vuv = this.validUV();
           vuv && incrArr.push(this.buildIncrement(record.objectId))
           var eles = document.querySelectorAll('#lc-uv #number');
@@ -2321,7 +2321,7 @@ function setSearchService() {
         for (i = 0; i < allPV.length; i++) {
           let pv = allPV[i];
           let title = pv.getAttribute('data-title');
-          var url = 'http://xucoud.github.io.git' + pv.getAttribute('data-path');
+          var url = 'http://xucoud.github.io' + pv.getAttribute('data-path');
           if (url) {
             var viewGetter = this.getRecord(Counter, url, title).then((record) => {
               // 是当前页面就自增
