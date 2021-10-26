@@ -12,8 +12,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -31,9 +29,13 @@
 
   <!-- 页面元数据 -->
   
-  <title>Category: go module - Xu&#39;s Blog</title>
+  <title>GORM - Xu&#39;s Blog</title>
+  
+    <meta name="keywords" content="Go,GORM">
   
 
+  
+    <meta name="description" content="GORM框架在Go中的简单运用">
   
 
   <!-- feed -->
@@ -366,7 +368,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper  search' style="display: none;">
+        <div id="full" class='cover-wrapper post search' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.jpg"></div>
           
@@ -456,77 +458,387 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper" id="pjax-container">
           
 
-
 <div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
+
+
+  
+  <div class="article-meta" id="top">
     
-      
-  <section class="post-list">
     
-      
+    
+      <h1 class="title">
+        GORM
+      </h1>
+      <div class='new-meta-box'>
         
           
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/about" rel="nofollow">
+    <img no-lazy src="/img/avater.jpg">
+    <p>xwj</p>
+  </a>
+</div>
+
+          
         
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2021/10/20/Go-Moudle/">
-        Go Module
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>go中module的使用方法以及基本介绍</p>
-    
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/Go/">Go</a><span class="sep"></span><a class="category-link" href="/categories/Go/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+    </a>
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
+
+
+          
         
           
-          <a class='avatar' href='/about'><img src='/img/avater.jpg'></a>
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Oct 26, 2021</p>
+  </a>
+</div>
+
+          
         
-        <time>2021-10-20</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/go-module/">go module</a>
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="GORM" data-path="/2021/10/26/GORM/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
         
       </div>
+    
+  </div>
+
+
+  
+  
+  <p>GORM框架在Go中的简单运用</p>
+<span id="more"></span>
+
+<p>​        在实际的开发过程中，经常会需要对数据库进行操作。在Go语言中，它自带了一个<code>database/sql</code>的标准库，结合数据库的驱动包，我们就可以对数据库进行操作了。不过，他们都属相对偏底层的软件包，需要自己手动写<code>sql</code>语句。在实际的开发过程中，我们通常会使用一些在此基础上封装好的<code>ORM</code>库，在这里我们会简单介绍一下<code>GORM</code>在Go程序中的使用方法。</p>
+<h2 id="安装GORM包"><a href="#安装GORM包" class="headerlink" title="安装GORM包"></a>安装GORM包</h2><p><code>gorm</code> 是一个出色的，对开发人员友好的 <code>Golang ORM</code> 库，其支持的特性包括：</p>
+<ul>
+<li><p>全特性 ORM (几乎包含所有特性)</p>
+</li>
+<li><p>模型关联 (一对一， 一对多，一对多（反向）， 多对多， 多态关联)</p>
+</li>
+<li><p>钩子 (Before/After Create/Save/Update/Delete/Find)</p>
+</li>
+<li><p>预加载</p>
+</li>
+<li><p>事务</p>
+</li>
+<li><p>复合主键</p>
+</li>
+<li><p>SQL 构造器</p>
+</li>
+<li><p>自动迁移</p>
+</li>
+<li><p>日志</p>
+</li>
+</ul>
+<p>使用如下命令进行安装：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> get -u github.com/jinzhu/gorm</span><br></pre></td></tr></table></figure>
+
+<h2 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h2><p>连接不同的数据库都需要导入对应数据的驱动程序，<code>GORM</code>已经贴心的为我们包装了一些驱动程序，只需要导入需要的数据库驱动即可。</p>
+<h3 id="连接MySQL"><a href="#连接MySQL" class="headerlink" title="连接MySQL"></a>连接MySQL</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> (</span><br><span class="line">  <span class="string">&quot;github.com/jinzhu/gorm&quot;</span></span><br><span class="line">  _ <span class="string">&quot;github.com/jinzhu/gorm/dialects/mysql&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  db, err := gorm.Open(<span class="string">&quot;mysql&quot;</span>, <span class="string">&quot;user:password@(localhost)/dbname?charset=utf8mb4&amp;parseTime=True&amp;loc=Local&quot;</span>)</span><br><span class="line">  <span class="keyword">defer</span> db.Close()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="连接PostgreSQL"><a href="#连接PostgreSQL" class="headerlink" title="连接PostgreSQL"></a>连接PostgreSQL</h3><p>基本代码同上，注意引入对应<code>postgres</code>驱动并正确指定<code>gorm.Open()</code>参数。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> (</span><br><span class="line">  <span class="string">&quot;github.com/jinzhu/gorm&quot;</span></span><br><span class="line">  _ <span class="string">&quot;github.com/jinzhu/gorm/dialects/postgres&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  db, err := gorm.Open(<span class="string">&quot;postgres&quot;</span>, <span class="string">&quot;host=myhost port=myport user=gorm dbname=gorm password=mypassword&quot;</span>)</span><br><span class="line">  <span class="keyword">defer</span> db.Close()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="连接Sqlite3"><a href="#连接Sqlite3" class="headerlink" title="连接Sqlite3"></a>连接Sqlite3</h3><p>基本代码同上，注意引入对应<code>sqlite</code>驱动并正确指定<code>gorm.Open()</code>参数。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> (</span><br><span class="line">  <span class="string">&quot;github.com/jinzhu/gorm&quot;</span></span><br><span class="line">  _ <span class="string">&quot;github.com/jinzhu/gorm/dialects/sqlite&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  db, err := gorm.Open(<span class="string">&quot;sqlite3&quot;</span>, <span class="string">&quot;/tmp/gorm.db&quot;</span>)</span><br><span class="line">  <span class="keyword">defer</span> db.Close()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="连接SQL-Server"><a href="#连接SQL-Server" class="headerlink" title="连接SQL Server"></a>连接SQL Server</h3><p>基本代码同上，注意引入对应<code>mssql</code>驱动并正确指定<code>gorm.Open()</code>参数。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> (</span><br><span class="line">  <span class="string">&quot;github.com/jinzhu/gorm&quot;</span></span><br><span class="line">  _ <span class="string">&quot;github.com/jinzhu/gorm/dialects/mssql&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  db, err := gorm.Open(<span class="string">&quot;mssql&quot;</span>, <span class="string">&quot;sqlserver://username:password@localhost:1433?database=dbname&quot;</span>)</span><br><span class="line">  <span class="keyword">defer</span> db.Close()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="GORM-Model"><a href="#GORM-Model" class="headerlink" title="GORM Model"></a>GORM Model</h2><p>​        在使用ORM工具时，通常我们需要在代码中定义模型（Models）与数据库中的数据表进行映射，在GORM中模型（Models）通常是正常定义的结构体、基本的go类型或它们的指针。 同时也支持<code>sql.Scanner</code>及<code>driver.Valuer</code>接口（interfaces）。</p>
+<h3 id="模型定义"><a href="#模型定义" class="headerlink" title="模型定义"></a>模型定义</h3><p>​        模型是标准的 <code>struct</code>，由 <code>Go</code> 的基本数据类型、实现了<code>Scanner</code>和 <code>Valuer</code>接口的自定义类型及其指针或别名组成。</p>
+<p>​        为了方便模型定义，<code>GORM</code>内置了一个<code>gorm.Model</code>结构体。<code>gorm.Model</code>是一个包含了<code>ID</code>, <code>CreatedAt</code>, <code>UpdatedAt</code>, <code>DeletedAt</code>四个字段的<code>Golang</code>结构体。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// gorm.Model 定义</span></span><br><span class="line"><span class="keyword">type</span> Model <span class="keyword">struct</span> &#123;</span><br><span class="line">	ID        <span class="keyword">uint</span> <span class="string">`gorm:&quot;primary_key&quot;`</span></span><br><span class="line">	CreatedAt time.Time</span><br><span class="line">	UpdatedAt time.Time</span><br><span class="line">	DeletedAt *time.Time <span class="string">`sql:&quot;index&quot;`</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>你可以将它嵌入到你自己的模型中：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 将 `ID`, `CreatedAt`, `UpdatedAt`, `DeletedAt`字段注入到`User`模型中</span></span><br><span class="line"><span class="keyword">type</span> User <span class="keyword">struct</span> &#123;</span><br><span class="line">  gorm.Model</span><br><span class="line">  Name <span class="keyword">string</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>相当于：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> User <span class="keyword">struct</span> &#123;</span><br><span class="line">  ID        <span class="keyword">uint</span> <span class="string">`gorm:&quot;primary_key&quot;`</span></span><br><span class="line">  CreatedAt time.Time</span><br><span class="line">  UpdatedAt time.Time</span><br><span class="line">  DeletedAt *time.Time <span class="string">`sql:&quot;index&quot;`</span></span><br><span class="line">  Name      <span class="keyword">string</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当然你也可以完全自己定义模型：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 不使用gorm.Model，自行定义模型</span></span><br><span class="line"><span class="keyword">type</span> User <span class="keyword">struct</span> &#123;</span><br><span class="line">  ID   <span class="keyword">int</span></span><br><span class="line">  Name <span class="keyword">string</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> User <span class="keyword">struct</span> &#123;</span><br><span class="line">  gorm.Model</span><br><span class="line">  Name         <span class="keyword">string</span></span><br><span class="line">  Age          sql.NullInt64</span><br><span class="line">  Birthday     *time.Time</span><br><span class="line">  Email        <span class="keyword">string</span>  <span class="string">`gorm:&quot;type:varchar(100);unique_index&quot;`</span></span><br><span class="line">  Role         <span class="keyword">string</span>  <span class="string">`gorm:&quot;size:255&quot;`</span> <span class="comment">// 设置字段大小为255</span></span><br><span class="line">  MemberNumber *<span class="keyword">string</span> <span class="string">`gorm:&quot;unique;not null&quot;`</span> <span class="comment">// 设置会员号（member number）唯一并且不为空</span></span><br><span class="line">  Num          <span class="keyword">int</span>     <span class="string">`gorm:&quot;AUTO_INCREMENT&quot;`</span> <span class="comment">// 设置 num 为自增类型</span></span><br><span class="line">  Address      <span class="keyword">string</span>  <span class="string">`gorm:&quot;index:addr&quot;`</span> <span class="comment">// 给address字段创建名为addr的索引</span></span><br><span class="line">  IgnoreMe     <span class="keyword">int</span>     <span class="string">`gorm:&quot;-&quot;`</span> <span class="comment">// 忽略本字段</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="结构体标记（tags）"><a href="#结构体标记（tags）" class="headerlink" title="结构体标记（tags）"></a>结构体标记（tags）</h3><p>使用结构体声明模型时，标记（tags）是可选项。<code>gorm</code>支持以下标记:</p>
+<h4 id="支持的结构体标记（Struct-tags）"><a href="#支持的结构体标记（Struct-tags）" class="headerlink" title="支持的结构体标记（Struct tags）"></a>支持的结构体标记（Struct tags）</h4><table>
+<thead>
+<tr>
+<th align="center">结构体标记（Tag）</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Column</td>
+<td align="center">指定列名</td>
+</tr>
+<tr>
+<td align="center">Type</td>
+<td align="center">指定列数据类型</td>
+</tr>
+<tr>
+<td align="center">Size</td>
+<td align="center">指定列大小, 默认值255</td>
+</tr>
+<tr>
+<td align="center">PRIMARY_KEY</td>
+<td align="center">将列指定为主键</td>
+</tr>
+<tr>
+<td align="center">UNIQUE</td>
+<td align="center">将列指定为唯一</td>
+</tr>
+<tr>
+<td align="center">DEFAULT</td>
+<td align="center">指定列默认值</td>
+</tr>
+<tr>
+<td align="center">PRECISION</td>
+<td align="center">指定列精度</td>
+</tr>
+<tr>
+<td align="center">NOT NULL</td>
+<td align="center">将列指定为非 NULL</td>
+</tr>
+<tr>
+<td align="center">AUTO_INCREMENT</td>
+<td align="center">指定列是否为自增类型</td>
+</tr>
+<tr>
+<td align="center">INDEX</td>
+<td align="center">创建具有或不带名称的索引, 如果多个索引同名则创建复合索引</td>
+</tr>
+<tr>
+<td align="center">UNIQUE_INDEX</td>
+<td align="center">和 <code>INDEX</code> 类似，只不过创建的是唯一索引</td>
+</tr>
+<tr>
+<td align="center">EMBEDDED</td>
+<td align="center">将结构设置为嵌入</td>
+</tr>
+<tr>
+<td align="center">EMBEDDED_PREFIX</td>
+<td align="center">设置嵌入结构的前缀</td>
+</tr>
+<tr>
+<td align="center">-</td>
+<td align="center">忽略此字段</td>
+</tr>
+</tbody></table>
+<h4 id="关联相关标记（tags）"><a href="#关联相关标记（tags）" class="headerlink" title="关联相关标记（tags）"></a>关联相关标记（tags）</h4><table>
+<thead>
+<tr>
+<th align="center">结构体标记（Tag）</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">MANY2MANY</td>
+<td align="center">指定连接表</td>
+</tr>
+<tr>
+<td align="center">FOREIGNKEY</td>
+<td align="center">设置外键</td>
+</tr>
+<tr>
+<td align="center">ASSOCIATION_FOREIGNKEY</td>
+<td align="center">设置关联外键</td>
+</tr>
+<tr>
+<td align="center">POLYMORPHIC</td>
+<td align="center">指定多态类型</td>
+</tr>
+<tr>
+<td align="center">POLYMORPHIC_VALUE</td>
+<td align="center">指定多态值</td>
+</tr>
+<tr>
+<td align="center">JOINTABLE_FOREIGNKEY</td>
+<td align="center">指定连接表的外键</td>
+</tr>
+<tr>
+<td align="center">ASSOCIATION_JOINTABLE_FOREIGNKEY</td>
+<td align="center">指定连接表的关联外键</td>
+</tr>
+<tr>
+<td align="center">SAVE_ASSOCIATIONS</td>
+<td align="center">是否自动完成 save 的相关操作</td>
+</tr>
+<tr>
+<td align="center">ASSOCIATION_AUTOUPDATE</td>
+<td align="center">是否自动完成 update 的相关操作</td>
+</tr>
+<tr>
+<td align="center">ASSOCIATION_AUTOCREATE</td>
+<td align="center">是否自动完成 create 的相关操作</td>
+</tr>
+<tr>
+<td align="center">ASSOCIATION_SAVE_REFERENCE</td>
+<td align="center">是否自动完成引用的 save 的相关操作</td>
+</tr>
+<tr>
+<td align="center">PRELOAD</td>
+<td align="center">是否自动完成预加载的相关操作</td>
+</tr>
+</tbody></table>
+<h3 id="权限控制"><a href="#权限控制" class="headerlink" title="权限控制"></a>权限控制</h3><p>​        可导出的字段在使用 <code>GORM</code> 进行 <code>CRUD</code> 时拥有全部的权限，此外，<code>GORM</code> 允许您用标签控制字段级别的权限。这样您就可以让一个字段的权限是只读、只写、只创建、只更新或者被忽略。</p>
+<blockquote>
+<p><strong>注意：</strong> 使用 GORM Migrator 创建表时，不会创建被忽略的字段</p>
+</blockquote>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> User <span class="keyword">struct</span> &#123;</span><br><span class="line">  Name <span class="keyword">string</span> <span class="string">`gorm:&quot;&lt;-:create&quot;`</span> <span class="comment">// 允许读和创建</span></span><br><span class="line">  Name <span class="keyword">string</span> <span class="string">`gorm:&quot;&lt;-:update&quot;`</span> <span class="comment">// 允许读和更新</span></span><br><span class="line">  Name <span class="keyword">string</span> <span class="string">`gorm:&quot;&lt;-&quot;`</span>        <span class="comment">// 允许读和写（创建和更新）</span></span><br><span class="line">  Name <span class="keyword">string</span> <span class="string">`gorm:&quot;&lt;-:false&quot;`</span>  <span class="comment">// 允许读，禁止写</span></span><br><span class="line">  Name <span class="keyword">string</span> <span class="string">`gorm:&quot;-&gt;&quot;`</span>        <span class="comment">// 只读（除非有自定义配置，否则禁止写）</span></span><br><span class="line">  Name <span class="keyword">string</span> <span class="string">`gorm:&quot;-&gt;;&lt;-:create&quot;`</span> <span class="comment">// 允许读和写</span></span><br><span class="line">  Name <span class="keyword">string</span> <span class="string">`gorm:&quot;-&gt;:false;&lt;-:create&quot;`</span> <span class="comment">// 仅创建（禁止从 db 读）</span></span><br><span class="line">  Name <span class="keyword">string</span> <span class="string">`gorm:&quot;-&quot;`</span>         <span class="comment">// 通过 struct 读写会忽略该字段</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建-更新时间追踪（纳秒、毫秒、秒、Time）"><a href="#创建-更新时间追踪（纳秒、毫秒、秒、Time）" class="headerlink" title="创建/更新时间追踪（纳秒、毫秒、秒、Time）"></a>创建/更新时间追踪（纳秒、毫秒、秒、Time）</h3><p>​        <code>GORM</code> 约定使用 <code>CreatedAt</code>、<code>UpdatedAt</code> 追踪创建/更新时间。如果您定义了这种字段，<code>GORM</code> 在创建、更新时会自动填充当前时间。</p>
+<p>​        要使用不同名称的字段，您可以配置 <code>autoCreateTime</code>、<code>autoUpdateTime</code> 标签。</p>
+<p>​        如果您想要保存 UNIX（毫/纳）秒时间戳，而不是 time，您只需简单地将 <code>time.Time</code> 修改为 <code>int</code> 即可。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> User <span class="keyword">struct</span> &#123;</span><br><span class="line">  CreatedAt time.Time <span class="comment">// 在创建时，如果该字段值为零值，则使用当前时间填充</span></span><br><span class="line">  UpdatedAt <span class="keyword">int</span>       <span class="comment">// 在创建时该字段值为零值或者在更新时，使用当前时间戳秒数填充</span></span><br><span class="line">  Updated   <span class="keyword">int64</span> <span class="string">`gorm:&quot;autoUpdateTime:nano&quot;`</span> <span class="comment">// 使用时间戳填纳秒数充更新时间</span></span><br><span class="line">  Updated   <span class="keyword">int64</span> <span class="string">`gorm:&quot;autoUpdateTime:milli&quot;`</span> <span class="comment">// 使用时间戳毫秒数填充更新时间</span></span><br><span class="line">  Created   <span class="keyword">int64</span> <span class="string">`gorm:&quot;autoCreateTime&quot;`</span>      <span class="comment">// 使用时间戳秒数填充创建时间</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="嵌入结构体"><a href="#嵌入结构体" class="headerlink" title="嵌入结构体"></a>嵌入结构体</h3><p>对于匿名字段，GORM 会将其字段包含在父结构体中，例如：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> User <span class="keyword">struct</span> &#123;</span><br><span class="line">  gorm.Model</span><br><span class="line">  Name <span class="keyword">string</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 等效于</span></span><br><span class="line"><span class="keyword">type</span> User <span class="keyword">struct</span> &#123;</span><br><span class="line">  ID        <span class="keyword">uint</span>           <span class="string">`gorm:&quot;primaryKey&quot;`</span></span><br><span class="line">  CreatedAt time.Time</span><br><span class="line">  UpdatedAt time.Time</span><br><span class="line">  DeletedAt gorm.DeletedAt <span class="string">`gorm:&quot;index&quot;`</span></span><br><span class="line">  Name <span class="keyword">string</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对于正常的结构体字段，你也可以通过标签 <code>embedded</code> 将其嵌入，例如：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Author <span class="keyword">struct</span> &#123;</span><br><span class="line">    Name  <span class="keyword">string</span></span><br><span class="line">    Email <span class="keyword">string</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Blog <span class="keyword">struct</span> &#123;</span><br><span class="line">  ID      <span class="keyword">int</span></span><br><span class="line">  Author  Author <span class="string">`gorm:&quot;embedded&quot;`</span></span><br><span class="line">  Upvotes <span class="keyword">int32</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 等效于</span></span><br><span class="line"><span class="keyword">type</span> Blog <span class="keyword">struct</span> &#123;</span><br><span class="line">  ID    <span class="keyword">int64</span></span><br><span class="line">  Name  <span class="keyword">string</span></span><br><span class="line">  Email <span class="keyword">string</span></span><br><span class="line">  Upvotes  <span class="keyword">int32</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>并且，您可以使用标签 <code>embeddedPrefix</code> 来为 <code>db</code> 中的字段名添加前缀，例如：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Blog <span class="keyword">struct</span> &#123;</span><br><span class="line">  ID      <span class="keyword">int</span></span><br><span class="line">  Author  Author <span class="string">`gorm:&quot;embedded;embeddedPrefix:author_&quot;`</span></span><br><span class="line">  Upvotes <span class="keyword">int32</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 等效于</span></span><br><span class="line"><span class="keyword">type</span> Blog <span class="keyword">struct</span> &#123;</span><br><span class="line">  ID          <span class="keyword">int64</span></span><br><span class="line">    AuthorName  <span class="keyword">string</span></span><br><span class="line">    AuthorEmail <span class="keyword">string</span></span><br><span class="line">  Upvotes     <span class="keyword">int32</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建数据表"><a href="#创建数据表" class="headerlink" title="创建数据表"></a>创建数据表</h2>
+  
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/2021/10/20/Go-Moudle/'>
-            阅读更多
-          </a>
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>本文作者👨‍💻：Xwj</p>
+
+              
+            
+              
+                <p>版权声明📃：博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文链接🔗：<a href=http://xucoud.github.io/2021/10/26/GORM/>http://xucoud.github.io/2021/10/26/GORM/</a></p>
+              
+            
+          </blockquote>
         </div>
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-10-26T23:37:09+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Oct 26, 2021</p>
+  </a>
 </div>
 
-          </div>
         
       
-    
-  </section>
+        
+          
   
-    
-  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Go/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Go</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/GORM/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>GORM</p></a></div>
 
 
-    
+        
+      
+        
+      
+    </div>
+  </div>
+
+
   
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/2021/10/21/Go%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E5%99%A8/'>
+          <p class='title'>Go内存分配器<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>Go 语言内存分配器的实现原理的简单理解
+
+
+​        程序中的数据和变量都会被分配到程序所在的虚拟内存中，内存中包含两个最重要的区域——栈区（Stack）和堆区（Heap）。函数调用的...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <!-- <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div> -->
+
+
+     <div id="valine_container" class="valine_thread">
+       <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+     </div>
+	 <!-- valine 添加一言 -->
+	<script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+       <script type="text/javascript">
+              jinrishici.load(function(result) {
+            var jrsc_plac =  result.data.content + "\n「" + result.data.origin.title + "」" + result.data.origin.dynasty + " · " + result.data.origin.author
+             document.getElementById("veditor").setAttribute("placeholder",jrsc_plac);
+            });
+     </script>
+
+
+
+  </article>
+
+
+
+
+
+
 </div>
 <aside class='l_side'>
   
@@ -534,59 +846,22 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
 
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
-      
-        <a class='avatar flat-box circle' href='/about/'>
-          <img no-lazy src='/img/avater.jpg'/>
-        </a>
-      
+  <header>
     
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">Xu's Blog</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=281658285&amp;site=qq&amp;menu=yes"
-              class="social fab fa-qq flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/volantis-x/"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85GORM%E5%8C%85"><span class="toc-text">安装GORM包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-text">连接数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5MySQL"><span class="toc-text">连接MySQL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5PostgreSQL"><span class="toc-text">连接PostgreSQL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5Sqlite3"><span class="toc-text">连接Sqlite3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5SQL-Server"><span class="toc-text">连接SQL Server</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GORM-Model"><span class="toc-text">GORM Model</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E5%AE%9A%E4%B9%89"><span class="toc-text">模型定义</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90"><span class="toc-text">例子</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93%E6%A0%87%E8%AE%B0%EF%BC%88tags%EF%BC%89"><span class="toc-text">结构体标记（tags）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%94%AF%E6%8C%81%E7%9A%84%E7%BB%93%E6%9E%84%E4%BD%93%E6%A0%87%E8%AE%B0%EF%BC%88Struct-tags%EF%BC%89"><span class="toc-text">支持的结构体标记（Struct tags）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E8%81%94%E7%9B%B8%E5%85%B3%E6%A0%87%E8%AE%B0%EF%BC%88tags%EF%BC%89"><span class="toc-text">关联相关标记（tags）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6"><span class="toc-text">权限控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA-%E6%9B%B4%E6%96%B0%E6%97%B6%E9%97%B4%E8%BF%BD%E8%B8%AA%EF%BC%88%E7%BA%B3%E7%A7%92%E3%80%81%E6%AF%AB%E7%A7%92%E3%80%81%E7%A7%92%E3%80%81Time%EF%BC%89"><span class="toc-text">创建&#x2F;更新时间追踪（纳秒、毫秒、秒、Time）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B5%8C%E5%85%A5%E7%BB%93%E6%9E%84%E4%BD%93"><span class="toc-text">嵌入结构体</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E8%A1%A8"><span class="toc-text">创建数据表</span></a></li></ol>
+    </div>
+  </section>
+
 
   
 
@@ -693,8 +968,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     </div>
   </section>
 
-
-  
 
   
 
@@ -825,14 +1098,15 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </aside>
 
 
+
 		  
 		  <!--此文件用来存放一些不方便取值的变量-->
 <!--思路大概是将值藏到重加载的区域内-->
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="GORM";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要
