@@ -29,13 +29,11 @@
 
   <!-- 页面元数据 -->
   
-  <title>Spring(八) JavaConfig开发 - Xu&#39;s Blog</title>
+  <title>java期末 - Xu&#39;s Blog</title>
   
-    <meta name="keywords" content="Spring">
+    <meta name="keywords" content="期末">
   
 
-  
-    <meta name="description" content="  JavaConfig开发">
   
 
   <!-- feed -->
@@ -469,7 +467,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title">
-        Spring(八) JavaConfig开发
+        java期末
       </h1>
       <div class='new-meta-box'>
         
@@ -489,7 +487,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class='new-meta-item category'>
     <a class='notlink'>
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <a class="category-link" href="/categories/Spring/">Spring</a>
+      <a class="category-link" href="/categories/%E6%9C%9F%E6%9C%AB/">期末</a>
     </a>
   </div>
 
@@ -500,7 +498,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：May 26, 2021</p>
+    <p>发布于：Dec 29, 2021</p>
   </a>
 </div>
 
@@ -511,7 +509,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item browse leancloud">
     <a class='notlink'>
       
-      <div id="lc-pv" data-title="Spring(八) JavaConfig开发" data-path="/2021/05/26/Spring-%E5%85%AB-JavaConfig%E5%BC%80%E5%8F%91/">
+      <div id="lc-pv" data-title="java期末" data-path="/2021/12/29/Java%E6%9C%9F%E6%9C%AB/">
         <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
         <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
         次浏览
@@ -529,21 +527,395 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   
   
-  <p>  JavaConfig开发</p>
-<span id="more"></span>
+  <span id="more"></span>
 
-<p>完全不使用Spring的xml配置了，全权交给Java来做！</p>
-<p>JavaConfig是Spring的一个子项目，在Spring 4 之后，它就成为了核心功能。</p>
-<p>实体类：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//声明这个类已经被装配，被Spring接管了</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//属性注入值</span></span><br><span class="line">    <span class="meta">@Value(&quot;xwj&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;User&#123;&quot;</span> +</span><br><span class="line">                <span class="string">&quot;name=&#x27;&quot;</span> + name + <span class="string">&#x27;\&#x27;&#x27;</span> +</span><br><span class="line">                <span class="string">&#x27;&#125;&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Java的特性"><a href="#Java的特性" class="headerlink" title="Java的特性"></a>Java的特性</h2><h3 id="简单性"><a href="#简单性" class="headerlink" title="简单性"></a>简单性</h3><p>Java看起来设计得很像<a href="https://link.zhihu.com/?target=https://baike.baidu.com/item/C++">C++</a>，但是为了使语言小和容易熟悉，设计者们把C++语言中许多可用的特征去掉了，这些特征是一般程序员很少使用的。例如，Java不支持go to语句，代之以提供<a href="https://link.zhihu.com/?target=https://baike.baidu.com/item/break/405784">break</a>和<a href="https://link.zhihu.com/?target=https://baike.baidu.com/item/continue/3009735">continue</a>语句以及异常处理。Java还剔除了C++的操作符过载（<a href="https://link.zhihu.com/?target=https://baike.baidu.com/item/overload">overload</a>）和多继承特征，并且不使用主文件，免去了预处理程序。因为Java没有结构，数组和串都是对象，所以不需要指针。Java能够自动处理对象的引用和间接引用，实现自动的无用单元收集，使用户不必为存储管理问题烦恼，能更多的时间和精力花在研发上。</p>
+<h3 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h3><p>Java是一个面向对象的语言。对程序员来说，这意味着要注意应中的数据和操纵数据的方法（method），而不是严格地用过程来思考。在一个面向对象的系统中，类（<a href="https://link.zhihu.com/?target=https://baike.baidu.com/item/class/12502737">class</a>）是数据和操作数据的方法的集合。数据和方法一起描述对象（object）的状态和行为。每一对象是其状态和行为的封装。类是按一定体系和层次安排的，使得子类可以从超类继承行为。在这个类层次体系中有一个根类，它是具有一般行为的类。Java程序是用类来组织的。</p>
+<p>Java还包括一个类的扩展集合，分别组成各种程序包（<a href="https://link.zhihu.com/?target=https://baike.baidu.com/item/Package">Package</a>），用户可以在自己的程序中使用。例如，Java提供产生图形用户接口部件的类（<a href="https://link.zhihu.com/?target=https://baike.baidu.com/item/java.awt">java.awt</a>包），这里awt是抽象窗口工具集（abstract windowing toolkit）的缩写，处理输入输出的类（<a href="https://link.zhihu.com/?target=https://baike.baidu.com/item/java.io">java.io</a>包）和支持网络功能的类（<a href="https://link.zhihu.com/?target=https://baike.baidu.com/item/java.net">java.net</a>包）。</p>
+<h3 id="分布性"><a href="#分布性" class="headerlink" title="分布性"></a>分布性</h3><p>Java设计成支持在网络上应用，它是分布式语言。Java既支持各种层次的网络连接，又以Socket类支持可靠的流（<a href="https://link.zhihu.com/?target=https://baike.baidu.com/item/stream">stream</a>）网络连接，所以用户可以产生分布式的客户机和服务器。</p>
+<p>网络变成软件应用的分布运载工具。Java程序只要编写一次，就可到处运行。</p>
+<h3 id="编译和解释性"><a href="#编译和解释性" class="headerlink" title="编译和解释性"></a>编译和解释性</h3><p>Java编译程序生成字节码（byte-code），而不是通常的机器码。Java字节码提供对体系结构中性的目标文件格式，代码设计成可有效地传送程序到多个平台。Java程序可以在任何实现了Java解释程序和运行系统（run-time system）的系统上运行。</p>
+<p>在一个解释性的环境中，程序开发的标准“链接”阶段大大消失了。如果说Java还有一个链接阶段，它只是把新类装进环境的过程，它是增量式的、<a href="https://link.zhihu.com/?target=https://baike.baidu.com/item/%E8%BD%BB%E9%87%8F%E7%BA%A7/10002835">轻量级</a>的过程。因此，Java支持快速原型和容易试验，它将导致快速程序开发。这是一个与传统的、耗时的“编译、链接和测试”形成鲜明对比的精巧的开发过程。</p>
+<h3 id="稳健性"><a href="#稳健性" class="headerlink" title="稳健性"></a>稳健性</h3><p>Java原来是用作编写消费类家用电子产品软件的语言，所以它是被设计成写高可靠和稳健软件的。Java消除了某些编程错误，使得用它写可靠软件相当容易。</p>
+<p>Java是一个强类型语言，它允许扩展编译时检查潜在类型不匹配问题的功能。Java要求显式的方法声明，它不支持C风格的<a href="https://link.zhihu.com/?target=https://baike.baidu.com/item/%E9%9A%90%E5%BC%8F%E5%A3%B0%E6%98%8E">隐式声明</a>。这些严格的要求保证编译程序能捕捉调用错误，这就导致更可靠的程序。</p>
+<p>可靠性方面最重要的增强之一是Java的存储模型。Java不支持指针，它消除重写存储和<a href="https://link.zhihu.com/?target=https://baike.baidu.com/item/%E8%AE%B9%E8%AF%AF">讹误</a>数据的可能性。类似地，Java自动的“无用单元收集”预防存储漏泄和其它有关动态存储分配和解除分配的有害错误。Java解释程序也执行许多运行时的检查，诸如验证所有数组和串访问是否在界限之内。</p>
+<p>异常处理是Java中使得程序更稳健的另一个特征。异常是某种类似于错误的异常条件出现的信号。使用try/catch/finally语句，程序员可以找到出错的处理代码，这就简化了出错处理和恢复的任务。</p>
+<h3 id="安全性"><a href="#安全性" class="headerlink" title="安全性"></a>安全性</h3><p>Java的存储分配模型是它防御<a href="https://link.zhihu.com/?target=https://baike.baidu.com/item/%E6%81%B6%E6%84%8F%E4%BB%A3%E7%A0%81">恶意代码</a>的主要方法之一。Java没有指针，所以程序员不能得到隐蔽起来的内幕和伪造指针去指向<a href="https://link.zhihu.com/?target=https://baike.baidu.com/item/%E5%AD%98%E5%82%A8%E5%99%A8">存储器</a>。更重要的是，Java编译程序不处理存储安排决策，所以程序员不能通过查看<a href="https://link.zhihu.com/?target=https://baike.baidu.com/item/%E5%A3%B0%E6%98%8E/13130358">声明</a>去猜测类的实际存储安排。编译的Java代码中的存储引用在运行时由Java解释程序决定实际存储地址。</p>
+<p>Java运行系统使用字节码验证过程来保证装载到网络上的代码不违背任何Java语言限制。这个安全机制部分包括类如何从网上装载。例如，装载的类是放在分开的名字空间而不是局部类，预防恶意的小应用程序用它自己的版本来代替标准Java类。</p>
+<h3 id="可移植性"><a href="#可移植性" class="headerlink" title="可移植性"></a>可移植性</h3><p>Java使得语言声明不依赖于实现的方面。例如，Java显式说明每个基本数据类型的大小和它的运算行为（这些数据类型由Java语法描述）。</p>
+<p>Java环境本身对新的硬件平台和操作系统是可移植的。Java编译程序也用Java编写，而Java运行系统用ANSIC语言编写。</p>
+<h3 id="高性能"><a href="#高性能" class="headerlink" title="高性能"></a>高性能</h3><p>Java是一种先编译后解释的语言，所以它不如全编译性语言快。但是有些情况下性能是很要紧的，为了支持这些情况，Java设计者制作了“及时”编译程序，它能在运行时把Java字节码翻译成特定<a href="https://link.zhihu.com/?target=https://baike.baidu.com/item/CPU">CPU</a>（中央处理器）的机器代码，也就是实现全编译了。</p>
+<p>Java字节码格式设计时考虑到这些“及时”编译程序的需要，所以生成机器代码的过程相当简单，它能产生相当好的代码。</p>
+<h3 id="多线索性"><a href="#多线索性" class="headerlink" title="多线索性"></a>多线索性</h3><p>Java是多线索语言，它提供支持多线索的执行（也称为轻便过程），能处理不同任务，使具有线索的程序设计很容易。Java的lang包提供一个<a href="https://link.zhihu.com/?target=https://baike.baidu.com/item/Thread/5156974">Thread</a>类，它支持开始线索、运行线索、停止线索和检查线索状态的方法。</p>
+<p>Java的线索支持也包括一组同步原语。这些原语是基于监督程序和条件变量风范，由C.A.R.Haore开发的广泛使用的同步化方案。用关键词<a href="https://link.zhihu.com/?target=https://baike.baidu.com/item/synchronized">synchronized</a>，程序员可以说明某些方法在一个类中不能并发地运行。这些方法在监督程序控制之下，确保变量维持在一个一致的状态。</p>
+<h3 id="动态性"><a href="#动态性" class="headerlink" title="动态性"></a>动态性</h3><p>Java语言设计成适应于变化的环境，它是一个动态的语言。例如，Java中的类是根据需要载入的，甚至有些是通过网络获取的。</p>
+<h2 id="运行机制"><a href="#运行机制" class="headerlink" title="运行机制"></a>运行机制</h2><h3 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h3><p>JVM(Java Virtual Machine)是Java虚拟机，JVM负责解释执行字节码文件。使用Java编译器编译生成的与平台无关的字节码文件，这些字节码文件不面向任何具体的平台，只面向JVM。不同平台上的JVM都是不同的，但它们都提供了相同的接口，只要为不同平台实现了相应的虚拟机，编译后的Java字节码就可以在该平台上运行。JVM像是一个中间转换器，将生成的字节码文件在虚拟机中运行，而虚拟机则在不同平台上运行，从而实现Java程序的跨平台。</p>
+<h3 id="GC"><a href="#GC" class="headerlink" title="GC"></a>GC</h3><p>每个程序员都遇到过内存溢出的情况，程序运行时，内存空间是有限的，那么如何及时的把不再使用的对象清除将内存释放出来，这就是GC要做的事。</p>
+<h4 id="需要GC的内存区域"><a href="#需要GC的内存区域" class="headerlink" title="需要GC的内存区域"></a>需要GC的内存区域</h4><p>jvm 中，程序计数器、虚拟机栈、本地方法栈都是随线程而生随线程而灭，栈帧随着方法的进入和退出做入栈和出栈操作，实现了自动的内存清理，因此，我们的内存垃圾回收主要集中于 java 堆和方法区中，在程序运行期间，这部分内存的分配和使用都是动态的。</p>
+<h4 id="GC的对象"><a href="#GC的对象" class="headerlink" title="GC的对象"></a>GC的对象</h4><p>需要进行回收的对象就是已经没有存活的对象，判断一个对象是否存活常用的有两种办法：引用计数和可达分析。</p>
+<p>（1）引用计数：每个对象有一个引用计数属性，新增一个引用时计数加1，引用释放时计数减1，计数为0时可以回收。此方法简单，无法解决对象相互循环引用的问题。</p>
+<p>（2）可达性分析（Reachability Analysis）：从GC Roots开始向下搜索，搜索所走过的路径称为引用链。当一个对象到GC Roots没有任何引用链相连时，则证明此对象是不可用的。不可达对象。</p>
+<h4 id="什么时候触发GC"><a href="#什么时候触发GC" class="headerlink" title="什么时候触发GC"></a>什么时候触发GC</h4><p>(1)程序调用System.gc时可以触发</p>
+<p>(2)系统自身来决定GC触发的时机（根据Eden区和From Space区的内存大小来决定。当内存大小不足时，则会启动GC线程并停止应用线程）</p>
+<h4 id="GC做了什么事"><a href="#GC做了什么事" class="headerlink" title="GC做了什么事"></a>GC做了什么事</h4><p> 主要做了清理对象，整理内存的工作。Java堆分为新生代和老年代，采用了不同的回收方式。</p>
+<h4 id="GC常用算法"><a href="#GC常用算法" class="headerlink" title="GC常用算法"></a>GC常用算法</h4><p>GC常用算法有：<strong>标记-清除算法</strong>，<strong>标记-压缩算法</strong>，<strong>复制算法</strong>，<strong>分代收集算法。</strong></p>
+<p>目前主流的JVM（HotSpot）采用的是分代收集算法。</p>
+<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><p><img src="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211229214157.png" class="lazyload" data-srcset="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211229214157.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20211229214148420"></p>
+<h3 id="标识符、关键字的概念及区别"><a href="#标识符、关键字的概念及区别" class="headerlink" title="标识符、关键字的概念及区别"></a>标识符、关键字的概念及区别</h3><ul>
+<li><p>字母、下划线、$开头的字母、下划线、$、数字的组合</p>
+</li>
+<li><p>区分大小写</p>
+</li>
+<li><p>标识符需避免与关键字冲突</p>
+</li>
+</ul>
+<h3 id="常量的概念及分类"><a href="#常量的概念及分类" class="headerlink" title="常量的概念及分类"></a>常量的概念及分类</h3><p> <img src="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211229221244.jpg" class="lazyload" data-srcset="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211229221244.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>
+<h3 id="变量的概念及分类"><a href="#变量的概念及分类" class="headerlink" title="变量的概念及分类"></a>变量的概念及分类</h3><p><img src="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211229221254.jpg" class="lazyload" data-srcset="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211229221254.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>
+<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p><img src="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211229221256.jpg" class="lazyload" data-srcset="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211229221256.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>
+<ul>
+<li>基本数据类型（掌握分类、理解类型转换）</li>
+</ul>
+<p><img src="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211229221306.jpg" class="lazyload" data-srcset="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211229221306.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>
+<ul>
+<li><p>引用数据类型（理解内存，结合第 3 章）</p>
+</li>
+<li><p>运算符、表达式、语句、方法、程序结构（同 C 语言，略）</p>
+</li>
+</ul>
+<h2 id="面向对象编程"><a href="#面向对象编程" class="headerlink" title="面向对象编程"></a>面向对象编程</h2><h3 id="面向对象的设计思想"><a href="#面向对象的设计思想" class="headerlink" title="面向对象的设计思想"></a>面向对象的设计思想</h3><ul>
+<li>封装</li>
+<li>多态</li>
+</ul>
+<h3 id="类与类之间的关系"><a href="#类与类之间的关系" class="headerlink" title="类与类之间的关系"></a>类与类之间的关系</h3><ul>
+<li>继承</li>
+<li>聚集</li>
+<li>实现</li>
+</ul>
+<h3 id="了解命名规则"><a href="#了解命名规则" class="headerlink" title="了解命名规则"></a>了解命名规则</h3><p><img src="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211229221311.jpg" class="lazyload" data-srcset="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211229221311.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>
+<h3 id="理解关键字-this-和-super-的用法"><a href="#理解关键字-this-和-super-的用法" class="headerlink" title="理解关键字 this 和 super 的用法"></a>理解关键字 this 和 super 的用法</h3><ul>
+<li></li>
+</ul>
+<p><img src="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211229220118.jpg" class="lazyload" data-srcset="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211229220118.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>
+<ul>
+<li>使用 super 访问基类成员</li>
+</ul>
+<h3 id="理解关键字-static-的用法"><a href="#理解关键字-static-的用法" class="headerlink" title="理解关键字 static 的用法"></a>理解关键字 static 的用法</h3><p><img src="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211229220158.jpg" class="lazyload" data-srcset="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211229220158.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>
+<h3 id="掌握方法重写的语法规则"><a href="#掌握方法重写的语法规则" class="headerlink" title="掌握方法重写的语法规则"></a>掌握方法重写的语法规则</h3><p> <img src="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211229220229.jpg" class="lazyload" data-srcset="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211229220229.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>
+<h3 id="权限控制和类的继承"><a href="#权限控制和类的继承" class="headerlink" title="权限控制和类的继承"></a>权限控制和类的继承</h3><ul>
+<li>掌握类的成员的访问权限</li>
+</ul>
+<p><img src="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211229220251.jpg" class="lazyload" data-srcset="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211229220251.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>
+<ul>
+<li><p>派生类的声明</p>
+</li>
+<li><p>派生类的构造方法</p>
+</li>
+</ul>
+<p><img src="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211229220304.jpg" class="lazyload" data-srcset="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211229220304.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>
+<h3 id="理解-Object-类"><a href="#理解-Object-类" class="headerlink" title="理解 Object 类"></a>理解 Object 类</h3><p><img src="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211229220321.jpg" class="lazyload" data-srcset="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211229220321.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>
+<h3 id="理解对象转型"><a href="#理解对象转型" class="headerlink" title="理解对象转型"></a>理解对象转型</h3><p><img src="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211229220336.jpg" class="lazyload" data-srcset="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211229220336.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>
+<h3 id="理解并掌握动态绑定和多态"><a href="#理解并掌握动态绑定和多态" class="headerlink" title="理解并掌握动态绑定和多态"></a>理解并掌握动态绑定和多态</h3><ul>
+<li><p>要有继承</p>
+</li>
+<li><p>要有重写</p>
+</li>
+<li><p>基类引用指向派生类对象</p>
+</li>
+</ul>
+<h3 id="理解-final-关键字"><a href="#理解-final-关键字" class="headerlink" title="理解 final 关键字"></a>理解 final 关键字</h3><p><img src="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211229220404.gif" class="lazyload" data-srcset="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211229220404.gif" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>
+<p> <img src="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211229220410.jpg" class="lazyload" data-srcset="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211229220410.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>
+<h2 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h2><h3 id="掌握异常的概念及分类"><a href="#掌握异常的概念及分类" class="headerlink" title="掌握异常的概念及分类"></a>掌握异常的概念及分类</h3><p> <img src="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211229220442.gif" class="lazyload" data-srcset="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211229220442.gif" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>
+<p><img src="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211229220456.jpg" class="lazyload" data-srcset="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211229220456.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>
+<h3 id="掌握异常处理中的常用关键字及其含义"><a href="#掌握异常处理中的常用关键字及其含义" class="headerlink" title="掌握异常处理中的常用关键字及其含义"></a>掌握异常处理中的常用关键字及其含义</h3><ul>
+<li><p>try：里面是可能出现异常的语句或者代码块。后面可以跟一个或多个 catch 代码段。出现异常，终止 try 代码段的执行，根据错误的类型找到对应的 catch 执行；</p>
+</li>
+<li><p>catch：捕获异常，进行相应处理；</p>
+</li>
+<li><p>finally：无论是否产生异常都会执行。一般用于资源的清除工作，比如 io 流的关闭，jdbc 的驱动关闭。</p>
+</li>
+<li><p>throws：用于方法声明时抛出异常；</p>
+</li>
+<li><p>throw：用于实际手动抛出异常。</p>
+</li>
+</ul>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><h3 id="一维数组"><a href="#一维数组" class="headerlink" title="一维数组"></a>一维数组</h3><ul>
+<li><p>声明</p>
+</li>
+<li><p>初始化（默认值）</p>
+</li>
+</ul>
+<p><img src="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211229220530.jpg" class="lazyload" data-srcset="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211229220530.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>
+<ul>
+<li><p>对象创建</p>
+</li>
+<li><p>数组元素的引用（数组属性 length）</p>
+</li>
+</ul>
+<h3 id="二维数组（掌握）"><a href="#二维数组（掌握）" class="headerlink" title="二维数组（掌握）"></a>二维数组（掌握）</h3><ul>
+<li>声明和初始化</li>
+</ul>
+<p> <img src="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211229220553.jpg" class="lazyload" data-srcset="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211229220553.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>
+<p><img src="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211229220602.jpg" class="lazyload" data-srcset="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211229220602.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>
+<ul>
+<li><p>对象创建</p>
+</li>
+<li><p>数组元素的引用（数组属性 length）</p>
+</li>
+</ul>
+<h3 id="数组的拷贝（了解）"><a href="#数组的拷贝（了解）" class="headerlink" title="数组的拷贝（了解）"></a>数组的拷贝（了解）</h3><p> <img src="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211229220617.jpg" class="lazyload" data-srcset="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211229220617.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>
+<h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><ul>
+<li>String 是不可变的，而 StringBuffer 和 StringBuilder 是可变类。</li>
+<li>StringBuffer 是线程安全和同步的，而 StringBuilder 不是。这就是 StringBuilder 比 StringBuffer 快的原因。</li>
+<li>字符串连接运算符 (+) 在内部使用 StringBuilder 类。</li>
+<li>对于非多线程环境中的字符串操作，我们应该使用 StringBuilder 否则使用 StringBuffer 类。</li>
+</ul>
+<h2 id="容器类"><a href="#容器类" class="headerlink" title="容器类"></a>容器类</h2><h3 id="理解容器类的派生体系"><a href="#理解容器类的派生体系" class="headerlink" title="理解容器类的派生体系"></a>理解容器类的派生体系</h3><p> <img src="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211229220746.jpg" class="lazyload" data-srcset="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211229220746.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>
+<h3 id="Collection-接口"><a href="#Collection-接口" class="headerlink" title="Collection 接口"></a>Collection 接口</h3><ul>
+<li><p>理解 iterator、equals、hashCode 方法</p>
+</li>
+<li><p>理解并掌握 iterator 方法和 Iterator 接口的用法</p>
+</li>
+</ul>
+<h3 id="for-foreach"><a href="#for-foreach" class="headerlink" title="for, foreach"></a>for, foreach</h3><ul>
+<li><p>在循环操作ArrayList的时候，使用for和foreach速度差不多，for稍微快一点。实际<strong>操作ArrayList使用过程中建议使用for循环</strong>，因为for循环采用下标访问，对于数组结构的数据来说，采用下标访问比较好。</p>
+</li>
+<li><p>在循环操作LinkedList的时候，使用for和foreach速度差非常多。所以<strong>在操作LinkedList的时候，一定要使用foreach循环</strong>。如果使用for循环，数据量大的时候有可能会导致系统崩溃。</p>
+</li>
+<li><p>foreach适用于只是进行集合或数组遍历，for则在较复杂的循环中效率更高。</p>
+</li>
+<li><p>foreach不能对数组或集合进行修改（添加删除操作），如果想要修改就要用for循环。</p>
+</li>
+</ul>
+<h3 id="List、Set、Map"><a href="#List、Set、Map" class="headerlink" title="List、Set、Map"></a>List、Set、Map</h3><ul>
+<li>list 和set 有共同的父类 它们的用法也是一样的 唯一的不太就是set中不能有相同的元素 list中可以</li>
+<li>list和set的用途非常广泛 list可以完全代替数组来使用</li>
+<li>map 是独立的合集 它使用键值对的方式来储存数据 键不能有重复的 值可以用</li>
+<li>map不像上边两种集合那个用的广泛 不过在servlet 和jsp中 map可是绝对的重中之重 页面之间传值全靠map</li>
+</ul>
+<h4 id="List"><a href="#List" class="headerlink" title="List"></a>List</h4><ol>
+<li><p>可以允许重复的对象。</p>
+</li>
+<li><p>可以插入多个null元素。</p>
+</li>
+<li><p>是一个有序容器，保持了每个元素的插入顺序，输出的顺序就是插入的顺序。</p>
+</li>
+<li><p>常用的实现类有 ArrayList、LinkedList 和 Vector。ArrayList 最为流行，它提供了使用索引的随意访问，而 LinkedList 则对于经常需要从 List 中添加或删除元素的场合更为合适。</p>
+</li>
+</ol>
+<h4 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h4><ol>
+<li><p>不允许重复对象</p>
+<p>　　   2. 无序容器，你无法保证每个元素的存储顺序，TreeSet通过 Comparator  或者 Comparable 维护了一个排序顺序。</p>
+<pre><code>       　　   3. 只允许一个 null 元素
+                 　　   4. Set 接口最流行的几个实现类是 HashSet、LinkedHashSet 以及 TreeSet。最流行的是基于 HashMap 实现的 HashSet；TreeSet 还实现了 SortedSet 接口，因此 TreeSet 是一个根据其 compare() 和 compareTo() 的定义进行排序的有序容器。
+</code></pre>
+</li>
+</ol>
+<h4 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h4><ol>
+<li><p>Map不是collection的子接口或者实现类。Map是一个接口。</p>
+</li>
+<li><p>Map 的 每个 Entry 都持有两个对象，也就是一个键一个值，Map 可能会持有相同的值对象但键对象必须是唯一的。</p>
+</li>
+<li><p>TreeMap 也通过 Comparator  或者 Comparable 维护了一个排序顺序。</p>
+</li>
+<li><p>Map 里你可以拥有随意个 null 值但最多只能有一个 null 键。</p>
+</li>
+<li><p>Map 接口最流行的几个实现类是 HashMap、LinkedHashMap、Hashtable 和 TreeMap。（HashMap、TreeMap最常用）</p>
+</li>
+</ol>
+<h3 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h3><ul>
+<li><p>理解并掌握泛型的概念及用法</p>
+</li>
+<li><p>能配合迭代器、增强 for 循环遍历 List、Set、Map</p>
+</li>
+</ul>
+<h2 id="Listener"><a href="#Listener" class="headerlink" title="Listener"></a>Listener</h2><ul>
+<li>作用：监听某个事件的发生，状态的改变</li>
+<li>内部机制：接口回调</li>
+<li>容器产生的事件分类如下：<br>生命周期相关的事件。 – 如 对象的创建或者销毁等<br>属性状态相关的事件。 – attribute属性的增删改<br>存值状态相关的事件。 – 如 对象和session的绑定和解绑</li>
+</ul>
+<p><img src="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211229221119.gif" class="lazyload" data-srcset="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211229221119.gif" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>
+<h2 id="servlet"><a href="#servlet" class="headerlink" title="servlet"></a>servlet</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p>Java Servlet 是运行在 Web 服务器或应用服务器上的程序，它是作为来自 Web 浏览器或其他 HTTP 客户端的请求和 HTTP 服务器上的数据库或应用程序之间的中间层。</p>
+<p>使用 Servlet，您可以收集来自网页表单的用户输入，呈现来自数据库或者其他源的记录，还可以动态创建网页。</p>
+<p>Java Servlet 通常情况下与使用 CGI（Common Gateway Interface，公共网关接口）实现的程序可以达到异曲同工的效果。但是相比于 CGI，Servlet 有以下几点优势：</p>
+<ul>
+<li>性能明显更好。</li>
+<li>Servlet 在 Web 服务器的地址空间内执行。这样它就没有必要再创建一个单独的进程来处理每个客户端请求。</li>
+<li>Servlet 是独立于平台的，因为它们是用 Java 编写的。</li>
+<li>服务器上的 Java 安全管理器执行了一系列限制，以保护服务器计算机上的资源。因此，Servlet 是可信的。</li>
+<li>Java 类库的全部功能对 Servlet 来说都是可用的。它可以通过 sockets 和 RMI 机制与 applets、数据库或其他软件进行交互.</li>
+</ul>
+<h3 id="web-xml配置"><a href="#web-xml配置" class="headerlink" title="web.xml配置"></a>web.xml配置</h3><ul>
+<li><web-app></li>
+<li><p><display-name> : 标注了该web项目的名字</p>
+</li>
+<li><p><welcome-list-file> : 定义了首页文件，也就是用户直接输入域名时跳转的页面</p>
+</li>
+<li><p><servlet> : 用来声明一个servlet的数据，主要有以下子元素：</p>
+<ul>
+<li><p><strong><servlet-name></strong><br>指定servlet的名称</p>
+</li>
+<li><p><strong><servlet-class></strong><br>指定servlet的类名称</p>
+</li>
+<li><p><strong><jsp-file></strong><br>指定web站台中的某个JSP网页的完整路径</p>
+</li>
+<li><p><strong><init-param></strong><br>用来定义初始化参数，可有多个<code>init-param</code>。在servlet类中通过<code>ServletConfig</code>对象传入init函数，通过- getInitParamenter(String name)方法访问初始化参数。例如使用<init-param>来初始化数据库连接参数。</p>
+</li>
+<li><load-on-startup>
+指定当Web应用启动时，装载Servlet的次序。当值为正数或零时：Servlet容器先加载数值小的servlet，再依次加载其他数值大的servlet。当值为负或未定义：Servlet容器将在Web客户首次访问这个servlet时加载它。</li>
+<li><servlet-mapping>
+用来定义servlet所对应的URL，包含两个子元素。需要特别注意的是</servlet-mapping>元素，这个元素规定了一个servlet-name和url-pattern，如果请求的url能够匹配该url-pattern，则使用servlet-name指定的servlet处理该请求。</li>
+<li><servlet-name>
+指定servlet的名称</li>
+<li><url-pattern>
+指定servlet所对应的URL</li>
+</ul>
+</li>
+<li><filter>
+过滤器元素将一个名字与一个实现javax.servlet.Filter接口的类相关联。</li>
+<li><listener>
+Listener元素指出事件监听程序类</li>
+<li><session-config>
+配置会话超时，单位是分钟</li>
+<li><error-page>
 
-<p>配置类：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//也会被容器托管，被注册到Spring中，因为它本开就是一个@Component</span></span><br><span class="line"><span class="comment">//它代表这是一个配置类，就相当于之前的Beans.xml</span></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@Import(UserConfig2.class)</span> <span class="comment">//引入其他配置类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//注册一个bean，就相当于之前的写的bean标签</span></span><br><span class="line">    <span class="comment">//这个方法的名字就相当于bean标签中的id属性</span></span><br><span class="line">    <span class="comment">//这个方法的返回值就相当于bean标签中的class属性</span></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> User <span class="title">getUser</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> User();<span class="comment">//返回要注入的bean对象</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在返回特定HTTP状态代码时，或者特定类型的异常被抛出时，能够制定将要显示的页面。</p>
+</li>
+</ul>
+<h3 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h3><p>Servlet 生命周期可被定义为从创建直到毁灭的整个过程。以下是 Servlet 遵循的过程：</p>
+<ul>
+<li>Servlet 初始化后调用 <strong>init ()</strong> 方法。</li>
+<li>Servlet 调用 <strong>service()</strong> 方法来处理客户端的请求。</li>
+<li>Servlet 销毁前调用 <strong>destroy()</strong> 方法。</li>
+<li>最后，Servlet 是由 JVM 的垃圾回收器进行垃圾回收的。</li>
+</ul>
+<h2 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h2><p>MVC 模式表示模型 - 视图 - 控制器模式。</p>
+<p>从名称我们可以看到，MVC模式涉及三个部分:</p>
+<ul>
+<li><p><strong>Model（模型）</strong>- 模型表示携带数据的对象。它也可以具有逻辑来更新控制器，如果其数据改变。</p>
+</li>
+<li><p><strong>View（视图）</strong>- 视图表示模型包含的数据的可视化。通常它有UI逻辑。</p>
+</li>
+<li><p><strong>Controller（控制器）</strong> - 控制器引用模型和视图。它控制数据流进入模型对象，并在数据更改时更新视图。它保持视图和模型分开。</p>
+<p><img src="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211229225232.png" class="lazyload" data-srcset="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211229225232.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20211229225231208"></p>
+</li>
+</ul>
+<p><img src="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211229225827.jpg" class="lazyload" data-srcset="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211229225827.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Inkedimage-20211229225542323"></p>
+<h2 id="http-协议"><a href="#http-协议" class="headerlink" title="http 协议"></a>http 协议</h2><h3 id="http-请求响应机制"><a href="#http-请求响应机制" class="headerlink" title="http 请求响应机制"></a>http 请求响应机制</h3><ol>
+<li>建立连接：客户端与服务器建立TCP连接 </li>
+<li>发送请求：打开一个连接后，客户端把请求信息发送到服务器的相应端口上，完成请求动作提交。 </li>
+<li>发送响应：服务器在处理完客户端请求之后，要向客户端发送响应消息。 </li>
+<li>关闭连接：客户端和服务器端都可以关闭套接字来结束TCP/IP对话。 </li>
+</ol>
+<h3 id="HTTP-无状态性"><a href="#HTTP-无状态性" class="headerlink" title="HTTP 无状态性"></a>HTTP 无状态性</h3><p>​        HTTP 协议是无状态的(stateless)。也就是说，同一个客户端第二次访问同一个服务器上的页面时，服务器无法知道这个客户端曾经访问过，服务器也无法分辨不同的客户端。HTTP 的无状态特性简化了服务器的设计，使服务器更容易支持大量并发的HTTP 请求。</p>
+<h3 id="掌握常用的-http-请求头和-http-响应头"><a href="#掌握常用的-http-请求头和-http-响应头" class="headerlink" title="掌握常用的 http 请求头和 http 响应头"></a>掌握常用的 http 请求头和 http 响应头</h3><h4 id="请求头"><a href="#请求头" class="headerlink" title="请求头"></a><strong>请求头</strong></h4><p>当你使用http(https)协议请求一个网站的时候，你的浏览器会向对方的服务器发送一个http请求，这个请求同样包含三个部分</p>
+<ul>
+<li><p>请求方法 请求路径（URL） 请求协议版本</p>
+</li>
+<li><ul>
+<li>例：GET <a href="https://link.zhihu.com/?target=https://www.google.com.hk/">https://www.google.com.hk/</a> HTTP/1.1</li>
+</ul>
+</li>
+<li><p>报文主体</p>
+</li>
+<li><p>（POST/GET）参数</p>
+</li>
+</ul>
+<p><strong>响应头</strong></p>
+<p>当你向对方发送请求后，对方会回应你浏览器的请求，返回两个部分：响应头，Body</p>
+<blockquote>
+<p> 注：Body就是返回给你的主体，比如说请求网站返回的html</p>
+</blockquote>
+<p>响应头讯息里包含了服务器的响应讯息，如http版本，压缩方式，响应文件类型，文件编码等</p>
+<h3 id="常见的响应码（状态码）"><a href="#常见的响应码（状态码）" class="headerlink" title="常见的响应码（状态码）"></a>常见的响应码（状态码）</h3><p>200 - 服务器成功返回网页</p>
+<p>302  （临时移动） 服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。</p>
+<p>304  （未修改）自从上次请求后，请求的网页未修改过。服务器返回此响应时，不会返回网页内容。</p>
+<p>307  （临时重定向） 服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。</p>
+<p>404 - 请求的网页不存在</p>
+<p>500  （服务器内部错误） 服务器遇到错误，无法完成请求。</p>
+<p>503 - 服务不可用</p>
+<h2 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h2><h3 id="JDBC-的开发步骤"><a href="#JDBC-的开发步骤" class="headerlink" title="JDBC 的开发步骤"></a>JDBC 的开发步骤</h3><ol>
+<li>注册驱动程序</li>
+<li>建立连接</li>
+<li>建立Statement</li>
+<li>执行查询</li>
+<li>关闭连接</li>
+</ol>
+<h3 id="Statement-与-PreparedStatement-的区别"><a href="#Statement-与-PreparedStatement-的区别" class="headerlink" title="Statement 与 PreparedStatement 的区别"></a>Statement 与 PreparedStatement 的区别</h3><p>关系：PreparedStatement继承自Statement,都是接口<br>区别：PreparedStatement可以使用<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E5%8D%A0%E4%BD%8D%E7%AC%A6">占位符</a>，是预编译的，批处理比Statement效率高  </p>
+<h3 id="掌握防止-SQL-注入漏洞的常用方法"><a href="#掌握防止-SQL-注入漏洞的常用方法" class="headerlink" title="掌握防止 SQL 注入漏洞的常用方法"></a>掌握防止 SQL 注入漏洞的常用方法</h3><ul>
+<li><p>PreparedStatement 代替 Statement</p>
+</li>
+<li><p>密码加密</p>
+</li>
+</ul>
+<h2 id="JSP"><a href="#JSP" class="headerlink" title="JSP"></a>JSP</h2><p>JSP全称Java Server Pages，是一种动态网页开发技术。它使用JSP标签在HTML网页中插入Java代码。标签通常以&lt;%开头以%&gt;结束。</p>
+<p>JSP是一种Java servlet，主要用于实现Java web应用程序的用户界面部分。网页开发者们通过结合HTML代码、XHTML代码、XML元素以及嵌入JSP操作和命令来编写JSP。</p>
+<p>JSP通过网页表单获取用户输入数据、访问数据库及其他数据源，然后动态地创建网页。</p>
+<p>JSP标签有多种功能，比如访问数据库、记录用户选择信息、访问JavaBeans组件等，还可以在不同的网页中传递控制信息和共享信息。</p>
+<h3 id="标签元素"><a href="#标签元素" class="headerlink" title="标签元素"></a>标签元素</h3><table>
+<thead>
+<tr>
+<th align="left">语法</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">jsp:include</td>
+<td align="left">在页面被请求的时候引入一个文件。</td>
+</tr>
+<tr>
+<td align="left">jsp:useBean</td>
+<td align="left">寻找或者实例化一个JavaBean。</td>
+</tr>
+<tr>
+<td align="left">jsp:setProperty</td>
+<td align="left">设置JavaBean的属性。</td>
+</tr>
+<tr>
+<td align="left">jsp:getProperty</td>
+<td align="left">输出某个JavaBean的属性。</td>
+</tr>
+<tr>
+<td align="left">jsp:forward</td>
+<td align="left">把请求转到一个新的页面。</td>
+</tr>
+<tr>
+<td align="left">jsp:plugin</td>
+<td align="left">根据浏览器类型为Java插件生成OBJECT或EMBED标记。</td>
+</tr>
+<tr>
+<td align="left">jsp:element</td>
+<td align="left">定义动态XML元素</td>
+</tr>
+<tr>
+<td align="left">jsp:attribute</td>
+<td align="left">设置动态定义的XML元素属性。</td>
+</tr>
+<tr>
+<td align="left">jsp:body</td>
+<td align="left">设置动态定义的XML元素内容。</td>
+</tr>
+<tr>
+<td align="left">jsp:text</td>
+<td align="left">在JSP页面和文档中使用写入文本的模板</td>
+</tr>
+</tbody></table>
+<h3 id="常见的属性"><a href="#常见的属性" class="headerlink" title="常见的属性"></a>常见的属性</h3><p>所有的动作要素都有两个属性：id属性和scope属性。</p>
+<ul>
+<li><p>id属性：</p>
+<p>id属性是动作元素的唯一标识，可以在JSP页面中引用。动作元素创建的id值可以通过PageContext来调用。</p>
+</li>
+<li><p>scope属性：</p>
+<p>该属性用于识别动作元素的生命周期。 id属性和scope属性有直接关系，scope属性定义了相关联id对象的寿命。 scope属性有四个可能的值： (a) page, (b)request, (c)session, 和 (d) application。</p>
+</li>
+</ul>
+<h2 id="Servlet实例"><a href="#Servlet实例" class="headerlink" title="Servlet实例"></a>Servlet实例</h2><p>web.xml:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">web-app</span> <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">     <span class="attr">xmlns</span>=<span class="string">&quot;http://java.sun.com/xml/ns/javaee&quot;</span></span></span><br><span class="line"><span class="tag">     <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://java.sun.com/xml/ns/javaee </span></span></span><br><span class="line"><span class="string"><span class="tag">                         http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd&quot;</span></span></span><br><span class="line"><span class="tag">     <span class="attr">id</span>=<span class="string">&quot;WebApp_ID&quot;</span> <span class="attr">version</span>=<span class="string">&quot;3.0&quot;</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">display-name</span>&gt;</span>Demos<span class="tag">&lt;/<span class="name">display-name</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">welcome-file-list</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">welcome-file</span>&gt;</span>index.jsp<span class="tag">&lt;/<span class="name">welcome-file</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">welcome-file-list</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">description</span>&gt;</span>This is the description of my J2EE component<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">display-name</span>&gt;</span>This is the display name of my J2EE component<span class="tag">&lt;/<span class="name">display-name</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>FirstServlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>com.demos.servlet.FirstServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>FirstServlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/servlet/FirstServlet<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>测试类：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyText</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//如果完全使用配置类的方式来做，我们就只能通过AnnotationConfig 上下文来获取容器，通过配置类的class来做</span></span><br><span class="line">        ApplicationContext context = <span class="keyword">new</span> AnnotationConfigApplicationContext(UserConfig.class);</span><br><span class="line">        User getUser = (User) context.getBean(<span class="string">&quot;getUser&quot;</span>);</span><br><span class="line">        System.out.println(getUser.getName());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>IndexServlet.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.demos.servlet;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.PrintWriter;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FirstServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">     <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">304496806747823900L</span>;</span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span></span></span><br><span class="line"><span class="function">              <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">          response.setContentType(<span class="string">&quot;text/html&quot;</span>);</span><br><span class="line">          PrintWriter out = response.getWriter();</span><br><span class="line">          out.println(<span class="string">&quot;&lt;!DOCTYPE HTML PUBLIC \&quot;-//W3C//DTD HTML 4.01 Transitional//EN\&quot;&gt;&quot;</span>);</span><br><span class="line">          out.println(<span class="string">&quot;&lt;HTML&gt;&quot;</span>);</span><br><span class="line">          out.println(<span class="string">&quot;  &lt;HEAD&gt;&lt;TITLE&gt;A Servlet&lt;/TITLE&gt;&lt;/HEAD&gt;&quot;</span>);</span><br><span class="line">          out.println(<span class="string">&quot;  &lt;BODY&gt;&quot;</span>);</span><br><span class="line">          out.print(<span class="string">&quot;    This is &quot;</span>);</span><br><span class="line">          out.print(<span class="keyword">this</span>.getClass());</span><br><span class="line">          out.println(<span class="string">&quot;, using the GET method&quot;</span>);</span><br><span class="line">          out.println(<span class="string">&quot;  &lt;/BODY&gt;&quot;</span>);</span><br><span class="line">          out.println(<span class="string">&quot;&lt;/HTML&gt;&quot;</span>);</span><br><span class="line">          out.flush();</span><br><span class="line">          out.close();</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span></span></span><br><span class="line"><span class="function">              <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">          response.setContentType(<span class="string">&quot;text/html&quot;</span>);</span><br><span class="line">          PrintWriter out = response.getWriter();</span><br><span class="line">          out.println(<span class="string">&quot;&lt;!DOCTYPE HTML PUBLIC \&quot;-//W3C//DTD HTML 4.01 Transitional//EN\&quot;&gt;&quot;</span>);</span><br><span class="line">          out.println(<span class="string">&quot;&lt;HTML&gt;&quot;</span>);</span><br><span class="line">          out.println(<span class="string">&quot;  &lt;HEAD&gt;&lt;TITLE&gt;A Servlet&lt;/TITLE&gt;&lt;/HEAD&gt;&quot;</span>);</span><br><span class="line">          out.println(<span class="string">&quot;  &lt;BODY&gt;&quot;</span>);</span><br><span class="line">          out.print(<span class="string">&quot;    This is &quot;</span>);</span><br><span class="line">          out.print(<span class="keyword">this</span>.getClass());</span><br><span class="line">          out.println(<span class="string">&quot;, using the POST method&quot;</span>);</span><br><span class="line">          out.println(<span class="string">&quot;  &lt;/BODY&gt;&quot;</span>);</span><br><span class="line">          out.println(<span class="string">&quot;&lt;/HTML&gt;&quot;</span>);</span><br><span class="line">          out.flush();</span><br><span class="line">          out.close();</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> <span class="keyword">throws</span> ServletException </span>&#123;</span><br><span class="line">          <span class="comment">// Put your code here</span></span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
+<p>index.jsp</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;%@ page contentType=<span class="string">&quot;text/html;charset=UTF-8&quot;</span>%&gt;</span><br><span class="line">	&lt;title&gt;QIMITY&lt;/title&gt;</span><br><span class="line">	&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;form action=<span class="string">&quot;$&#123;pageContext.request.contextPath&#125;/login&quot;</span>&gt;</span><br><span class="line">		&lt;input type=<span class="string">&quot;text&quot;</span> name=<span class="string">&quot;user&quot;</span>/&gt;</span><br><span class="line">		&lt;input type=<span class="string">&quot;text&quot;</span> name=<span class="string">&quot;password&quot;</span>/&gt;</span><br><span class="line">		&lt;input type=<span class="string">&quot;submit&quot;</span> value=<span class="string">&quot;登录&quot;</span>/&gt;</span><br><span class="line">	&lt;/form&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
 
 
   
@@ -567,7 +939,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               
-                <p>本文链接🔗：<a href=http://xucoud.github.io/2021/05/26/Spring-%E5%85%AB-JavaConfig%E5%BC%80%E5%8F%91/>http://xucoud.github.io/2021/05/26/Spring-%E5%85%AB-JavaConfig%E5%BC%80%E5%8F%91/</a></p>
+                <p>本文链接🔗：<a href=http://xucoud.github.io/2021/12/29/Java%E6%9C%9F%E6%9C%AB/>http://xucoud.github.io/2021/12/29/Java%E6%9C%9F%E6%9C%AB/</a></p>
               
             
           </blockquote>
@@ -584,10 +956,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-06-06T19:37:28+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-12-29T23:59:46+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Jun 6, 2021</p>
+    <p>更新于：Dec 29, 2021</p>
   </a>
 </div>
 
@@ -596,7 +968,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Spring/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Spring</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%9C%9F%E6%9C%AB/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>期末</p></a></div>
 
 
         
@@ -613,27 +985,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/2021/05/27/Spring-%E4%B9%9D-%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>Spring(九) 代理模式</p>
-          <p class='content'>这是SpringAOP的底层！
-
-
-代理模式的分类静态代理
-动态代理
-
-静态代理角色分析：
-抽象角色：一般会用接口或抽象类来解决（租房这件事  ）
-真实角色：被代理的角色（房主）
-代理角色：代理...</p>
-        </a>
       
-      
-        <a class='next' href='/2021/05/25/Spring-%E4%B8%83-Spring%E6%B3%A8%E8%A7%A3%E5%BC%80%E5%8F%91/'>
-          <p class='title'>Spring(七) Spring注解开发<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>在Spring4之后，要使用注解开发，必须导入aop依赖，以及context约束，增加注解的支持
+        <a class='next' href='/2021/10/26/GORM/'>
+          <p class='title'>GORM<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>GORM框架在Go中的简单运用
 
 
-属性如何注入123456789101112131415@Componentpublic cl...</p>
+​        在实际的开发过程中，经常会需要对数据库进行操作。在Go语言中，它自带了一个database/sql的标准库，结合数据库的驱动包，我们就可以对...</p>
         </a>
       
     </div>
@@ -680,6 +1038,20 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
 
 
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Java%E7%9A%84%E7%89%B9%E6%80%A7"><span class="toc-text">Java的特性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E6%80%A7"><span class="toc-text">简单性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1"><span class="toc-text">面向对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E5%B8%83%E6%80%A7"><span class="toc-text">分布性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E5%92%8C%E8%A7%A3%E9%87%8A%E6%80%A7"><span class="toc-text">编译和解释性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A8%B3%E5%81%A5%E6%80%A7"><span class="toc-text">稳健性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E6%80%A7"><span class="toc-text">安全性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E7%A7%BB%E6%A4%8D%E6%80%A7"><span class="toc-text">可移植性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E6%80%A7%E8%83%BD"><span class="toc-text">高性能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E7%BA%BF%E7%B4%A2%E6%80%A7"><span class="toc-text">多线索性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E6%80%A7"><span class="toc-text">动态性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6"><span class="toc-text">运行机制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#JVM"><span class="toc-text">JVM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GC"><span class="toc-text">GC</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9C%80%E8%A6%81GC%E7%9A%84%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F"><span class="toc-text">需要GC的内存区域</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GC%E7%9A%84%E5%AF%B9%E8%B1%A1"><span class="toc-text">GC的对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E8%A7%A6%E5%8F%91GC"><span class="toc-text">什么时候触发GC</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GC%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88%E4%BA%8B"><span class="toc-text">GC做了什么事</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GC%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95"><span class="toc-text">GC常用算法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80"><span class="toc-text">基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E8%AF%86%E7%AC%A6%E3%80%81%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E6%A6%82%E5%BF%B5%E5%8F%8A%E5%8C%BA%E5%88%AB"><span class="toc-text">标识符、关键字的概念及区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E9%87%8F%E7%9A%84%E6%A6%82%E5%BF%B5%E5%8F%8A%E5%88%86%E7%B1%BB"><span class="toc-text">常量的概念及分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E7%9A%84%E6%A6%82%E5%BF%B5%E5%8F%8A%E5%88%86%E7%B1%BB"><span class="toc-text">变量的概念及分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">数据类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B"><span class="toc-text">面向对象编程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3"><span class="toc-text">面向对象的设计思想</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E4%B8%8E%E7%B1%BB%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-text">类与类之间的关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%86%E8%A7%A3%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99"><span class="toc-text">了解命名规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%90%86%E8%A7%A3%E5%85%B3%E9%94%AE%E5%AD%97-this-%E5%92%8C-super-%E7%9A%84%E7%94%A8%E6%B3%95"><span class="toc-text">理解关键字 this 和 super 的用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%90%86%E8%A7%A3%E5%85%B3%E9%94%AE%E5%AD%97-static-%E7%9A%84%E7%94%A8%E6%B3%95"><span class="toc-text">理解关键字 static 的用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%8C%E6%8F%A1%E6%96%B9%E6%B3%95%E9%87%8D%E5%86%99%E7%9A%84%E8%AF%AD%E6%B3%95%E8%A7%84%E5%88%99"><span class="toc-text">掌握方法重写的语法规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6%E5%92%8C%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF"><span class="toc-text">权限控制和类的继承</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%90%86%E8%A7%A3-Object-%E7%B1%BB"><span class="toc-text">理解 Object 类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%90%86%E8%A7%A3%E5%AF%B9%E8%B1%A1%E8%BD%AC%E5%9E%8B"><span class="toc-text">理解对象转型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%90%86%E8%A7%A3%E5%B9%B6%E6%8E%8C%E6%8F%A1%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9A%E5%92%8C%E5%A4%9A%E6%80%81"><span class="toc-text">理解并掌握动态绑定和多态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%90%86%E8%A7%A3-final-%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-text">理解 final 关键字</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%82%E5%B8%B8"><span class="toc-text">异常</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%8C%E6%8F%A1%E5%BC%82%E5%B8%B8%E7%9A%84%E6%A6%82%E5%BF%B5%E5%8F%8A%E5%88%86%E7%B1%BB"><span class="toc-text">掌握异常的概念及分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%8C%E6%8F%A1%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E4%B8%AD%E7%9A%84%E5%B8%B8%E7%94%A8%E5%85%B3%E9%94%AE%E5%AD%97%E5%8F%8A%E5%85%B6%E5%90%AB%E4%B9%89"><span class="toc-text">掌握异常处理中的常用关键字及其含义</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E7%BB%84"><span class="toc-text">数组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="toc-text">一维数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%EF%BC%88%E6%8E%8C%E6%8F%A1%EF%BC%89"><span class="toc-text">二维数组（掌握）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E6%8B%B7%E8%B4%9D%EF%BC%88%E4%BA%86%E8%A7%A3%EF%BC%89"><span class="toc-text">数组的拷贝（了解）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#String"><span class="toc-text">String</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%B9%E5%99%A8%E7%B1%BB"><span class="toc-text">容器类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%90%86%E8%A7%A3%E5%AE%B9%E5%99%A8%E7%B1%BB%E7%9A%84%E6%B4%BE%E7%94%9F%E4%BD%93%E7%B3%BB"><span class="toc-text">理解容器类的派生体系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Collection-%E6%8E%A5%E5%8F%A3"><span class="toc-text">Collection 接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#for-foreach"><span class="toc-text">for, foreach</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#List%E3%80%81Set%E3%80%81Map"><span class="toc-text">List、Set、Map</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#List"><span class="toc-text">List</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Set"><span class="toc-text">Set</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Map"><span class="toc-text">Map</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B"><span class="toc-text">泛型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Listener"><span class="toc-text">Listener</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#servlet"><span class="toc-text">servlet</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#web-xml%E9%85%8D%E7%BD%AE"><span class="toc-text">web.xml配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-text">生命周期</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MVC"><span class="toc-text">MVC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#http-%E5%8D%8F%E8%AE%AE"><span class="toc-text">http 协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#http-%E8%AF%B7%E6%B1%82%E5%93%8D%E5%BA%94%E6%9C%BA%E5%88%B6"><span class="toc-text">http 请求响应机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP-%E6%97%A0%E7%8A%B6%E6%80%81%E6%80%A7"><span class="toc-text">HTTP 无状态性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%8C%E6%8F%A1%E5%B8%B8%E7%94%A8%E7%9A%84-http-%E8%AF%B7%E6%B1%82%E5%A4%B4%E5%92%8C-http-%E5%93%8D%E5%BA%94%E5%A4%B4"><span class="toc-text">掌握常用的 http 请求头和 http 响应头</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E5%A4%B4"><span class="toc-text">请求头</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E5%93%8D%E5%BA%94%E7%A0%81%EF%BC%88%E7%8A%B6%E6%80%81%E7%A0%81%EF%BC%89"><span class="toc-text">常见的响应码（状态码）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JDBC"><span class="toc-text">JDBC</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#JDBC-%E7%9A%84%E5%BC%80%E5%8F%91%E6%AD%A5%E9%AA%A4"><span class="toc-text">JDBC 的开发步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Statement-%E4%B8%8E-PreparedStatement-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">Statement 与 PreparedStatement 的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%8C%E6%8F%A1%E9%98%B2%E6%AD%A2-SQL-%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-text">掌握防止 SQL 注入漏洞的常用方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSP"><span class="toc-text">JSP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E7%AD%BE%E5%85%83%E7%B4%A0"><span class="toc-text">标签元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="toc-text">常见的属性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Servlet%E5%AE%9E%E4%BE%8B"><span class="toc-text">Servlet实例</span></a></li></ol>
+    </div>
+  </section>
 
 
   
@@ -856,7 +1228,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Thu Dec 30 2021 00:00:44 GMT+0800 (GMT+08:00)</div>
+            <div id="last-update" style="display: none;">Thu Dec 30 2021 00:00:43 GMT+0800 (GMT+08:00)</div>
             <div id="last-update-show">2021-12-30 日</div>
           
         </div>
@@ -930,7 +1302,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <script>
   window.pdata={}
   pdata.ispage=true;
-  pdata.postTitle="Spring(八) JavaConfig开发";
+  pdata.postTitle="java期末";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要
