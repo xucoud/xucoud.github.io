@@ -12,6 +12,8 @@
   <!-- SEO相关 -->
   
     
+      <meta name="robots" content="noindex,follow">
+    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -29,13 +31,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>GMP - Xu&#39;s Blog</title>
-  
-    <meta name="keywords" content="Go">
+  <title>Category: 计算机网络 - Xu&#39;s Blog</title>
   
 
-  
-    <meta name="description" content="Golang 调度器 GMP 原理与调度全分析">
   
 
   <!-- feed -->
@@ -368,7 +366,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper post search' style="display: none;">
+        <div id="full" class='cover-wrapper  search' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.jpg"></div>
           
@@ -458,228 +456,88 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper" id="pjax-container">
           
 
+
 <div class='l_main'>
-  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
-
-
-  
-  <div class="article-meta" id="top">
     
-    
-    
-      <h1 class="title">
-        GMP
-      </h1>
-      <div class='new-meta-box'>
-        
-          
-            
-<div class='new-meta-item author'>
-  <a class='author' href="/about" rel="nofollow">
-    <img no-lazy src="/img/avater.jpg">
-    <p>xwj</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-  <div class='new-meta-item category'>
-    <a class='notlink'>
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <a class="category-link" href="/categories/Go/">Go</a><span class="sep"></span><a class="category-link" href="/categories/Go/GMP/">GMP</a>
-    </a>
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Oct 21, 2021</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-  <div class="new-meta-item browse leancloud">
-    <a class='notlink'>
       
-      <div id="lc-pv" data-title="GMP" data-path="/2021/10/21/GMP/">
-        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
-        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
-        次浏览
-      </div>
-    </a>
-  </div>
-
-
+  <section class="post-list">
+    
+      
+        
           
+        
+      
+    
+    
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/2022/01/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%9C%9F%E6%9C%AB/">
+        network
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        
+
+第一章-概述计算机网络概念​        计算机网络主要是由一些通用的，可编程的硬件互联而成的，而这些硬件并非专门来实现某一特定目的（例如：传送数据和uo视频信号）。这些可编程的硬件能够用来传送多种不同类型的数据，并能支持广泛的和日益增长的应用。
+
+
+计算机网络所连接的硬件，并不局限于计算机，而是包括了智能手机。
+计算机网络并非专门用来传送数据，而是支持很多种的应用。
+
+
+计算机网络的...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+          
+          <a class='avatar' href='/about'><img src='/img/avater.jpg'></a>
+        
+        <time>2022-01-07</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/%E6%9C%9F%E6%9C%AB/">期末</a><span class="sep"></span><a class="category-link" href="/categories/%E6%9C%9F%E6%9C%AB/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
         
       </div>
-    
-  </div>
-
-
-  
-  
-  <p>Golang 调度器 GMP 原理与调度全分析</p>
-<span id="more"></span>
-
-<h2 id="GMP基本概念"><a href="#GMP基本概念" class="headerlink" title="GMP基本概念"></a>GMP基本概念</h2><h4 id="G（goroutine）"><a href="#G（goroutine）" class="headerlink" title="G（goroutine）"></a>G（goroutine）</h4><ul>
-<li>调度系统的最基本单位goroutine，存储了goroutine的执行stack信息、goroutine状态以及goroutine的任务函数等。</li>
-<li>在G的眼中只有P，P就是运行G的“CPU”。</li>
-<li>相当于两级线程。</li>
-</ul>
-<h4 id="P（processor）"><a href="#P（processor）" class="headerlink" title="P（processor）"></a>P（processor）</h4><ul>
-<li>P表示逻辑processor，代表线程M的执行的上下文。</li>
-<li>P的最大作用是其拥有的各种G对象队列、链表、cache和状态。</li>
-<li>P的数量也代表了golang的执行并发度，即有多少goroutine可以同时运行。</li>
-</ul>
-<blockquote>
-<p>这里的p虽然表示逻辑处理器，但P并不执行任何代码，对G来说，P相当于CPU核，G只有绑定到P才能被调度。 对M来说，P提供了相关的执行环境(Context)，如内存分配状态(mcache)，任务队列(G)等</p>
-</blockquote>
-<h4 id="M（machine）"><a href="#M（machine）" class="headerlink" title="M（machine）"></a>M（machine）</h4><ul>
-<li>M代表着真正的执行计算资源，可以认为它就是os thread（系统线程）。</li>
-<li>M是真正调度系统的执行者，每个M就像一个勤劳的工作者，总是从各种队列中找到可运行的G，而且这样M的可以同时存在多个。</li>
-<li>M在绑定有效的P后，进入调度循环，而且M并不保留G状态，这是G可以跨M调度的基础。</li>
-</ul>
-<img src="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211204002304.png" class="lazyload" data-srcset="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211204002304.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20211204002255511" style="zoom: 50%;" />
-
-<h2 id="相关术语"><a href="#相关术语" class="headerlink" title="相关术语"></a>相关术语</h2><ul>
-<li>runtime<br><code>runtime</code> 也叫运行时，对golang程序很重要，runtime包含了调度、内存管理、垃圾回收、内部数据结构、定时器和各种系统调用的封装等。可以说golang的强大都归功于runtime的实现。</li>
-<li>scheduler<br><code>scheduler</code> 有调度器、日程安排的意思，这里是指调度器，它的工作是将准备好运行的goroutine分散到工作线程中执行。</li>
-<li>TLS(thread local storage)<br><code>TLS</code>全称是Thread Local Storage，代表每个线程中的本地数据。写入TLS中的数据不会干扰到其余线程中的值。Go的协程实现非常依赖于TLS机制，会用于获取系统线程中当前的G和G所属于的M实例。 Go操作TLS会使用系统原生的接口，以Linux X64为例，go在新建M时候会调用 arch_prctl 这个syscall来设置FS寄存器的值为M.tls的地址，运行中每个M的FS寄存器都会指向它们对应的M实例的tls， linux内核调度线程时FS寄存器会跟着线程一起切换，这样go代码只需要访问FS寄存器就可以获取到线程本地的数据。</li>
-<li>spinning<br><code>spinning</code> 表示自旋，字面的意思是自己围绕自己转。在程序里一般指一直重复某块代码。</li>
-<li>systemstack、mcall或asmcgocall<br>每个M启动都有一个叫g0的系统堆栈，runtime通常使用<code>systemstack</code>、<code>mcall</code>或<code>asmcgocall</code>临时切换到系统堆栈，以执行必须不被抢占的任务、不得增加用户堆栈的任务或切换用户goroutines。在系统堆栈上运行的代码隐式不可抢占，垃圾收集器不扫描系统堆栈。在系统堆栈上运行时，不会使用当前用户堆栈执行。</li>
-</ul>
-
-  
-  
-    
-    <div class='footer'>
       
-      
-      
-        <div class='copyright'>
-          <blockquote>
-            
-              
-                <p>本文作者👨‍💻：Xwj</p>
-
-              
-            
-              
-                <p>版权声明📃：博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
-
-              
-            
-              
-                <p>本文链接🔗：<a href=http://xucoud.github.io/2021/10/21/GMP/>http://xucoud.github.io/2021/10/21/GMP/</a></p>
-              
-            
-          </blockquote>
+        <div>
+          <a class='readmore' href='/2022/01/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%9C%9F%E6%9C%AB/'>
+            阅读更多
+          </a>
         </div>
       
-      
     </div>
   
-  
-    
 
-
-  <div class='article-meta' id="bottom">
-    <div class='new-meta-box'>
-      
-        
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-12-04T00:23:21+08:00">
-  <a class='notlink'>
-    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Dec 4, 2021</p>
-  </a>
 </div>
 
+          </div>
         
       
-        
-          
-  
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Go/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Go</p></a></div>
-
-
-        
-      
-        
-      
-    </div>
-  </div>
-
-
-  
-  
-
-  
-    <div class="prev-next">
-      
-        <a class='prev' href='/2021/10/21/GC%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>GC垃圾回收</p>
-          <p class='content'>Go中垃圾收集器的详细介绍。
-
-
-​        编程语言的内存管理系统除了负责堆内存的分配之外，它还需要负责回收不再使用的对象和内存空间，这个功能就需要用到垃圾收集器来实现。
-​      ...</p>
-        </a>
-      
-      
-        <a class='next' href='/2021/10/20/Go-Moudle/'>
-          <p class='title'>Go Module<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>go中module的使用方法以及基本介绍
-
-    自从 Go 官方推出 1.11 之后，增加新的依赖管理模块并且更加易于管理项目中所需要的模块。模块是存储在文件树中的 Go 包的集合，其根目录...</p>
-        </a>
-      
-    </div>
-  
-</article>
-
-
-  
-
-  <article class="post white-box reveal shadow" id="comments">
-    <p ct><i class='fas fa-comments'></i> 评论</p>
     
-    <!-- <div id="valine_container" class="valine_thread">
-  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
-</div> -->
+  </section>
+  
+    
+  
 
 
-     <div id="valine_container" class="valine_thread">
-       <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
-     </div>
-	 <!-- valine 添加一言 -->
-	<script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-       <script type="text/javascript">
-              jinrishici.load(function(result) {
-            var jrsc_plac =  result.data.content + "\n「" + result.data.origin.title + "」" + result.data.origin.dynasty + " · " + result.data.origin.author
-             document.getElementById("veditor").setAttribute("placeholder",jrsc_plac);
-            });
-     </script>
-
-
-
-  </article>
-
-
-
-
-
-
+    
+  
 </div>
 <aside class='l_side'>
   
@@ -687,22 +545,59 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
 
-
-
-  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+<section class="widget blogger shadow desktop mobile">
+  <div class='content'>
     
-  <header>
+      
+        <a class='avatar flat-box circle' href='/about/'>
+          <img no-lazy src='/img/avater.jpg'/>
+        </a>
+      
     
-      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
-  </header>
-
-
-    <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#GMP%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text">GMP基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#G%EF%BC%88goroutine%EF%BC%89"><span class="toc-text">G（goroutine）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#P%EF%BC%88processor%EF%BC%89"><span class="toc-text">P（processor）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#M%EF%BC%88machine%EF%BC%89"><span class="toc-text">M（machine）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E6%9C%AF%E8%AF%AD"><span class="toc-text">相关术语</span></a></li></ol>
-    </div>
-  </section>
-
+      <div class='text'>
+        
+        
+        
+          <p><span id="jinrishici-sentence">Xu's Blog</span></p>
+          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="/atom.xml"
+              class="social fas fa-rss flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+          
+            <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=281658285&amp;site=qq&amp;menu=yes"
+              class="social fab fa-qq flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+          
+            <a href="https://github.com/volantis-x/"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
 
   
 
@@ -838,6 +733,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
 
   
+
+  
     
     
 
@@ -964,15 +861,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </aside>
 
 
-
 		  
 		  <!--此文件用来存放一些不方便取值的变量-->
 <!--思路大概是将值藏到重加载的区域内-->
 
 <script>
   window.pdata={}
-  pdata.ispage=true;
-  pdata.postTitle="GMP";
+  pdata.ispage=false;
+  pdata.postTitle="";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要

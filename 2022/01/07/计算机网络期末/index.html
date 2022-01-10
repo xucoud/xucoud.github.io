@@ -29,13 +29,11 @@
 
   <!-- 页面元数据 -->
   
-  <title>GMP - Xu&#39;s Blog</title>
+  <title>network - Xu&#39;s Blog</title>
   
-    <meta name="keywords" content="Go">
+    <meta name="keywords" content="期末">
   
 
-  
-    <meta name="description" content="Golang 调度器 GMP 原理与调度全分析">
   
 
   <!-- feed -->
@@ -469,7 +467,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title">
-        GMP
+        network
       </h1>
       <div class='new-meta-box'>
         
@@ -489,7 +487,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class='new-meta-item category'>
     <a class='notlink'>
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <a class="category-link" href="/categories/Go/">Go</a><span class="sep"></span><a class="category-link" href="/categories/Go/GMP/">GMP</a>
+      <a class="category-link" href="/categories/%E6%9C%9F%E6%9C%AB/">期末</a><span class="sep"></span><a class="category-link" href="/categories/%E6%9C%9F%E6%9C%AB/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
     </a>
   </div>
 
@@ -500,7 +498,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Oct 21, 2021</p>
+    <p>发布于：Jan 7, 2022</p>
   </a>
 </div>
 
@@ -511,7 +509,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item browse leancloud">
     <a class='notlink'>
       
-      <div id="lc-pv" data-title="GMP" data-path="/2021/10/21/GMP/">
+      <div id="lc-pv" data-title="network" data-path="/2022/01/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%9C%9F%E6%9C%AB/">
         <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
         <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
         次浏览
@@ -529,37 +527,169 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   
   
-  <p>Golang 调度器 GMP 原理与调度全分析</p>
-<span id="more"></span>
+  <span id="more"></span>
 
-<h2 id="GMP基本概念"><a href="#GMP基本概念" class="headerlink" title="GMP基本概念"></a>GMP基本概念</h2><h4 id="G（goroutine）"><a href="#G（goroutine）" class="headerlink" title="G（goroutine）"></a>G（goroutine）</h4><ul>
-<li>调度系统的最基本单位goroutine，存储了goroutine的执行stack信息、goroutine状态以及goroutine的任务函数等。</li>
-<li>在G的眼中只有P，P就是运行G的“CPU”。</li>
-<li>相当于两级线程。</li>
-</ul>
-<h4 id="P（processor）"><a href="#P（processor）" class="headerlink" title="P（processor）"></a>P（processor）</h4><ul>
-<li>P表示逻辑processor，代表线程M的执行的上下文。</li>
-<li>P的最大作用是其拥有的各种G对象队列、链表、cache和状态。</li>
-<li>P的数量也代表了golang的执行并发度，即有多少goroutine可以同时运行。</li>
-</ul>
+<h2 id="第一章-概述"><a href="#第一章-概述" class="headerlink" title="第一章-概述"></a>第一章-概述</h2><h3 id="计算机网络概念"><a href="#计算机网络概念" class="headerlink" title="计算机网络概念"></a>计算机网络概念</h3><p>​        计算机网络主要是由一些通用的，可编程的硬件互联而成的，而这些硬件并非专门来实现某一特定目的（例如：传送数据和uo视频信号）。这些可编程的硬件能够用来传送多种不同类型的数据，并能支持广泛的和日益增长的应用。</p>
 <blockquote>
-<p>这里的p虽然表示逻辑处理器，但P并不执行任何代码，对G来说，P相当于CPU核，G只有绑定到P才能被调度。 对M来说，P提供了相关的执行环境(Context)，如内存分配状态(mcache)，任务队列(G)等</p>
+<ol>
+<li>计算机网络所连接的硬件，并不局限于计算机，而是包括了智能手机。</li>
+<li>计算机网络并非专门用来传送数据，而是支持很多种的应用。</li>
+</ol>
 </blockquote>
-<h4 id="M（machine）"><a href="#M（machine）" class="headerlink" title="M（machine）"></a>M（machine）</h4><ul>
-<li>M代表着真正的执行计算资源，可以认为它就是os thread（系统线程）。</li>
-<li>M是真正调度系统的执行者，每个M就像一个勤劳的工作者，总是从各种队列中找到可运行的G，而且这样M的可以同时存在多个。</li>
-<li>M在绑定有效的P后，进入调度循环，而且M并不保留G状态，这是G可以跨M调度的基础。</li>
+<h3 id="计算机网络的组成"><a href="#计算机网络的组成" class="headerlink" title="计算机网络的组成"></a>计算机网络的组成</h3><p>由若干结点和链接这些节点的链路组成。</p>
+<blockquote>
+<p><code>结点</code>：计算机，集线器，交换机，路由器等。</p>
+</blockquote>
+<h3 id="计算机网络的工作方式"><a href="#计算机网络的工作方式" class="headerlink" title="计算机网络的工作方式"></a>计算机网络的工作方式</h3><ul>
+<li><p>C/S——&gt;客户-服务器方式</p>
+<ul>
+<li>客户向服务器发送请求；服务器处理请求后，向客户提供服务。</li>
+<li>客户程序特点：<ol>
+<li>主动向服务器程序发起通信，必须知道服务器程序的地址</li>
+<li>不需要特殊的硬件和复杂的操作系统</li>
+</ol>
+</li>
+<li>服务器程序程序：<ol>
+<li>专门提供某种服务的程序，可<code>同时处理</code>多个远程或本地客户的请求</li>
+<li>系统启动后即自动调用并一直不断的运行，被动的等待并接受来自各地客户的通信请求，不需知道客户程序的地址。</li>
+<li>一般需要强大的硬件和高级的操作系统的支持。</li>
+</ol>
+</li>
 </ul>
-<img src="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211204002304.png" class="lazyload" data-srcset="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211204002304.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20211204002255511" style="zoom: 50%;" />
-
-<h2 id="相关术语"><a href="#相关术语" class="headerlink" title="相关术语"></a>相关术语</h2><ul>
-<li>runtime<br><code>runtime</code> 也叫运行时，对golang程序很重要，runtime包含了调度、内存管理、垃圾回收、内部数据结构、定时器和各种系统调用的封装等。可以说golang的强大都归功于runtime的实现。</li>
-<li>scheduler<br><code>scheduler</code> 有调度器、日程安排的意思，这里是指调度器，它的工作是将准备好运行的goroutine分散到工作线程中执行。</li>
-<li>TLS(thread local storage)<br><code>TLS</code>全称是Thread Local Storage，代表每个线程中的本地数据。写入TLS中的数据不会干扰到其余线程中的值。Go的协程实现非常依赖于TLS机制，会用于获取系统线程中当前的G和G所属于的M实例。 Go操作TLS会使用系统原生的接口，以Linux X64为例，go在新建M时候会调用 arch_prctl 这个syscall来设置FS寄存器的值为M.tls的地址，运行中每个M的FS寄存器都会指向它们对应的M实例的tls， linux内核调度线程时FS寄存器会跟着线程一起切换，这样go代码只需要访问FS寄存器就可以获取到线程本地的数据。</li>
-<li>spinning<br><code>spinning</code> 表示自旋，字面的意思是自己围绕自己转。在程序里一般指一直重复某块代码。</li>
-<li>systemstack、mcall或asmcgocall<br>每个M启动都有一个叫g0的系统堆栈，runtime通常使用<code>systemstack</code>、<code>mcall</code>或<code>asmcgocall</code>临时切换到系统堆栈，以执行必须不被抢占的任务、不得增加用户堆栈的任务或切换用户goroutines。在系统堆栈上运行的代码隐式不可抢占，垃圾收集器不扫描系统堆栈。在系统堆栈上运行时，不会使用当前用户堆栈执行。</li>
+</li>
+<li><p>P2P——&gt;对等方式</p>
+<ul>
+<li>不区分服务器请求方和服务提供方</li>
+<li>只要两台主机都运行了对等连接软件，就可以进行平等的对等连接通信</li>
+<li>双方都可以下载对方已存储的共享文件</li>
 </ul>
+</li>
+</ul>
+<h3 id="数据交换方式"><a href="#数据交换方式" class="headerlink" title="数据交换方式"></a>数据交换方式</h3><ul>
+<li>分组交换：单个分组（报文的一部分）传送到相邻节点，存储下来后查表转发到下一节点。</li>
+<li>报文交换：整个报文先传送到相邻节点，全部存储下来后查找转发表，转发到下一个节点。</li>
+<li>电路交换：整个报文的比特流连续的从源点直达终点</li>
+</ul>
+<img src="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20220107221418.png" class="lazyload" data-srcset="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20220107221418.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20220107211736032" style="zoom:80%;" />
 
+<h3 id="网络分类"><a href="#网络分类" class="headerlink" title="网络分类"></a>网络分类</h3><h4 id="按照网络的作用的范围分类"><a href="#按照网络的作用的范围分类" class="headerlink" title="按照网络的作用的范围分类"></a>按照网络的作用的范围分类</h4><ul>
+<li>广域网：几十到几千公里</li>
+<li>城域网：一个城市，或几个街区，5~50km</li>
+<li>局域网：一般用于微型计算机或工作站通过高速通信线路相连，1km左右</li>
+<li>个人区域网：在个人工作的地方把属于个人的电子设备通过无线技术连接起来——无线个人区域网       （WPAN），10m左右</li>
+</ul>
+<h4 id="按照使用者分类"><a href="#按照使用者分类" class="headerlink" title="按照使用者分类"></a>按照使用者分类</h4><ul>
+<li>公用网：电信公司建造的大型网络，所有给该公司交钱的人都可以使用</li>
+<li>专用网：某个部门为满足特殊业务工作需要而建立的网络，仅供该部门的人使用。</li>
+</ul>
+<h3 id="计算公式"><a href="#计算公式" class="headerlink" title="计算公式"></a>计算公式</h3><p><strong>K：</strong>表示数据大小时用<code>2^10</code>，表示传输速率时用<code>10^3</code></p>
+<p><strong>M：</strong>表示数据大小时用<code>2^20</code>，表示传输速率时用<code>10^6</code></p>
+<h4 id="往返时间（RTT）"><a href="#往返时间（RTT）" class="headerlink" title="往返时间（RTT）"></a>往返时间（RTT）</h4><p>从发送方发送数据开始，到发送方接收到接收方的确定（接收方收到数据后立即发送确定）共经历的时延。</p>
+<p>RTT=往返传播时延（传播时延 X 2）+ 末端处理时间（有时会忽略或题目中给出）</p>
+<p>发送时间 = 数据长度/发送速率</p>
+<p>有效数据率 = 数据长度/（发送时间+RTT）</p>
+<h4 id="时延带宽积"><a href="#时延带宽积" class="headerlink" title="时延带宽积"></a>时延带宽积</h4><p>时延带宽积 = 传播时延 X 带宽</p>
+<h4 id="传输时延"><a href="#传输时延" class="headerlink" title="传输时延"></a>传输时延</h4><p>传输时延（发送时延）=  数据帧长度（bit） / 发送速率（bit/s）</p>
+<h4 id="传播时延"><a href="#传播时延" class="headerlink" title="传播时延"></a>传播时延</h4><p>传播时延 = 信道长度(m) / 电磁波在信道上的传播速率(m/s)</p>
+<h4 id="最大吞吐率"><a href="#最大吞吐率" class="headerlink" title="最大吞吐率"></a>最大吞吐率</h4><p>一个RTT时间内发送所有窗口数据</p>
+<h4 id="线路效率"><a href="#线路效率" class="headerlink" title="线路效率"></a>线路效率</h4><p>线路效率 = 吞吐率/网络速率</p>
+<h3 id="计算机网络体系结构"><a href="#计算机网络体系结构" class="headerlink" title="计算机网络体系结构"></a>计算机网络体系结构</h3><p>计算机网络体系结构分为3种：<code>OSI体系结构（七层）</code>，<code>TCP/IP体系结构（四层）</code>，<code>五层体系结构</code>。</p>
+<ul>
+<li>OSI体系结构: 概念清楚，理论也比较完整，但是它既复杂又不实用。</li>
+<li>TCP/IP体系结构:TCP/IP是一个四层体系结构，得到了广泛的运用。</li>
+<li>五层体系结构:为了方便学习，折中OSI体系结构和TCP/IP体系结构，综合二者的优点，这样既简洁，又能将概念讲清楚。</li>
+</ul>
+<img src="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20220108195603.png" class="lazyload" data-srcset="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20220108195603.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20220108195533033" style="zoom:67%;" />
+
+
+
+<h4 id="协议"><a href="#协议" class="headerlink" title="协议"></a>协议</h4><p>为进行网络中的数据交换建立的规则，标准或约定。</p>
+<p>组成<code>三要素</code>：</p>
+<ul>
+<li>语法</li>
+<li>语义</li>
+<li>同步</li>
+</ul>
+<p>协议通常有两种不同的形式</p>
+<ol>
+<li>使用便于人来阅读和理解的文字描述</li>
+<li>使用让计算机能够理解的程序代码</li>
+</ol>
+<p>协议是<code>水平的</code>，即协议是控制对等实体之间通信的规则</p>
+<p>服务是<code>垂直的</code>，即服务是由下层向上层通过层间接口提供的。</p>
+<p>在<code>协议的控制</code>下，两个对等实体间的通信使得本层能够向上一层级提供服务。要实现本层协议，还需要使用下面一层所提供的服务。</p>
+<p>协议保证了能够向上一层提供服务 。</p>
+<p>下面的协议对上面的实体是透明的。</p>
+<h4 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h4><p>任务：通过应用进程之间的交互来完成特点网络应用</p>
+<p>报文：交互的数据单元</p>
+<p>协议：应用进程间通信和交互的规则。</p>
+<ul>
+<li>域名系统DNS</li>
+<li>支持万维网应用的HTTP协议</li>
+<li>支持电子邮件的SMTP协议</li>
+</ul>
+<h4 id="运输层"><a href="#运输层" class="headerlink" title="运输层"></a>运输层</h4><p>任务：负责向两台主机中进程之间的通信提供通用的数据传输服务</p>
+<p>协议：</p>
+<ul>
+<li>传输控制协议（TCP）—— 提供面向连接的，可靠的数据传输服务，其数据传输的单位是报文段</li>
+<li>用户数据报协议（UDP）—— 提供无连接的，尽最大努力的数据传输服务（不保证数据传输的可靠性），其传输的单位是用户数据报</li>
+</ul>
+<h4 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h4><p>任务：负责为分组交换网上的不同主机提供通信服务（源主机到目的主机）</p>
+<p>协议：</p>
+<ul>
+<li>无连接的网际协议IP</li>
+<li>许多种路由选择协议</li>
+</ul>
+<h4 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h4><p>任务：将网络层交下来的IP数据博爱组装成帧，在两个相邻节点间的链路上传送帧</p>
+<p>协议：可靠传输协议</p>
+<h4 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h4><p>任务：传输比特流数据</p>
+<h2 id="第二章-物理层"><a href="#第二章-物理层" class="headerlink" title="第二章-物理层"></a>第二章-物理层</h2><h3 id="传输模式"><a href="#传输模式" class="headerlink" title="传输模式"></a>传输模式</h3><ul>
+<li>单工通信（单向通信）—— 只有一个方向的通信，没有反方向的交互（广播）</li>
+<li>半双工通信（双向交替通信）—— 双方都可以发送信息，但是不能同时 发送/接收</li>
+<li>全双工通信（双向同时通信）—— 双方可以同时发送和接收（传输效率最高）</li>
+</ul>
+<h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><ul>
+<li>机械特性</li>
+<li>电气特性</li>
+<li>功能特性</li>
+<li>过程特性</li>
+</ul>
+<h3 id="奈式准则"><a href="#奈式准则" class="headerlink" title="奈式准则"></a>奈式准则</h3><p>在任何信道中， 码元的传输速率是有上限的， 传输速率超过此上限，就会出现严重的码间串扰的问题，使接收端对码元的判决（识别）成为不可能。</p>
+<h3 id="香农公式"><a href="#香农公式" class="headerlink" title="香农公式"></a>香农公式</h3><p>信噪比是信号的平均功率和噪声的平均功率之比</p>
+<p>信噪比（dB）= 10 log10(S/N) （dB)</p>
+<p>信道的极限信息传输速率 C = W log2（1 + S/N）（bit/s）</p>
+<p><strong>香农公式表明：</strong>信道的带宽或信道中的信噪比越大，信息的极限传输速率就越高</p>
+<p><strong>香农公式的意义：</strong>只要信息的传输速率低于信道的极限信息传输速率，就一定存在某种办法来实现无差错的传输</p>
+<h3 id="CRC校验"><a href="#CRC校验" class="headerlink" title="CRC校验"></a>CRC校验</h3><p>CRC校验中有两个关键点，一是预先确定一个发送送端和接收端都用来作为除数的二进制比特串（或多项式），可以随机选择，也可以使用国际标准，但是最高位和最低位必须为1；二是把原始帧与上面计算出的除数进行模2除法运算，计算出CRC码。</p>
+<p>具体步骤：</p>
+<ol>
+<li>选择合适的除数</li>
+<li>看选定除数的二进制位数，然后再要发送的数据帧上面加上这个位数-1位的0，然后用新生成的帧以模2除法的方式除上面的除数，得到的余数就是该帧的CRC校验码。注意，余数的位数一定只比除数位数少一位，也就是CRC校验码位数比除数位数少一位，如果前面位是0也不能省略。</li>
+<li>将计算出来的CRC校验码附加在原数据帧后面，构建成一个新的数据帧进行发送；最后接收端在以模2除法方式除以前面选择的除数，如果没有余数，则说明数据帧在传输的过程中没有出错。</li>
+</ol>
+<p>以一个题目为例：设待校验的数据为。D8～D1 = 10101011，若采用CRC，且生成多项式为 10011，则其 CRC 码为：<br> 这里首先要注意题目中的一个表述——“多项式”，该题目中写作“10011”，在有的题目中往往写作“x^4+x+1”<br> 首先，在数据位后加<strong>多项式最高幂次</strong>个0，比如这里的多项式最高次项为x^4，那就在数据位后加四个0，变成：101010110000，作为被除数<br> 然后，将多项式 10011 作为除数进行断除。需要注意的是，图中所框的部分，对应位只做xor运算，也就是做减法但不影响其他位</p>
+<img src="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20220108233156.png" class="lazyload" data-srcset="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20220108233156.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20220108233143040" style="zoom:50%;" />
+
+<p>最后得到的余数：1010，即是校验位。那么整个CRC码为：10101011 1010</p>
+<h3 id="接收端校验"><a href="#接收端校验" class="headerlink" title="接收端校验"></a>接收端校验</h3><p>以上一节例题为例，假设收到的CRC码变成了10001011 1010，第10位（右边为低位）发生了错误。<br> 现在尝试用CRC码与多项式 10011 进行短除：</p>
+<img src="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20220108233335.png" class="lazyload" data-srcset="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20220108233335.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20220108233331822" style="zoom:50%;" />
+
+<p>得到余数为 1010(2) = 8+2 = 10(10) ，即第10位发生错误，只需要反转第10位的值，便可获得正确的值</p>
+<h3 id="曼彻斯特编码"><a href="#曼彻斯特编码" class="headerlink" title="曼彻斯特编码"></a>曼彻斯特编码</h3><p>​        在曼彻斯特编码中，每一位的中间有一跳变，位中间的跳变既作时钟信号，又作数据信号;从低到高跳变表示”1”，从高到低跳变表示”0”。还有一种是差分曼彻斯特编码，每位中间的跳变仅提供时钟定时，而用每位开始时有无跳变表示”0”或”1”，有跳变为”0”，无跳变为”1”。</p>
+<p>​        其中非常值得注意的是，在每一位的”中间”必有一跳变，根据此规则，可以得出曼彻斯特编码波形图的画法。例如:传输二进制信息0，若将0看作一位，我们以0为中心，在两边用虚线界定这一位的范围，然后在这一位的中间画出一个电平由高到低的跳变。后面的每一位以此类推即可画出整个波形图。</p>
+<img src="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20220108234444.png" class="lazyload" data-srcset="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20220108234444.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20220108233736457" style="zoom:50%;" />
+
+
+
+<h3 id="信道复用技术"><a href="#信道复用技术" class="headerlink" title="信道复用技术"></a>信道复用技术</h3><ul>
+<li>频分复用（FDM）</li>
+<li>时分复用（TDM）</li>
+<li>统计时分复用（STDM）</li>
+<li>波分复用（WDM）</li>
+<li>码分复用（CDM）</li>
+</ul>
+<h3 id="码分多址-CDMA"><a href="#码分多址-CDMA" class="headerlink" title="码分多址(CDMA)"></a>码分多址(CDMA)</h3><p>每一个用户可以在同样的时间使用同样的频带进行通信。由于个用户使用经过特殊挑选的不同码型，因此各用户之间不会造成干扰。可以提高通信的话音质量和数据传输的可靠性，减少干扰对通信的影响，增大通信的容量，降低手机的平均发射功率……</p>
+<h2 id="第三章-数据链路层"><a href="#第三章-数据链路层" class="headerlink" title="第三章-数据链路层"></a>第三章-数据链路层</h2><h2 id="第四章-网络层"><a href="#第四章-网络层" class="headerlink" title="第四章-网络层"></a>第四章-网络层</h2><h2 id="第五章-运输层"><a href="#第五章-运输层" class="headerlink" title="第五章-运输层"></a>第五章-运输层</h2><h2 id="第六章-应用层"><a href="#第六章-应用层" class="headerlink" title="第六章-应用层"></a>第六章-应用层</h2>
   
   
     
@@ -581,7 +711,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               
-                <p>本文链接🔗：<a href=http://xucoud.github.io/2021/10/21/GMP/>http://xucoud.github.io/2021/10/21/GMP/</a></p>
+                <p>本文链接🔗：<a href=http://xucoud.github.io/2022/01/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%9C%9F%E6%9C%AB/>http://xucoud.github.io/2022/01/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%9C%9F%E6%9C%AB/</a></p>
               
             
           </blockquote>
@@ -598,10 +728,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-12-04T00:23:21+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-01-10T23:57:56+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Dec 4, 2021</p>
+    <p>更新于：Jan 10, 2022</p>
   </a>
 </div>
 
@@ -610,7 +740,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Go/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Go</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%9C%9F%E6%9C%AB/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>期末</p></a></div>
 
 
         
@@ -627,21 +757,35 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/2021/10/21/GC%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>GC垃圾回收</p>
-          <p class='content'>Go中垃圾收集器的详细介绍。
+        <a class='prev' href='/2022/01/10/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>program</p>
+          <p class='content'>
 
-
-​        编程语言的内存管理系统除了负责堆内存的分配之外，它还需要负责回收不再使用的对象和内存空间，这个功能就需要用到垃圾收集器来实现。
-​      ...</p>
+时间复杂度递归与分治设计思想递归：直接或间接的调用自身的函数
+分治：将一个规模为n的问题分解为k个规模较小的子问题，这些子问题互相独立且与原问题相同，递归的求解这些子问题，然后将各个子问题的...</p>
         </a>
       
       
-        <a class='next' href='/2021/10/20/Go-Moudle/'>
-          <p class='title'>Go Module<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>go中module的使用方法以及基本介绍
+        <a class='next' href='/2022/01/04/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%9C%9F%E6%9C%AB/'>
+          <p class='title'>操作系统期末<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>
 
-    自从 Go 官方推出 1.11 之后，增加新的依赖管理模块并且更加易于管理项目中所需要的模块。模块是存储在文件树中的 Go 包的集合，其根目录...</p>
+概述操作系统的分类
+批量操作系统
+
+分时操作系统
+
+实时操作系统
+
+个人计算机操作系统
+
+网络操作系统
+
+分布式操作系统
+
+
+操作系统的特征并发共享，虚拟同步
+多道程序设计技术概念多道程序设...</p>
         </a>
       
     </div>
@@ -699,7 +843,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#GMP%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text">GMP基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#G%EF%BC%88goroutine%EF%BC%89"><span class="toc-text">G（goroutine）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#P%EF%BC%88processor%EF%BC%89"><span class="toc-text">P（processor）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#M%EF%BC%88machine%EF%BC%89"><span class="toc-text">M（machine）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E6%9C%AF%E8%AF%AD"><span class="toc-text">相关术语</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E6%A6%82%E8%BF%B0"><span class="toc-text">第一章-概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A6%82%E5%BF%B5"><span class="toc-text">计算机网络概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9A%84%E7%BB%84%E6%88%90"><span class="toc-text">计算机网络的组成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%96%B9%E5%BC%8F"><span class="toc-text">计算机网络的工作方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E4%BA%A4%E6%8D%A2%E6%96%B9%E5%BC%8F"><span class="toc-text">数据交换方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%88%86%E7%B1%BB"><span class="toc-text">网络分类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%89%E7%85%A7%E7%BD%91%E7%BB%9C%E7%9A%84%E4%BD%9C%E7%94%A8%E7%9A%84%E8%8C%83%E5%9B%B4%E5%88%86%E7%B1%BB"><span class="toc-text">按照网络的作用的范围分类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%89%E7%85%A7%E4%BD%BF%E7%94%A8%E8%80%85%E5%88%86%E7%B1%BB"><span class="toc-text">按照使用者分类</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E5%85%AC%E5%BC%8F"><span class="toc-text">计算公式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%80%E8%BF%94%E6%97%B6%E9%97%B4%EF%BC%88RTT%EF%BC%89"><span class="toc-text">往返时间（RTT）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%B6%E5%BB%B6%E5%B8%A6%E5%AE%BD%E7%A7%AF"><span class="toc-text">时延带宽积</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%A0%E8%BE%93%E6%97%B6%E5%BB%B6"><span class="toc-text">传输时延</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%A0%E6%92%AD%E6%97%B6%E5%BB%B6"><span class="toc-text">传播时延</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%80%E5%A4%A7%E5%90%9E%E5%90%90%E7%8E%87"><span class="toc-text">最大吞吐率</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%BF%E8%B7%AF%E6%95%88%E7%8E%87"><span class="toc-text">线路效率</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="toc-text">计算机网络体系结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%8F%E8%AE%AE"><span class="toc-text">协议</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E5%B1%82"><span class="toc-text">应用层</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%90%E8%BE%93%E5%B1%82"><span class="toc-text">运输层</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B1%82"><span class="toc-text">网络层</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82"><span class="toc-text">数据链路层</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%89%A9%E7%90%86%E5%B1%82"><span class="toc-text">物理层</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%89%A9%E7%90%86%E5%B1%82"><span class="toc-text">第二章-物理层</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%A0%E8%BE%93%E6%A8%A1%E5%BC%8F"><span class="toc-text">传输模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E6%80%A7"><span class="toc-text">特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A5%88%E5%BC%8F%E5%87%86%E5%88%99"><span class="toc-text">奈式准则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A6%99%E5%86%9C%E5%85%AC%E5%BC%8F"><span class="toc-text">香农公式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CRC%E6%A0%A1%E9%AA%8C"><span class="toc-text">CRC校验</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A5%E6%94%B6%E7%AB%AF%E6%A0%A1%E9%AA%8C"><span class="toc-text">接收端校验</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%BC%E5%BD%BB%E6%96%AF%E7%89%B9%E7%BC%96%E7%A0%81"><span class="toc-text">曼彻斯特编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%A1%E9%81%93%E5%A4%8D%E7%94%A8%E6%8A%80%E6%9C%AF"><span class="toc-text">信道复用技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A0%81%E5%88%86%E5%A4%9A%E5%9D%80-CDMA"><span class="toc-text">码分多址(CDMA)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82"><span class="toc-text">第三章-数据链路层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%BD%91%E7%BB%9C%E5%B1%82"><span class="toc-text">第四章-网络层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E8%BF%90%E8%BE%93%E5%B1%82"><span class="toc-text">第五章-运输层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E5%BA%94%E7%94%A8%E5%B1%82"><span class="toc-text">第六章-应用层</span></a></li></ol>
     </div>
   </section>
 
@@ -972,7 +1116,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <script>
   window.pdata={}
   pdata.ispage=true;
-  pdata.postTitle="GMP";
+  pdata.postTitle="network";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要
