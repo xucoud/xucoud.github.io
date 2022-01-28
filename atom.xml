@@ -6,7 +6,7 @@
   <link href="http://xucoud.github.io/atom.xml" rel="self"/>
   
   <link href="http://xucoud.github.io/"/>
-  <updated>2022-01-28T15:28:09.772Z</updated>
+  <updated>2022-01-28T15:48:15.983Z</updated>
   <id>http://xucoud.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://xucoud.github.io/2022/01/28/Go%E5%86%85%E5%AD%98%E9%80%83%E9%80%B8/"/>
     <id>http://xucoud.github.io/2022/01/28/Go%E5%86%85%E5%AD%98%E9%80%83%E9%80%B8/</id>
     <published>2022-01-28T14:31:08.699Z</published>
-    <updated>2022-01-28T15:28:09.772Z</updated>
+    <updated>2022-01-28T15:48:15.983Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Go 语言内存逃逸的简单理解</p><span id="more"></span>]]></content>
     
@@ -96,7 +96,7 @@
     <link href="http://xucoud.github.io/2022/01/26/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     <id>http://xucoud.github.io/2022/01/26/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</id>
     <published>2022-01-26T06:44:09.575Z</published>
-    <updated>2022-01-17T18:00:41.762Z</updated>
+    <updated>2022-01-28T15:48:15.983Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>常用的数据结构的介绍以及自己的实现，会慢慢的进行补充······</p><span id="more"></span><h2 id="线性表"><a href="#线性表" class="headerlink" title="线性表"></a>线性表</h2><p>线性表是由零个或多个元素组成的有限序列。</p><p>元素之间是由顺序的，而且每一个至多由一个前驱和一个后继。</p><p>第一个元素无前驱，最后一个函数无后继。</p><h3 id="顺序表"><a href="#顺序表" class="headerlink" title="顺序表"></a>顺序表</h3><p><code>概念</code>：用<code>一组地址连续</code>的存储单元依次存储线性表的数据元素，这种存储结构的线性表称为顺序表。</p><p><code>特点</code>：逻辑上相邻的数据元素，物理次序也是相邻的。</p><p><code>优点</code>：方便查找和修改。知道了起始位置就可以直接找到目标位置，无需遍历数组去查找。</p><p><code>缺点</code>：删除不方便。删除掉一个位置的元素后，需要将这个元素之后的元素都向前补位。</p><p>​        只要确定了顺序表的起止位置，就可以直接对表中任意位置的数据进行随机存取，所以线性表中的顺序表是一种随机存储的存储结构。</p><h3 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h3>]]></content>
     
