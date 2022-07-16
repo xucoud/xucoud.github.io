@@ -1,0 +1,1131 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="/img/logo_miccall.png"/>
+	<link rel="shortcut icon" href="/img/logo_miccall.png">
+	
+			    <title>
+    Xu's Blog
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    <meta name="keywords" content="miccall" />
+    
+    	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	 
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+    <style type="text/css">
+        body:before {
+          content: ' ';
+          position: fixed;
+          top: 0;
+          background: url('/img/bg.jpg') center 0 no-repeat;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-size: cover; 
+        }
+    </style>
+
+			    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="Xu's Blog" type="application/atom+xml">
+</head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">MICCALL</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">主页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">分类</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        <a class="category-link" href="/categories/Go/">Go</a></li><li><a class="category-link" href="/categories/Go/GC/">GC</a></li><li><a class="category-link" href="/categories/Go/GMP/">GMP</a></li><li><a class="category-link" href="/categories/Go/ORM/">ORM</a></li><li><a class="category-link" href="/categories/Go/Web/">Web</a></li><li><a class="category-link" href="/categories/Go/module/">module</a></li><li><a class="category-link" href="/categories/Go/%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/">内存分配</a></li><li><a class="category-link" href="/categories/Go/%E5%86%85%E5%AD%98%E9%80%83%E9%80%B8/">内存逃逸</a></li><li><a class="category-link" href="/categories/Java/">Java</a></li><li><a class="category-link" href="/categories/Redis/">Redis</a></li><li><a class="category-link" href="/categories/Restful/">Restful</a></li><li><a class="category-link" href="/categories/Spring/">Spring</a></li><li><a class="category-link" href="/categories/SpringBoot/">SpringBoot</a></li><li><a class="category-link" href="/categories/k8s/">k8s</a></li><li><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></li><li><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/js/">js</a></li><li><a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li><li><a class="category-link" href="/categories/%E6%9C%9F%E6%9C%AB/">期末</a></li><li><a class="category-link" href="/categories/%E6%9C%9F%E6%9C%AB/JAVA/">JAVA</a></li><li><a class="category-link" href="/categories/%E6%9C%9F%E6%9C%AB/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a></li><li><a class="category-link" href="/categories/%E6%9C%9F%E6%9C%AB/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90/">算法设计与分析</a></li><li><a class="category-link" href="/categories/%E6%9C%9F%E6%9C%AB/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></li><li><a class="category-link" href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a>
+	                    </ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/about/" title="简历">
+		                简历
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/group/" title="团队">
+		                团队
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/gallery/" title="图库">
+		                图库
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/tag/" title="标签">
+		                标签
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+                    
+                    <li>
+                        <a title="github" href="https://github.com/miccall" target="_blank" rel="noopener">
+                            <i class="icon fa fa-github"></i>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a title="500px" href="http://500px.com" target="_blank" rel="noopener">
+                            <i class="icon fa fa-500px"></i>
+                        </a>
+                    </li>
+                    
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >面试题</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <p>关于面试题的整理合集</p>
+<span id="more"></span>
+
+<h2 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h2><h3 id="协程，线程和进程的区别"><a href="#协程，线程和进程的区别" class="headerlink" title="协程，线程和进程的区别"></a>协程，线程和进程的区别</h3><ul>
+<li>进程是系统进行资源分配的基本单位</li>
+<li>线程是CPU调度的基本单位，是进程的一个执行单元</li>
+<li>协程是一个比线程更加轻量级的存在，属于用户态</li>
+<li>一个进程中可以包含一个或多个线程；一个线程中可以包含一个或多个协程</li>
+<li>进程之间的资源是相互独立的，进程只能使用系统分配个它的资源；而线程之间可以共享所属进程的所有资源</li>
+<li>一个线程可以创建和撤销另一个线程。</li>
+<li>线程运行在处理机上。</li>
+<li>多进程的健壮性强于多线程，一个进程崩溃后不会对其他进程产生影响；而一个线程崩溃后会使其所属的进程受到影响挂掉；</li>
+<li>进程间的地址空间是独立的，而线程是共享进程的地址空间。</li>
+<li>每一个进程都有其独立的执行程序和入口，所以执行的开销较大；而线程不可以独立运行，必须依赖进程，由进程来调度线程执行，执行开销较小。</li>
+<li>进程和线程都可以做到并发执行</li>
+<li>协程避免了无意义的线程切换消耗。协程的切换可以有程序员来决定，而线程的切换由系统来控制。</li>
+</ul>
+<h4 id="进程状态及其转换"><a href="#进程状态及其转换" class="headerlink" title="进程状态及其转换"></a>进程状态及其转换</h4><h5 id="状态：运行、阻塞、挂起阻塞、就绪、挂起就绪"><a href="#状态：运行、阻塞、挂起阻塞、就绪、挂起就绪" class="headerlink" title="状态：运行、阻塞、挂起阻塞、就绪、挂起就绪"></a>状态：运行、阻塞、挂起阻塞、就绪、挂起就绪</h5><blockquote>
+<p> 状态之间的转换：准备就绪的进程，被CPU调度执行，变成运行态； 运行中的进程，进行I/O请求或者不能得到所请求的资源，变成阻塞态； 运行中的进程，进程执行完毕（或时间片已到），变成就绪态； 将阻塞态的进程挂起，变成挂起阻塞态，当导致进程阻塞的I/O操作在用户重启进程前完成（称之为唤醒），挂起阻塞态变成挂起就绪态，当用户在I/O操作结束之前重启进程，挂起阻塞态变成阻塞态； 将就绪（或运行）中的进程挂起，变成挂起就绪态，当该进程恢复之后，挂起就绪态变成就绪态；</p>
+</blockquote>
+<h4 id="进程通信"><a href="#进程通信" class="headerlink" title="进程通信"></a>进程通信</h4><p>每个进程各自有不同的用户地址空间,任何一个进程的全局变量在另一个进程中都看不到，所以进程之间要交换数据必须通过内核,在内核中开辟一块缓冲区,进程A把数据从用户空间拷到内核缓冲区,进程B再从内核缓冲区把数据读走,内核提供的这种机制称为进程间通信。</p>
+<h5 id="共享存储："><a href="#共享存储：" class="headerlink" title="共享存储："></a>共享存储：</h5><p>两个进程对共享空间的访问必须是互斥的（互斥访问通过操作系统提供的工具实现）</p>
+<p>操作系统只负责提供共享空间和同步互斥工具（eg: P\V操作）</p>
+<ol>
+<li>基于数据结构的共享</li>
+</ol>
+<p>比如共享空间里之只能放一个长度为10的数组，</p>
+<p>这种共享方式慢、限制多，是一种低级通信方式。</p>
+<ol start="2">
+<li>基于存储区的共享：</li>
+</ol>
+<p>在内存中画出一块共享存储区，数据的形式、存放位置都由进程控制，而不是操作系统。</p>
+<p>相比之下，这种共享方式速度更快，是一种高级通信方式。</p>
+<h5 id="管道通信："><a href="#管道通信：" class="headerlink" title="管道通信："></a>管道通信：</h5><p>“管道”是指用于连接读写进程的一个共享文件，又名pipe 文件。</p>
+<p>其实就是在内存中开辟一个大小固定的缓冲</p>
+<ol>
+<li>管道只能采用半双工通信，某一时间段内只能实现单向的传输。</li>
+</ol>
+<p>如果要实现双向同时通信，则需要设置两个管道。</p>
+<ol start="2">
+<li><p>各进程要互斥地访问管道。</p>
+</li>
+<li><p>数据以字符流的形式写入管道，当管道写满时，写进程的write()系统调用将被阻塞，等待读进程将数据 取走。当读进程将数据全部取走后，管道变空，此时读进程的read()系统调用将被阻塞。</p>
+</li>
+<li><p>如果没写满，就不允许读。如果没读空，就不允许写。</p>
+</li>
+<li><p>数据一旦被读出，就从管道中被抛弃，这就意味着读进程最多只能有一个，否则可能会有读错数据的情况</p>
+</li>
+</ol>
+<h5 id="消息传递"><a href="#消息传递" class="headerlink" title="消息传递"></a>消息传递</h5><p>进程间的数据交换以格式化的消息（Message)为单位。</p>
+<p>进程通过操作系统提供的“发送消息/接受消息”两个原语进行数据交换。</p>
+<p>消息分为消息头（发送进程ID、接受进程ID、消息类型、消息长度等格式化信息）</p>
+<p>扩展：计网中发送报文其实就是一种格式化消息。</p>
+<ol>
+<li>直接通信方式：</li>
+</ol>
+<p>消息直接挂到接受进程的消息缓冲队列上</p>
+<ol start="2">
+<li>间接通信方式</li>
+</ol>
+<p>消息要先发送到中间实体（信箱）中，因此，也称“信箱通信方式”。</p>
+<h3 id="僵尸进程是什么"><a href="#僵尸进程是什么" class="headerlink" title="僵尸进程是什么"></a>僵尸进程是什么</h3><p>一个子进程调用exit()方法或者其他原因结束了（此时会释放该子进程占用的部分资源‘打开的文件，占用的内存等’，保留下一定的信息‘进程号，退出状态，运行时间等’），但是他的父进程并没有使用wait()方法回收这个子进程，那么这个子进程就会一直存在于系统中，占用部分资源，成为僵尸进程。</p>
+<p>危害：</p>
+<ul>
+<li>造成资源的浪费</li>
+<li>产生太多的僵尸进城后，可能会导致没有可用的进程号来创建新进程</li>
+</ul>
+<h3 id="孤儿进程"><a href="#孤儿进程" class="headerlink" title="孤儿进程"></a>孤儿进程</h3><p>一个父线程忽然退出，那么他的子进程都会成为孤儿进程。此时会找到一个父进程，如果其所在的进程组没有人收养，那么它就会成为init进程的子进程。init进程会为每一个子进程调用wait()方法，确保不会产生僵尸进程。</p>
+<h2 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h2><h3 id="TCP，UDP报文"><a href="#TCP，UDP报文" class="headerlink" title="TCP，UDP报文"></a>TCP，UDP报文</h3><img src="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/202202280955069.png" alt="image-20220228095534956" style="zoom: 67%;" />
+
+<img src="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/202202280955542.png" alt="image-20220228095558492" style="zoom:67%;" />
+
+<h3 id="TCP和UDP的区别"><a href="#TCP和UDP的区别" class="headerlink" title="TCP和UDP的区别"></a>TCP和UDP的区别</h3><ul>
+<li>TCP是可靠传输，UDP是不可靠传输</li>
+<li>TCP面对对象是字节流，而UDP面对对象是报文</li>
+<li>TCP只能是点对点的，而UDP支持一对一，一对多，多对一，多对多</li>
+<li>TCP的安全性高，UDP的实时性高</li>
+</ul>
+<h3 id="TCP如何保证可靠性的"><a href="#TCP如何保证可靠性的" class="headerlink" title="TCP如何保证可靠性的"></a>TCP如何保证可靠性的</h3><ul>
+<li><p>校验和：</p>
+<ul>
+<li>TCP会在发送方发送数据之前，会加上一个12字节的伪首部，并将整个报文段分成多个16位的段，将所有的段进行反码相加，将结果保存到校验和字段中。</li>
+<li>接收端会用同样的方式计算出一个校验和，将两个校验和进行对比，如果发送发和接收方的校验和不相等，那么说明传输数据有误，丢弃这个段，重新发送。</li>
+</ul>
+</li>
+<li><p>序列号/确认号</p>
+<ul>
+<li>序列号（ACK）：TCP为每一个数据包都分配了一个序列号，第一个数据包的序列号是随机的，之后的序列号是根据接收方的确认号来决定。<ul>
+<li>保证可靠性（当接收到的数据总少了某个序号的数据时，能马上知道）</li>
+<li>保证数据的按序到达</li>
+<li>提高效率，可实现多次发送，一次确认</li>
+<li>去除重复数据（由于网络拥塞和超时重传的原因，发送方可能将同一个数据包发送两次，但是发送方只需对一个数据包进行确认，下一个数据包就会被自动丢弃）</li>
+</ul>
+</li>
+<li>确认号（seq）：接收端在接收到发送端发送来的数据包时，确认正确之后，会发送一个确认号（发送方数据包的序列号+1），这个确认号会是下一个发送端数据包的序列号。<ul>
+<li>可靠的数据传输，Ack的值表示这个值之前的数据都已经按序到达了</li>
+<li>延迟确认，如果连续收到两个TCP包，并不一定需要Ack两次，只要回复最终的Ack就可以了，可以降低网络流量。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>超时重传</p>
+<ul>
+<li>发送端在发送数据包之后开始计时，如果在一定时间内没有接收到接收端的确认报文，就会进行重传</li>
+<li>原因：<ul>
+<li>发送端数据包丢失，导致接收端没有接收到数据包</li>
+<li>接收端确认数据报文丢失，导致发送方一直没有接收到确认报文</li>
+</ul>
+</li>
+<li>确认重传时间：<ul>
+<li>TCP会根据网络情况动态的计算最大超时时间（RTO）。从发送端发送数据开始到收到接收端的确认报文之间的时间称为RTT（往返时间），RTO会略大于RTT。</li>
+</ul>
+</li>
+<li>在重发的过程中，如果多次发送之后仍没有接收到确认包，那么发送端会认为网络或者接收端出现异常，强制关闭连接。</li>
+</ul>
+</li>
+<li><p>连接管理：三握四挥</p>
+</li>
+<li><p>流量控制（解决因为传输速率导致的丢包问题）：接收端处理数据的速度是有限的，如果发送端发送的速度过快，会导致接收端的缓冲区溢出，出现丢包，以及超时重传等情况。为了避免这种情况，TCP会根据接收端的处理能力决定发送端发送数据的速度。</p>
+<ul>
+<li>TCP发送的数据包的头部中有一个16位的窗口大小，这个窗口的大小实际上是接收端实际剩余的缓冲区的大小，这个数字越大，证明接收端的缓冲区的剩余空间越大，网络的吞吐量越大，那么发送端就可以发送越多的数据。接收端在向发送端发送确认包时会将剩余的缓冲区大小填入这个字段，发送端就根据这个大小来发送数据。如果窗体的大小为0，那么发送端就会停止发送新的数据包。</li>
+<li>16位的窗口大小实际只能发送65535字节（64K）的数据，但是TCP实际最大发送数据不止64K。TCP的头部选项中有一个窗口扩大因子M，代表窗口大小向左移M位，每移动一位，扩大两倍。</li>
+</ul>
+</li>
+<li><p>滑动窗口</p>
+<ul>
+<li>接收端窗口只会对按序到达的最后一个数据包进行确认，发送端从确认号开始发送数据包。发送端只要收到接收端的确认报文就可以直到确认号之前的数据包都已经成功发送并被接收了。<ul>
+<li>发送端发送{1，2，3，4，5}，接收端缺失了3，那么确认号就是3，代表{1，2}已经被成功接收，3未收到，发送端需要从3开始重新发送。</li>
+</ul>
+</li>
+<li>发送窗口中的数据都是允许发送的，接收窗口内的数据包都允许被接收。发送窗口左边的数据包都是已经发送并被确认接收的，右边都是未发送的。如果发送窗口中左边的数据包被发送并被确认接受，那么发送窗口会向右滑动一段距离，直到发送窗口的左边数据包是未被发送或未被接收的。</li>
+</ul>
+</li>
+<li><p>拥塞控制：当当前网路非常拥堵时，在发送数据可能会导致一个数据包在网络链路中传输时间超过最大生存时间也没有到达接收端，产生丢包的问题。</p>
+<img src="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/202202281459101.png" alt="image-20220228145919053" style="zoom:67%;" />
+
+<ul>
+<li><p>为了解决这个问题，TCP引入了慢启动机制，先发送少量的数据探路，然后根据情况来决定安装多大的速度来发送数据包。</p>
+</li>
+<li><p>在发送端开始时定义拥塞窗口大小为1，每次收到一个<code>ACK应答</code>，将拥塞窗口的值加1；每次发送数据时，发送窗口大小会取拥塞窗口和接收端的窗口大小中的最小值。</p>
+</li>
+<li><p><code>慢启动</code>、<code>拥塞避免</code>：在启动初期按照指数的方式增大拥塞窗口值，并设定一个阈值；当拥塞窗口大小达到阈值时，拥塞窗口按照线性的方式增长，直到达到网络拥塞；达到<code>网络拥塞</code>后进行<code>拥塞避免</code>，拥塞窗口大小重新变为1，<code>阈值</code>变为网络拥塞状态时拥塞窗口大小的一半，开启新一轮的慢启动。</p>
+</li>
+<li><p><code>快重传</code>，<code>快恢复</code>：在接收端需要对按序列接收到的报文中的最后一个进行确认。</p>
+<img src="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/202202281514285.png" alt="image-20220228151442241" style="zoom:67%;" />
+
+<ul>
+<li>假如发送端发送来 {M1，M2，M3，M4}，接收端接收到{M1，M2，M4}，那么接收端就会发送对{M2}的确认，重复三次，而发送端接收到同意报文段的三次确认后就知道下一报文段确实，进行快重传，重传下一个报文段M3。</li>
+<li>此时发送端执行快恢复，将拥塞窗口的阈值设为当前拥塞窗口大小的一半，并将拥塞窗口大小设为当前阈值大小，直接进入拥塞避免。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="TCP三次握手"><a href="#TCP三次握手" class="headerlink" title="TCP三次握手"></a>TCP三次握手</h3><p><img src="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/202202272348807.png" alt="image-20220227232958154"></p>
+<ul>
+<li>客户端处于关闭状态，服务端处于监听状态</li>
+<li>第一次握手，发送端向接收端发送连接请求，SYN=1, ACK=0,并选择一个初始序列号seq=x。<code>这样服务端就能得出结论：客户端的发送能力、服务端的接收能力是正常的。</code></li>
+<li>第二次握手，接收端向发送端发送同意连接的确认报文，SYN=1，ACK=1，确认序列号ack=x+1,并选择一个初始序列号y。<code>这样客户端就能得出结论：服务端的接收、发送能力，客户端的接收、发送能力是正常的。不过此时服务器并不能确认客户端的接收能力是否正常。</code></li>
+<li>第三次握手（避免错误的开启连接，同步双方的初始化序列号），发送端向接收端发送确认收到同意连接的报文，ACK=1，确认号=y+1, 序列号=x+1。<code>这样服务端就能得出结论：客户端的接收、发送能力正常，服务器自己的发送、接收能力也正常。</code>第三次握手时也可以开始携带数据。</li>
+<li>不是二次握手：防止A的请求连接报文在网络链路中滞留，这个已经失效的请求报文突然传送到B，B接收到A的请求连接时就会建立连接，但是A此时并没有请求连接，不会理会B的确认报文，此时A没有建立连接，B建立了连接。造成B的资源大量的浪费。</li>
+<li>不是四次或更多的握手：三次握手就已经理论上最少可靠连接建立，之后更多次的握手也无法保证之后的连接的可靠性，会造成不必要的资源浪费。</li>
+<li>三次握手的作用：<ol>
+<li>确认双方的接受能力、发送能力是否正常。</li>
+<li>指定自己的初始化序列号，为后面的可靠传送做准备。</li>
+<li>如果是 https 协议的话，三次握手这个过程，还会进行数字证书的验证以及加密密钥的生成到。</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p><code>同步位SYN</code>：在建立连接时用来同步序号；当SYN=1，ACK=0时，表明这是一个连接请求报文段。当SYN=1，ACK=1时，表明这是一个连接接收报文段；</p>
+<p><code>确认位ACK</code>：当ACK=1时，确认号ack才生效。在请求建立连接后（第一次握手后），所有的报文段都必须把ACK置1。</p>
+<p><code>确认号ack</code>：期望收到的下一个报文段的第一个数据字节的序号，比如：B正确接收到了A发送过来的一个报文段，序号是501，数据长度是200字节；这表明B正确接收到了序号501-700的数据。所以，B期望的下一个序号是701，于是B在发送给A的确认报文段中确认号ack=701。</p>
+</blockquote>
+<blockquote>
+<p><code>CLOSED</code>：初始关闭状态</p>
+<p><code>LISTEN</code>：监听状态，等待客户连接</p>
+<p><code>SYB-SENT</code>：同步已发送</p>
+<p><code>SYN-RCVD</code>：同步已接收</p>
+<p><code>ESTAB-LISHED</code>：已建立连接</p>
+</blockquote>
+<h3 id="TCP四次挥手"><a href="#TCP四次挥手" class="headerlink" title="TCP四次挥手"></a>TCP四次挥手</h3><img src="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/202202281532662.png" alt="image-20220228153224623" style="zoom: 67%;" />
+
+<ul>
+<li>初始状态双放都处于连接状态<code>ESTAB-LISHED</code></li>
+<li>第一次挥手，客户端向服务端发送关闭连接请求，FIN=1， ACK=1，初始序列号seq=x</li>
+<li>第二次挥手，接收端向客户端发送确认报文，ACK=1，确认序列号ack=x+1，选择初始序列号seq=y(用于客户端进行确认) 。此时TCP处于版关闭状态，B可以向A继续发送剩余未发送的数据，但是A不可以向B发送数据</li>
+<li>第三次挥手，接收端向客户端发送关闭请求，FIN=1，ACK=1，确认号ack=x+1，选择初始序列号seq=w</li>
+<li>第四次挥手，客户端向接收端发送确认关闭报文，ACK=1，确认报文ack=w+1，序列号seq=x+1。</li>
+<li>A发出确认后，进入TIME-WAIT状态，等待2MSL（报文在网络链路中最大存活时间）后释放连接。<ul>
+<li>确保最后一个报文可以到达。如果B没有收到A的确认报文，那么A就会进行重传确认报文，TIME-WAIT就是为了防止A关闭了，但是B还没有关闭。</li>
+<li>等待一段时间让网络链路中的数据报文自动失效，防止下一个网络连接会获取到已失效的旧数据。</li>
+</ul>
+</li>
+<li>B在收到A的确认报文后直接关闭</li>
+</ul>
+<blockquote>
+<p><code>ESTAB-LISHED</code>：已建立连接</p>
+</blockquote>
+<blockquote>
+<p><code>FIN-WAIT-1</code>：终止等待1</p>
+<p><code>CLOSE-WAIT</code>：关闭等待</p>
+<p><code>FIN-WAIT-2</code>：终止等待2</p>
+<p><code>LAST-ACK</code>：最后确认</p>
+<p><code>TIME-WAIT</code>：时间等待</p>
+<p><code>CLOSED</code>：关闭</p>
+</blockquote>
+<h4 id="建立连接三次，释放连接四次"><a href="#建立连接三次，释放连接四次" class="headerlink" title="建立连接三次，释放连接四次"></a>建立连接三次，释放连接四次</h4><ol>
+<li><p>建立连接时，确认ACK和同步SYN可以放在同一个报文中；而释放连接时，服务器肯还有数据需要传输，因此需要客户端先请求断开连接，避免服务端超时重传，当服务端没有数据发送之后，服务端请求断开连接。</p>
+</li>
+<li><p>断开比连接时多一次，是因为连接只需要处理连接，而断开需要处理连接+数据。</p>
+</li>
+<li><p>TCP时全双工通信，需要两边分别断开连接。</p>
+</li>
+</ol>
+<h3 id="网络7层结构-各层作用"><a href="#网络7层结构-各层作用" class="headerlink" title="网络7层结构 各层作用"></a>网络7层结构 各层作用</h3><table>
+<thead>
+<tr>
+<th align="center">OSI(七层网络模型)</th>
+<th align="left">功能</th>
+<th align="center">协议</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">应用层</td>
+<td align="left">网络服务与程序的接口（人机交互页面），为特定的应用程序提供数据传输服务。</td>
+<td align="center">HTTP，HTTPS，TFTP，SMTP，FTP，DNS</td>
+</tr>
+<tr>
+<td align="center">表示层</td>
+<td align="left">从应用层接收数据，数据的翻译、压缩和加密/解密</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">会话层</td>
+<td align="left">建立、解除、管理会话（连接）；完成通信进程的逻辑名字与物理名字间的对应；</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">运输层</td>
+<td align="left">为会话层实体提供透明、可靠的数据传输服务，保证端到端的数据完整性；选择网络层的最适宜的服务；提供建立、维护和拆除传输连接功能</td>
+<td align="center">TCP、UDP</td>
+</tr>
+<tr>
+<td align="center">网络层</td>
+<td align="left">将接收到的数据段从一台计算机传输到位于不同网络中的另一台计算机</td>
+<td align="center">IP、ARP（处于网络层和数据链路层之间）</td>
+</tr>
+<tr>
+<td align="center">数据链路层</td>
+<td align="left">负责在两个相邻结点间的线路上，无差错地传送以帧为单位的数据，并进行流量控制</td>
+<td align="center">PPP，HDLC，CSMA/CD</td>
+</tr>
+<tr>
+<td align="center">物理层</td>
+<td align="left">提供建立、维护和拆除物理链路所需的机械、电气、功能和规程的特性；提供有关在传输介质上传输非结构的位流</td>
+<td align="center">ISO2110，IEEE802</td>
+</tr>
+</tbody></table>
+<h3 id="常用端口"><a href="#常用端口" class="headerlink" title="常用端口"></a>常用端口</h3><table>
+<thead>
+<tr>
+<th align="center">应用</th>
+<th align="center">应用层协议</th>
+<th align="center">端口号</th>
+<th align="center">传输层协议</th>
+<th align="center">备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">域名解析</td>
+<td align="center">DNS</td>
+<td align="center">53</td>
+<td align="center">UDP/TCP</td>
+<td align="center">长度超过 512 字节时使用 TCP</td>
+</tr>
+<tr>
+<td align="center">动态主机配置协议</td>
+<td align="center">DHCP</td>
+<td align="center">67/68</td>
+<td align="center">UDP</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">简单网络管理协议</td>
+<td align="center">SNMP</td>
+<td align="center">161/162</td>
+<td align="center">UDP</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">文件传送协议</td>
+<td align="center">FTP</td>
+<td align="center">20/21</td>
+<td align="center">TCP</td>
+<td align="center">控制连接 21，数据连接 20</td>
+</tr>
+<tr>
+<td align="center">远程终端协议</td>
+<td align="center">TELNET</td>
+<td align="center">23</td>
+<td align="center">TCP</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">超文本传送协议</td>
+<td align="center">HTTP</td>
+<td align="center">80</td>
+<td align="center">TCP</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">简单邮件传送协议</td>
+<td align="center">SMTP</td>
+<td align="center">25</td>
+<td align="center">TCP</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">邮件读取协议</td>
+<td align="center">POP3</td>
+<td align="center">110</td>
+<td align="center">TCP</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">网际报文存取协议</td>
+<td align="center">IMAP</td>
+<td align="center">143</td>
+<td align="center">TCP</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">超文本传输安全协议</td>
+<td align="center">HTTPS</td>
+<td align="center">443</td>
+<td align="center">TCP</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h3 id="DNS解析"><a href="#DNS解析" class="headerlink" title="DNS解析"></a>DNS解析</h3><p>DNS（域名系统），是将域名转为IP地址的网络协议</p>
+<h4 id="DNS解析域名流程"><a href="#DNS解析域名流程" class="headerlink" title="DNS解析域名流程"></a>DNS解析域名流程</h4><img src="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/202202282315913.png" alt="image-20220228231538797" style="zoom:80%;" />
+
+<ul>
+<li>客户端通过浏览器访问 <a target="_blank" rel="noopener" href="http://www.baidu.com(http//www.baidu.com)%EF%BC%8C%E5%8F%91%E8%B5%B7%E6%9F%A5%E8%AF%A2%E8%AF%A5%E5%9F%9F%E5%90%8D%E7%9A%84IP%E5%9C%B0%E5%9D%80%E7%9A%84DNS%E8%AF%B7%E6%B1%82%E3%80%82%E8%AF%B7%E6%B1%82%E4%BC%9A%E5%85%88%E5%8F%91%E9%80%81%E5%88%B0%E6%9C%AC%E5%9C%B0%E7%9A%84DNS%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E3%80%82%E6%9C%AC%E5%9C%B0DNS%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%8E%B0%E5%9C%A8%E5%AE%83%E7%9A%84%E6%9C%AC%E5%9C%B0%E7%BC%93%E5%AD%98%E4%B8%AD%E6%9F%A5%E6%89%BE%E8%AF%A5%E5%9F%9F%E5%90%8D%E7%9A%84IP%E5%9C%B0%E5%9D%80%EF%BC%8C%E5%A6%82%E6%9E%9C%E6%89%BE%E5%88%B0%E4%BA%86%E5%B0%B1%E4%BC%9A%E7%9B%B4%E6%8E%A5%E8%BF%94%E5%9B%9E%E7%BB%93%E6%9E%9C%EF%BC%8C%E5%90%A6%E5%88%99%E4%BC%9A%E5%90%91%E6%A0%B9%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%9B%E8%A1%8C%E6%9F%A5%E8%AF%A2%E3%80%82">www.baidu.com(http://www.baidu.com)，发起查询该域名的IP地址的DNS请求。请求会先发送到本地的DNS服务器上。本地DNS服务器现在它的本地缓存中查找该域名的IP地址，如果找到了就会直接返回结果，否则会向根服务器进行查询。</a></li>
+<li>本地服务器向根服务器发送查询该域名的IP地址的请求。</li>
+<li>根服务器经过检查，如果有会向本地服务器返回结果，否则会给出顶级域名服务器（.com,.org,.cn）的地址。</li>
+<li>本地服务器向顶级域名服务器（.com）发起该查询该域名的IP地址的请求。</li>
+<li>顶级域名服务器收到请求后，不会直接返回域名和IP的对应关系，而是告诉本地DNS服务器，该域名可以在baidu.com域名服务器上进行解析获取IP地址，并将baidu.com域名服务器的地址返回给本地DNS服务器</li>
+<li>本地服务器向baidu.com域名服务器发起该查询该域名的IP地址的请求。</li>
+<li>baidu.com域名服务器收到查询请求后，在自己的缓存列表中发现了该域名和IP地址的对应关系，并将IP地址返回给本地DNS服务器</li>
+<li>本地DNS服务器获得该域名对应的IP地址后，将其保存在本地缓存中，并返回给客户端</li>
+</ul>
+<h4 id="多级缓存系统"><a href="#多级缓存系统" class="headerlink" title="多级缓存系统"></a>多级缓存系统</h4><p>为了满足DNS的高效、快速的查询，整个DNS系统，需要按照分布式系统架构来设计，并且，前面提到的本地DNS查询服务器，它是离客户最近的DNS解析服务器，类似于CDN的边缘节点，除了直接把域名解析的结果缓存起来，也会试图把整个分布式的DNS管理服务器的数据，按照树型组织集中缓存在本地，这就是所谓的多级缓存！</p>
+<p>用户查询<a target="_blank" rel="noopener" href="http://www.baidu.com域名,会先到本地dns服务器中查找,有则直接返回结构,如果没有就查找/">www.baidu.com域名，会先到本地DNS服务器中查找，有则直接返回结构，如果没有就查找</a> .com，依次向上查找，如果都没有就会去根服务器查找。</p>
+<p>用户在解析域名时，会先在本地域名服务器查找，如果没有就会去查找对应的缓存，如果没有就会依次去上级缓存中查找，如果顶级域名缓存中也没有就会去根服务器中查找，依次查询，直至找到该域名对应的IP地址。</p>
+<h3 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h3><p><code>HTTP</code>：超文本传输协议（HyperText Transfer Protocol），是互联网上应用最广泛的一种网络协议之一，HTTP设计的最初目的是为了提供一种发布和接收HTML的方法，是一个专门在两点之间传输文本，音频，图片，视频等超文本数据的约定和规范。</p>
+<ul>
+<li><p>由三部分组成：超文本、传输、协议</p>
+</li>
+<li><p>目前广泛使用的是HTTP/1.1版本</p>
+</li>
+<li><p>HTTP是一个基于TCP/IP通信协议来传递信息的协议。</p>
+</li>
+</ul>
+<h4 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h4><ul>
+<li>客户端访问<a target="_blank" rel="noopener" href="http://www.baidu.com,dns将域名解析为对应的ip地址/">www.baidu.com，DNS将域名解析为对应的IP地址</a></li>
+<li>客户端发起TCP连接，与服务器进行三次握手建立连接</li>
+<li>客户端发送HTTP请求到服务器</li>
+<li>服务器发送HTTP响应到客户端</li>
+<li>客户端将得到的对应的HTML代码和资源渲染到前端页面</li>
+</ul>
+<h4 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h4><ul>
+<li><p>支持 客户端/服务器 模式，也是一种 请求/响应模式的协议</p>
+</li>
+<li><p>简单快速。客户端向服务器发送请求时，只需要传送 请求方法和路径。</p>
+</li>
+<li><p>灵活。HTTP允许传输任意类型的数据。传输数据的类型可以通过 Content-Type来指定</p>
+<ul>
+<li><p>常见的媒体格式类型如下：</p>
+<p>text/html ： HTML格式</p>
+<p>text/plain ：纯文本格式</p>
+<p>text/xml ： XML格式</p>
+<p>image/gif ：gif图片格式</p>
+<p>image/jpeg ：jpg图片格式</p>
+<p>image/png：png图片格式</p>
+</li>
+<li><p>以application开头的媒体格式类型：</p>
+<p>application/xhtml+xml ：XHTML格式</p>
+<p>application/xml： XML数据格式</p>
+<p>application/atom+xml ：Atom XML聚合格式</p>
+<p>application/json： JSON数据格式</p>
+<p>application/pdf：pdf格式</p>
+<p>application/msword ： Word文档格式</p>
+<p>application/octet-stream ： 二进制流数据（如常见的文件下载）</p>
+<p>application/x-www-form-urlencoded ： <form encType="">中默认的encType，form表单数据被编码为key/value格式发送到服务器（表单默认的提交数据的格式）</p>
+</li>
+<li><p> 另外一种常见的媒体格式是上传文件之时使用的：</p>
+</li>
+</ul>
+<p>  multipart/form-data ： 需要在表单中进行文件上传时，就需要使用该格式</p>
+<ul>
+<li><p> 无连接：限制每一个连接只能处理一个请求。服务器处理完客户请求，并收到客户的确认后，就断开连接。</p>
+</li>
+<li><p>采用这种方式可以节省传输时间，但是随着网页越来越复杂，需求越来越复杂，HTTP使用了一个 Keep-Alive的功能，使的客户端到服务器端的连接一直有效（超出规定的时间，或者意外断电等情况除外），避免了客户端发送多个请求时需要重复建立TCP连接，提高了效率，但是占用了更多的资源。</p>
+</li>
+<li><p>无状态：HTTP协议对于事物的处理没有记忆能力，服务器不知道客户端的情况。客户端每次发送请求，服务器将响应结果发送会给客户端后，不会记录任何信息。意味着每个HTTP请求都是独立的。</p>
+<ul>
+<li>无连接状态是的服务器不会占用过多的资源，但是在需要前面的信息时就需要重传前面的数据，导致数据量增大</li>
+<li>为了保存状态，采用了Cookie和Session。Cookie时在客户端保存状态，通常是保存用户的基本信息，在一定的时间内都会保存在浏览器中，在下次发送请求时就可以简化操作，但是保存的数据大小有限。Session是在服务器端保存状态，服务器为Session设置一个过期时间，并分配一个SessionId，将Session保存在客户端的无过期时间Cookie中，每一次用户只需将sessionId传过来就可以在服务器中获取到状态信息，这种方式保存的状态数据大小没有限制，且当浏览器意外关闭后状态信息也不会立刻消失。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="URI和URL"><a href="#URI和URL" class="headerlink" title="URI和URL"></a>URI和URL</h4><p>HTTP中使用URI（统一资源标识符）来建立连接和传输数据</p>
+<ul>
+<li>URI：Uniform Resource Identifier 统一资源<strong>标识</strong>符</li>
+<li>URL：Uniform Resource Location 统一资源<strong>定位</strong>符</li>
+</ul>
+<p>URI 是用来标示 一个具体的资源的，我们可以通过 URI 知道一个资源是什么。不涉及规范协议</p>
+<p>URL 则是用来定位具体的资源的，标示了一个具体的资源位置。互联网上的每个文件都有一个唯一的URL。需要指定对应的协议</p>
+<h4 id="HTTP报文"><a href="#HTTP报文" class="headerlink" title="HTTP报文"></a>HTTP报文</h4><ul>
+<li>请求报文</li>
+</ul>
+<ol>
+<li>请求行：包括请求方法、URL、协议/版本</li>
+<li>请求头(Request Header)</li>
+<li>请求正文</li>
+</ol>
+<ul>
+<li>响应报文</li>
+</ul>
+<ol>
+<li>状态行</li>
+<li>响应头</li>
+<li>响应正文</li>
+</ol>
+<h4 id="存在问题"><a href="#存在问题" class="headerlink" title="存在问题"></a>存在问题</h4><ul>
+<li>请求信息明文传输，容易被拦截监听。</li>
+<li>数据没有校验，容易出现被篡改的情况</li>
+<li>没有验证对方的身份，容易出现冒充的危险</li>
+</ul>
+<p>HTTP协议不适合传输一些敏感的信息，例如账号密码等。</p>
+<h3 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h3><h4 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h4><p><code>HTTPS</code>：相当于HTTP+SSL/TLS，是在HTTP的基础上加上了加密传输和身份认证等功能。</p>
+<p><code>明文</code>：没有经过加密的原始数据。</p>
+<p><code>密钥</code>：通常是一串字符或者数字，以供加密或解密算法使用。公钥和私钥都属于密钥，公钥被公开用于加密，私钥不会公开，用于解密</p>
+<p><code>非对称加密算法</code>：公钥加密后只能由私钥解密，私钥加密后，只能由公钥加密，而且一方的加密内容只能由另一方来解密，通常用来加密密钥，防止泄露。</p>
+<ul>
+<li>机密算法：RSA、DSA/DSS、Elgamal、Rabin、D-H、ECC···</li>
+</ul>
+<p><code>加密算法</code>：加密和解密使用的是同一个密钥，通常用来加密消息体。</p>
+<ul>
+<li>加密算法：AES、DES、3DES、TDEA、Blowfish、RC4、RC5、IDEA···</li>
+</ul>
+<p><code>数字证书</code>：包含证书的发布机构，证书有效期，公钥，证书所有人，签名使用的算法，指纹和指纹算法。数字证书可以保证里面的的公钥一定是证书所有人的。</p>
+<p><code>数字签名</code>：数据明文通过HASH算法加密生成摘要，再将摘要通过客户端私钥通过非对称加密算法加密后，生成数据签名。下级证书或者客户端需要时就返回这个整体，数字签名的主要作用是配合HASH算法保证信息没有被修改，当HTTP的身份验证通过之后，一般会改用对称加密的方式通信。</p>
+<p><code>证书链</code>：证书是分级的，证书链由多个证书一级一级的组成，拿到上级证书的公钥才能解密本机证书。只有最底层的证书才是自己颁发给自己的自签证书。</p>
+<h4 id="数字签名流程"><a href="#数字签名流程" class="headerlink" title="数字签名流程"></a>数字签名流程</h4><p><img src="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/202203021644446.png" alt="image-20220302164406356"></p>
+<h4 id="HTTPS请求的流程"><a href="#HTTPS请求的流程" class="headerlink" title="HTTPS请求的流程"></a>HTTPS请求的流程</h4><p><img src="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/202203022038780.gif" alt="HTTPS请求流程"></p>
+<ul>
+<li>服务器在提供服务前在本地生成公钥和私钥</li>
+<li>服务器将公钥发送给CA机构</li>
+<li>CA机构使用自己的私钥对服务器的公钥进行签名，向服务器提供数字证书，并将证书添加到证书链中</li>
+<li>用户向服务器发送请求，告知自己的加密算法</li>
+<li>服务器确认用户的加密算法后，提供自己的CA数字证书</li>
+<li>客户的浏览器中会预装CA机构的根证书，浏览器对服务器发送过来的CA数字证书进行验证<ul>
+<li>解析证书，获取发布机构，在系统预装的信任机构中查找</li>
+<li>找到但验证无效和未找到都会提示风险</li>
+<li>验证流程：<ul>
+<li>使用CA公钥解密算法，解密出数字签名（s1），使用签名算法对s1进行签名，获得s2</li>
+<li>将s2和s1进行对比</li>
+<li>相同则有效，不同则无效</li>
+</ul>
+</li>
+<li>找到并有效则会直接生成随机的密钥（R），并使用服务器的公钥对其加密</li>
+</ul>
+</li>
+<li>客户端将加密后的密钥R发送给服务器</li>
+<li>服务器用自己的私钥将R解密出来</li>
+<li>服务器使用R将要发送给客户端的数据使用对称加密算法加密后发送给客户端</li>
+<li>客户端使用R将服务器发送来的数据进行解密</li>
+<li>之后双方达成一致，开始使用对称加密算法进行通信</li>
+</ul>
+<h3 id="HTTP和HTTPS的区别"><a href="#HTTP和HTTPS的区别" class="headerlink" title="HTTP和HTTPS的区别"></a>HTTP和HTTPS的区别</h3><ul>
+<li>HTTP的安全性低，数据在网络中是明文传输的</li>
+<li>HTTPS的安全性高，每次处理请求之前都会对发送方的身份进行验证。</li>
+<li>HTTP的效率高，HTTP建立来连接只需要三次握手即可，但是HTTPS不仅需要三次握手，还需要进行身份认证，多出了9个包。</li>
+<li>HTTP的默认端口是80，HTTPS的默认端口是443。</li>
+<li>HTTPS 相当于 HTTP + TSL/SSL，在HTTP和TCP之间加了一层SSL/TSL，消耗的资源更多。</li>
+</ul>
+<h3 id="Http-协议中get-和-post-方法的根本区别是什么"><a href="#Http-协议中get-和-post-方法的根本区别是什么" class="headerlink" title="Http 协议中get 和 post 方法的根本区别是什么"></a>Http 协议中get 和 post 方法的根本区别是什么</h3><ul>
+<li><p>GET请求不会修改信息（查询），POST可能涉及到信息的写入或修改</p>
+</li>
+<li><p>GET的请求参数都在URL中，POST的请求参数在请求体中。GET请求的安全性更差，不适合提交敏感信息</p>
+</li>
+<li><p>GET请求的参数大小受到浏览器的限制（常见1K，一般2~8K），POST的可以使用更大的参数（无限制）</p>
+</li>
+<li><p>GET和POST都是HTTP请求方式，基于TCP/IP协议。GET请求在TCP第三次握手时就会将请求头和数据一起发送给服务器；而POST请求，在发送数据之前，会在TCP第三次握手时将请求头先发送给服务区用于确认（等到服务器发送100 Continue响应时才会开始发送数据），所以GET请求的响应时间比POST请求的响应时间更快</p>
+</li>
+<li><p>POST可以发送更多的数据类型（multipart/form-data等），GET只能发送ASCII码（application-x-www-form-urlencoded）</p>
+</li>
+<li><p>GET请求会将获取到的资源缓存在本地（根据浏览器不同，缓存的数据也不同），减少下次访问花费的时间，POST则不会将资源缓存</p>
+</li>
+<li><p>GET请求时幂等的，即发送一个请求和发送多次请求的结构都是一样的，而POST调用多次每次都会增加记录。</p>
+</li>
+</ul>
+<h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><h3 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h3><h4 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h4><p>索引的作用是快速的在一张表中找到目标数据。如果不使用索引的话，就需要从表的第一条记录一直向后查找，找到相关的数据，表越大，查询话费的时间也会越久。当表中的已和列有索引时，就会根据索引去索引表中查找，避免从头遍历，节省时间。</p>
+<p><strong>优点</strong>：</p>
+<ul>
+<li>可以给表中任意字段设置索引</li>
+<li>大大加快查询的时间</li>
+</ul>
+<p><strong>缺点</strong>：</p>
+<ul>
+<li>创建索引和维护索引需要耗费时间。表中的数据量越大，花费的时间也会越大。</li>
+<li>索引也会占用空间。随着数据量的增大，索引占用的空间也会越大</li>
+<li>当对表中的数据进行增删改操作时，索引表也会做出修改，降低了数据的维护速度</li>
+</ul>
+<p>索引需要合理使用，并不是每个字段都设置索引好，索引也不是越多越好。</p>
+<ul>
+<li>经常进行更新的表就要避免设置过多的索引，对于经常用于查询的字段应该创建索引</li>
+<li>数据量较小的数据库可以不创建索引。遍历数据库表的时间可能比使用索引更快</li>
+<li>对于相同值较多的字段不要建立索引，在不同值较多的字段建议创建索引。</li>
+</ul>
+<p><strong>分类</strong>：</p>
+<blockquote>
+<p>索引实在存储引擎中实现的，所以不同的存储引擎会使用不同的索引</p>
+<p><code>InnoDB</code>、<code>MyISAM</code>：只支持<code>BTREE</code>索引</p>
+<p><code>MEMORY/HEAP</code>：支持<code>HASH</code>和<code>BTREE</code>索引</p>
+</blockquote>
+<ul>
+<li>单列索引<ul>
+<li>普通索引：是基本索引类型，没有什么限制，允许在定义索引的列中插入重复数据和空数据，单纯为了加快查询速度</li>
+<li>唯一索引：索引的列值只能是唯一的，但是可以为空</li>
+<li>主键索引：索引列中的值不允许为空，并且只能唯一</li>
+</ul>
+</li>
+<li>组合索引：在表中的多个字段上建立索引，只有在查询条件使用了组合索引的左边字段时。所以才会被使用，使用索引时，遵循最左前缀集合。</li>
+<li>全文索引：只有在MyISAM引擎上才能使用，并且只能在CHAR，VARCHAR，TEXT类型的字段上才能建立索</li>
+<li>空间索引：只有MyISAM引擎上才能用，只能对空间类型且NOT NULL的字段建立索引。MYSQL的空间类型只有GEOMETRY、POINT、LINESTRING、POLYGON。建立索引时需要使用SPACE关键字。</li>
+</ul>
+<h4 id="存储引擎"><a href="#存储引擎" class="headerlink" title="存储引擎"></a>存储引擎</h4><ul>
+<li>InnoDB：支持实务操作（rollback，begin，commit等），支持行级锁。行级锁相对于表级锁的粒度更细，可以支持更多的并发。这也是MYSQL5.7之后的默认存储引擎，缺点是占用的空间会比较大</li>
+<li>MyISAM：占用的空间相对于MyISAM较小，但是不支持事务，只支持表级锁，并发性能较低。通常用于只读模式。是最原始的存储引擎 </li>
+<li>Memory/Heap：所有的数据都保存在内存中（不安全）。通常用于保存一些非关键数据且需要快速访问的。</li>
+<li>CSV</li>
+<li>Archive：存档文件。主要用于存储很少用到的引用文件</li>
+<li>Blackhole：</li>
+<li>Merge：</li>
+<li>Federated：</li>
+<li>Example</li>
+</ul>
+<h4 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h4><p>事务是一条或者一组SQL语句，这些语句要么全部执行，要么全部不执行。</p>
+<p>四个特性（ACID）：</p>
+<ul>
+<li><p>A(原子性)：指一个事务不可以再分割。</p>
+</li>
+<li><p>C(一致性)：事务使数据库需要从一个一制状态到另一个一致状态</p>
+</li>
+<li><p>I(隔离性)：指一个事务的执行不会受到另一个事务的干扰</p>
+</li>
+<li><p>D(持久性)：事务一旦提交，那么对数据库的更改就是永久的</p>
+</li>
+</ul>
+<h4 id="事务并发导致的问题"><a href="#事务并发导致的问题" class="headerlink" title="事务并发导致的问题"></a>事务并发导致的问题</h4><ul>
+<li>更新丢失：当两个事物并发操作同一个数据时，双方不知道对方的存在，最后一个修改的人会覆盖前一个修改</li>
+<li>读脏数据：一个事务修改了某一条数据，还没有提交，此时一个事务读取了这条数据，由于修改事务没有提交，会导致读取事务读到的是失效的旧数据。</li>
+<li>不可重复读：一个事务读取了是个数据后，另一个事务对这个数据进行了修改，导致这个事务再次读取这个数据后，发现数据发生了改变。</li>
+<li>幻读：一个事务开始时查询一个数据没有查到，此时一个事务添加了数据，导致这个事务再次读取时，查询到了数据，就像产生了幻觉。</li>
+</ul>
+<h4 id="事务的隔离级别"><a href="#事务的隔离级别" class="headerlink" title="事务的隔离级别"></a>事务的隔离级别</h4><ul>
+<li>读未提交：在一个事务还没有提交时就可以读取数据，会导致读脏数据，容易出现数据错乱的情况，很难追踪</li>
+<li>读提交：在事务提交之后才能读数据。解决了读脏数据，但是没有解决不可重复读</li>
+<li>可重复读：事务A一旦开始执行，无论B怎么修改数据，A读取到的都是第一次读取到的值。解决了不可重复读，解决不了幻读</li>
+<li>串行化：将一个个事务串行执行。因为没有了并发，所以就没有并发导致的所有问题，但是性能较低。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>事务隔离级别</th>
+<th>脏读</th>
+<th>不可重复读</th>
+<th>幻读</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>读未提交（read-uncommitted）</td>
+<td>是</td>
+<td>是</td>
+<td>是</td>
+</tr>
+<tr>
+<td>读提交（read-committed）</td>
+<td>否</td>
+<td>是</td>
+<td>是</td>
+</tr>
+<tr>
+<td>可重复读（repeatable-read）</td>
+<td>否</td>
+<td>否</td>
+<td>是</td>
+</tr>
+<tr>
+<td>串行化（serializable）</td>
+<td>否</td>
+<td>否</td>
+<td>否</td>
+</tr>
+</tbody></table>
+<h3 id="B-树"><a href="#B-树" class="headerlink" title="B+树"></a>B+树</h3><p>B Tree（Balance Tree） 是平衡树。平衡树是查找树，所有的叶子结点都在同一层。</p>
+<p>B+ Tree 是在B Tree的基础上增加了通过叶子结点顺序访问指针进行实现的。它具有平衡数的平衡新，同时也使用顺序访问指针提高了区间查询的性能。</p>
+<p>在B+ Tree中，一个节点中的Key呈现非递减的顺序排列。当前位置右侧的key一定大于等于当前key。</p>
+<p><img src="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/202203041058318.png" alt="image-20220304105830855"></p>
+<h4 id="特点-1"><a href="#特点-1" class="headerlink" title="特点"></a>特点</h4><ul>
+<li>每一个节点可以存储更多的关键字</li>
+<li>进行全库或全表扫描的能力更强，只需要遍历叶子结点即可，无需遍历整棵B+Tree</li>
+<li>磁盘读写能力更强，只有叶子结点才存储数据，所以内存一次性可以读取更多的索引，减少了I/O次数</li>
+<li>范围查询和排序能力强，每一个叶子结点上都有下一个区的指针</li>
+<li>效率稳定。因为每一次查询的效率都是O(log(N)) (N是数据量)</li>
+</ul>
+<h4 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h4><p>在进行查找操作时，会在根节点进行二分查找，找到一个Key所在的指针，再指针递归的在当前指针指向的结点中查找。找到查找到叶子结点，在叶子节点中进行二分查找，找出Key对应的Data。</p>
+<p>在进行插入和删除操作是都会破坏平衡树的平衡性，因此在进行插入删除操作后，需要对当前树进行分类、合并、旋转等操作来保持平衡性。</p>
+<h4 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h4><p>B+Tree 是 <strong>稳定的</strong> O(log(n))</p>
+<p>B-Tree <strong>最好</strong>是O(1)，<strong>最差</strong>是O(log(n))</p>
+<h4 id="与B-Tree的区别"><a href="#与B-Tree的区别" class="headerlink" title="与B-Tree的区别"></a>与B-Tree的区别</h4><ul>
+<li>B-Tree的每一个节点都带有数据,只要找到目标,就可以直接返回；B+Tree只有叶子结点才带有数据，所以找到目标之后，还需要继续向下到叶子结点中去返回数据。B-Tree每一次加载到内存的数据少于B+Tree，在需要进行大量与磁盘进行I/O操作的时候，B+Tree相对来说比较稳定。</li>
+<li>B-Tree是直接将索引和数据一起分区，B+Tree只将索引进行分区。</li>
+<li>B+Tree的分支节点中有m个关键字，那么其叶子结点中也只有m个关键字；B-Tree有m个子节点，但是只有m-1个关键字</li>
+<li>B+Tree的分支节点中存储的是关键字信息和儿子节点的指针，内部节点结构只包含关键字；B-Tree的子节点存储关键字和其对应的数据和儿子节点的指针，内部包含关键字和数据。</li>
+<li>B+Tree建立了顺序访问指针，可以在区间之间访问</li>
+</ul>
+<h4 id="与红黑树的区别"><a href="#与红黑树的区别" class="headerlink" title="与红黑树的区别"></a>与红黑树的区别</h4><p>红黑树也是平衡树，但是在文件系统和数据库系统中，多采用B+Tree来作为索引结构，因为使用B+Tree来访问磁盘会有更高的性能。</p>
+<ul>
+<li>B+Tree的树的高度要小于红黑树，因为B+Tree的节点出度可以很大，而红黑树的出度只能是2.</li>
+<li>操作系统一般将内存和磁盘分为固定大小的块，每一块称为一页，内存和磁盘按照页来交换数据。内存中存储的数据是有限的，所以在访问大量的数据时，内存只会读取相关的部分数据，当涉及到修改数据时，红黑树的结构会发生大量的改动，可能会频繁的和磁盘交换数据，导致效率低下。所以B+Tree更适合磁盘读取。</li>
+</ul>
+<h3 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h3><p>当用户需要对数据库中的一张或多张表中的数据进行频繁的查询的话,可以定义一个视图，视图同样包含行和列，但是视图的数据都来自基表，视图的数据在使用时都是动态从基表中获取的。</p>
+<p>视图是一个虚拟的表。数据库中只存储了视图的结构，数据都在基表中。所以当基表中的数据发生改变后，视图中获取到的数据也会发生改变。</p>
+<p>视图的作用：</p>
+<ul>
+<li>简单性。简化用户对数据的理解，简化用户的操作。可以将一些经常使用或复杂的查询操作定义为一个视图，以后再次查询的时候就不要指定复杂的条件，简化SQL语句。</li>
+<li>安全性。可以隐藏一些数据，可以防止未授权的用户查看特定的列或行，使有权限的用户只获取到特定的行或列。<ul>
+<li>在表中加上一个标志用户的列</li>
+<li>简历视图后，用户只能获取到标有自己用户名的数据</li>
+</ul>
+</li>
+<li>逻辑数据独立性。视图可以使数据库和应用程序之间在一定程度上独立。没有视图的时候，应用程序一定是建立在数据表上，有了视图之后，应用程序可以建立在视图之上，将数据库表和应用程序分隔开。</li>
+<li>在视图中可以指定一些计算列。例如基础表中有商品数量和单价，视图中可以直接计算总销售额并保存为一个字段</li>
+</ul>
+<p>视图的缺点：</p>
+<ul>
+<li>性能可能会比较差，尤其是引用其他视图的时候</li>
+<li>在数据库表的结构发生修改后，视图也需要做出相应的修改</li>
+</ul>
+<blockquote>
+<p>创建，修改和删除视图都需要相对应的权限</p>
+</blockquote>
+<p>通过视图修改数据库表的数据需要满足一定的条件：</p>
+<ul>
+<li>视图只能基于一张基础表</li>
+<li>视图中包含可更新列，这些列是基础表的引用</li>
+<li>视图定义不能包含WITH、DISTINCT、GROUP BY、ORDER BY、FOR UPDATE、FOR SHARE、HAVING、TABLESAMPLE、LIMIT、OFFSET子句。</li>
+<li>视图定义不能包含UNION、INTERSECT、EXCEPT集合操作。</li>
+<li>视图定义的选择列表不能包含聚集函数、窗口函数、返回集合的函数。</li>
+<li>视图上不能有触发时机为INSTEAD OF的触发器。</li>
+</ul>
+<h3 id="数据库中delete和drop的区别"><a href="#数据库中delete和drop的区别" class="headerlink" title="数据库中delete和drop的区别"></a>数据库中delete和drop的区别</h3><ul>
+<li>delete是DML（数据操纵型语言），对数据进行操作；而drop是DDL（数据定义型语言），直接对表进行操作</li>
+<li>delete操作会被记录在<code>redo</code>和<code>undo</code>表空间中，方便后续的重做和回滚操作，而且只有执行commit后，操作才会真正生效。</li>
+<li>drop是隐式commit的，所以不需要手动提交，同时也不支持回滚和重做操作。</li>
+<li>delete删除的是表中的记录，不会改变表的结构，同时支持使用where进行条件过滤，删除部分数据。</li>
+<li>drop不仅会会删除对应的记录也会删除表的结构，并将表的那一部分空间释放掉，同时删除掉该表的结构依赖的约束，触发器，索引，依赖于该表的约束，触发器，索引会变为invalid状态。</li>
+<li>一般来说，drop的速度比delete快</li>
+</ul>
+<h3 id="手写SQL-查找平均分大于60的学生"><a href="#手写SQL-查找平均分大于60的学生" class="headerlink" title="手写SQL 查找平均分大于60的学生"></a>手写SQL 查找平均分大于60的学生</h3><p>select stu_id from score group by stu_id having avg(score) &gt; 60;</p>
+<h3 id="SQL注入问题"><a href="#SQL注入问题" class="headerlink" title="SQL注入问题"></a>SQL注入问题</h3><p>用户在传入的参数中夹杂着恶意的SQL语句或条件</p>
+<p>例如：执行select * from user where id=?</p>
+<p>在这里用户输入了 1; delete from user</p>
+<p>最终执行的SQL语句就变成了 <code>select * from user where id=1; delete from user</code></p>
+<p>由于MYSQL将会执行两条SQL语句，将user表中的数据全部删除掉。</p>
+<h4 id="预防"><a href="#预防" class="headerlink" title="预防"></a>预防</h4><ul>
+<li>检查传入参数的类型和格式</li>
+<li>过滤特殊符号</li>
+<li>使用参数化的SQL语句，绑定变量进行预编译</li>
+<li>给用户进行权限限制</li>
+</ul>
+<h4 id="预编译"><a href="#预编译" class="headerlink" title="预编译"></a>预编译</h4><p>MYSQL的mysqli驱动提供了预编译的功能。不同的编程语言也有对应的预编译函数。</p>
+<p>在执行SQL语句的时候，会进行三个流程：</p>
+<ul>
+<li>词法和语义解析</li>
+<li>优化SQL语句，制定执行计划</li>
+<li>执行，并返回结构</li>
+</ul>
+<p>预编译是将变量部分先空着，执行前两个步骤，最后再将参数填入进去</p>
+<p>这样可以实现一次编译，多次运行的目的，同时也加快了SQL的执行效率</p>
+<p>这样也是最好的避免SQL注入的方式 </p>
+<h3 id="乐观锁"><a href="#乐观锁" class="headerlink" title="乐观锁"></a>乐观锁</h3><p>在每一次操作数据库的时候，都认为他不会对数据进行修改，不会对数据加锁，而是增加一个version字段。</p>
+<p>每次发现数据发生修改后，会进行一个版本号的改变。当一个进程对数据进行修改后，另一个进程发现版本号发生改变，就会操作失败，避免了并发造成的错误。</p>
+<h3 id="悲观锁"><a href="#悲观锁" class="headerlink" title="悲观锁"></a>悲观锁</h3><p>在每一次操作数据库的时候，都认为他会对数据进行修改，会对数据加锁。</p>
+<h3 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h3><p>两个或两个以上的进程进行资源争夺，导致每个进行都在等待其他进程是释放资源，造成一种相互等待的现象。</p>
+<p>死锁的四个必要条件（只要一个不满足都不会发生死锁）：</p>
+<ul>
+<li>互斥条件：一个资源每次只能被一个进程使用</li>
+<li>请求与保持条件：进程因资源请求而阻塞时，会保持资源的占有状态</li>
+<li>不可剥夺条件：进程获得资源之后，在进程结束之前，不是释放已有资源</li>
+<li>循环等待条件：若干进程之间形成一个头尾相连的循环资源等待现象。</li>
+</ul>
+<p>死锁的产生原因：</p>
+<ul>
+<li>资源分配不当</li>
+<li>进程的推进顺序不当</li>
+<li>系统资源不足</li>
+</ul>
+<h3 id="如何进行范围查找的"><a href="#如何进行范围查找的" class="headerlink" title="如何进行范围查找的"></a>如何进行范围查找的</h3><ul>
+<li>(not) in</li>
+<li>&lt;、&gt;、&gt;=、&lt;=</li>
+<li>(not) between···and···</li>
+<li>is null / is not null</li>
+</ul>
+<h3 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h3><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><ul>
+<li><code>Redis</code>是使用C语言编写的一个基于内存的 高性能key-value 非关系型缓存数据库。</li>
+<li>因为Redis的数据都在内存中，所以Redis的效率非常高，每秒可以处理超过10W次的I/O操作。</li>
+<li>Redis也可以将数据存入到硬盘中，保证了数据的安全性，而且Redis的操作都是原子性的。</li>
+<li>Redis是单进程单线程的，使用队列技术将并发执行的操作转为串行操作，省去了很多上下文切换的时间以及CPU资源的消耗，不存在竞争问题，也就不需要加锁。</li>
+<li>一个String类型的值最大存储空间是 512MB</li>
+</ul>
+<h4 id="基础数据结构"><a href="#基础数据结构" class="headerlink" title="基础数据结构"></a>基础数据结构</h4><ul>
+<li>String：Redis最基本的数据类型，一个键对应一个值，一个键值最大存储512MB</li>
+<li>set：是String字符串类型的无序集合，也不可重复</li>
+<li>zset：是String类型的有序集合，也不可重复。有序集合中的每个元素都需要指定一个分数，根据分数对元素进行升序排序</li>
+<li>hash：hash是一个键值对的集合，是一个String类型的field和value的映射表，适合用于存储对象</li>
+<li>list：是redis的简单的字符串列表，按插入顺序排序</li>
+</ul>
+<h4 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h4><ul>
+<li>缓存（session，token···）</li>
+<li>消息队列</li>
+<li>计数，热评</li>
+<li>发布订阅消息通知</li>
+<li>···</li>
+</ul>
+<h4 id="持久化机制"><a href="#持久化机制" class="headerlink" title="持久化机制"></a>持久化机制</h4><h5 id="RDB"><a href="#RDB" class="headerlink" title="RDB"></a>RDB</h5><p>RDB是Redis Database缩写快照，它是Redis默认的持久化方式。按照一定的时间间隔将Redis中的数据以快照的形式保存到硬盘中，对应的数据快照文件是 <code>dump.rdb</code>。可以通过配置文件中的save参数来设置保存快照的周期。</p>
+<p><img src="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/202204022354547.png" alt="image-20220402235353453"></p>
+<ul>
+<li>优点：<ul>
+<li>快照文件只会有<code>dump.rdb</code>这一个，保存和恢复方便。</li>
+<li>容灾性好，快照文件可以保存到安全的硬盘中。</li>
+<li>性能最大化，使用fork子进程来执行持久化，主进程不会进行任何的I/O操作，保证了Redis的高性能</li>
+<li>在数据集较大时，启动速度会比AOF快</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>数据安全性低，在Redis保存快照之前发生故障的话，可能会发生数据丢失的情况</li>
+</ul>
+</li>
+</ul>
+<h5 id="AOF"><a href="#AOF" class="headerlink" title="AOF"></a>AOF</h5><p>AOF是 Append Only File持久化，将Redis的每一条写命令都记录到一个日志文件中，当重启Redis时，会从持久化的日志文件中恢复数据。</p>
+<p><img src="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/202204030003502.png" alt="image-20220403000343422"></p>
+<ul>
+<li>优点：<ul>
+<li>数据安全，AOF持久化可以在配置文件中设置 Appendfsync 属性为 always，即每进行一次操作都会将其添加到日志文件中</li>
+<li>通过append模式记录操作，及时服务器中途宕机，日志文件也会保存下来，通过Redis-check-aof工具来解决数据一致性的问题</li>
+<li>AOF有rewrite模式。在日志文件没有被rewrite之前（日志文件过大会将日志文件进行重写），可以删除其中的一些操作。</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>AOF文件比RDB文件大，恢复时的速度较慢</li>
+<li>数据集较大时，启动速度比RDB慢</li>
+</ul>
+</li>
+</ul>
+<h4 id="雪崩"><a href="#雪崩" class="headerlink" title="雪崩"></a>雪崩</h4><p>​        如果缓存在某一时刻出现大量的key失效，导致大量的请求发送给数据库，是数据库的压力骤增。在高并发的情况下可能出现数据库宕机的。这就是缓存雪崩。</p>
+<p>原因：</p>
+<ul>
+<li>Redis宕机</li>
+<li>同一时刻出现大量时效的key</li>
+</ul>
+<p>解决方案：</p>
+<ul>
+<li><p>事前</p>
+<ul>
+<li><p>均匀过期：为缓存设置不同的过期时间，尽量避免同一时刻出现大量的过期数据。</p>
+</li>
+<li><p>分级缓存：第一级缓存失效的情况下去访问二级缓存，每一级的缓存过期时间均不相同</p>
+</li>
+<li><p>热门数据永不过期</p>
+</li>
+<li><p>保证Redis的高可用，防止Redis宕机导致的缓存雪崩。使用 主从模式+ 哨兵机制的模式搭建Redis，使用Redis集群，避免Redis全盘崩溃。</p>
+</li>
+</ul>
+</li>
+<li><p>事中</p>
+<ul>
+<li>使用熔断机制，限流降级。当一时间访问数据库的请求达到一个阈值之后，直接返回“系统拥挤”的消息，防止过多的请求访问数据库。</li>
+</ul>
+</li>
+<li><p>事后</p>
+<ul>
+<li>开启缓存的持久化操作，在缓存崩溃之后快速的恢复数据。</li>
+</ul>
+</li>
+</ul>
+<h4 id="击穿"><a href="#击穿" class="headerlink" title="击穿"></a>击穿</h4><p>缓存击穿与缓存雪崩相似，雪崩是同一时间大量的key失效，而击穿是某一个热点key失效，大量的请求没有获取缓存，导致大量的请求打在数据库上，大量并发请求，使得数据库压力骤增。</p>
+<p>解决方法：</p>
+<ul>
+<li>热点key永不失效</li>
+<li>使用熔断机制，控制同一时间数据库的请求的数量。</li>
+</ul>
+<h4 id="穿透"><a href="#穿透" class="headerlink" title="穿透"></a>穿透</h4><p>缓存穿透是用户请求的key在Redis中没有，在数据库中也没有，导致用户每一次发起该请求都需要到数据库中查询一次。如果同一时间大量的请求落在数据库之上可能会导致数据库宕机。</p>
+<p>解决方法：</p>
+<ul>
+<li>将无效的key存入Redis中<ul>
+<li>Redis没遇到一个无效的key都将其放入缓存中面，并将过期时间设置的极短。当用户再次请求该key时，就会直接从Redis中知道该key是无效的。</li>
+<li>当用户发出的key都是随机的时候，该方法就不适用了</li>
+</ul>
+</li>
+<li>使用布隆过滤器<ul>
+<li>将所有的key都存入布隆过滤器中，用户在获取缓存之前会先经过布隆过滤器判断key是否有效。如果布隆过滤器中存在则说明该key存在，如果布隆过滤器中不存在，那么极大的概率数据库中也不存在。避免了对数据库的访问压力。</li>
+</ul>
+</li>
+</ul>
+<h3 id="Redis集群"><a href="#Redis集群" class="headerlink" title="Redis集群"></a>Redis集群</h3><p>Redis3.0之后加入了Redis的集群模式，实现了缓存的分布式存储，对数据进行分片，将不同的数据存放到不同的Master节点中</p>
+<h4 id="集群搭建"><a href="#集群搭建" class="headerlink" title="集群搭建"></a>集群搭建</h4><ol>
+<li>启动节点：将节点以集群的方式启动，此时节点是独立的</li>
+<li>节点握手：将独立的节点连成网络</li>
+<li>hash槽指派：将16384个槽分配给每一个节点，达到分片存储数据的目的</li>
+<li>主从复制：为从节点指定主节点</li>
+</ol>
+<h4 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h4><p>​        Redis的单实例模式下，实现了读写分离，解决了读操作的负载均衡，但是写操作都是由master节点来实现，在海量数据高并发的情况下会导致master节点的压力骤增。</p>
+<p>​        Redis的单例模式实际上只有一台master节点来存储数据，当存储的数据量过大时，一台服务器可能就不够用了。数据量过大会使持久化的成本过高，可能会阻塞服务器，降低服务的稳定性</p>
+<p>​        Redis集群很好的解决了这两个问题。</p>
+<h4 id="通信协议"><a href="#通信协议" class="headerlink" title="通信协议"></a>通信协议</h4><p>Redis集群中的节点使用gossip协议进行通信</p>
+<h4 id="数据分布算法"><a href="#数据分布算法" class="headerlink" title="数据分布算法"></a>数据分布算法</h4><p>Redis集群采用哈希槽分区算法对数据进行分区。Redis集群中有16384个哈希槽，将不同的哈希槽分布在不同的节点上进行存储，每一个节点只负责一部分哈希槽。对数据进行操作时，集群会使用CRC16算法对数据进行计算，并将结果对16384进行取模，得到的结果就是该键值对要放入的哈希槽。</p>
+<h4 id="使用哈希槽好处"><a href="#使用哈希槽好处" class="headerlink" title="使用哈希槽好处"></a>使用哈希槽好处</h4><p>使用哈希槽可以方便集群中节点的添加和删除。无论是添加或删除节点都不会造成集群不可用，添加节点只需将每个节点的部分哈希槽挪给该节点即可；删除哈希槽只需将该节点的哈希槽挪给其他节点即可</p>
+<ul>
+<li>解耦数据与节点之间的关系，简化了扩容和收缩的难度</li>
+<li>节点自身维护槽的映射关系，不需要客户端代理服务维护槽分区的元数据</li>
+<li>支持槽，节点，键之间的映射查询</li>
+</ul>
+<h4 id="集群扩容"><a href="#集群扩容" class="headerlink" title="集群扩容"></a>集群扩容</h4><ul>
+<li>启动新节点</li>
+<li>使用 cluster meet 命令将节点加入集群中</li>
+<li>为节点分配和指定哈希槽，并将对应的数据迁移过来</li>
+</ul>
+<h4 id="集群收缩"><a href="#集群收缩" class="headerlink" title="集群收缩"></a>集群收缩</h4><ul>
+<li>迁移哈希槽</li>
+<li>忘记节点。 cluster forget {NodeID}</li>
+</ul>
+<h3 id="哨兵机制"><a href="#哨兵机制" class="headerlink" title="哨兵机制"></a>哨兵机制</h3><p>在Redis的主从模式下，master节点负责写数据，然后同步给从节点，从节点负责对数据进行读操作。如果master节点宕机了，需要手动将从节点调整为主节点，还需要调整客户端的数据连接源信息，无法达到高可用的目的。</p>
+<p>哨兵机制是实现Redis高可用的模式，不提供读写服务，主要用于监视Redis的实例结点。客户端第一次连接会通过哨兵来获取主节点，后续就会直接访问主节点。当主节点宕机之后，哨兵会第一时间感知到，并从从节点中选出一个新的master节点，然后将新的master节点通知给客户端，实现Redis的高可用，这里客户端一般都实现了订阅功能，用于接受哨兵的通知。</p>
+<h4 id="工作"><a href="#工作" class="headerlink" title="工作"></a>工作</h4><ul>
+<li>监控：哨兵会不断的监控master和从节点的状态是否正常</li>
+<li>提醒：当某一个Redis节点宕机之后，哨兵会通过客户端的API将消息发送给管理员</li>
+<li>自动故障迁移：当一个master不能正常工作之后，哨兵会自动将一个从节点提升为master节点，并复制失效master节点的从节点到新的master节点下。当客户端访问失效的master节点时，哨兵会将新的master节点的地址返回给客户端，下次就直接访问新节点，实现高可用。</li>
+</ul>
+<h4 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h4><ul>
+<li>心跳机制，每隔一段时间 向Redis节点确认是否在线</li>
+<li>判断master节点是否在线</li>
+<li>基于Raft算法选举新的master节点</li>
+<li>故障转移</li>
+<li>修改配置</li>
+</ul>
+<h3 id="Redis-如何实现消息队列的？"><a href="#Redis-如何实现消息队列的？" class="headerlink" title="Redis 如何实现消息队列的？"></a>Redis 如何实现消息队列的？</h3><p>Redis可以使用list这个数据结构来实现消息队列，生产的消息使用 rpush 放入list中，获取消息使用 lpop。</p>
+<p>当lpop没有获取到消息时可以使用sleep睡眠一段时间然后再获取消息。也可以使用 blpop 来获取消息，当没有消息时，他会一直阻塞直至获取到新的消息。</p>
+<p>如果想要一次生产多次消费的话可以使用消息订阅模式（pub/sub），实现 1：N的消息队列，但是当消费者下线之后，生产的消息可能会丢失。</p>
+<h3 id="Redis-如何实现分布式锁的？"><a href="#Redis-如何实现分布式锁的？" class="headerlink" title="Redis 如何实现分布式锁的？"></a>Redis 如何实现分布式锁的？</h3><h3 id="服务端如何处理客户端的并发请求的"><a href="#服务端如何处理客户端的并发请求的" class="headerlink" title="服务端如何处理客户端的并发请求的"></a>服务端如何处理客户端的并发请求的</h3><h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2>
+            </div>
+
+            <!-- Post Comments -->
+            
+    <!-- 使用 DISQUS_CLICK -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+
+<!-- add animation -->
+<style>
+	.disqus_click_btn {
+            line-height: 30px;
+            margin: 0;
+            min-width: 50px;
+            padding: 0 14px;
+            display: inline-block;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            overflow: hidden;
+            will-change: box-shadow;
+            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+            outline: 0;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            border: 0;
+            background: rgba(158, 158, 158, .2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            color: #fff;
+            background-color: #7EC0EE;
+            text-shadow: 0
+        }
+</style>
+	
+<div class="btn_click_load" id="disqus_bt"> 
+    <button class="disqus_click_btn">点击查看评论</button>
+</div>
+
+<!--
+<script type="text/javascript">
+$('.btn_click_load').click(function() {
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'http-miccall-tech'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    document.getElementById('disqus_bt').style.display = "none";
+});
+</script>
+-->
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://xucoud.github.io/2022/02/25/%E9%9D%A2%E8%AF%95%E9%A2%98/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://xucoud.github.io/2022/02/25/%E9%9D%A2%E8%AF%95%E9%A2%98/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+
+<script type="text/javascript">
+    $('.btn_click_load').click(function() {  //click to load comments
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//http-miccall-tech.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        $('.btn_click_load').css('display','none');
+    });
+</script>
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+
+        </div>
+        <!-- Copyright 版权 start -->
+                <div id="copyright">
+            <ul>
+                <li>&copy;Powered By <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/" style="border-bottom: none;">hexo</a></li>
+                <li>Design: <a target="_blank" rel="noopener" href="http://miccall.tech " style="border-bottom: none;">miccall</a></li>
+            </ul>
+            
+                <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+			
+        </div>
+    </div>
+</body>
+
+
+
+ 	
+</html>
