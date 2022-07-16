@@ -1,472 +1,3188 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
+  <!--浏览器搞笑标题-->
+  <script type="text/javascript" src="/js/FunnyTitle.js"></script>
+  <head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1'>
+  <meta charset="utf-8">
 
-<head>
-	<link rel="bookmark"  type="image/x-icon"  href="/img/logo_miccall.png"/>
-	<link rel="shortcut icon" href="/img/logo_miccall.png">
-	
-			    <title>
-    Xu's Blog
-    </title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="/css/mic_main.css" />
-    <link rel="stylesheet" href="/css/dropdownMenu.css" />
-    <meta name="keywords" content="miccall" />
+<!-- 自定义右键 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zyoushuo/Blog@master/hexo/css/GalMenu.css">
+  
+  
+  <!-- SEO相关 -->
+  
     
-    	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-	 
-    <noscript>
-        <link rel="stylesheet" href="/css/noscript.css" />
-    </noscript>
-    <style type="text/css">
-        body:before {
-          content: ' ';
-          position: fixed;
-          top: 0;
-          background: url('/img/bg.jpg') center 0 no-repeat;
-          right: 0;
-          bottom: 0;
-          left: 0;
-          background-size: cover; 
-        }
-    </style>
-
-			    
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-  
-
-
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/jquery.scrollex.min.js"></script>
-    <script src="/js/jquery.scrolly.min.js"></script>
-    <script src="/js/skel.min.js"></script>
-    <script src="/js/util.js"></script>
-    <script src="/js/main.js"></script>
-	
-<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="Xu's Blog" type="application/atom+xml">
-</head>
+      <meta name="robots" content="noindex,follow">
     
-		<body class="is-loading">
-    <!-- Wrapper 外包 s-->
-    <div id="wrapper" class="fade-in overlay">
-        <!-- Intro 头部显示 s -->
-                <div id="intro">
-            <h1>This is<br />
-                        MICCALL </h1>
-            <p> Whatever is worth doing is worth doing well <br/> I'll think of you every step of the way
-            </p>
-            <ul class="actions">
-                <li><a href="#header" class="button icon solo fa-arrow-down scrolly">Continue</a></li>
-            </ul>
-        </div>
-        <!-- Intro 头部显示 e -->
-        <!-- Header 头部logo start -->
-        <header id="header">
-    <a href="/" class="logo">MICCALL</a>
-</header>
-        <!-- Header 头部logo end -->
-        <!-- Nav 导航条 start -->
-        <nav id="nav" class="special" >
-            <ul class="menu links" >
-			<!-- Homepage  主页  --> 
-			<li >
-	            <a href="/" rel="nofollow">主页</a>
-	        </li>
-			<!-- categories_name  分类   --> 
-	        
-	        <li class="active">
-	            <a href="#s1">分类</a>
-	                    <ul class="submenu">
-	                        <li>
-	                        <a class="category-link" href="/categories/Go/">Go</a></li><li><a class="category-link" href="/categories/Go/GC/">GC</a></li><li><a class="category-link" href="/categories/Go/GMP/">GMP</a></li><li><a class="category-link" href="/categories/Go/ORM/">ORM</a></li><li><a class="category-link" href="/categories/Go/Web/">Web</a></li><li><a class="category-link" href="/categories/Go/module/">module</a></li><li><a class="category-link" href="/categories/Go/%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/">内存分配</a></li><li><a class="category-link" href="/categories/Go/%E5%86%85%E5%AD%98%E9%80%83%E9%80%B8/">内存逃逸</a></li><li><a class="category-link" href="/categories/Java/">Java</a></li><li><a class="category-link" href="/categories/Redis/">Redis</a></li><li><a class="category-link" href="/categories/Restful/">Restful</a></li><li><a class="category-link" href="/categories/Spring/">Spring</a></li><li><a class="category-link" href="/categories/SpringBoot/">SpringBoot</a></li><li><a class="category-link" href="/categories/k8s/">k8s</a></li><li><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></li><li><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/js/">js</a></li><li><a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li><li><a class="category-link" href="/categories/%E6%9C%9F%E6%9C%AB/">期末</a></li><li><a class="category-link" href="/categories/%E6%9C%9F%E6%9C%AB/JAVA/">JAVA</a></li><li><a class="category-link" href="/categories/%E6%9C%9F%E6%9C%AB/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a></li><li><a class="category-link" href="/categories/%E6%9C%9F%E6%9C%AB/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90/">算法设计与分析</a></li><li><a class="category-link" href="/categories/%E6%9C%9F%E6%9C%AB/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></li><li><a class="category-link" href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a>
-	                    </ul>
-	        </li>
-	        
-	        <!-- archives  归档   --> 
-	        
-	        
-		        <!-- Pages 自定义   -->
-		        
-		        <li>
-		            <a href="/about/" title="简历">
-		                简历
-		            </a>
-		        </li>
-		        
-		        <li>
-		            <a href="/group/" title="团队">
-		                团队
-		            </a>
-		        </li>
-		        
-		        <li>
-		            <a href="/gallery/" title="图库">
-		                图库
-		            </a>
-		        </li>
-		        
-		        <li>
-		            <a href="/tag/" title="标签">
-		                标签
-		            </a>
-		        </li>
-		        
-
-
-            </ul>
-            <!-- icons 图标   -->
-			<ul class="icons">
-                    
-                    <li>
-                        <a title="github" href="https://github.com/miccall" target="_blank" rel="noopener">
-                            <i class="icon fa fa-github"></i>
-                        </a>
-                    </li>
-                    
-                    <li>
-                        <a title="500px" href="http://500px.com" target="_blank" rel="noopener">
-                            <i class="icon fa fa-500px"></i>
-                        </a>
-                    </li>
-                    
-			</ul>
-</nav>
-        <!-- Nav 导航条 end -->
-        <!-- Main 主要部分 start -->
-        
-        <!-- 文章列表   s -->
-        <div id="main" style="background-color: transparent; padding:0;">
-        <section class="link_container" style="margin-top: 0; background-color: transparent; ">
-            <div class="link_row">
-                <!-- 文章sample  s-->
-
-                
-                <div class="6u 12u(narrower)">
-                    <section class="link_box special">
-                       <a href="/2022/06/25/js%E5%9F%BA%E7%A1%80/">
-                        <div class="page_title" style="background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;">
-                            <!--标题-->
-                            <h2 class="page_title_text"> js </h2>
-                            <!--段落-->
-                        </div>
-                        </a>
-                        <div class="home-post-info">
-                            <!-- Author Avatar -->
-                            <div class="home-post-info-author-avatar">
-                                <h6><span class="home-post-info-data">2022-06-25</span></h6>
-                                <div class="home-post-info-Category">
-                                    <!-- Category -->
-                                    <span>
-                            <h6>
-                            <a class="post_category-link" target="_blank" rel="noopener" href="http://localhost:4000/categories/Algorithm/">
-                                <a class="post_category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>, <a class="post_category-link" href="/categories/%E5%89%8D%E7%AB%AF/js/">js</a></a>
-                            </h6>
-                        </span>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-                <!-- 文章sample  e-->
-            
-                <div class="6u 12u(narrower)">
-                    <section class="link_box special">
-                       <a href="/2022/06/04/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%9C%9F%E6%9C%AB/">
-                        <div class="page_title" style="background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;">
-                            <!--标题-->
-                            <h2 class="page_title_text"> 设计模式期末 </h2>
-                            <!--段落-->
-                        </div>
-                        </a>
-                        <div class="home-post-info">
-                            <!-- Author Avatar -->
-                            <div class="home-post-info-author-avatar">
-                                <h6><span class="home-post-info-data">2022-06-04</span></h6>
-                                <div class="home-post-info-Category">
-                                    <!-- Category -->
-                                    <span>
-                            <h6>
-                            <a class="post_category-link" target="_blank" rel="noopener" href="http://localhost:4000/categories/Algorithm/">
-                                <a class="post_category-link" href="/categories/%E6%9C%9F%E6%9C%AB/">期末</a></a>
-                            </h6>
-                        </span>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-                <!-- 文章sample  e-->
-            
-                <div class="6u 12u(narrower)">
-                    <section class="link_box special">
-                       <a href="/2022/04/07/Redis/">
-                        <div class="page_title" style="background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;">
-                            <!--标题-->
-                            <h2 class="page_title_text"> Redis </h2>
-                            <!--段落-->
-                        </div>
-                        </a>
-                        <div class="home-post-info">
-                            <!-- Author Avatar -->
-                            <div class="home-post-info-author-avatar">
-                                <h6><span class="home-post-info-data">2022-04-07</span></h6>
-                                <div class="home-post-info-Category">
-                                    <!-- Category -->
-                                    <span>
-                            <h6>
-                            <a class="post_category-link" target="_blank" rel="noopener" href="http://localhost:4000/categories/Algorithm/">
-                                <a class="post_category-link" href="/categories/Redis/">Redis</a></a>
-                            </h6>
-                        </span>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-                <!-- 文章sample  e-->
-            
-                <div class="6u 12u(narrower)">
-                    <section class="link_box special">
-                       <a href="/2022/02/25/%E9%9D%A2%E8%AF%95%E9%A2%98/">
-                        <div class="page_title" style="background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;">
-                            <!--标题-->
-                            <h2 class="page_title_text"> 面试题 </h2>
-                            <!--段落-->
-                        </div>
-                        </a>
-                        <div class="home-post-info">
-                            <!-- Author Avatar -->
-                            <div class="home-post-info-author-avatar">
-                                <h6><span class="home-post-info-data">2022-02-25</span></h6>
-                                <div class="home-post-info-Category">
-                                    <!-- Category -->
-                                    <span>
-                            <h6>
-                            <a class="post_category-link" target="_blank" rel="noopener" href="http://localhost:4000/categories/Algorithm/">
-                                <a class="post_category-link" href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a></a>
-                            </h6>
-                        </span>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-                <!-- 文章sample  e-->
-            
-                <div class="6u 12u(narrower)">
-                    <section class="link_box special">
-                       <a href="/2022/01/28/Go%E5%86%85%E5%AD%98%E9%80%83%E9%80%B8/">
-                        <div class="page_title" style="background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;">
-                            <!--标题-->
-                            <h2 class="page_title_text"> Go内存逃逸 </h2>
-                            <!--段落-->
-                        </div>
-                        </a>
-                        <div class="home-post-info">
-                            <!-- Author Avatar -->
-                            <div class="home-post-info-author-avatar">
-                                <h6><span class="home-post-info-data">2022-01-28</span></h6>
-                                <div class="home-post-info-Category">
-                                    <!-- Category -->
-                                    <span>
-                            <h6>
-                            <a class="post_category-link" target="_blank" rel="noopener" href="http://localhost:4000/categories/Algorithm/">
-                                <a class="post_category-link" href="/categories/Go/">Go</a>, <a class="post_category-link" href="/categories/Go/%E5%86%85%E5%AD%98%E9%80%83%E9%80%B8/">内存逃逸</a></a>
-                            </h6>
-                        </span>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-                <!-- 文章sample  e-->
-            
-                <div class="6u 12u(narrower)">
-                    <section class="link_box special">
-                       <a href="/2022/01/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%9C%9F%E6%9C%AB/">
-                        <div class="page_title" style="background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;">
-                            <!--标题-->
-                            <h2 class="page_title_text"> 计算机网络 </h2>
-                            <!--段落-->
-                        </div>
-                        </a>
-                        <div class="home-post-info">
-                            <!-- Author Avatar -->
-                            <div class="home-post-info-author-avatar">
-                                <h6><span class="home-post-info-data">2022-01-26</span></h6>
-                                <div class="home-post-info-Category">
-                                    <!-- Category -->
-                                    <span>
-                            <h6>
-                            <a class="post_category-link" target="_blank" rel="noopener" href="http://localhost:4000/categories/Algorithm/">
-                                <a class="post_category-link" href="/categories/%E6%9C%9F%E6%9C%AB/">期末</a>, <a class="post_category-link" href="/categories/%E6%9C%9F%E6%9C%AB/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></a>
-                            </h6>
-                        </span>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-                <!-- 文章sample  e-->
-            
-                <div class="6u 12u(narrower)">
-                    <section class="link_box special">
-                       <a href="/2022/01/26/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90/">
-                        <div class="page_title" style="background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;">
-                            <!--标题-->
-                            <h2 class="page_title_text"> 算法设计与分析 </h2>
-                            <!--段落-->
-                        </div>
-                        </a>
-                        <div class="home-post-info">
-                            <!-- Author Avatar -->
-                            <div class="home-post-info-author-avatar">
-                                <h6><span class="home-post-info-data">2022-01-26</span></h6>
-                                <div class="home-post-info-Category">
-                                    <!-- Category -->
-                                    <span>
-                            <h6>
-                            <a class="post_category-link" target="_blank" rel="noopener" href="http://localhost:4000/categories/Algorithm/">
-                                <a class="post_category-link" href="/categories/%E6%9C%9F%E6%9C%AB/">期末</a>, <a class="post_category-link" href="/categories/%E6%9C%9F%E6%9C%AB/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90/">算法设计与分析</a></a>
-                            </h6>
-                        </span>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-                <!-- 文章sample  e-->
-            
-                <div class="6u 12u(narrower)">
-                    <section class="link_box special">
-                       <a href="/2022/01/26/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                        <div class="page_title" style="background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;">
-                            <!--标题-->
-                            <h2 class="page_title_text"> 数据结构 </h2>
-                            <!--段落-->
-                        </div>
-                        </a>
-                        <div class="home-post-info">
-                            <!-- Author Avatar -->
-                            <div class="home-post-info-author-avatar">
-                                <h6><span class="home-post-info-data">2022-01-26</span></h6>
-                                <div class="home-post-info-Category">
-                                    <!-- Category -->
-                                    <span>
-                            <h6>
-                            <a class="post_category-link" target="_blank" rel="noopener" href="http://localhost:4000/categories/Algorithm/">
-                                <a class="post_category-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></a>
-                            </h6>
-                        </span>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-                <!-- 文章sample  e-->
-            
-                <div class="6u 12u(narrower)">
-                    <section class="link_box special">
-                       <a href="/2022/01/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%9C%9F%E6%9C%AB/">
-                        <div class="page_title" style="background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;">
-                            <!--标题-->
-                            <h2 class="page_title_text"> 操作系统期末 </h2>
-                            <!--段落-->
-                        </div>
-                        </a>
-                        <div class="home-post-info">
-                            <!-- Author Avatar -->
-                            <div class="home-post-info-author-avatar">
-                                <h6><span class="home-post-info-data">2022-01-26</span></h6>
-                                <div class="home-post-info-Category">
-                                    <!-- Category -->
-                                    <span>
-                            <h6>
-                            <a class="post_category-link" target="_blank" rel="noopener" href="http://localhost:4000/categories/Algorithm/">
-                                <a class="post_category-link" href="/categories/%E6%9C%9F%E6%9C%AB/">期末</a>, <a class="post_category-link" href="/categories/%E6%9C%9F%E6%9C%AB/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a></a>
-                            </h6>
-                        </span>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-                <!-- 文章sample  e-->
-            
-                <div class="6u 12u(narrower)">
-                    <section class="link_box special">
-                       <a href="/2022/01/26/Java%E6%9C%9F%E6%9C%AB/">
-                        <div class="page_title" style="background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;">
-                            <!--标题-->
-                            <h2 class="page_title_text"> java期末 </h2>
-                            <!--段落-->
-                        </div>
-                        </a>
-                        <div class="home-post-info">
-                            <!-- Author Avatar -->
-                            <div class="home-post-info-author-avatar">
-                                <h6><span class="home-post-info-data">2022-01-26</span></h6>
-                                <div class="home-post-info-Category">
-                                    <!-- Category -->
-                                    <span>
-                            <h6>
-                            <a class="post_category-link" target="_blank" rel="noopener" href="http://localhost:4000/categories/Algorithm/">
-                                <a class="post_category-link" href="/categories/%E6%9C%9F%E6%9C%AB/">期末</a>, <a class="post_category-link" href="/categories/%E6%9C%9F%E6%9C%AB/JAVA/">JAVA</a></a>
-                            </h6>
-                        </span>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-                <!-- 文章sample  e-->
-            
-            </div>
-        </section>
-        </div>
-        <!-- 文章列表   end -->
-        <!-- Main 主要部分 end -->
-        <!-- footer  页码 start-->
-        <footer style="text-align: center; padding-top: 2em;">
   
-</footer>
+  <!-- 渲染优化 -->
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <link rel="preload" href="/css/first.css" as="style">
+  
 
-        <!-- footer  页码 end-->
-        <!-- Copyright 版权 start -->
-                <div id="copyright">
-            <ul>
-                <li>&copy;Powered By <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/" style="border-bottom: none;">hexo</a></li>
-                <li>Design: <a target="_blank" rel="noopener" href="http://miccall.tech " style="border-bottom: none;">miccall</a></li>
-            </ul>
-            
-                <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
-			
-        </div>
-        <!-- Copyright 版权 end -->
+  <!-- 页面元数据 -->
+  
+  <title>Archive: 2022 - Xu&#39;s Blog</title>
+  
+
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="Xu's Blog" type="application/atom+xml">
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  
+    <link rel="shortcut icon" type='image/x-icon' href="https://gitee.com/xxxxxwj/hexo-img/raw/master/hexo-img/20211017223207.png">
+  
+
+  <!-- import link -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/first.css">
+
+  
+
+  
+  <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+  
+
+  <script id="loadcss"></script>
+
+  
+<script>
+if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode))
+    document.write(
+	'<style>'+
+		'html{'+
+			'overflow-x: hidden !important;'+
+			'overflow-y: hidden !important;'+
+		'}'+
+		'.kill-ie{'+
+			'text-align:center;'+
+			'height: 100%;'+
+			'margin-top: 15%;'+
+			'margin-bottom: 5500%;'+
+		'}'+
+	'</style>'+
+    '<div class="kill-ie">'+
+        '<h1><b>抱歉，您的浏览器无法访问本站</b></h1>'+
+        '<h3>微软已经于2016年终止了对 Internet Explorer (IE) 10 及更早版本的支持，<br/>'+
+        '继续使用存在极大的安全隐患，请使用当代主流的浏览器进行访问。</h3><br/>'+
+        '<a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/WindowsForBusiness/End-of-IE-support"><strong>了解详情 ></strong></a>'+
+    '</div>');
+</script>
+
+
+<noscript>
+	<style>
+		html{
+			overflow-x: hidden !important;
+			overflow-y: hidden !important;
+		}
+		.kill-noscript{
+			text-align:center;
+			height: 100%;
+			margin-top: 15%;
+			margin-bottom: 5500%;
+		}
+	</style>
+    <div class="kill-noscript">
+        <h1><b>抱歉，您的浏览器无法访问本站</b></h1>
+        <h3>本页面需要浏览器支持（启用）JavaScript</h3><br/>
+        <a target="_blank" rel="noopener" href="https://www.baidu.com/s?wd=启用JavaScript"><strong>了解详情 ></strong></a>
     </div>
-    <!-- Wrapper 外包 e-->
-    <!-- Scripts -->
-</body>
+</noscript>
 
- 	
+</head>
+
+  <body>
+    
+
+<header id="l_header" class="l_header auto shadow " style='opacity: 0' >
+  <div class='container'>
+  <div id='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
+        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+          
+             Xu 
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h m-pc'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-user fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="" />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h m-phone'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-user fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+    <div id="l_body">
+      <div id="l_cover">
+  
+    
+        <div id="half" class='cover-wrapper  search' style="display: ;">
+          
+            <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.jpg"></div>
+          
+          <div class='cover-body'>
+  <div class='top'>
+    
+    
+      <p class="title">Xu’s Blog</p>
+    
+    
+  </div>
+  <div class='bottom'>
+    
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+          <i class="icon fas fa-search fa-fw"></i>
+        </form>
+      </div>
+    
+    <div class='menu navigation'>
+      <div class='list-h'>
+        
+          
+            <a href="/"
+              
+              
+              id="home">
+              <i class='fas fa-rss fa-fw'></i><p>博客</p>
+            </a>
+          
+            <a href="/categories/"
+              
+              
+              id="categories">
+              <i class='fas fa-folder-open fa-fw'></i><p>分类</p>
+            </a>
+          
+            <a href="/tags/"
+              
+              
+              id="tags">
+              <i class='fas fa-tags fa-fw'></i><p>标签</p>
+            </a>
+          
+            <a href="/archives/"
+              
+              
+              id="archives">
+              <i class='fas fa-archive fa-fw'></i><p>归档</p>
+            </a>
+          
+            <a href="/friends/"
+              
+              
+              id="friends">
+              <i class='fas fa-link fa-fw'></i><p>友链</p>
+            </a>
+          
+            <a target="_blank" rel="noopener" href="https://github.com/xucoud"
+              
+              
+              id="https:githubcomxucoud">
+              <i class='fab fa-github fa-fw'></i><p>Git</p>
+            </a>
+          
+            <a href="/about/"
+              
+              
+              id="about">
+              <i class='fas fa-user fa-fw'></i><p>关于</p>
+            </a>
+          
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+        </div>
+    
+  
+  </div>
+
+      <div id="safearea">
+        <div class="body-wrapper" id="pjax-container">
+          
+
+<div class='l_main'>
+	
+		
+  <section class="post-list">
+    
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+    
+    
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/2022/06/25/js%E5%9F%BA%E7%A1%80/">
+        js
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        
+
+简介JavaScript是一个web端使用的脚本语言，可以对HTML页面插入代码，并且可以被现代浏览器执行。
+功能
+
+直接写入HTML输出流
+对事件反应
+对HTML内容做出修改
+对HTML的内容样式做出修改
+验证输入
+
+
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+          
+          <a class='avatar' href='/about'><img src='/img/avater.jpg'></a>
+        
+        <time>2022-06-25</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><span class="sep"></span><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/js/">js</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2022/06/25/js%E5%9F%BA%E7%A1%80/'>
+            阅读更多
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/2022/06/04/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%9C%9F%E6%9C%AB/">
+        设计模式期末
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        
+
+面对对象的设计原则
+开闭原则
+
+定义：一个软件实体应当对扩展开放，对修改关闭。实现在不修改代码的情况下扩展模块的行为。
+含义：使系统具备良好的灵活性和可扩展性。
+
+
+单一职责原则
+
+定义：一个对象应该只包含单一的职责，并且该职责被完整地封装在一个类中（就一个类而言，应该仅有一个引起他变化的原因）
+含义：用于控制类的粒度大小。实现高内聚、低耦合的指导方针。
+
+
+里氏代换原则
+
+定义：所有引...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+          
+          <a class='avatar' href='/about'><img src='/img/avater.jpg'></a>
+        
+        <time>2022-06-04</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/%E6%9C%9F%E6%9C%AB/">期末</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2022/06/04/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%9C%9F%E6%9C%AB/'>
+            阅读更多
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/2022/04/07/Redis/">
+        Redis
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        
+
+简介​        Redis是一个使用C语言开发的一个基于内存的高性能 key-value 非关系型缓存数据库。因为Redis的数据都在内存中，所以Redis的效率非常高，每秒可以处理超过10W次的I/O操作。
+​        Redis 也可以将数据存入到硬盘中，保证了数据的安全性，而且 Redis 的操作都是原子性的。
+​        Redis 是单进程单线程的，使用队列技...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+          
+          <a class='avatar' href='/about'><img src='/img/avater.jpg'></a>
+        
+        <time>2022-04-07</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/Redis/">Redis</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2022/04/07/Redis/'>
+            阅读更多
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/2022/02/25/%E9%9D%A2%E8%AF%95%E9%A2%98/">
+        面试题
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      <p>关于面试题的整理合集</p>
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+          
+          <a class='avatar' href='/about'><img src='/img/avater.jpg'></a>
+        
+        <time>2022-02-25</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2022/02/25/%E9%9D%A2%E8%AF%95%E9%A2%98/'>
+            阅读更多
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/2022/01/28/Go%E5%86%85%E5%AD%98%E9%80%83%E9%80%B8/">
+        Go内存逃逸
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      <p>Go 语言内存逃逸的简单理解</p>
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+          
+          <a class='avatar' href='/about'><img src='/img/avater.jpg'></a>
+        
+        <time>2022-01-28</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/Go/">Go</a><span class="sep"></span><a class="category-link" href="/categories/Go/%E5%86%85%E5%AD%98%E9%80%83%E9%80%B8/">内存逃逸</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2022/01/28/Go%E5%86%85%E5%AD%98%E9%80%83%E9%80%B8/'>
+            阅读更多
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/2022/01/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%9C%9F%E6%9C%AB/">
+        计算机网络
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        
+
+第一章-概述计算机网络概念​        计算机网络主要是由一些通用的，可编程的硬件互联而成的，而这些硬件并非专门来实现某一特定目的（例如：传送数据和uo视频信号）。这些可编程的硬件能够用来传送多种不同类型的数据，并能支持广泛的和日益增长的应用。
+
+
+计算机网络所连接的硬件，并不局限于计算机，而是包括了智能手机。
+计算机网络并非专门用来传送数据，而是支持很多种的应用。
+
+
+计算机网络的...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+          
+          <a class='avatar' href='/about'><img src='/img/avater.jpg'></a>
+        
+        <time>2022-01-26</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/%E6%9C%9F%E6%9C%AB/">期末</a><span class="sep"></span><a class="category-link" href="/categories/%E6%9C%9F%E6%9C%AB/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2022/01/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%9C%9F%E6%9C%AB/'>
+            阅读更多
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/2022/01/26/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90/">
+        算法设计与分析
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        
+
+时间复杂度递归与分治设计思想递归：直接或间接的调用自身的函数
+分治：将一个规模为n的问题分解为k个规模较小的子问题，这些子问题互相独立且与原问题相同，递归的求解这些子问题，然后将各个子问题的解合并到原问题的解。
+解题步骤
+分解：分解原问题为结构相同的子问题。
+解决：分解到某个容易求解的边界之后，进行递归求解。
+合并：将子问题的解合并成原问题的解。
+
+优缺点优点：结构清晰、可读性强
+缺点：...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+          
+          <a class='avatar' href='/about'><img src='/img/avater.jpg'></a>
+        
+        <time>2022-01-26</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/%E6%9C%9F%E6%9C%AB/">期末</a><span class="sep"></span><a class="category-link" href="/categories/%E6%9C%9F%E6%9C%AB/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90/">算法设计与分析</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2022/01/26/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90/'>
+            阅读更多
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/2022/01/26/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+        数据结构
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      <p>常用的数据结构的介绍以及自己的实现，会慢慢的进行补充······</p>
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+          
+          <a class='avatar' href='/about'><img src='/img/avater.jpg'></a>
+        
+        <time>2022-01-26</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2022/01/26/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/'>
+            阅读更多
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/2022/01/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%9C%9F%E6%9C%AB/">
+        操作系统期末
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        
+
+概述操作系统的分类
+批量操作系统
+
+分时操作系统
+
+实时操作系统
+
+个人计算机操作系统
+
+网络操作系统
+
+分布式操作系统
+
+
+操作系统的特征并发共享，虚拟同步
+多道程序设计技术概念多道程序设计技术是在计算机内存中同时存放几道相互独立的程序，它们在管理程序的控制下相互穿插地运行。
+特征
+多道——计算机主存中存放几道相互独立的程序
+宏观上并行——都处于运行状态，但都未运行完
+微观上串行——各...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+          
+          <a class='avatar' href='/about'><img src='/img/avater.jpg'></a>
+        
+        <time>2022-01-26</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/%E6%9C%9F%E6%9C%AB/">期末</a><span class="sep"></span><a class="category-link" href="/categories/%E6%9C%9F%E6%9C%AB/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2022/01/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%9C%9F%E6%9C%AB/'>
+            阅读更多
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/2022/01/26/Java%E6%9C%9F%E6%9C%AB/">
+        java期末
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        
+
+Java的特性简单性Java看起来设计得很像C++，但是为了使语言小和容易熟悉，设计者们把C++语言中许多可用的特征去掉了，这些特征是一般程序员很少使用的。例如，Java不支持go to语句，代之以提供break和continue语句以及异常处理。Java还剔除了C++的操作符过载（overload）和多继承特征，并且不使用主文件，免去了预处理程序。因为Java没有结构，数组和串都是对象...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+          
+          <a class='avatar' href='/about'><img src='/img/avater.jpg'></a>
+        
+        <time>2022-01-26</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/%E6%9C%9F%E6%9C%AB/">期末</a><span class="sep"></span><a class="category-link" href="/categories/%E6%9C%9F%E6%9C%AB/JAVA/">JAVA</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2022/01/26/Java%E6%9C%9F%E6%9C%AB/'>
+            阅读更多
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+    
+  </section>
+  
+    
+  
+
+
+	
+</div>
+<aside class='l_side'>
+  
+  
+    
+    
+
+<section class="widget blogger shadow desktop mobile">
+  <div class='content'>
+    
+      
+        <a class='avatar flat-box circle' href='/about/'>
+          <img no-lazy src='/img/avater.jpg'/>
+        </a>
+      
+    
+    
+      <div class='text'>
+        
+        
+        
+          <p><span id="jinrishici-sentence">Xu's Blog</span></p>
+          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="/atom.xml"
+              class="social fas fa-rss flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+          
+            <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=281658285&amp;site=qq&amp;menu=yes"
+              class="social fab fa-qq flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+          
+            <a href="https://github.com/volantis-x/"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+  
+
+  <section class="widget category shadow desktop">
+    
+  <header>
+    
+      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+      <ul class="entry navigation">
+        
+          <li><a class="flat-box"
+            title="/categories/Go/" href="/categories/Go/"
+            id="categoriesGo"
+            ><div class='name'>Go</div><div class='badge'>(7)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/Go/GC/" href="/categories/Go/GC/"
+            id="categoriesGoGC"
+            ><div class='name'>GC</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/Go/GMP/" href="/categories/Go/GMP/"
+            id="categoriesGoGMP"
+            ><div class='name'>GMP</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/Go/ORM/" href="/categories/Go/ORM/"
+            id="categoriesGoORM"
+            ><div class='name'>ORM</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/Go/Web/" href="/categories/Go/Web/"
+            id="categoriesGoWeb"
+            ><div class='name'>Web</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/Go/module/" href="/categories/Go/module/"
+            id="categoriesGomodule"
+            ><div class='name'>module</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/Go/%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/" href="/categories/Go/%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/"
+            id="categoriesGoE58685E5AD98E58886E9858D"
+            ><div class='name'>内存分配</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/Go/%E5%86%85%E5%AD%98%E9%80%83%E9%80%B8/" href="/categories/Go/%E5%86%85%E5%AD%98%E9%80%83%E9%80%B8/"
+            id="categoriesGoE58685E5AD98E98083E980B8"
+            ><div class='name'>内存逃逸</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/Java/" href="/categories/Java/"
+            id="categoriesJava"
+            ><div class='name'>Java</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/Redis/" href="/categories/Redis/"
+            id="categoriesRedis"
+            ><div class='name'>Redis</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/Restful/" href="/categories/Restful/"
+            id="categoriesRestful"
+            ><div class='name'>Restful</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/Spring/" href="/categories/Spring/"
+            id="categoriesSpring"
+            ><div class='name'>Spring</div><div class='badge'>(11)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/SpringBoot/" href="/categories/SpringBoot/"
+            id="categoriesSpringBoot"
+            ><div class='name'>SpringBoot</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/k8s/" href="/categories/k8s/"
+            id="categoriesk8s"
+            ><div class='name'>k8s</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E5%89%8D%E7%AB%AF/" href="/categories/%E5%89%8D%E7%AB%AF/"
+            id="categoriesE5898DE7ABAF"
+            ><div class='name'>前端</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E5%89%8D%E7%AB%AF/js/" href="/categories/%E5%89%8D%E7%AB%AF/js/"
+            id="categoriesE5898DE7ABAFjs"
+            ><div class='name'>js</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"
+            id="categoriesE695B0E68DAEE7BB93E69E84"
+            ><div class='name'>数据结构</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E6%9C%9F%E6%9C%AB/" href="/categories/%E6%9C%9F%E6%9C%AB/"
+            id="categoriesE69C9FE69CAB"
+            ><div class='name'>期末</div><div class='badge'>(5)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E6%9C%9F%E6%9C%AB/JAVA/" href="/categories/%E6%9C%9F%E6%9C%AB/JAVA/"
+            id="categoriesE69C9FE69CABJAVA"
+            ><div class='name'>JAVA</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E6%9C%9F%E6%9C%AB/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" href="/categories/%E6%9C%9F%E6%9C%AB/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"
+            id="categoriesE69C9FE69CABE6938DE4BD9CE7B3BBE7BB9F"
+            ><div class='name'>操作系统</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E6%9C%9F%E6%9C%AB/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90/" href="/categories/%E6%9C%9F%E6%9C%AB/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90/"
+            id="categoriesE69C9FE69CABE7AE97E6B395E8AEBEE8AEA1E4B88EE58886E69E90"
+            ><div class='name'>算法设计与分析</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E6%9C%9F%E6%9C%AB/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" href="/categories/%E6%9C%9F%E6%9C%AB/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"
+            id="categoriesE69C9FE69CABE8AEA1E7AE97E69CBAE7BD91E7BB9C"
+            ><div class='name'>计算机网络</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"
+            id="categoriesE99DA2E8AF95E9A298"
+            ><div class='name'>面试题</div><div class='badge'>(1)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+  
+
+  
+    
+    
+  
+
+  <section class="widget tagcloud shadow desktop mobile">
+    
+  <header>
+    
+      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+      <a href="/tags/Go/" style="font-size: 20.67px; color: #6c6c6c">Go</a> <a href="/tags/K8s/" style="font-size: 14px; color: #999">K8s</a> <a href="/tags/Redis/" style="font-size: 14px; color: #999">Redis</a> <a href="/tags/Restful/" style="font-size: 14px; color: #999">Restful</a> <a href="/tags/Spring/" style="font-size: 24px; color: #555">Spring</a> <a href="/tags/SpringBoot/" style="font-size: 14px; color: #999">SpringBoot</a> <a href="/tags/Thread/" style="font-size: 14px; color: #999">Thread</a> <a href="/tags/js/" style="font-size: 14px; color: #999">js</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 14px; color: #999">数据结构</a> <a href="/tags/%E6%9C%9F%E6%9C%AB/" style="font-size: 17.33px; color: #828282">期末</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 14px; color: #999">面试</a>
+    </div>
+  </section>
+
+
+  
+
+  
+
+  
+    
+    
+
+<section class="widget shadow desktop">
+  
+  <header>
+    
+      <i class="fas fa-award fa-fw" aria-hidden="true"></i><span class='name'>站点信息</span>
+    
+  </header>
+
+
+  <div class='content'>
+    <div class="webinfo">
+      
+        <div class="webinfo-item">
+          <div>文章数目：</div>
+          <div>31 篇</div>
+        </div>
+      
+
+      
+        <div class="webinfo-item">
+          <div>已运行时间：</div>
+          <div id="webinfo-runtime-count" publish_date="03/24/2020 21:34:09"></div>
+        </div>
+        <script>
+          var BirthDay = new Date(new Date('2021/05/17'));
+          var today = new Date();
+          var timeold = (today.getTime() - BirthDay.getTime());
+          var daysold = Math.floor(timeold / (24 * 60 * 60 * 1000));
+          document.getElementById('webinfo-runtime-count').innerHTML = daysold + ' 天';
+        </script>
+      
+
+
+      
+
+      
+        <div class="webinfo-item">
+          <div>本站访客数：</div>
+          
+          <div><span id="lc-uv"><span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 人</div>
+          
+        </div>
+      
+
+      
+        <div class="webinfo-item">
+          <div>本站总访问量：</div>
+          
+          <div><span id="lc-sv"><span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 次</div>
+          
+        </div>
+      
+
+      
+        <div class="webinfo-item">
+          <div>最后活动时间：</div>
+          
+            <div id="last-update" style="display: none;">Sat Jul 16 2022 15:45:27 GMT+0800 (中国标准时间)</div>
+            <div id="last-update-show">2022-07-16 日</div>
+          
+        </div>
+        
+        <script>
+          function timeago(dateTimeStamp) {
+              var minute = 1000 * 60; //把分，时，天，周，半个月，一个月用毫秒表示
+              var hour = minute * 60;
+              var day = hour * 24;
+              var week = day * 7;
+              var month = day * 30;
+              var now = new Date().getTime(); //获取当前时间毫秒
+              var diffValue = now - dateTimeStamp; //时间差
+              if (diffValue < 0) {
+                  return;
+              }
+              var minC = diffValue / minute; //计算时间差的分，时，天，周，月
+              var hourC = diffValue / hour;
+              var dayC = diffValue / day;
+              var weekC = diffValue / week;
+              var monthC = diffValue / month;
+              if (monthC >= 1 && monthC <= 3) {
+                  result = " " + parseInt(monthC) + " 月前"
+              } else if (weekC >= 1 && weekC <= 3) {
+                  result = " " + parseInt(weekC) + " 周前"
+              } else if (dayC >= 1 && dayC <= 6) {
+                  result = " " + parseInt(dayC) + " 天前"
+              } else if (hourC >= 1 && hourC <= 23) {
+                  result = " " + parseInt(hourC) + " 小时前"
+              } else if (minC >= 1 && minC <= 59) {
+                  result = " " + parseInt(minC) + " 分钟前"
+              } else if (diffValue >= 0 && diffValue <= minute) {
+                  result = "刚刚"
+              } else {
+                  var datetime = new Date();
+                  datetime.setTime(dateTimeStamp);
+                  var Nyear = datetime.getFullYear();
+                  var Nmonth = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
+                  var Ndate = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
+                  var Nhour = datetime.getHours() < 10 ? "0" + datetime.getHours() : datetime.getHours();
+                  var Nminute = datetime.getMinutes() < 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
+                  var Nsecond = datetime.getSeconds() < 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
+                  result = Nyear + "-" + Nmonth + "-" + Ndate
+              }
+              return result;
+          }
+          var lastUpDate = document.getElementById('last-update').innerHTML;
+          try {
+            document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
+          } catch (error) {
+            document.getElementById('last-update-show').innerHTML = '2022-07-16 日';
+          }
+        </script>
+        
+      
+    </div>
+  </div>
+</section>
+
+  
+
+
+</aside>
+
+
+		  
+		  <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+<script>
+  window.pdata={}
+  pdata.ispage=false;
+  pdata.postTitle="";
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+  // header 这里无论是否开启pjax都需要
+  var l_header=document.getElementById("l_header");
+  
+  l_header.classList.remove("show");
+  
+  
+    // cover
+    var cover_wrapper=document.querySelector('.cover-wrapper');
+    
+    cover_wrapper.id="half";
+    cover_wrapper.style.display="";
+    
+  
+</script>
+
+        </div>
+        
+  
+  <footer class="footer clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.7'
+      loop='all'
+      order='list'
+      fixed='false'
+      list-max-height='320px'
+      server='tencent'
+      type='playlist'
+      id='8001964689'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+          
+            
+          
+            
+          
+        </div>
+      
+    
+      
+        
+          <div><p><span>📚 本文由<a target="_blank" rel="noopener" href="https://blogxwj.top/">Xu</a>创作，转载请注明出处</span> <br> <span>🧾 博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</span> <br> <span id="lc-sv">本站总访问量为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次</span> <span id="lc-uv">访客数为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人</span></p>
+</div>
+        
+      
+    
+      
+        本站使用
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1" target="_blank" class="codename">Volantis</a>
+        主题
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="/">Copyright © 2020 🧑‍💻 Xu</a> <br> <a target="_blank" rel="noopener" href="http://beian.miit.gov.cn">鄂ICP备2021009263号-1</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+
+        <a id="s-top" class="fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+      </div>
+    </div>
+    <div>
+      <script>
+/************这个文件存放不需要重载的全局变量和全局函数*********/
+window.volantis={};
+window.volantis.loadcss=document.getElementById("loadcss");
+/******************** Pjax ********************************/
+function VPjax(){
+	this.list=[] // 存放回调函数
+	this.start=()=>{
+	  for(var i=0;i<this.list.length;i++){
+		this.list[i].run();
+	  }
+	}
+	this.push=(fn,name)=>{
+		var f=new PjaxItem(fn,name);
+		this.list.push(f);
+	}
+	// 构造一个可以run的对象
+	function PjaxItem(fn,name){
+		// 函数名称
+		this.name = name || fn.name
+		// run方法
+		this.run=()=>{
+			fn()
+		}
+	}
+}
+volantis.pjax={}
+volantis.pjax.method={
+	complete: new VPjax(),
+	error: new VPjax(),
+	send: new VPjax()
+}
+volantis.pjax={
+	...volantis.pjax,
+	push: volantis.pjax.method.complete.push,
+	error: volantis.pjax.method.error.push,
+	send: volantis.pjax.method.send.push
+}
+/********************脚本懒加载函数********************************/
+// 已经加入了setTimeout
+function loadScript(src, cb) {
+	setTimeout(function() {
+		var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+		var script = document.createElement('script');
+		script.setAttribute('type','text/javascript');
+		if (cb) script.onload = cb;
+		script.setAttribute('src', src);
+		HEAD.appendChild(script);
+	});
+}
+//https://github.com/filamentgroup/loadCSS
+var loadCSS = function( href, before, media, attributes ){
+	var doc = window.document;
+	var ss = doc.createElement( "link" );
+	var ref;
+	if( before ){
+		ref = before;
+	}
+	else {
+		var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+		ref = refs[ refs.length - 1];
+	}
+	var sheets = doc.styleSheets;
+	if( attributes ){
+		for( var attributeName in attributes ){
+			if( attributes.hasOwnProperty( attributeName ) ){
+				ss.setAttribute( attributeName, attributes[attributeName] );
+			}
+		}
+	}
+	ss.rel = "stylesheet";
+	ss.href = href;
+	ss.media = "only x";
+	function ready( cb ){
+		if( doc.body ){
+			return cb();
+		}
+		setTimeout(function(){
+			ready( cb );
+		});
+	}
+	ready( function(){
+		ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+	});
+	var onloadcssdefined = function( cb ){
+		var resolvedHref = ss.href;
+		var i = sheets.length;
+		while( i-- ){
+			if( sheets[ i ].href === resolvedHref ){
+				return cb();
+			}
+		}
+		setTimeout(function() {
+			onloadcssdefined( cb );
+		});
+	};
+	function loadCB(){
+		if( ss.addEventListener ){
+			ss.removeEventListener( "load", loadCB );
+		}
+		ss.media = media || "all";
+	}
+	if( ss.addEventListener ){
+		ss.addEventListener( "load", loadCB);
+	}
+	ss.onloadcssdefined = onloadcssdefined;
+	onloadcssdefined( loadCB );
+	return ss;
+};
+</script>
+<script>
+  
+  loadCSS("https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css", window.volantis.loadcss);
+  
+  
+  
+  
+</script>
+<!-- required -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+
+<script>
+  function pjax_fancybox() {
+    $(".md .gallery").find("img").each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".md .gallery").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  function SCload_fancybox() {
+    if ($(".md .gallery").find("img").length == 0) return;
+    loadCSS("https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css", document.getElementById("loadcss"));
+    loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', pjax_fancybox)
+  };
+  $(function () {
+    SCload_fancybox();
+  });
+  function Pjax_SCload_fancybox(){
+	if (typeof $.fancybox == "undefined") {
+	 SCload_fancybox();
+    } else {
+	 pjax_fancybox();
+    }
+  }
+  volantis.pjax.push(Pjax_SCload_fancybox)
+  volantis.pjax.send(()=>{
+      if (typeof $.fancybox != "undefined") {
+        $.fancybox.close();    // 关闭弹窗
+      }
+  },'fancybox')
+</script>
+
+
+<!-- internal -->
+
+
+
+  
+  
+
+  <div id="rightmenu-wrapper">
+    <ul class="list-v rightmenu" id="rightmenu-content">
+      <li class='option'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-text' onclick="document.execCommand('copy')"><i class='fa fa-copy fa-fw'></i>Copy Text</a>
+        <hr id='hr-text'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-href'><i class='fa fa-link fa-fw'></i>Copy Link</a>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-open-href'><i class='fa fa-external-link-square-alt fa-fw'></i>Open Link in New Tab</a>
+        <hr id='hr-href'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-src'><i class='fa fa-image fa-fw'></i>Copy Image Link</a>
+        <hr id='hr-src'>
+      </li>
+      
+        <li class='navigation'>
+          <a class='nav icon-only fix-cursor-default' onclick='history.back()'><i class='fa fa-arrow-left fa-fw'></i></a>
+          <a class='nav icon-only fix-cursor-default' onclick='history.forward()'><i class='fa fa-arrow-right fa-fw'></i></a>
+          <a class='nav icon-only fix-cursor-default' onclick='window.location.reload()'><i class='fa fa-redo fa-fw'></i></a>
+          <a class='nav icon-only fix-cursor-default' href='/'><i class='fa fa-home fa-fw'></i></a>
+        </li>
+      
+      <hr>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default ' 
+        
+        
+        
+          onclick="document.execCommand('print')"
+        
+        >
+        <i class='fa fa-print fa-fw'></i> 打印页面
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default toggle-mode-btn' 
+        
+        
+        
+        >
+        <i class='fas fa-moon fa-fw'></i> 暗黑模式
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          <li class='music name'>
+            <p class='nav music-title fix-cursor-default'></p>
+          </li>
+          <li class='music ctrl'>
+            <a class='nav icon-only backward fix-cursor-default' onclick='aplayerBackward()'><i class='fa fa-step-backward fa-fw'></i></a>
+            <a class='nav icon-only toggle fix-cursor-default' onclick='aplayerToggle()'><i class='fa fa-play fa-fw'></i></a>
+            <a class='nav icon-only forward fix-cursor-default' onclick='aplayerForward()'><i class='fa fa-step-forward fa-fw'></i></a>
+          </li>
+          <li class='music volume'>
+            <a class='nav volume'>
+              <div class="aplayer-volume-bar-wrap">
+                <div class="aplayer-volume-bar fix-cursor-pointer">
+                  <div class="aplayer-volume"></div>
+                  <i class='left fa fa-volume-off fa-fw'></i>
+                  <i class='right fa fa-volume-up fa-fw'></i>
+                </div>
+              </div>
+            </a>
+          </li>
+        
+      
+    </ul>
+  </div>
+
+  <script>
+    window.document.oncontextmenu = function (event) {
+      if (event.ctrlKey) return true;
+      if (/Android|webOS|BlackBerry/i.test(navigator.userAgent)) return true;
+      return popMenu(event);
+    };
+    document.addEventListener("click", function (event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      mymenu.style.display = "none";
+    });
+    function popMenu(event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      var menuContent = document.getElementById('rightmenu-content');
+      var screenWidth = document.documentElement.clientWidth || document.body.clientWidth;
+      var screenHeight = document.documentElement.clientHeight || document.body.clientHeight;
+      mymenu.style.left = event.clientX + "px"; // 获取鼠标位置
+      mymenu.style.top = event.clientY + "px";
+      mymenu.style.display = 'block';
+      if (event.clientX * 2 > screenWidth) {
+        menuContent.classList.add('left');
+      } else {
+        menuContent.classList.remove('left');
+      }
+      if (event.clientY * 2 > screenHeight) {
+        menuContent.classList.add('top');
+      } else {
+        menuContent.classList.remove('top');
+      }
+
+      let hrText = document.getElementById('hr-text');
+      let hrSrc = document.getElementById('hr-src');
+      let hrHref = document.getElementById('hr-href');
+
+      // 选中图片
+      let copySrc = document.getElementById('menu-copy-src');
+      if (copySrc != undefined) {
+        if (event.target.currentSrc) {
+          copySrc.style.display = 'block';
+          copySrc.addEventListener("click", function (e) {
+            copyString(event.target.currentSrc);
+          },{once: true});
+          hrSrc.style.display = 'block';
+        } else {
+          copySrc.style.display = 'none';
+          hrSrc.style.display = 'none';
+        }
+      }
+
+      // 选中按钮
+      // 判断是不是按钮
+      let href = '';
+      if (event.path) {
+        for (i = 0; i < event.path.length; i++) {
+          if (event.path[i].href != undefined && event.path[i].href.length > 0) {
+            href = event.path[i].href;
+          }
+        }
+      }
+
+      let copyText = document.getElementById('menu-copy-text');
+      copyText.style.display = 'none';
+      hrText.style.display = 'none';
+      if (href.length == 0) {
+        // 选中文本
+        if (window.getSelection().toString()) {
+          if ('true' == 'true') {
+            copyText.style.display = 'block';
+            hrText.style.display = 'block';
+          }
+        }
+      }
+
+      // 在新标签页打开
+      let openHref = document.getElementById('menu-open-href');
+      if (openHref != undefined) {
+        if (href.length > 0) {
+          openHref.style.display = 'block';
+          openHref.addEventListener("click", function (e) {
+            window.open(href);
+          },{once: true});
+          hrHref.style.display = 'block';
+        } else {
+          openHref.style.display = 'none';
+          hrHref.style.display = 'none';
+        }
+      }
+      // 复制链接
+      let copyHref = document.getElementById('menu-copy-href');
+      if (copyHref != undefined) {
+        if (href.length > 0) {
+          copyHref.style.display = 'block';
+          copyHref.addEventListener("click", function (e) {
+            copyString(href);
+          },{once: true});
+        } else {
+          copyHref.style.display = 'none';
+        }
+      }
+      // 有音乐播放器 see: layout/_third-party/aplayer/script.ejs
+      
+      if(volantis.APlayerLoaded){ // APlayer加载完成？
+        // 如果有aplayer，初始化一下
+        checkAPlayer();
+      }
+      
+      return false; // 该行代码确保系统自带的右键菜单不会被调出
+    }
+    function hideMenu() {
+      document.getElementById('rightmenu-wrapper').style.display = 'none';
+    }
+    function copyString(str) {
+      const input = document.createElement('input');
+      input.setAttribute('readonly', 'readonly');
+      document.body.appendChild(input);
+      input.setAttribute('value', str);
+      input.select();
+      document.execCommand('copy');
+      document.body.removeChild(input);
+    }
+    document.execCommand('click');
+  </script>
+
+
+
+
+<script>
+  function loadIssuesJS() {
+    if ($(".md").find(".issues-api").length == 0) return;
+	
+	  loadScript('/js/issues.js');
+	
+  };
+  $(function () {
+    loadIssuesJS();
+  });
+  volantis.pjax.push(()=>{
+	if (typeof IssuesAPI == "undefined") {
+	  loadIssuesJS();
+	}
+  },"IssuesJS")
+</script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+
+
+  
+
+<script>
+  window.FPConfig = {
+	delay: 0,
+	ignoreKeywords: [],
+	maxRPS: 5,
+	hoverDelay: 25
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"></script>
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+    var clipboard = new ClipboardJS('.btn-copy', {
+        target: function (trigger) {
+            return trigger.nextElementSibling
+        }
+    });
+    function wait(callback, seconds) {
+        var timelag = null;
+        timelag = window.setTimeout(callback, seconds)
+    }
+    function pjax_initCopyCode() {
+		if($(".highlight .code pre").length+$(".article pre code").length==0)return;
+        var copyHtml = '';
+        copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+        copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+        copyHtml += '</button>';
+        $(".highlight .code pre").before(copyHtml);
+        $(".article pre code").before(copyHtml);
+        clipboard.off('success').on('success', function (e) {
+            let $btn = $(e.trigger);
+            $btn.addClass('copied');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-check-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPIED';
+            wait(function () {
+                $icon.removeClass('fa-check-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        });
+        clipboard.off('error').on('error', function (e) {
+            e.clearSelection();
+            let $btn = $(e.trigger);
+            $btn.addClass('copy-failed');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-times-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPY FAILED';
+            wait(function () {
+                $icon.removeClass('fa-times-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        })
+    }
+    $(function () {
+        pjax_initCopyCode()
+    });
+	volantis.pjax.push(pjax_initCopyCode)
+</script>
+
+
+
+
+   <script type="text/javascript">
+  loadScript("https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js")
+  function pjax_scrollrebeal() {
+    ScrollReveal().reveal('.l_main .reveal', {
+      distance: '32px',
+      duration: '800',
+      interval: '20',
+      scale: '1',
+      easing: 'ease-out'
+    });
+  }
+  $(function () {
+  var checkScrollReveal = setInterval(function () {
+    if ($("#safearea").css("display")!="block") return
+    if (typeof ScrollReveal=="undefined") return
+    clearInterval(checkScrollReveal)
+	pjax_scrollrebeal();
+  }, 100)
+  });
+  volantis.pjax.push(pjax_scrollrebeal)
+</script>
+
+
+
+
+  <script>
+  let APlayerController = new Object();
+  APlayerController.id = '8001964689';  // 设定全局音乐播放ID
+  APlayerController.volume = '0.7';
+  loadCSS("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css", window.volantis.loadcss);
+  // APlayer 需要在  MetingJS 之前加载
+  loadScript("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js")
+  window.volantis.APlayerLoaded=0 // APlayer加载完成状态
+  var checkAPlayer = setInterval(function () {
+    if (!window.APlayer) return // APlayer加载完成？
+	  if ($("#safearea").css("display")!="block") return // 文章内容加载完成？ see: source/css/first.styl
+    clearInterval(checkAPlayer)
+	  if (!window.volantis.APlayerLoaded&&!window.MetingJSElement){ // APlayer只能加载一次
+      window.volantis.APlayerLoaded=1 // APlayer加载完成
+      loadScript("https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js") // 加载 MetingJS
+	  }
+  }, 2500) // 按照网速调节差分2.5s
+  // rightmenu see: layout/_partial/rightmenu.ejs
+
+  
+    loadScript("/js/aplayer.js")
+  
+
+</script>
+
+
+
+
+  
+  
+<script src="https://cdn.jsdelivr.net/gh/HCLonely/Valine@latest/dist/Valine.min.js"></script>
+
+
+<script>
+  function emoji(path, idx, ext) {
+    return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {
+    "doge": "https://cdn.jsdelivr.net/gh/zyoushuo/Blog@master/emoji/bilibili/doge.png",
+    "亲亲": "https://cdn.jsdelivr.net/gh/zyoushuo/Blog@master/emoji/bilibili/亲亲.png",
+    "偷笑": "https://cdn.jsdelivr.net/gh/zyoushuo/Blog@master/emoji/bilibili/偷笑.png",  
+    "再见": "https://cdn.jsdelivr.net/gh/zyoushuo/Blog@master/emoji/bilibili/再见.png",
+    "冷漠": "https://cdn.jsdelivr.net/gh/zyoushuo/Blog@master/emoji/bilibili/冷漠.png",
+    "发怒": "https://cdn.jsdelivr.net/gh/zyoushuo/Blog@master/emoji/bilibili/发怒.png",
+    "发财": "https://cdn.jsdelivr.net/gh/zyoushuo/Blog@master/emoji/bilibili/发财.png",
+    "可爱": "https://cdn.jsdelivr.net/gh/zyoushuo/Blog@master/emoji/bilibili/可爱.png",
+    "QQ-0": "https://7.dusays.com/2021/01/15/28896e0ad6fd2.gif",
+	"QQ-1": "https://7.dusays.com/2021/01/15/e1b49acc90150.gif",
+	"QQ-10": "https://7.dusays.com/2021/01/15/ccf7ecc0f3629.gif",
+	// "QQ-100": "https://7.dusays.com/2021/01/15/d9347f35566e9.gif",
+	// "QQ-101": "https://7.dusays.com/2021/01/15/5cf591c70871b.gif",
+	// "QQ-102": "https://7.dusays.com/2021/01/15/a54757a19c9b0.gif",
+	// "QQ-103": "https://7.dusays.com/2021/01/15/d305b3e66f08e.gif",
+	// "QQ-104": "https://7.dusays.com/2021/01/15/e5aac17baab3b.gif",
+	// "QQ-105": "https://7.dusays.com/2021/01/15/8143a3f5f096f.gif",
+	// "QQ-106": "https://7.dusays.com/2021/01/15/c414277f1a604.gif",
+	// "QQ-107": "https://7.dusays.com/2021/01/15/a2d76a0d67386.gif",
+	// "QQ-108": "https://7.dusays.com/2021/01/15/6add7b094fe26.gif",
+	// "QQ-109": "https://7.dusays.com/2021/01/15/6b959f0e83bbb.gif",
+	// "QQ-11": "https://7.dusays.com/2021/01/15/8c4388560de79.gif",
+	// "QQ-110": "https://7.dusays.com/2021/01/15/cbd1fc6ade730.gif",
+	// "QQ-111": "https://7.dusays.com/2021/01/15/e32ed216e81e8.gif",
+	// "QQ-112": "https://7.dusays.com/2021/01/15/f680f2639d9ae.gif",
+	// "QQ-113": "https://7.dusays.com/2021/01/15/16830bae9b7ab.gif",
+	// "QQ-114": "https://7.dusays.com/2021/01/15/907af163812f4.gif",
+	// "QQ-115": "https://7.dusays.com/2021/01/15/7997817d2503d.gif",
+	// "QQ-116": "https://7.dusays.com/2021/01/15/fac5675efa0e1.gif",
+	// "QQ-117": "https://7.dusays.com/2021/01/15/d07f738e4c604.gif",
+	// "QQ-118": "https://7.dusays.com/2021/01/15/05955be86e552.gif",
+	// "QQ-119": "https://7.dusays.com/2021/01/15/f0b5dae50d7b6.gif",
+	// "QQ-12": "https://7.dusays.com/2021/01/15/92ba48a45b920.gif",
+	// "QQ-120": "https://7.dusays.com/2021/01/15/7f9581a4af35f.gif",
+	// "QQ-121": "https://7.dusays.com/2021/01/15/667b3c4bc1bc8.gif",
+	// "QQ-122": "https://7.dusays.com/2021/01/15/69386ba3437cc.gif",
+	// "QQ-123": "https://7.dusays.com/2021/01/15/6b8ef181a5aa2.gif",
+	// "QQ-124": "https://7.dusays.com/2021/01/15/3cde111610151.gif",
+	// "QQ-125": "https://7.dusays.com/2021/01/15/6f6d89214d8b3.gif",
+	// "QQ-126": "https://7.dusays.com/2021/01/15/940b26f3bd37a.gif",
+	// "QQ-127": "https://7.dusays.com/2021/01/15/bd7f7f21e3fe0.gif",
+	// "QQ-128": "https://7.dusays.com/2021/01/15/b4c458b5a8621.gif",
+	// "QQ-129": "https://7.dusays.com/2021/01/15/b95de272e27ba.gif",
+	// "QQ-13": "https://7.dusays.com/2021/01/15/46f812e5e0956.gif",
+	// "QQ-130": "https://7.dusays.com/2021/01/15/d927193fcff8c.gif",
+	// "QQ-131": "https://7.dusays.com/2021/01/15/391a1103dace4.gif",
+	// "QQ-132": "https://7.dusays.com/2021/01/15/fc3602298f0f1.gif",
+	// "QQ-133": "https://7.dusays.com/2021/01/15/33017fe6c64c1.gif",
+	// "QQ-134": "https://7.dusays.com/2021/01/15/1d3f0e3415090.gif",
+	// "QQ-135": "https://7.dusays.com/2021/01/15/e302919641d8c.gif",
+	// "QQ-136": "https://7.dusays.com/2021/01/15/e60ff59529091.gif",
+	// "QQ-137": "https://7.dusays.com/2021/01/15/8e07d67cccc64.gif",
+	// "QQ-138": "https://7.dusays.com/2021/01/15/b012f7df8af71.gif",
+	// "QQ-139": "https://7.dusays.com/2021/01/15/6824a0ac0138e.gif",
+	// "QQ-14": "https://7.dusays.com/2021/01/15/e1c9de290a4b9.gif",
+	// "QQ-140": "https://7.dusays.com/2021/01/15/b5f5bbc92b0eb.gif",
+	// "QQ-141": "https://7.dusays.com/2021/01/15/a7c1a56b40a72.gif",
+	// "QQ-142": "https://7.dusays.com/2021/01/15/6055240f4f3ec.gif",
+	// "QQ-143": "https://7.dusays.com/2021/01/15/e5e01f51d3397.gif",
+	// "QQ-144": "https://7.dusays.com/2021/01/15/581e6465f99d2.gif",
+	// "QQ-145": "https://7.dusays.com/2021/01/15/59bc408781170.gif",
+	// "QQ-146": "https://7.dusays.com/2021/01/15/46fa2ac201d46.gif",
+	// "QQ-147": "https://7.dusays.com/2021/01/15/ff6ba63ad179b.gif",
+	// "QQ-148": "https://7.dusays.com/2021/01/15/a266c3d930e6c.gif",
+	// "QQ-149": "https://7.dusays.com/2021/01/15/5dbf143c14332.gif",
+	// "QQ-15": "https://7.dusays.com/2021/01/15/49fadb70d4d4a.gif",
+	// "QQ-150": "https://7.dusays.com/2021/01/15/44d966569704d.gif",
+	// "QQ-151": "https://7.dusays.com/2021/01/15/d724d84b59da6.gif",
+	// "QQ-152": "https://7.dusays.com/2021/01/15/45159da4cbbc1.gif",
+	// "QQ-153": "https://7.dusays.com/2021/01/15/148b7a971564a.gif",
+	// "QQ-154": "https://7.dusays.com/2021/01/15/e4836ac7b02fd.gif",
+	// "QQ-155": "https://7.dusays.com/2021/01/15/07a7e803090c5.gif",
+	// "QQ-156": "https://7.dusays.com/2021/01/15/727bcb256d5bf.gif",
+	// "QQ-157": "https://7.dusays.com/2021/01/15/be01981cfc259.gif",
+	// "QQ-158": "https://7.dusays.com/2021/01/15/ec85fd8268395.gif",
+	// "QQ-159": "https://7.dusays.com/2021/01/15/2725fbfc403ba.gif",
+	// "QQ-16": "https://7.dusays.com/2021/01/15/b91fc930f3f5f.gif",
+	// "QQ-160": "https://7.dusays.com/2021/01/15/0b000885b5287.gif",
+	// "QQ-161": "https://7.dusays.com/2021/01/15/b2a25f4489cad.gif",
+	// "QQ-162": "https://7.dusays.com/2021/01/15/8463bfc591e84.gif",
+	// "QQ-163": "https://7.dusays.com/2021/01/15/525ad959adf90.gif",
+	// "QQ-164": "https://7.dusays.com/2021/01/15/44d16f9f9e9d6.gif",
+	// "QQ-165": "https://7.dusays.com/2021/01/15/23afc128fe8aa.gif",
+	// "QQ-166": "https://7.dusays.com/2021/01/15/c79d957438c16.gif",
+	// "QQ-167": "https://7.dusays.com/2021/01/15/77802b6a1bf7c.gif",
+	// "QQ-168": "https://7.dusays.com/2021/01/15/863c3b2574eb8.gif",
+	// "QQ-169": "https://7.dusays.com/2021/01/15/d55715888a6d0.gif",
+	// "QQ-17": "https://7.dusays.com/2021/01/15/300717a56c5c0.gif",
+	// "QQ-170": "https://7.dusays.com/2021/01/15/9547eb290aa3c.gif",
+	// "QQ-171": "https://7.dusays.com/2021/01/15/e21554f3564f4.gif",
+	// "QQ-172": "https://7.dusays.com/2021/01/15/313498d46cfb4.gif",
+	// "QQ-173": "https://7.dusays.com/2021/01/15/513fbc423a416.gif",
+	// "QQ-174": "https://7.dusays.com/2021/01/15/5d05a5e59e001.gif",
+	// "QQ-175": "https://7.dusays.com/2021/01/15/af3b5ac5740eb.gif",
+	// "QQ-176": "https://7.dusays.com/2021/01/15/e90117a9e5b01.gif",
+	// "QQ-177": "https://7.dusays.com/2021/01/15/0173a13106d22.gif",
+	// "QQ-178": "https://7.dusays.com/2021/01/15/ac5293255b949.gif",
+	// "QQ-179": "https://7.dusays.com/2021/01/15/12acdb0f99e16.gif",
+	// "QQ-18": "https://7.dusays.com/2021/01/15/0b8c62f76937f.gif",
+	// "QQ-180": "https://7.dusays.com/2021/01/15/a0dbd5f305b88.gif",
+	// "QQ-181": "https://7.dusays.com/2021/01/15/31adddf7ba95d.gif",
+	// "QQ-182": "https://7.dusays.com/2021/01/15/883f3559a5835.gif",
+	// "QQ-183": "https://7.dusays.com/2021/01/15/f771c3e2ebce6.gif",
+	// "QQ-184": "https://7.dusays.com/2021/01/15/1b129a5eeee94.gif",
+	// "QQ-185": "https://7.dusays.com/2021/01/15/f485dd61e6ae7.gif",
+	// "QQ-186": "https://7.dusays.com/2021/01/15/7ac4c7b7a5ebf.gif",
+	// "QQ-187": "https://7.dusays.com/2021/01/15/8717659515b30.gif",
+	// "QQ-188": "https://7.dusays.com/2021/01/15/731cad82d4856.gif",
+	// "QQ-189": "https://7.dusays.com/2021/01/15/898b7bcd7e887.gif",
+	// "QQ-19": "https://7.dusays.com/2021/01/15/b4f0b9b412587.gif",
+	// "QQ-190": "https://7.dusays.com/2021/01/15/6223952a4197f.gif",
+	// "QQ-191": "https://7.dusays.com/2021/01/15/1b43cbf23c8e5.gif",
+	// "QQ-192": "https://7.dusays.com/2021/01/15/4bcd98340b6b8.gif",
+	// "QQ-193": "https://7.dusays.com/2021/01/15/8d4df30c31631.gif",
+	// "QQ-194": "https://7.dusays.com/2021/01/15/39708ccd71a95.gif",
+	// "QQ-195": "https://7.dusays.com/2021/01/15/0009210ca52f8.gif",
+	// "QQ-196": "https://7.dusays.com/2021/01/15/8c5c13adbdd77.gif",
+	// "QQ-197": "https://7.dusays.com/2021/01/15/43e12ffc82f3c.gif",
+	// "QQ-198": "https://7.dusays.com/2021/01/15/f6639a3dc72a3.gif",
+	// "QQ-199": "https://7.dusays.com/2021/01/15/70d4041539912.gif",
+	// "QQ-2": "https://7.dusays.com/2021/01/15/600eabcdab574.gif",
+	// "QQ-20": "https://7.dusays.com/2021/01/15/494844390362d.gif",
+	// "QQ-200": "https://7.dusays.com/2021/01/15/d998032a584e9.gif",
+	// "QQ-201": "https://7.dusays.com/2021/01/15/bd4cb0b7768e3.gif",
+	// "QQ-202": "https://7.dusays.com/2021/01/15/3703881a2d813.gif",
+	// "QQ-203": "https://7.dusays.com/2021/01/15/e59beb80fd449.gif",
+	// "QQ-204": "https://7.dusays.com/2021/01/15/1c584da0914bd.gif",
+	// "QQ-205": "https://7.dusays.com/2021/01/15/2b666bead720b.gif",
+	// "QQ-206": "https://7.dusays.com/2021/01/15/ea16ee931c8da.gif",
+	// "QQ-207": "https://7.dusays.com/2021/01/15/8708ed000df31.gif",
+	"QQ-21": "https://7.dusays.com/2021/01/15/027775e9743ab.gif",
+	"QQ-22": "https://7.dusays.com/2021/01/15/0c23acb228950.gif",
+	"QQ-23": "https://7.dusays.com/2021/01/15/8acb1e4210aea.gif",
+	"QQ-24": "https://7.dusays.com/2021/01/15/9de819ab7c8cb.gif",
+	"QQ-25": "https://7.dusays.com/2021/01/15/5993ed35f6d49.gif",
+	"QQ-26": "https://7.dusays.com/2021/01/15/8fe0ec5ef3f69.gif",
+	"QQ-27": "https://7.dusays.com/2021/01/15/9f7ff1464be4c.gif",
+	"QQ-28": "https://7.dusays.com/2021/01/15/ced6f2c057160.gif",
+	"QQ-29": "https://7.dusays.com/2021/01/15/404754a6c6fa2.gif",
+	"QQ-3": "https://7.dusays.com/2021/01/15/cd20be11abcce.gif",
+	"QQ-30": "https://7.dusays.com/2021/01/15/ab932a53b58a3.gif",
+	"QQ-31": "https://7.dusays.com/2021/01/15/2d366ab8e5e9e.gif",
+	"QQ-32": "https://7.dusays.com/2021/01/15/837b455fd15fc.gif",
+	"QQ-33": "https://7.dusays.com/2021/01/15/196a7ac1f41f1.gif",
+	"QQ-34": "https://7.dusays.com/2021/01/15/aeaa075dbd734.gif",
+	"QQ-35": "https://7.dusays.com/2021/01/15/3a8f0774b9dae.gif",
+	"QQ-36": "https://7.dusays.com/2021/01/15/0e18c10485931.gif",
+	"QQ-37": "https://7.dusays.com/2021/01/15/9605e27e400c0.gif",
+	"QQ-38": "https://7.dusays.com/2021/01/15/34f2ef866b3ca.gif",
+	"QQ-39": "https://7.dusays.com/2021/01/15/9241b131f6d52.gif",
+	"QQ-4": "https://7.dusays.com/2021/01/15/110c67a8cd42a.gif",
+	"QQ-40": "https://7.dusays.com/2021/01/15/468fc2660dc41.gif",
+	"QQ-41": "https://7.dusays.com/2021/01/15/dd4b05f14e180.gif",
+	"QQ-42": "https://7.dusays.com/2021/01/15/0c1d65cad7ddd.gif",
+	"QQ-43": "https://7.dusays.com/2021/01/15/ca5dfef7dc5b6.gif",
+	"QQ-44": "https://7.dusays.com/2021/01/15/627cd1c4d591d.gif",
+	"QQ-45": "https://7.dusays.com/2021/01/15/66d92d3ff3297.gif",
+	"QQ-46": "https://7.dusays.com/2021/01/15/713aae4354061.gif",
+	"QQ-47": "https://7.dusays.com/2021/01/15/927f5e879af60.gif",
+	"QQ-48": "https://7.dusays.com/2021/01/15/62d20c83f754e.gif",
+	"QQ-49": "https://7.dusays.com/2021/01/15/0aa84e1f7c51d.gif",
+	"QQ-5": "https://7.dusays.com/2021/01/15/d4fbad555d826.gif",
+	"QQ-50": "https://7.dusays.com/2021/01/15/5a8f103c7f7a6.gif",
+	"QQ-51": "https://7.dusays.com/2021/01/15/4b474c7966afe.gif",
+	"QQ-52": "https://7.dusays.com/2021/01/15/a7c1a56b40a72.gif",
+	"QQ-53": "https://7.dusays.com/2021/01/15/d58b434fe8acf.gif",
+	"QQ-54": "https://7.dusays.com/2021/01/15/e7477cbce1c30.gif",
+	"QQ-55": "https://7.dusays.com/2021/01/15/fc97eaa6e5853.gif",
+	"QQ-56": "https://7.dusays.com/2021/01/15/06fd40a7bf77d.gif",
+	"QQ-57": "https://7.dusays.com/2021/01/15/28812822c01aa.gif",
+	"QQ-58": "https://7.dusays.com/2021/01/15/7997817d2503d.gif",
+	"QQ-59": "https://7.dusays.com/2021/01/15/805daa7195f2c.gif",
+	"QQ-6": "https://7.dusays.com/2021/01/15/0a1bf206e6ae9.gif",
+	"QQ-60": "https://7.dusays.com/2021/01/15/9a92f54aca20d.gif",
+	"QQ-61": "https://7.dusays.com/2021/01/15/926dd2cba14c6.gif",
+	"QQ-62": "https://7.dusays.com/2021/01/15/9037338ec9bc5.gif",
+	"QQ-63": "https://7.dusays.com/2021/01/15/8ab1357161687.gif",
+	"QQ-64": "https://7.dusays.com/2021/01/15/cfacd1babd14b.gif",
+	"QQ-65": "https://7.dusays.com/2021/01/15/87f81ce1fd008.gif",
+	"QQ-66": "https://7.dusays.com/2021/01/15/b6a582fed3bda.gif",
+	"QQ-67": "https://7.dusays.com/2021/01/15/8c5b85d3cd3c7.gif",
+	"QQ-68": "https://7.dusays.com/2021/01/15/d927193fcff8c.gif",
+	"QQ-69": "https://7.dusays.com/2021/01/15/b95de272e27ba.gif",
+	"QQ-7": "https://7.dusays.com/2021/01/15/4c0631cb31bfc.gif",
+	"QQ-70": "https://7.dusays.com/2021/01/15/f09d97e885c26.gif",
+	"QQ-71": "https://7.dusays.com/2021/01/15/3698c4fe6151f.gif",
+	"QQ-72": "https://7.dusays.com/2021/01/15/429eae09fcaed.gif",
+	"QQ-73": "https://7.dusays.com/2021/01/15/006232fd75b4f.gif",
+	"QQ-74": "https://7.dusays.com/2021/01/15/b5302a85814b7.gif",
+	"QQ-75": "https://7.dusays.com/2021/01/15/0a05c30806fe0.gif",
+	"QQ-76": "https://7.dusays.com/2021/01/15/8b670e52b61ec.gif",
+	"QQ-77": "https://7.dusays.com/2021/01/15/e7bbed5bda51a.gif",
+	"QQ-78": "https://7.dusays.com/2021/01/15/02b1e32036ed4.gif",
+	"QQ-79": "https://7.dusays.com/2021/01/15/319b45bdaced1.gif",
+	"QQ-8": "https://7.dusays.com/2021/01/15/514fc3a849b94.gif",
+	"QQ-80": "https://7.dusays.com/2021/01/15/948b0bb1b1147.gif",
+	"QQ-81": "https://7.dusays.com/2021/01/15/8a268e9f4f6c4.gif",
+	"QQ-82": "https://7.dusays.com/2021/01/15/ef898256928e9.gif",
+	"QQ-83": "https://7.dusays.com/2021/01/15/d49b581e203cb.gif",
+	"QQ-84": "https://7.dusays.com/2021/01/15/2dc09beb0f627.gif",
+	"QQ-85": "https://7.dusays.com/2021/01/15/480e405d8aab9.gif",
+	"QQ-86": "https://7.dusays.com/2021/01/15/682341ae85a49.gif",
+	"QQ-87": "https://7.dusays.com/2021/01/15/1c7ba3af0f0f8.gif",
+	"QQ-88": "https://7.dusays.com/2021/01/15/81a32d6380404.gif",
+	"QQ-89": "https://7.dusays.com/2021/01/15/161407c141f74.gif",
+	"QQ-9": "https://7.dusays.com/2021/01/15/333ca8158377b.gif",
+	"QQ-90": "https://7.dusays.com/2021/01/15/aa757c7f53f66.gif",
+	"QQ-91": "https://7.dusays.com/2021/01/15/766fd95462727.gif",
+	"QQ-92": "https://7.dusays.com/2021/01/15/4eff2dfd36cfb.gif",
+	"QQ-93": "https://7.dusays.com/2021/01/15/0ef3ae2acddf0.gif",
+	"QQ-94": "https://7.dusays.com/2021/01/15/807a44282df46.gif",
+	"QQ-95": "https://7.dusays.com/2021/01/15/f84ff66189a8d.gif",
+	"QQ-96": "https://7.dusays.com/2021/01/15/e0454a54ad84b.gif",
+	"QQ-97": "https://7.dusays.com/2021/01/15/b63a098facfb2.gif",
+	"QQ-98": "https://7.dusays.com/2021/01/15/3b6ed67c2a54f.gif",
+	"QQ-99": "https://7.dusays.com/2021/01/15/dad0a76be3d48.gif",
+	"QQ-不你不想": "https://7.dusays.com/2021/01/18/1fe9d7fc2d679.gif",
+	"QQ-哇哦": "https://7.dusays.com/2021/01/18/0c8030b35dc45.gif",
+	"QQ-哦": "https://7.dusays.com/2021/01/18/e2deda94f7fe9.gif",
+	"QQ-打call": "https://7.dusays.com/2021/01/18/8038a5d46e822.gif",
+	"QQ-打脸": "https://7.dusays.com/2021/01/18/2cc550223b16a.gif",
+	"QQ-摸鱼": "https://7.dusays.com/2021/01/18/60891c4e72059.gif",
+	"QQ-敬礼": "https://7.dusays.com/2021/01/18/27db33aa7a424.gif",
+	"QQ-无眼笑": "https://7.dusays.com/2021/01/18/5c0060e18accf.gif",
+	"QQ-比心": "https://7.dusays.com/2021/01/18/eee0aa3f76053.gif",
+	"QQ-没眼看": "https://7.dusays.com/2021/01/18/dedd7c3530aa4.gif",
+	"QQ-滚": "https://7.dusays.com/2021/01/18/5ba245a20c154.gif",
+	"QQ-狂笑": "https://7.dusays.com/2021/01/18/d72781e9e35dd.gif",
+	"QQ-睁眼": "https://7.dusays.com/2021/01/18/3b847d18f10c8.gif",
+	"QQ-考虑中": "https://7.dusays.com/2021/01/18/0fc06cf6d8982.gif",
+	"QQ-面无表情": "https://7.dusays.com/2021/01/18/bf5a929ca94f6.gif",
+	"QQ-魔鬼笑": "https://7.dusays.com/2021/01/18/69ae4fba3efd1.gif",
+    "aru-1": "https://7.dusays.com/2021/01/15/3c76dffbc08a5.png",
+	"aru-10": "https://7.dusays.com/2021/01/15/92b7ddcab54f4.png",
+	// "aru-100": "https://7.dusays.com/2021/01/15/dccc901971eb8.png",
+	// "aru-101": "https://7.dusays.com/2021/01/15/f4b7a25f5e80f.png",
+	// "aru-102": "https://7.dusays.com/2021/01/15/b7d16abb93551.png",
+	// "aru-103": "https://7.dusays.com/2021/01/15/760903a75e3f0.png",
+	// "aru-104": "https://7.dusays.com/2021/01/15/41652c09ec628.png",
+	// "aru-105": "https://7.dusays.com/2021/01/15/5acbd02982825.png",
+	// "aru-106": "https://7.dusays.com/2021/01/15/a3e8e687ffbd1.png",
+	// "aru-107": "https://7.dusays.com/2021/01/15/ced5a8ba294d6.png",
+	// "aru-108": "https://7.dusays.com/2021/01/15/f16fddc39c3e0.png",
+	// "aru-109": "https://7.dusays.com/2021/01/15/7adc26724b238.png",
+	// "aru-11": "https://7.dusays.com/2021/01/15/ed227278c834c.png",
+	// "aru-110": "https://7.dusays.com/2021/01/15/ab46a89ea5545.png",
+	// "aru-111": "https://7.dusays.com/2021/01/15/40f50f5235bdf.png",
+	// "aru-112": "https://7.dusays.com/2021/01/15/065aa0cb9b7f5.png",
+	// "aru-113": "https://7.dusays.com/2021/01/15/d1646bb73325b.png",
+	// "aru-114": "https://7.dusays.com/2021/01/15/0ae72797dfe96.png",
+	// "aru-115": "https://7.dusays.com/2021/01/15/cfb7cba6a875d.png",
+	// "aru-116": "https://7.dusays.com/2021/01/15/707bafcea9e9f.png",
+	// "aru-117": "https://7.dusays.com/2021/01/15/f8976c97a6cf4.png",
+	// "aru-118": "https://7.dusays.com/2021/01/15/838fabb97ebfd.png",
+	// "aru-119": "https://7.dusays.com/2021/01/15/d817a6b920d5f.png",
+	// "aru-12": "https://7.dusays.com/2021/01/15/48d687f3f2537.png",
+	// "aru-120": "https://7.dusays.com/2021/01/15/989802baba9ef.png",
+	// "aru-121": "https://7.dusays.com/2021/01/15/eb0b934164a12.png",
+	// "aru-122": "https://7.dusays.com/2021/01/15/102f033312ce8.png",
+	// "aru-123": "https://7.dusays.com/2021/01/15/a3be0a2a7bc6c.png",
+	// "aru-124": "https://7.dusays.com/2021/01/15/19615a586e462.png",
+	// "aru-125": "https://7.dusays.com/2021/01/15/9838d666fb467.png",
+	// "aru-126": "https://7.dusays.com/2021/01/15/68bdc9c3d4f51.png",
+	// "aru-127": "https://7.dusays.com/2021/01/15/d1a20a1fadb2c.png",
+	// "aru-128": "https://7.dusays.com/2021/01/15/9a94f39152ae9.png",
+	// "aru-129": "https://7.dusays.com/2021/01/15/ac1bb93f89256.png",
+	// "aru-13": "https://7.dusays.com/2021/01/15/4cbabd24c90ab.png",
+	// "aru-130": "https://7.dusays.com/2021/01/15/03d6815965169.png",
+	// "aru-131": "https://7.dusays.com/2021/01/15/53d779031ef12.png",
+	// "aru-132": "https://7.dusays.com/2021/01/15/cec3132e27893.png",
+	// "aru-133": "https://7.dusays.com/2021/01/15/8c08f209610c7.png",
+	// "aru-134": "https://7.dusays.com/2021/01/15/fb0271308bb44.png",
+	// "aru-135": "https://7.dusays.com/2021/01/15/f8d4f09764070.png",
+	// "aru-136": "https://7.dusays.com/2021/01/15/81b10f3adee22.png",
+	// "aru-137": "https://7.dusays.com/2021/01/15/ff1e65528a19d.png",
+	// "aru-138": "https://7.dusays.com/2021/01/15/4811f82d526aa.png",
+	// "aru-139": "https://7.dusays.com/2021/01/15/2323f6d5e7aa2.png",
+	// "aru-14": "https://7.dusays.com/2021/01/15/cc8732c5149aa.png",
+	// "aru-140": "https://7.dusays.com/2021/01/15/19a7185ad49e7.png",
+	// "aru-141": "https://7.dusays.com/2021/01/15/d40099d7767d9.png",
+	// "aru-142": "https://7.dusays.com/2021/01/15/cabe24a7c1651.png",
+	// "aru-143": "https://7.dusays.com/2021/01/15/2a636495ae969.png",
+	// "aru-144": "https://7.dusays.com/2021/01/15/48cabebdda3bc.png",
+	// "aru-145": "https://7.dusays.com/2021/01/15/355a6a7db1666.png",
+	// "aru-146": "https://7.dusays.com/2021/01/15/b4056691058a4.png",
+	// "aru-147": "https://7.dusays.com/2021/01/15/6170ff43d7d81.png",
+	// "aru-148": "https://7.dusays.com/2021/01/15/ea1fe65780c01.png",
+	// "aru-149": "https://7.dusays.com/2021/01/15/31cd3e036400e.png",
+	// "aru-15": "https://7.dusays.com/2021/01/15/7ea813268e085.png",
+	// "aru-150": "https://7.dusays.com/2021/01/15/07c1bd09294fc.png",
+	// "aru-151": "https://7.dusays.com/2021/01/15/1612f1b86429f.png",
+	// "aru-152": "https://7.dusays.com/2021/01/15/068112f3e6bfb.png",
+	// "aru-153": "https://7.dusays.com/2021/01/15/bf5c26545b4b9.png",
+	// "aru-154": "https://7.dusays.com/2021/01/15/c1585f128482c.png",
+	// "aru-155": "https://7.dusays.com/2021/01/15/5bc520f48dd47.png",
+	// "aru-156": "https://7.dusays.com/2021/01/15/e0f29261aece3.png",
+	// "aru-157": "https://7.dusays.com/2021/01/15/4ce80b4b72daa.png",
+	// "aru-158": "https://7.dusays.com/2021/01/15/9b380c52a08d4.png",
+	// "aru-159": "https://7.dusays.com/2021/01/15/533d555dce705.png",
+	// "aru-16": "https://7.dusays.com/2021/01/15/d9e4e1bfa53c2.png",
+	// "aru-160": "https://7.dusays.com/2021/01/15/d18168b006230.png",
+	// "aru-161": "https://7.dusays.com/2021/01/15/08b018c527949.png",
+	// "aru-162": "https://7.dusays.com/2021/01/15/6ffd546ba2543.png",
+	// "aru-163": "https://7.dusays.com/2021/01/15/0b1d052020767.png",
+	// "aru-164": "https://7.dusays.com/2021/01/15/9702acc73c18f.png",
+	// "aru-165": "https://7.dusays.com/2021/01/15/f849acab82462.png",
+	// "aru-166": "https://7.dusays.com/2021/01/15/7cb11dc463c04.png",
+	// "aru-167": "https://7.dusays.com/2021/01/15/2527805ee0379.png",
+	// "aru-168": "https://7.dusays.com/2021/01/15/988a3156dc27f.png",
+	// "aru-169": "https://7.dusays.com/2021/01/15/13db15319f1e7.png",
+	// "aru-17": "https://7.dusays.com/2021/01/15/8a22c7c9e9496.png",
+	// "aru-170": "https://7.dusays.com/2021/01/15/493853d287b71.png",
+	// "aru-171": "https://7.dusays.com/2021/01/15/71408973500e1.png",
+	// "aru-172": "https://7.dusays.com/2021/01/15/22dbb7af8c631.png",
+	// "aru-173": "https://7.dusays.com/2021/01/15/20b04f0e340e0.png",
+	// "aru-174": "https://7.dusays.com/2021/01/15/9fa3e65151771.png",
+	// "aru-175": "https://7.dusays.com/2021/01/15/7dec945be6690.png",
+	// "aru-176": "https://7.dusays.com/2021/01/15/b250f518ca062.png",
+	// "aru-177": "https://7.dusays.com/2021/01/15/3f4f0bb2548ee.png",
+	// "aru-178": "https://7.dusays.com/2021/01/15/9f08a07f28a73.png",
+	// "aru-179": "https://7.dusays.com/2021/01/15/dee68caa9d247.png",
+	// "aru-18": "https://7.dusays.com/2021/01/15/219b14197d03d.png",
+	// "aru-180": "https://7.dusays.com/2021/01/15/2f62d01c405f5.png",
+	// "aru-181": "https://7.dusays.com/2021/01/15/acef27e473544.png",
+	// "aru-182": "https://7.dusays.com/2021/01/15/463df45df5560.png",
+	// "aru-183": "https://7.dusays.com/2021/01/15/75cd5ebfa1b8a.png",
+	// "aru-184": "https://7.dusays.com/2021/01/15/279d4d62a4da8.png",
+	// "aru-185": "https://7.dusays.com/2021/01/15/7c3f512b09e62.png",
+	// "aru-186": "https://7.dusays.com/2021/01/15/81499410cfc0a.png",
+	// "aru-187": "https://7.dusays.com/2021/01/15/49dfcd473782c.png",
+	// "aru-188": "https://7.dusays.com/2021/01/15/70d57e65ebd42.png",
+	// "aru-189": "https://7.dusays.com/2021/01/15/0c2c81bcd1c96.png",
+	// "aru-19": "https://7.dusays.com/2021/01/15/73b4635341da9.png",
+	// "aru-190": "https://7.dusays.com/2021/01/15/2e6dd9c430da1.png",
+	// "aru-191": "https://7.dusays.com/2021/01/15/8afa356455966.png",
+	// "aru-192": "https://7.dusays.com/2021/01/15/55426cd725403.png",
+	// "aru-193": "https://7.dusays.com/2021/01/15/6d784dfa72986.png",
+	// "aru-194": "https://7.dusays.com/2021/01/15/fbcf70a39d85e.png",
+	// "aru-195": "https://7.dusays.com/2021/01/15/6604abab9263f.png",
+	// "aru-196": "https://7.dusays.com/2021/01/15/4e23933188181.png",
+	// "aru-197": "https://7.dusays.com/2021/01/15/37d171e1064f9.png",
+	// "aru-198": "https://7.dusays.com/2021/01/15/87b001a0b415c.png",
+	// "aru-199": "https://7.dusays.com/2021/01/15/d68397564cf26.png",
+	// "aru-2": "https://7.dusays.com/2021/01/15/5709e794aa6a3.png",
+	// "aru-20": "https://7.dusays.com/2021/01/15/52f5807964b7f.png",
+	// "aru-200": "https://7.dusays.com/2021/01/15/9b83ce60b0351.png",
+	// "aru-201": "https://7.dusays.com/2021/01/15/1afe2e9175e3b.png",
+	// "aru-202": "https://7.dusays.com/2021/01/15/053528a6a4a5c.png",
+	// "aru-203": "https://7.dusays.com/2021/01/15/2706f40ca20bc.png",
+	// "aru-204": "https://7.dusays.com/2021/01/15/f5667467c7e7d.png",
+	// "aru-205": "https://7.dusays.com/2021/01/15/2088c874e95b4.png",
+	// "aru-206": "https://7.dusays.com/2021/01/15/dd642b38711f6.png",
+	// "aru-207": "https://7.dusays.com/2021/01/15/6d98942dfdbd3.png",
+	// "aru-208": "https://7.dusays.com/2021/01/15/ec5ae6099d1a9.png",
+	// "aru-209": "https://7.dusays.com/2021/01/15/38b0bba2015e2.png",
+	// "aru-21": "https://7.dusays.com/2021/01/15/98d952a1e8937.png",
+	// "aru-210": "https://7.dusays.com/2021/01/15/070eef317a0ce.png",
+	// "aru-211": "https://7.dusays.com/2021/01/15/2b96ac41d11bb.png",
+	// "aru-212": "https://7.dusays.com/2021/01/15/69036025c7fda.png",
+	// "aru-213": "https://7.dusays.com/2021/01/15/27d68bcf5e00d.png",
+	// "aru-214": "https://7.dusays.com/2021/01/15/8dc7e54b9cfec.png",
+	// "aru-215": "https://7.dusays.com/2021/01/15/b202b4b011641.png",
+	// "aru-216": "https://7.dusays.com/2021/01/15/f3157721226ed.png",
+	// "aru-217": "https://7.dusays.com/2021/01/15/aa0cfa9fe1312.png",
+	// "aru-218": "https://7.dusays.com/2021/01/15/9cacd5b8a5c91.png",
+	// "aru-219": "https://7.dusays.com/2021/01/15/55a5e92a90737.png",
+	// "aru-22": "https://7.dusays.com/2021/01/15/27f0264cff424.png",
+	// "aru-220": "https://7.dusays.com/2021/01/15/d296ab1d2df39.png",
+	// "aru-221": "https://7.dusays.com/2021/01/15/ce987616831ce.png",
+	// "aru-222": "https://7.dusays.com/2021/01/15/363ae6eaa9220.png",
+	// "aru-223": "https://7.dusays.com/2021/01/15/1d48575db9e44.png",
+	// "aru-224": "https://7.dusays.com/2021/01/15/15b7034d6abc6.png",
+	// "aru-225": "https://7.dusays.com/2021/01/15/41a1fd35e3cc9.png",
+	// "aru-226": "https://7.dusays.com/2021/01/15/643ddfba64ed1.png",
+	// "aru-227": "https://7.dusays.com/2021/01/15/2b3fb00131e54.png",
+	// "aru-228": "https://7.dusays.com/2021/01/15/e6a8c634073dc.png",
+	// "aru-229": "https://7.dusays.com/2021/01/15/32af4aea40b90.png",
+	// "aru-23": "https://7.dusays.com/2021/01/15/1525f8d9a1457.png",
+	// "aru-230": "https://7.dusays.com/2021/01/15/6b6af42517da2.png",
+	// "aru-231": "https://7.dusays.com/2021/01/15/2c9b6dbf19eb8.png",
+	// "aru-232": "https://7.dusays.com/2021/01/15/3c3a8ad01b4a4.png",
+	// "aru-233": "https://7.dusays.com/2021/01/15/028c40bb3528d.png",
+	// "aru-234": "https://7.dusays.com/2021/01/15/0853994805536.png",
+	// "aru-235": "https://7.dusays.com/2021/01/15/8ed5e7bfe3278.png",
+	// "aru-236": "https://7.dusays.com/2021/01/15/bade621319e9a.png",
+	// "aru-237": "https://7.dusays.com/2021/01/15/ce19f921e061e.png",
+	// "aru-238": "https://7.dusays.com/2021/01/15/d7a655866203a.png",
+	// "aru-239": "https://7.dusays.com/2021/01/15/689632f1e0225.png",
+	// "aru-24": "https://7.dusays.com/2021/01/15/f387626ce69d7.png",
+	// "aru-240": "https://7.dusays.com/2021/01/15/71b2ecefe30c3.png",
+	// "aru-241": "https://7.dusays.com/2021/01/15/416caf88ea767.png",
+	// "aru-242": "https://7.dusays.com/2021/01/15/cdd6a81301bba.png",
+	// "aru-243": "https://7.dusays.com/2021/01/15/70ff2d31ff312.png",
+	// "aru-244": "https://7.dusays.com/2021/01/15/1c7c8fc45518e.png",
+	// "aru-245": "https://7.dusays.com/2021/01/15/99fc606bb8bc8.png",
+	// "aru-246": "https://7.dusays.com/2021/01/15/0b2e3ca11da38.png",
+	// "aru-247": "https://7.dusays.com/2021/01/15/5cbf96f916b20.png",
+	// "aru-248": "https://7.dusays.com/2021/01/15/1ae7a074b1bed.png",
+	// "aru-249": "https://7.dusays.com/2021/01/15/c60c531833f20.png",
+	// "aru-25": "https://7.dusays.com/2021/01/15/3f51a250d33f4.png",
+	// "aru-250": "https://7.dusays.com/2021/01/15/fd8468b269daa.png",
+	// "aru-251": "https://7.dusays.com/2021/01/15/cc6710be82e92.png",
+	// "aru-252": "https://7.dusays.com/2021/01/15/67e3243207009.png",
+	// "aru-253": "https://7.dusays.com/2021/01/15/e964f785eed1a.png",
+	// "aru-254": "https://7.dusays.com/2021/01/15/eb23ae2b09ccf.png",
+	// "aru-255": "https://7.dusays.com/2021/01/15/60cd001add4cc.png",
+	// "aru-256": "https://7.dusays.com/2021/01/15/85284c8f0550a.png",
+	// "aru-257": "https://7.dusays.com/2021/01/15/67b8ee40d050d.png",
+	// "aru-258": "https://7.dusays.com/2021/01/15/22ec1cc230a10.png",
+	// "aru-259": "https://7.dusays.com/2021/01/15/4bc2203c466c8.png",
+	// "aru-26": "https://7.dusays.com/2021/01/15/dbbe853e522ca.png",
+	// "aru-260": "https://7.dusays.com/2021/01/15/a8aa797852340.png",
+	// "aru-261": "https://7.dusays.com/2021/01/15/9dd134619e3af.png",
+	// "aru-262": "https://7.dusays.com/2021/01/15/39602b7740ebe.png",
+	// "aru-263": "https://7.dusays.com/2021/01/15/3f0bb16986ad7.png",
+	// "aru-264": "https://7.dusays.com/2021/01/15/c17df86ecfeb1.png",
+	// "aru-265": "https://7.dusays.com/2021/01/15/9fa566e43f33e.png",
+	// "aru-266": "https://7.dusays.com/2021/01/15/7eef73b7a0f92.png",
+	// "aru-267": "https://7.dusays.com/2021/01/15/9de5b757ca018.png",
+	// "aru-268": "https://7.dusays.com/2021/01/15/c4cc43c127a95.png",
+	"aru-269": "https://7.dusays.com/2021/01/15/8afc55f4d179c.png",
+	"aru-27": "https://7.dusays.com/2021/01/15/a40dbec3b222d.png",
+	"aru-270": "https://7.dusays.com/2021/01/15/6e90cc985b0f8.png",
+	"aru-271": "https://7.dusays.com/2021/01/15/960bbf88b9ff3.png",
+	"aru-272": "https://7.dusays.com/2021/01/15/73ad16a7e23d5.png",
+	"aru-273": "https://7.dusays.com/2021/01/15/41ddcc80da6f9.png",
+	"aru-274": "https://7.dusays.com/2021/01/15/9a97268f13f51.png",
+	"aru-275": "https://7.dusays.com/2021/01/15/56204272441e0.png",
+	"aru-276": "https://7.dusays.com/2021/01/15/ffc65fbc89809.png",
+	"aru-277": "https://7.dusays.com/2021/01/15/650df4941e97b.png",
+	"aru-278": "https://7.dusays.com/2021/01/15/3e01c067f0330.png",
+	"aru-279": "https://7.dusays.com/2021/01/15/328cdd15003d8.png",
+	"aru-28": "https://7.dusays.com/2021/01/15/159fca24950a4.png",
+	"aru-280": "https://7.dusays.com/2021/01/15/b95abd64ce3bf.png",
+	"aru-281": "https://7.dusays.com/2021/01/15/8231ca42c0762.png",
+	"aru-282": "https://7.dusays.com/2021/01/15/ebb28eec4168f.png",
+	"aru-283": "https://7.dusays.com/2021/01/15/917b61b64f535.png",
+	"aru-284": "https://7.dusays.com/2021/01/15/96c73d4789f6d.png",
+	"aru-285": "https://7.dusays.com/2021/01/15/de0c46b7c03ad.png",
+	"aru-286": "https://7.dusays.com/2021/01/15/9e2b1be1b6a31.png",
+	"aru-287": "https://7.dusays.com/2021/01/15/2a8445979534b.png",
+	"aru-288": "https://7.dusays.com/2021/01/15/6ca99d6a001e0.png",
+	"aru-289": "https://7.dusays.com/2021/01/15/923a08c31a21e.png",
+	"aru-29": "https://7.dusays.com/2021/01/15/7adbe67ea05d5.png",
+	"aru-290": "https://7.dusays.com/2021/01/15/8d3df2b1be6be.png",
+	"aru-291": "https://7.dusays.com/2021/01/15/712394efad4f5.png",
+	"aru-292": "https://7.dusays.com/2021/01/15/a02ead705a1cc.png",
+	"aru-293": "https://7.dusays.com/2021/01/15/a0984310bb6ef.png",
+	"aru-294": "https://7.dusays.com/2021/01/15/442474e817a98.png",
+	"aru-295": "https://7.dusays.com/2021/01/15/8778c841706ff.png",
+	"aru-296": "https://7.dusays.com/2021/01/15/afeb9dda453e4.png",
+	"aru-297": "https://7.dusays.com/2021/01/15/a91f1cdc4d0b9.png",
+	"aru-298": "https://7.dusays.com/2021/01/15/af5282dd19c4a.png",
+	"aru-299": "https://7.dusays.com/2021/01/15/b0961218de45a.png",
+	"aru-3": "https://7.dusays.com/2021/01/15/be3ee1ec1b4f2.png",
+	"aru-30": "https://7.dusays.com/2021/01/15/63a7cd8ef8e13.png",
+	"aru-300": "https://7.dusays.com/2021/01/15/7a78c95591272.png",
+	"aru-301": "https://7.dusays.com/2021/01/15/e72778666fc94.png",
+	"aru-302": "https://7.dusays.com/2021/01/15/7a32506fba997.png",
+	"aru-303": "https://7.dusays.com/2021/01/15/9986733c82bd7.png",
+	"aru-304": "https://7.dusays.com/2021/01/15/5aed342ac946c.png",
+	"aru-305": "https://7.dusays.com/2021/01/15/f2ecb46b32b67.png",
+	"aru-306": "https://7.dusays.com/2021/01/15/3f0cab2aa9b6a.png",
+	"aru-31": "https://7.dusays.com/2021/01/15/b737e310cef3e.png",
+	"aru-32": "https://7.dusays.com/2021/01/15/d82a724abae8f.png",
+	"aru-33": "https://7.dusays.com/2021/01/15/35b4fb2c13b02.png",
+	"aru-34": "https://7.dusays.com/2021/01/15/392d9c83ac1fa.png",
+	"aru-35": "https://7.dusays.com/2021/01/15/120187e6d00b6.png",
+	"aru-36": "https://7.dusays.com/2021/01/15/256a3bdfeacb0.png",
+	"aru-37": "https://7.dusays.com/2021/01/15/494dd6d70ba30.png",
+	"aru-38": "https://7.dusays.com/2021/01/15/3c238e67e0aa5.png",
+	"aru-39": "https://7.dusays.com/2021/01/15/38484bc6aca95.png",
+	"aru-4": "https://7.dusays.com/2021/01/15/f30737a55153a.png",
+	"aru-40": "https://7.dusays.com/2021/01/15/7a111e9ab75ba.png",
+	"aru-41": "https://7.dusays.com/2021/01/15/a8dac39c73095.png",
+	"aru-42": "https://7.dusays.com/2021/01/15/950dd43a5e40e.png",
+	"aru-43": "https://7.dusays.com/2021/01/15/955bb224e3278.png",
+	"aru-44": "https://7.dusays.com/2021/01/15/07956c9604521.png",
+	"aru-45": "https://7.dusays.com/2021/01/15/345e7ad78539d.png",
+	"aru-46": "https://7.dusays.com/2021/01/15/c1dafa8b0689e.png",
+	"aru-47": "https://7.dusays.com/2021/01/15/78fe6d0e83060.png",
+	"aru-48": "https://7.dusays.com/2021/01/15/ce66dc53b20d1.png",
+	"aru-49": "https://7.dusays.com/2021/01/15/c7cbf7b8a4b14.png",
+	"aru-5": "https://7.dusays.com/2021/01/15/3796d5897e978.png",
+	"aru-50": "https://7.dusays.com/2021/01/15/e84dbb6878bb7.png",
+	"aru-51": "https://7.dusays.com/2021/01/15/50ad8d83ce40b.png",
+	"aru-52": "https://7.dusays.com/2021/01/15/82d343382896f.png",
+	"aru-53": "https://7.dusays.com/2021/01/15/21473331ecd66.png",
+	"aru-54": "https://7.dusays.com/2021/01/15/5b64546119f0a.png",
+	"aru-55": "https://7.dusays.com/2021/01/15/711ee4c3ad9e3.png",
+	"aru-56": "https://7.dusays.com/2021/01/15/ffcf39b2e8db5.png",
+	"aru-57": "https://7.dusays.com/2021/01/15/8e4d4e7d9e2db.png",
+	"aru-58": "https://7.dusays.com/2021/01/15/4ffe9d5cdbf18.png",
+	"aru-59": "https://7.dusays.com/2021/01/15/bd9cb4ed4e82d.png",
+	"aru-6": "https://7.dusays.com/2021/01/15/ec2e47884ecbc.png",
+	"aru-60": "https://7.dusays.com/2021/01/15/43842309caca3.png",
+	"aru-61": "https://7.dusays.com/2021/01/15/bdf18cb54c06c.png",
+	"aru-62": "https://7.dusays.com/2021/01/15/a5e7abe3594dd.png",
+	"aru-63": "https://7.dusays.com/2021/01/15/019e1b77e2a7a.png",
+	"aru-64": "https://7.dusays.com/2021/01/15/c03b85b46fca0.png",
+	"aru-65": "https://7.dusays.com/2021/01/15/72ebb18396c1f.png",
+	"aru-66": "https://7.dusays.com/2021/01/15/d63be26611920.png",
+	"aru-67": "https://7.dusays.com/2021/01/15/d5d5e96d20472.png",
+	"aru-68": "https://7.dusays.com/2021/01/15/81fc986e0f758.png",
+	"aru-69": "https://7.dusays.com/2021/01/15/e8af31913651a.png",
+	"aru-7": "https://7.dusays.com/2021/01/15/e8a7806b92daf.png",
+	"aru-70": "https://7.dusays.com/2021/01/15/6935bbe4d486d.png",
+	"aru-71": "https://7.dusays.com/2021/01/15/88f8a46e6f3e8.png",
+	"aru-72": "https://7.dusays.com/2021/01/15/945f5fd61483c.png",
+	"aru-73": "https://7.dusays.com/2021/01/15/2bd2f71e51a7e.png",
+	"aru-74": "https://7.dusays.com/2021/01/15/03942a2fc5786.png",
+	"aru-75": "https://7.dusays.com/2021/01/15/1ae028cb237fc.png",
+	"aru-76": "https://7.dusays.com/2021/01/15/772336d5d26bd.png",
+	"aru-77": "https://7.dusays.com/2021/01/15/c453dcd756d9f.png",
+	"aru-78": "https://7.dusays.com/2021/01/15/f74cfa9b2e2a8.png",
+	"aru-79": "https://7.dusays.com/2021/01/15/a1d9fce9798da.png",
+	"aru-8": "https://7.dusays.com/2021/01/15/c80a24a666629.png",
+	"aru-80": "https://7.dusays.com/2021/01/15/ef102f1a9ab97.png",
+	"aru-81": "https://7.dusays.com/2021/01/15/e5ba7820d1389.png",
+	"aru-82": "https://7.dusays.com/2021/01/15/d3f1dde1b5f4e.png",
+	"aru-83": "https://7.dusays.com/2021/01/15/4a8317cd8e4ed.png",
+	"aru-84": "https://7.dusays.com/2021/01/15/40f07712dc899.png",
+	"aru-85": "https://7.dusays.com/2021/01/15/fcf12e0ed5396.png",
+	"aru-86": "https://7.dusays.com/2021/01/15/10ce961dfe4dc.png",
+	"aru-87": "https://7.dusays.com/2021/01/15/5c81fd00a1970.png",
+	"aru-88": "https://7.dusays.com/2021/01/15/ebdd63562fac9.png",
+	"aru-89": "https://7.dusays.com/2021/01/15/e108658784bc6.png",
+	"aru-9": "https://7.dusays.com/2021/01/15/df1a8b312ac98.png",
+	"aru-90": "https://7.dusays.com/2021/01/15/5ce37370f6dbc.png",
+	"aru-91": "https://7.dusays.com/2021/01/15/55ac01e87ce9d.png",
+	"aru-92": "https://7.dusays.com/2021/01/15/cc8fb1287cedf.png",
+	"aru-93": "https://7.dusays.com/2021/01/15/fa89012fda402.png",
+	"aru-94": "https://7.dusays.com/2021/01/15/c2f18e9171adb.png",
+	"aru-95": "https://7.dusays.com/2021/01/15/546f77a88657e.png",
+	"aru-96": "https://7.dusays.com/2021/01/15/59fd4ca56f45a.png",
+	"aru-97": "https://7.dusays.com/2021/01/15/1019c96cdac08.png",
+	"aru-98": "https://7.dusays.com/2021/01/15/73aa39c2031fe.png",
+	"aru-99": "https://7.dusays.com/2021/01/15/a5cf180e2f22a.png"
+    };
+  function pjax_valine() {
+    if(!document.querySelectorAll("#valine_container")[0])return;
+    let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~";
+    let path = pdata.commentPath;
+    if (path.length == 0) {
+      let defaultPath = '';
+      path = defaultPath || decodeURI(window.location.pathname);
+    }
+    var valine = new Valine();
+    var friends = ''.split(',');
+    var master = '81eec2291ca1eca7fb03db86845f7c50'.split(',');
+    valine.init(Object.assign({"js":"https://cdn.jsdelivr.net/gh/HCLonely/Valine@latest/dist/Valine.min.js","path":null,"placeholder":"快来评论吧~","appId":"xf61G2HkgTKQ9qA5f4jakT3f-gzGzoHsz","appKey":"1zibslBkdxKCkRocxSx9xC0a","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"avatar":"robohash","pageSize":10,"lang":"zh-cn","highlight":true,"visitor":true,"mathJax":false,"metaPlaceholder":[{"nick":"Xu"},{"mail":"281658285@qq.com"}],"tagMeta":["博主","小伙伴","访客"],"master":["81eec2291ca1eca7fb03db86845f7c50"],"friends":null}, {
+      el: '#valine_container',
+      path: path,
+      placeholder: pagePlaceholder,
+      emotionUrl: ['https://valinecdn.bili33.top/qq','https://valinecdn.bili33.top/alu','https://valinecdn.bili33.top/weibo',],
+      //emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+      //emojiCDN: '//i0.hdslb.com/bfs/emote/',
+      emojiMaps: emojiMaps,
+      master: master,
+      friends: friends,
+    }))
+  }
+  $(function () {
+    pjax_valine();
+  });
+  volantis.pjax.push(pjax_valine);
+</script>
+
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+<!-- optional -->
+
+  <script>
+const SearchServiceimagePath="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/";
+const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
+
+$('.input.u-search-input').one('focus',function(){
+	
+		loadScript('/js/search/hexo.js',setSearchService);
+	
+})
+
+function listenSearch(){
+  
+    customSearch = new HexoSearch({
+      imagePath: SearchServiceimagePath
+    });
+  
+}
+function setSearchService() {
+	listenSearch();
+	
+		document.addEventListener("pjax:success", listenSearch);
+	
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+  <script defer>
+
+  const LCCounter = {
+    app_id: 'u9j57bwJod4EDmXWdxrwuqQT-MdYXbMMI',
+    app_key: 'jfHtEKVE24j0IVCGHbvuFClp',
+    custom_api_server: '',
+
+    // 查询存储的记录
+    getRecord(Counter, url, title) {
+      return new Promise(function (resolve, reject) {
+        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({url})))
+          .then(resp => resp.json())
+          .then(({results, code, error}) => {
+            if (code === 401) {
+              throw error;
+            }
+            if (results && results.length > 0) {
+              var record = results[0];
+              resolve(record);
+            } else {
+              Counter('post', '/classes/Counter', {url, title: title, times: 0})
+                .then(resp => resp.json())
+                .then((record, error) => {
+                  if (error) {
+                    throw error;
+                  }
+                  resolve(record);
+                }).catch(error => {
+                console.error('Failed to create', error);
+                reject(error);
+              });
+            }
+          }).catch((error) => {
+          console.error('LeanCloud Counter Error:', error);
+          reject(error);
+        });
+      })
+    },
+
+    // 发起自增请求
+    increment(Counter, incrArr) {
+      return new Promise(function (resolve, reject) {
+        Counter('post', '/batch', {
+          "requests": incrArr
+        }).then((res) => {
+          res = res.json();
+          if (res.error) {
+            throw res.error;
+          }
+          resolve(res);
+        }).catch((error) => {
+          console.error('Failed to save visitor count', error);
+          reject(error);
+        });
+      });
+    },
+
+    // 构建自增请求体
+    buildIncrement(objectId) {
+      return {
+        "method": "PUT",
+        "path": `/1.1/classes/Counter/${ objectId }`,
+        "body": {
+          "times": {
+            '__op': 'Increment',
+            'amount': 1
+          }
+        }
+      }
+    },
+
+    // 校验是否为有效的 UV
+    validUV() {
+      var key = 'LeanCloudUVTimestamp';
+      var flag = localStorage.getItem(key);
+      if (flag) {
+        // 距离标记小于 24 小时则不计为 UV
+        if (new Date().getTime() - parseInt(flag) <= 86400000) {
+          return false;
+        }
+      }
+      localStorage.setItem(key, new Date().getTime().toString());
+      return true;
+    },
+
+    addCount(Counter) {
+      var enableIncr = '' === 'true' && window.location.hostname !== 'localhost';
+      enableIncr = true;
+      var getterArr = [];
+      var incrArr = [];
+      // 请求 PV 并自增
+      var pvCtn = document.querySelector('#lc-sv');
+      if (pvCtn || enableIncr) {
+        var pvGetter = this.getRecord(Counter, 'http://xucoud.github.io' + '/#lc-sv', 'Visits').then((record) => {
+          incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-sv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + 1;
+              if (pvCtn) {
+                pvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(pvGetter);
+      }
+
+      // 请求 UV 并自增
+      var uvCtn = document.querySelector('#lc-uv');
+      if (uvCtn || enableIncr) {
+        var uvGetter = this.getRecord(Counter, 'http://xucoud.github.io' + '/#lc-uv', 'Visitors').then((record) => {
+          var vuv = this.validUV();
+          vuv && incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-uv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + (vuv ? 1 : 0);
+              if (uvCtn) {
+                uvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(uvGetter);
+      }
+
+      // 请求文章的浏览数，如果是当前页面就自增
+      var allPV = document.querySelectorAll('#lc-pv');
+      if (allPV.length > 0 || enableIncr) {
+        for (i = 0; i < allPV.length; i++) {
+          let pv = allPV[i];
+          let title = pv.getAttribute('data-title');
+          var url = 'http://xucoud.github.io' + pv.getAttribute('data-path');
+          if (url) {
+            var viewGetter = this.getRecord(Counter, url, title).then((record) => {
+              // 是当前页面就自增
+              let curPath = window.location.pathname;
+              if (curPath.includes('index.html')) {
+                curPath = curPath.substring(0, curPath.lastIndexOf('index.html'));
+              }
+              if (pv.getAttribute('data-path') == curPath) {
+                incrArr.push(this.buildIncrement(record.objectId));
+              }
+              if (pv) {
+                var ele = pv.querySelector('#lc-pv #number');
+                if (ele) {
+                  if (pv.getAttribute('data-path') == curPath) {
+                    ele.innerText = (record.times || 0) + 1;
+                  } else {
+                    ele.innerText = record.times || 0;
+                  }
+                  pv.style.display = 'inline';
+                }
+              }
+            });
+            getterArr.push(viewGetter);
+          }
+        }
+      }
+
+      // 如果启动计数自增，批量发起自增请求
+      if (enableIncr) {
+        Promise.all(getterArr).then(() => {
+          incrArr.length > 0 && this.increment(Counter, incrArr);
+        })
+      }
+
+    },
+
+
+    fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${ api_server }/1.1${ url }`, {
+          method,
+          headers: {
+            'X-LC-Id': this.app_id,
+            'X-LC-Key': this.app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      this.addCount(Counter);
+    },
+
+    refreshCounter() {
+      var api_server = this.app_id.slice(-9) !== '-MdYXbMMI' ? this.custom_api_server : `https://${ this.app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
+      if (api_server) {
+        this.fetchData(api_server);
+      } else {
+        fetch('https://app-router.leancloud.cn/2/route?appId=' + this.app_id)
+          .then(resp => resp.json())
+          .then(({api_server}) => {
+            this.fetchData('https://' + api_server);
+          });
+      }
+    }
+
+  };
+
+  LCCounter.refreshCounter();
+
+  document.addEventListener('pjax:complete', function () {
+    LCCounter.refreshCounter();
+  });
+</script>
+
+
+
+
+  <script>
+const rootElement = document.documentElement;
+const darkModeStorageKey = "user-color-scheme";
+const rootElementDarkModeAttributeName = "data-user-color-scheme";
+
+const setLS = (k, v) => {
+    localStorage.setItem(k, v);
+};
+
+const removeLS = (k) => {
+    localStorage.removeItem(k);
+};
+
+const getLS = (k) => {
+    return localStorage.getItem(k);
+};
+
+const getModeFromCSSMediaQuery = () => {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+};
+
+const resetRootDarkModeAttributeAndLS = () => {
+  rootElement.removeAttribute(rootElementDarkModeAttributeName);
+  removeLS(darkModeStorageKey);
+};
+
+const validColorModeKeys = {
+  dark: true,
+  light: true,
+};
+
+const applyCustomDarkModeSettings = (mode) => {
+  const currentSetting = mode || getLS(darkModeStorageKey);
+
+  if (currentSetting === getModeFromCSSMediaQuery()) {
+    resetRootDarkModeAttributeAndLS();
+  } else if (validColorModeKeys[currentSetting]) {
+    rootElement.setAttribute(rootElementDarkModeAttributeName, currentSetting);
+  } else {
+    resetRootDarkModeAttributeAndLS();
+  }
+};
+
+const invertDarkModeObj = {
+  dark: "light",
+  light: "dark",
+};
+
+/**
+ * get target mode
+ */
+const toggleCustomDarkMode = () => {
+  let currentSetting = getLS(darkModeStorageKey);
+
+  if (validColorModeKeys[currentSetting]) {
+    currentSetting = invertDarkModeObj[currentSetting];
+  } else if (currentSetting === null) {
+    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
+  } else {
+    return;
+  }
+  setLS(darkModeStorageKey, currentSetting);
+  return currentSetting;
+};
+
+/**
+ * bind click event for toggle button
+ */
+var btn=$("#wrapper .toggle-mode-btn,#rightmenu-wrapper .toggle-mode-btn");
+function bindToggleButton() {
+    btn.on('click',(e) => {
+      const mode = toggleCustomDarkMode();
+      applyCustomDarkModeSettings(mode);
+    });
+}
+
+applyCustomDarkModeSettings();
+document.addEventListener("DOMContentLoaded", bindToggleButton);
+volantis.pjax.push(bindToggleButton);
+volantis.pjax.send(()=>{
+	btn.unbind('click');
+},'toggle-mode-btn-unbind');
+</script>
+
+
+
+
+
+
+
+
+<script>
+function listennSidebarTOC() {
+  const navItems = document.querySelectorAll(".toc li");
+  if (!navItems.length) return;
+  const sections = [...navItems].map((element) => {
+    const link = element.querySelector(".toc-link");
+    const target = document.getElementById(
+      decodeURI(link.getAttribute("href")).replace("#", "")
+    );
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({
+		top: target.offsetTop + 100,
+		
+		behavior: "smooth"
+		
+	  });
+    });
+    return target;
+  });
+
+  function activateNavByIndex(target) {
+    if (target.classList.contains("active-current")) return;
+
+    document.querySelectorAll(".toc .active").forEach((element) => {
+      element.classList.remove("active", "active-current");
+    });
+    target.classList.add("active", "active-current");
+    let parent = target.parentNode;
+    while (!parent.matches(".toc")) {
+      if (parent.matches("li")) parent.classList.add("active");
+      parent = parent.parentNode;
+    }
+  }
+
+  function findIndex(entries) {
+    let index = 0;
+    let entry = entries[index];
+    if (entry.boundingClientRect.top > 0) {
+      index = sections.indexOf(entry.target);
+      return index === 0 ? 0 : index - 1;
+    }
+    for (; index < entries.length; index++) {
+      if (entries[index].boundingClientRect.top <= 0) {
+        entry = entries[index];
+      } else {
+        return sections.indexOf(entry.target);
+      }
+    }
+    return sections.indexOf(entry.target);
+  }
+
+  function createIntersectionObserver(marginTop) {
+    marginTop = Math.floor(marginTop + 10000);
+    let intersectionObserver = new IntersectionObserver(
+      (entries, observe) => {
+        let scrollHeight = document.documentElement.scrollHeight + 100;
+        if (scrollHeight > marginTop) {
+          observe.disconnect();
+          createIntersectionObserver(scrollHeight);
+          return;
+        }
+        let index = findIndex(entries);
+        activateNavByIndex(navItems[index]);
+      },
+      {
+        rootMargin: marginTop + "px 0px -100% 0px",
+        threshold: 0,
+      }
+    );
+    sections.forEach((element) => {
+      element && intersectionObserver.observe(element);
+    });
+  }
+  createIntersectionObserver(document.documentElement.scrollHeight);
+}
+
+document.addEventListener("DOMContentLoaded", listennSidebarTOC);
+document.addEventListener("pjax:success", listennSidebarTOC);
+</script>
+
+<!-- more -->
+
+ 
+	   
+	    
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      //window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+
+      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
+      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
+
+      // 解绑事件 避免重复监听
+      volantis.$topBtn.unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+	  // 使用 volantis.pjax.send 方法传入pjax:send回调函数 参见layout/_partial/scripts/global.ejs
+	  volantis.pjax.method.send.start();
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+      try{
+		// 使用 volantis.pjax.push 方法传入重载函数 参见layout/_partial/scripts/global.ejs
+		volantis.pjax.method.complete.start();
+      } catch (e) {
+        console.log(e);
+      }
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+	  // 使用 volantis.pjax.error 方法传入pjax:error回调函数 参见layout/_partial/scripts/global.ejs
+	  volantis.pjax.method.error.start();
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+ 
+	  
+    </div>
+    
+
+  </body>
 </html>
